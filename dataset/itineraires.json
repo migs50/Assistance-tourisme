@@ -1,0 +1,446 @@
+[
+  {
+    "id": "IT001",
+    "nom": "Tanger Essentiel - 1 Jour",
+    "nom_en": "Essential Tangier - 1 Day",
+    "duree_jours": 1,
+    "type_voyageur": ["couple", "solo", "famille"],
+    "budget": "moyen",
+    "theme": "découverte",
+    "description_fr": "Itinéraire condensé pour découvrir les incontournables de Tanger en une journée.",
+    "description_en": "Condensed itinerary to discover Tangier's must-sees in one day.",
+    "etapes": [
+      {
+        "ordre": 1,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_004",
+        "activite": "Commencer au Grand Socco, observer l'animation matinale",
+        "duree_min": 30
+      },
+      {
+        "ordre": 2,
+        "heure": "09:30",
+        "type": "lieu",
+        "element_id": "lieu_015",
+        "activite": "Explorer la médina et ses souks",
+        "duree_min": 90
+      },
+      {
+        "ordre": 3,
+        "heure": "11:00",
+        "type": "lieu",
+        "element_id": "lieu_005",
+        "activite": "Pause café au Petit Socco",
+        "duree_min": 30
+      },
+      {
+        "ordre": 4,
+        "heure": "11:30",
+        "type": "lieu",
+        "element_id": "lieu_001",
+        "activite": "Visite de la Kasbah et du musée",
+        "duree_min": 90
+      },
+      {
+        "ordre": 5,
+        "heure": "13:00",
+        "type": "restaurant",
+        "element_id": "resto_002",
+        "activite": "Déjeuner au Saveur de Poisson",
+        "duree_min": 75
+      },
+      {
+        "ordre": 6,
+        "heure": "14:30",
+        "type": "lieu",
+        "element_id": "lieu_011",
+        "activite": "Promenade à la Terrasse des Paresseux",
+        "duree_min": 30
+      },
+      {
+        "ordre": 7,
+        "heure": "15:00",
+        "type": "transport",
+        "element_id": "TR001",
+        "activite": "Taxi vers Cap Spartel",
+        "duree_min": 25
+      },
+      {
+        "ordre": 8,
+        "heure": "15:30",
+        "type": "lieu",
+        "element_id": "lieu_002",
+        "activite": "Visite des Grottes d'Hercule",
+        "duree_min": 45
+      },
+      {
+        "ordre": 9,
+        "heure": "16:30",
+        "type": "lieu",
+        "element_id": "lieu_003",
+        "activite": "Cap Spartel et coucher de soleil",
+        "duree_min": 60
+      },
+      {
+        "ordre": 10,
+        "heure": "18:00",
+        "type": "lieu",
+        "element_id": "lieu_012",
+        "activite": "Thé au Café Hafa",
+        "duree_min": 60
+      },
+      {
+        "ordre": 11,
+        "heure": "20:00",
+        "type": "restaurant",
+        "element_id": "resto_001",
+        "activite": "Dîner au Morocco Club",
+        "duree_min": 120
+      }
+    ]
+  },
+  {
+    "id": "IT002",
+    "nom": "Culture & Histoire - 2 Jours",
+    "nom_en": "Culture & History - 2 Days",
+    "duree_jours": 2,
+    "type_voyageur": ["couple", "solo"],
+    "budget": "moyen",
+    "theme": "culture_histoire",
+    "description_fr": "Deux jours pour explorer en profondeur l'héritage culturel et historique de Tanger.",
+    "description_en": "Two days to deeply explore Tangier's cultural and historical heritage.",
+    "etapes": [
+      {
+        "ordre": 1,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_019",
+        "activite": "Jour 1 : Jardins de la Mendoubia",
+        "duree_min": 40
+      },
+      {
+        "ordre": 2,
+        "heure": "10:00",
+        "type": "lieu",
+        "element_id": "lieu_006",
+        "activite": "Musée de la Légation Américaine",
+        "duree_min": 75
+      },
+      {
+        "ordre": 3,
+        "heure": "11:30",
+        "type": "lieu",
+        "element_id": "lieu_010",
+        "activite": "Musée de la Fondation Lorin",
+        "duree_min": 45
+      },
+      {
+        "ordre": 4,
+        "heure": "12:30",
+        "type": "restaurant",
+        "element_id": "resto_007",
+        "activite": "Déjeuner chez Ahlen",
+        "duree_min": 60
+      },
+      {
+        "ordre": 5,
+        "heure": "14:00",
+        "type": "lieu",
+        "element_id": "lieu_020",
+        "activite": "Dar el Makhzen (Palais du Sultan)",
+        "duree_min": 75
+      },
+      {
+        "ordre": 6,
+        "heure": "15:30",
+        "type": "lieu",
+        "element_id": "lieu_009",
+        "activite": "Église Saint-Andrew",
+        "duree_min": 30
+      },
+      {
+        "ordre": 7,
+        "heure": "16:30",
+        "type": "lieu",
+        "element_id": "lieu_013",
+        "activite": "Musée d'Art Contemporain",
+        "duree_min": 60
+      },
+      {
+        "ordre": 8,
+        "heure": "18:00",
+        "type": "restaurant",
+        "element_id": "resto_010",
+        "activite": "Thé au Café Baba",
+        "duree_min": 45
+      },
+      {
+        "ordre": 9,
+        "heure": "20:00",
+        "type": "restaurant",
+        "element_id": "resto_004",
+        "activite": "Dîner au Dar Nour avec vue",
+        "duree_min": 120
+      },
+      {
+        "ordre": 10,
+        "heure": "09:00",
+        "type": "activite",
+        "element_id": "act_002",
+        "activite": "Jour 2 : Tour guidé de la médina",
+        "duree_min": 180
+      },
+      {
+        "ordre": 11,
+        "heure": "12:30",
+        "type": "restaurant",
+        "element_id": "resto_002",
+        "activite": "Déjeuner Saveur de Poisson",
+        "duree_min": 75
+      },
+      {
+        "ordre": 12,
+        "heure": "14:00",
+        "type": "activite",
+        "element_id": "act_006",
+        "activite": "Atelier calligraphie arabe",
+        "duree_min": 120
+      },
+      {
+        "ordre": 13,
+        "heure": "17:00",
+        "type": "lieu",
+        "element_id": "lieu_012",
+        "activite": "Coucher de soleil au Café Hafa",
+        "duree_min": 90
+      },
+      {
+        "ordre": 14,
+        "heure": "19:30",
+        "type": "lieu",
+        "element_id": "lieu_018",
+        "activite": "Soirée à la Cinémathèque de Tanger",
+        "duree_min": 120
+      }
+    ]
+  },
+  {
+    "id": "IT003",
+    "nom": "Famille & Nature - 3 Jours",
+    "nom_en": "Family & Nature - 3 Days",
+    "duree_jours": 3,
+    "type_voyageur": ["famille"],
+    "budget": "moyen",
+    "theme": "famille_nature",
+    "description_fr": "Trois jours d'activités adaptées aux familles, mêlant nature, plages et découvertes culturelles.",
+    "description_en": "Three days of family-friendly activities, blending nature, beaches and cultural discoveries.",
+    "etapes": [
+      {
+        "ordre": 1,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_016",
+        "activite": "Jour 1 : Randonnée au Parc Perdicaris",
+        "duree_min": 120
+      },
+      {
+        "ordre": 2,
+        "heure": "11:30",
+        "type": "lieu",
+        "element_id": "lieu_003",
+        "activite": "Cap Spartel - Le phare",
+        "duree_min": 45
+      },
+      {
+        "ordre": 3,
+        "heure": "12:30",
+        "type": "lieu",
+        "element_id": "lieu_002",
+        "activite": "Grottes d'Hercule",
+        "duree_min": 45
+      },
+      {
+        "ordre": 4,
+        "heure": "13:30",
+        "type": "lieu",
+        "element_id": "lieu_008",
+        "activite": "Pique-nique et baignade à Achakkar",
+        "duree_min": 180
+      },
+      {
+        "ordre": 5,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_015",
+        "activite": "Jour 2 : Découverte de la médina en famille",
+        "duree_min": 90
+      },
+      {
+        "ordre": 6,
+        "heure": "10:30",
+        "type": "activite",
+        "element_id": "act_001",
+        "activite": "Cours de cuisine en famille",
+        "duree_min": 240
+      },
+      {
+        "ordre": 7,
+        "heure": "15:00",
+        "type": "lieu",
+        "element_id": "lieu_014",
+        "activite": "Marché Central - découverte sensorielle",
+        "duree_min": 60
+      },
+      {
+        "ordre": 8,
+        "heure": "16:30",
+        "type": "lieu",
+        "element_id": "lieu_019",
+        "activite": "Détente aux Jardins de la Mendoubia",
+        "duree_min": 45
+      },
+      {
+        "ordre": 9,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_007",
+        "activite": "Jour 3 : Journée plage municipale",
+        "duree_min": 180
+      },
+      {
+        "ordre": 10,
+        "heure": "13:00",
+        "type": "restaurant",
+        "element_id": "resto_012",
+        "activite": "Déjeuner fruits de mer au bord de l'eau",
+        "duree_min": 75
+      },
+      {
+        "ordre": 11,
+        "heure": "15:00",
+        "type": "activite",
+        "element_id": "act_010",
+        "activite": "Shopping artisanal en famille",
+        "duree_min": 120
+      },
+      {
+        "ordre": 12,
+        "heure": "17:30",
+        "type": "lieu",
+        "element_id": "lieu_012",
+        "activite": "Goûter et coucher de soleil au Café Hafa",
+        "duree_min": 90
+      }
+    ]
+  },
+  {
+    "id": "IT004",
+    "nom": "Backpacker Budget - 2 Jours",
+    "nom_en": "Budget Backpacker - 2 Days",
+    "duree_jours": 2,
+    "type_voyageur": ["solo", "backpacker"],
+    "budget": "économique",
+    "theme": "aventure_budget",
+    "description_fr": "Itinéraire économique pour découvrir Tanger avec un budget serré. Street food, marche et expériences gratuites.",
+    "description_en": "Budget itinerary to discover Tangier on a tight budget. Street food, walking and free experiences.",
+    "etapes": [
+      {
+        "ordre": 1,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_014",
+        "activite": "Jour 1 : Petit-déjeuner au Marché Central",
+        "duree_min": 45
+      },
+      {
+        "ordre": 2,
+        "heure": "10:00",
+        "type": "lieu",
+        "element_id": "lieu_015",
+        "activite": "Explorer la médina à pied",
+        "duree_min": 120
+      },
+      {
+        "ordre": 3,
+        "heure": "12:00",
+        "type": "restaurant",
+        "element_id": "resto_003",
+        "activite": "Déjeuner budget chez Abdou",
+        "duree_min": 45
+      },
+      {
+        "ordre": 4,
+        "heure": "13:00",
+        "type": "lieu",
+        "element_id": "lieu_001",
+        "activite": "Kasbah et vue panoramique",
+        "duree_min": 60
+      },
+      {
+        "ordre": 5,
+        "heure": "14:30",
+        "type": "lieu",
+        "element_id": "lieu_011",
+        "activite": "Terrasse des Paresseux (gratuit)",
+        "duree_min": 30
+      },
+      {
+        "ordre": 6,
+        "heure": "15:30",
+        "type": "lieu",
+        "element_id": "lieu_007",
+        "activite": "Après-midi plage (gratuit)",
+        "duree_min": 150
+      },
+      {
+        "ordre": 7,
+        "heure": "18:30",
+        "type": "activite",
+        "element_id": "act_007",
+        "activite": "Tour street food du soir",
+        "duree_min": 180
+      },
+      {
+        "ordre": 8,
+        "heure": "08:00",
+        "type": "transport",
+        "element_id": "TR003",
+        "activite": "Jour 2 : Bus vers Cap Spartel",
+        "duree_min": 45
+      },
+      {
+        "ordre": 9,
+        "heure": "09:00",
+        "type": "lieu",
+        "element_id": "lieu_002",
+        "activite": "Grottes d'Hercule",
+        "duree_min": 45
+      },
+      {
+        "ordre": 10,
+        "heure": "10:00",
+        "type": "lieu",
+        "element_id": "lieu_003",
+        "activite": "Cap Spartel (gratuit)",
+        "duree_min": 45
+      },
+      {
+        "ordre": 11,
+        "heure": "11:00",
+        "type": "lieu",
+        "element_id": "lieu_008",
+        "activite": "Surf et détente à Achakkar",
+        "duree_min": 240
+      },
+      {
+        "ordre": 12,
+        "heure": "16:00",
+        "type": "lieu",
+        "element_id": "lieu_012",
+        "activite": "Retour via Café Hafa",
+        "duree_min": 60
+      }
+    ]
+  }
+]

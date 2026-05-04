@@ -1,0 +1,472 @@
+[
+  {
+    "id": "faq_001",
+    "categorie": "transport",
+    "intention": "info_aeroport",
+    "question_fr": "Comment aller de l'aéroport au centre-ville ?",
+    "question_en": "How to get from the airport to the city center?",
+    "question_ar": "كيف أصل من المطار إلى وسط المدينة؟",
+    "reponse_fr": "L'aéroport Ibn Battouta est à 12 km. Options : Grand taxi (150-200 MAD, 20 min), bus ALSA L15 (5 MAD, 45 min), VTC Careem/InDrive (80-120 MAD).",
+    "reponse_en": "Ibn Battouta Airport is 12 km away. Options: Grand taxi (150-200 MAD, 20 min), ALSA bus L15 (5 MAD, 45 min), ride-hailing Careem/InDrive (80-120 MAD).",
+    "reponse_ar": "مطار ابن بطوطة على بعد 12 كم. الخيارات: سيارة أجرة كبيرة (150-200 درهم)، حافلة ألسا L15 (5 دراهم)، تطبيق كريم/إندرايف (80-120 درهم).",
+    "tags": [
+      "aeroport",
+      "taxi",
+      "bus"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_002",
+    "categorie": "transport",
+    "intention": "taxi_fonctionnement",
+    "question_fr": "Comment fonctionnent les taxis à Tanger ?",
+    "question_en": "How do taxis work in Tangier?",
+    "question_ar": "كيف تعمل سيارات الأجرة في طنجة؟",
+    "reponse_fr": "Petits taxis bleus (en ville, compteur, 3 places). Grands taxis Mercedes (interurbain, partagés). Insistez sur le compteur. Supplément nuit 50% après 20h.",
+    "reponse_en": "Blue petit taxis (in-city, meter, 3 seats). Grand taxis Mercedes (intercity, shared). Insist on the meter. 50% night supplement after 8pm.",
+    "reponse_ar": "سيارات أجرة صغيرة زرقاء (داخل المدينة، عداد، 3 مقاعد). سيارات أجرة كبيرة مرسيدس (بين المدن، مشتركة). أصر على العداد.",
+    "tags": [
+      "taxi",
+      "transport"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_003",
+    "categorie": "transport",
+    "intention": "tgv_info",
+    "question_fr": "Comment prendre le TGV depuis Tanger ?",
+    "question_en": "How to take the TGV from Tangier?",
+    "question_ar": "كيف آخذ القطار فائق السرعة من طنجة؟",
+    "reponse_fr": "Le TGV Al Boraq relie Tanger à Casablanca en 2h10. Gare Tanger Ville. Réservez sur oncf.ma. Tarifs : 149 MAD (éco) à 249 MAD (1ère).",
+    "reponse_en": "Al Boraq TGV connects Tangier to Casablanca in 2h10. Tanger Ville station. Book at oncf.ma. Fares: 149 MAD (economy) to 249 MAD (1st class).",
+    "reponse_ar": "قطار البراق يربط طنجة بالدار البيضاء في ساعتين و10 دقائق. محطة طنجة المدينة. احجز على oncf.ma.",
+    "tags": [
+      "tgv",
+      "train",
+      "transport"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_004",
+    "categorie": "transport",
+    "intention": "ferry_espagne",
+    "question_fr": "Comment aller en Espagne par ferry ?",
+    "question_en": "How to get to Spain by ferry?",
+    "question_ar": "كيف أذهب إلى إسبانيا بالعبّارة؟",
+    "reponse_fr": "Ferry Tanger Med-Tarifa (35 min, FRS) ou Tanger Med-Algésiras (1h30, Balearia). Réservez en avance en été. Port Tanger Med à 50 km de la ville.",
+    "reponse_en": "Ferry Tanger Med-Tarifa (35 min, FRS) or Tanger Med-Algeciras (1h30, Balearia). Book ahead in summer. Tanger Med port is 50 km from city.",
+    "reponse_ar": "عبّارة طنجة المتوسط-طريفة (35 دقيقة) أو طنجة المتوسط-الجزيرة الخضراء (ساعة و30 دقيقة). احجز مسبقاً في الصيف.",
+    "tags": [
+      "ferry",
+      "espagne",
+      "transport"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_005",
+    "categorie": "transport",
+    "intention": "bus_urbain",
+    "question_fr": "Comment utiliser le bus urbain ?",
+    "question_en": "How to use the urban bus?",
+    "question_ar": "كيف أستخدم الحافلة الحضرية؟",
+    "reponse_fr": "Bus ALSA, ticket 5 MAD à bord. Lignes principales : L1 (Centre-Médina), L5 (Cap Spartel), L9 (Corniche). Fréquence 15-30 min.",
+    "reponse_en": "ALSA buses, 5 MAD ticket on board. Main lines: L1 (Center-Medina), L5 (Cape Spartel), L9 (Corniche). Frequency 15-30 min.",
+    "reponse_ar": "حافلات ألسا، تذكرة 5 دراهم. الخطوط الرئيسية: L1 (المركز-المدينة)، L5 (رأس سبارطيل)، L9 (الكورنيش).",
+    "tags": [
+      "bus",
+      "transport"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_006",
+    "categorie": "transport",
+    "intention": "vtc_app",
+    "question_fr": "Quelles applications VTC sont disponibles ?",
+    "question_en": "What ride-hailing apps are available?",
+    "question_ar": "ما تطبيقات النقل المتوفرة؟",
+    "reponse_fr": "Careem et InDrive sont les plus utilisés à Tanger. Prix estimé à l'avance. Paiement en espèces ou carte. Plus sûr que les taxis classiques.",
+    "reponse_en": "Careem and InDrive are most used in Tangier. Price estimated in advance. Cash or card payment. Safer than regular taxis.",
+    "reponse_ar": "كريم وإندرايف الأكثر استخداماً في طنجة. السعر محدد مسبقاً. الدفع نقداً أو بالبطاقة.",
+    "tags": [
+      "vtc",
+      "application",
+      "transport"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_007",
+    "categorie": "transport",
+    "intention": "chefchaouen_trajet",
+    "question_fr": "Comment aller à Chefchaouen depuis Tanger ?",
+    "question_en": "How to get to Chefchaouen from Tangier?",
+    "question_ar": "كيف أذهب إلى شفشاون من طنجة؟",
+    "reponse_fr": "Bus CTM (60 MAD, 3h), Grand taxi partagé (80-100 MAD, 2h30), excursion organisée (500-800 MAD/jour), ou location de voiture.",
+    "reponse_en": "CTM bus (60 MAD, 3h), shared Grand taxi (80-100 MAD, 2h30), organized day trip (500-800 MAD/day), or car rental.",
+    "reponse_ar": "حافلة CTM (60 درهم، 3 ساعات)، سيارة أجرة كبيرة مشتركة (80-100 درهم)، رحلة منظمة (500-800 درهم/يوم).",
+    "tags": [
+      "chefchaouen",
+      "excursion"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_008",
+    "categorie": "transport",
+    "intention": "location_voiture",
+    "question_fr": "Peut-on louer une voiture à Tanger ?",
+    "question_en": "Can you rent a car in Tangier?",
+    "question_ar": "هل يمكن استئجار سيارة في طنجة؟",
+    "reponse_fr": "Oui, agences à l'aéroport et en ville (Europcar, Hertz, Avis). À partir de 300 MAD/jour. Permis international recommandé. Attention à la circulation dense.",
+    "reponse_en": "Yes, agencies at airport and in town (Europcar, Hertz, Avis). From 300 MAD/day. International license recommended. Watch out for dense traffic.",
+    "reponse_ar": "نعم، وكالات في المطار والمدينة. ابتداءً من 300 درهم/يوم. رخصة دولية مستحسنة.",
+    "tags": [
+      "voiture",
+      "location"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_009",
+    "categorie": "lieux",
+    "intention": "top_attractions",
+    "question_fr": "Quels sont les incontournables de Tanger ?",
+    "question_en": "What are the must-see attractions in Tangier?",
+    "question_ar": "ما هي المعالم التي لا يمكن تفويتها في طنجة؟",
+    "reponse_fr": "Les incontournables : Kasbah, Grottes d'Hercule, Cap Spartel, Médina, Terrasse des Paresseux, Café Hafa, Grand Socco et Dar el Makhzen.",
+    "reponse_en": "Must-sees: Kasbah, Caves of Hercules, Cape Spartel, Medina, Terrace of the Lazy, Café Hafa, Grand Socco and Dar el Makhzen.",
+    "reponse_ar": "المعالم الأساسية: القصبة، مغارات هرقل، رأس سبارطيل، المدينة القديمة، مصطبة الكسالى، مقهى الحافة، السوق الكبير ودار المخزن.",
+    "tags": [
+      "attractions",
+      "tourisme"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_010",
+    "categorie": "lieux",
+    "intention": "medina_visite",
+    "question_fr": "Comment visiter la médina sans se perdre ?",
+    "question_en": "How to visit the medina without getting lost?",
+    "question_ar": "كيف أزور المدينة القديمة دون أن أضيع؟",
+    "reponse_fr": "Prenez un guide officiel (200 MAD/3h) ou suivez les panneaux directionnels. Repérez le Grand Socco comme point de repère. Évitez les faux guides.",
+    "reponse_en": "Hire an official guide (200 MAD/3h) or follow directional signs. Use Grand Socco as a landmark. Avoid unofficial guides.",
+    "reponse_ar": "استعن بمرشد رسمي (200 درهم/3 ساعات) أو اتبع اللافتات. استخدم السوق الكبير كنقطة مرجعية.",
+    "tags": [
+      "medina",
+      "guide"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_011",
+    "categorie": "lieux",
+    "intention": "grottes_hercule",
+    "question_fr": "Comment accéder aux Grottes d'Hercule ?",
+    "question_en": "How to access the Caves of Hercules?",
+    "question_ar": "كيف أصل إلى مغارات هرقل؟",
+    "reponse_fr": "À 14 km du centre. Taxi (100-150 MAD aller), ou combinez avec Cap Spartel. Entrée 10 MAD. Ouvert 9h-18h tous les jours.",
+    "reponse_en": "14 km from center. Taxi (100-150 MAD one way), or combine with Cape Spartel. Entry 10 MAD. Open 9am-6pm daily.",
+    "reponse_ar": "على بعد 14 كم من المركز. سيارة أجرة (100-150 درهم ذهاب). تذكرة 10 دراهم. مفتوح يومياً 9-18.",
+    "tags": [
+      "grottes",
+      "hercule",
+      "excursion"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_012",
+    "categorie": "lieux",
+    "intention": "cap_spartel",
+    "question_fr": "Que voir au Cap Spartel ?",
+    "question_en": "What to see at Cape Spartel?",
+    "question_ar": "ماذا أرى في رأس سبارطيل؟",
+    "reponse_fr": "Le phare historique (1864), la jonction Atlantique-Méditerranée, coucher de soleil spectaculaire. Gratuit. Combinez avec les Grottes d'Hercule et Plage Achakkar.",
+    "reponse_en": "Historic lighthouse (1864), Atlantic-Mediterranean junction, spectacular sunset. Free. Combine with Caves of Hercules and Achakkar Beach.",
+    "reponse_ar": "المنارة التاريخية (1864)، ملتقى الأطلسي والمتوسط، غروب مذهل. مجاني. اجمعها مع مغارات هرقل وشاطئ أشقار.",
+    "tags": [
+      "cap_spartel",
+      "phare",
+      "coucher_soleil"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_013",
+    "categorie": "lieux",
+    "intention": "kasbah_musee",
+    "question_fr": "Quels musées visiter dans la Kasbah ?",
+    "question_en": "What museums to visit in the Kasbah?",
+    "question_ar": "ما المتاحف التي يمكن زيارتها في القصبة؟",
+    "reponse_fr": "Dar el Makhzen (musée archéologique, 20 MAD), Musée de la Kasbah (art marocain). Fermés le mardi. Prévoir 2h pour les deux.",
+    "reponse_en": "Dar el Makhzen (archaeological museum, 20 MAD), Kasbah Museum (Moroccan art). Closed Tuesdays. Allow 2h for both.",
+    "reponse_ar": "دار المخزن (متحف أثري، 20 درهم)، متحف القصبة (فن مغربي). مغلقان يوم الثلاثاء.",
+    "tags": [
+      "musee",
+      "kasbah",
+      "culture"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_014",
+    "categorie": "lieux",
+    "intention": "plages_tanger",
+    "question_fr": "Quelles sont les meilleures plages ?",
+    "question_en": "What are the best beaches?",
+    "question_ar": "ما هي أفضل الشواطئ؟",
+    "reponse_fr": "Plage Municipale (urbaine, accessible), Achakkar (surf, sauvage), Sidi Kankouch (crique isolée), Malabata (vue Gibraltar). Baignade juin-septembre.",
+    "reponse_en": "Municipal Beach (urban, accessible), Achakkar (surf, wild), Sidi Kankouch (isolated cove), Malabata (Gibraltar view). Swimming June-September.",
+    "reponse_ar": "الشاطئ البلدي (حضري)، أشقار (ركوب أمواج)، سيدي كنكوش (خليج منعزل)، ملاباطا (إطلالة جبل طارق).",
+    "tags": [
+      "plage",
+      "baignade",
+      "mer"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_015",
+    "categorie": "lieux",
+    "intention": "cafe_hafa",
+    "question_fr": "Pourquoi le Café Hafa est-il célèbre ?",
+    "question_en": "Why is Café Hafa famous?",
+    "question_ar": "لماذا مقهى الحافة مشهور؟",
+    "reponse_fr": "Fondé en 1921, perché sur les falaises face au détroit. Fréquenté par les Beatles et Rolling Stones. Célèbre pour son thé à la menthe et coucher de soleil.",
+    "reponse_en": "Founded in 1921, perched on cliffs facing the strait. Frequented by the Beatles and Rolling Stones. Famous for mint tea and sunset.",
+    "reponse_ar": "تأسس عام 1921 على الجرف أمام المضيق. ارتاده بيتلز ورولينغ ستونز. مشهور بالشاي بالنعناع والغروب.",
+    "tags": [
+      "cafe",
+      "histoire",
+      "coucher_soleil"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_016",
+    "categorie": "lieux",
+    "intention": "terrasse_paresseux",
+    "question_fr": "Où avoir la meilleure vue sur le détroit ?",
+    "question_en": "Where to get the best strait view?",
+    "question_ar": "أين أجد أفضل إطلالة على المضيق؟",
+    "reponse_fr": "Terrasse des Paresseux (centre-ville, gratuit), Belvédère de la Kasbah, Colline du Charf (360°), et Café Hafa. Idéal au coucher du soleil.",
+    "reponse_en": "Terrace of the Lazy (city center, free), Kasbah Belvedere, Charf Hill (360°), and Café Hafa. Best at sunset.",
+    "reponse_ar": "مصطبة الكسالى (مجاني)، مرقب القصبة، تلة الشرف (360°)، ومقهى الحافة. الأفضل عند الغروب.",
+    "tags": [
+      "panorama",
+      "vue",
+      "coucher_soleil"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_017",
+    "categorie": "lieux",
+    "intention": "marche_central",
+    "question_fr": "Quand visiter le Marché Central ?",
+    "question_en": "When to visit the Central Market?",
+    "question_ar": "متى أزور السوق المركزي؟",
+    "reponse_fr": "Le matin (7h-14h) pour la fraîcheur. Poisson, épices, olives, fruits. Fermé l'après-midi. Ambiance authentique et colorée.",
+    "reponse_en": "Morning (7am-2pm) for freshness. Fish, spices, olives, fruits. Closed in the afternoon. Authentic and colorful atmosphere.",
+    "reponse_ar": "الصباح (7-14) للطزاجة. سمك، بهارات، زيتون، فواكه. مغلق بعد الظهر. أجواء أصيلة وملونة.",
+    "tags": [
+      "marche",
+      "gastronomie",
+      "local"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_018",
+    "categorie": "lieux",
+    "intention": "lieux_gratuits",
+    "question_fr": "Quels sites sont gratuits à Tanger ?",
+    "question_en": "What sites are free in Tangier?",
+    "question_ar": "ما المواقع المجانية في طنجة؟",
+    "reponse_fr": "Grand Socco, Petit Socco, Terrasse des Paresseux, Cap Spartel, Jardins Mendoubia, plages, Médina (extérieur), Belvédère Kasbah.",
+    "reponse_en": "Grand Socco, Petit Socco, Terrace of the Lazy, Cape Spartel, Mendoubia Gardens, beaches, Medina (exterior), Kasbah Belvedere.",
+    "reponse_ar": "السوق الكبير، السوق الداخل، مصطبة الكسالى، رأس سبارطيل، حدائق المندوبية، الشواطئ، المدينة القديمة.",
+    "tags": [
+      "gratuit",
+      "budget",
+      "tourisme"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_019",
+    "categorie": "lieux",
+    "intention": "quartier_marshan",
+    "question_fr": "Que voir dans le quartier Marshan ?",
+    "question_en": "What to see in the Marshan district?",
+    "question_ar": "ماذا أرى في حي المرشان؟",
+    "reponse_fr": "Café Hafa, Parc Perdicaris, Villa Harris, Palais du Mendoub, et la vue panoramique sur le détroit. Quartier résidentiel historique.",
+    "reponse_en": "Café Hafa, Perdicaris Park, Villa Harris, Mendoub Palace, and panoramic strait views. Historic residential district.",
+    "reponse_ar": "مقهى الحافة، حديقة بيرديكاريس، فيلا هاريس، قصر المندوب، وإطلالات بانورامية على المضيق.",
+    "tags": [
+      "marshan",
+      "quartier",
+      "promenade"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_020",
+    "categorie": "lieux",
+    "intention": "ibn_battuta",
+    "question_fr": "Qui était Ibn Battuta et son lien avec Tanger ?",
+    "question_en": "Who was Ibn Battuta and his link to Tangier?",
+    "question_ar": "من كان ابن بطوطة وما علاقته بطنجة؟",
+    "reponse_fr": "Né à Tanger en 1304, plus grand voyageur médiéval. Sa tombe est dans la médina. L'aéroport et le stade portent son nom.",
+    "reponse_en": "Born in Tangier in 1304, greatest medieval traveler. His tomb is in the medina. The airport and stadium bear his name.",
+    "reponse_ar": "ولد في طنجة عام 1304، أعظم رحالة في العصور الوسطى. ضريحه في المدينة القديمة. المطار والملعب يحملان اسمه.",
+    "tags": [
+      "histoire",
+      "ibn_battuta",
+      "culture"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_021",
+    "categorie": "restaurants",
+    "intention": "plats_typiques",
+    "question_fr": "Quels plats typiques goûter à Tanger ?",
+    "question_en": "What typical dishes to try in Tangier?",
+    "question_ar": "ما الأطباق النموذجية في طنجة؟",
+    "reponse_fr": "Tagine, couscous (vendredi), pastilla, harira, sardines grillées, msemen, baghrir, thé à la menthe. Street food : brochettes, babbouche, jus d'orange frais.",
+    "reponse_en": "Tagine, couscous (Friday), pastilla, harira, grilled sardines, msemen, baghrir, mint tea. Street food: brochettes, snail soup, fresh OJ.",
+    "reponse_ar": "الطاجين، الكسكس (الجمعة)، البسطيلة، الحريرة، السردين المشوي، المسمن، البغرير، الشاي بالنعناع.",
+    "tags": [
+      "gastronomie",
+      "plats",
+      "traditionnel"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_022",
+    "categorie": "restaurants",
+    "intention": "restaurant_budget",
+    "question_fr": "Où manger bien et pas cher ?",
+    "question_en": "Where to eat well on a budget?",
+    "question_ar": "أين آكل جيداً بسعر مناسب؟",
+    "reponse_fr": "Chez Abdou (médina, 40-60 MAD), Snack Atlas, Sandwicherie Maghreb, Souk Food Court. Les marchés centraux offrent aussi des repas à 30-50 MAD.",
+    "reponse_en": "Chez Abdou (medina, 40-60 MAD), Snack Atlas, Sandwicherie Maghreb, Souk Food Court. Central markets also offer meals at 30-50 MAD.",
+    "reponse_ar": "عند عبدو (المدينة، 40-60 درهم)، سناك أطلس، ساندويتش المغرب، ساحة أكل السوق. الأسواق أيضاً توفر وجبات بـ30-50 درهم.",
+    "tags": [
+      "budget",
+      "restaurant",
+      "economique"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_023",
+    "categorie": "restaurants",
+    "intention": "resto_gastronomique",
+    "question_fr": "Quels restaurants gastronomiques recommandez-vous ?",
+    "question_en": "What gourmet restaurants do you recommend?",
+    "question_ar": "ما المطاعم الراقية التي تنصحون بها؟",
+    "reponse_fr": "El Morocco Club (rooftop médina), El Korsan (hôtel El Minzah), Dar Nour (vue détroit), Nord-Pinus (bohème-chic), Maison Tingis (kasbah).",
+    "reponse_en": "El Morocco Club (medina rooftop), El Korsan (El Minzah hotel), Dar Nour (strait view), Nord-Pinus (bohemian-chic), Maison Tingis (kasbah).",
+    "reponse_ar": "المغرب كلوب (سطح المدينة)، الكرسان (فندق المنزه)، دار النور (إطلالة المضيق)، نور-بينوس، ميزون طنجيس (القصبة).",
+    "tags": [
+      "gastronomie",
+      "luxe",
+      "restaurant"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_024",
+    "categorie": "restaurants",
+    "intention": "poisson_frais",
+    "question_fr": "Où manger du poisson frais ?",
+    "question_en": "Where to eat fresh fish?",
+    "question_ar": "أين آكل سمكاً طازجاً؟",
+    "reponse_fr": "Le Saveur de Poisson (médina, expérience unique sans menu), Chez Hassan au Marché Central, La Playa (corniche), Fish & Chips Détroit.",
+    "reponse_en": "Le Saveur de Poisson (medina, unique no-menu experience), Chez Hassan at Central Market, La Playa (corniche), Fish & Chips Détroit.",
+    "reponse_ar": "سافور دو بواسون (المدينة، تجربة بدون قائمة)، عند حسان في السوق المركزي، لابلايا (الكورنيش).",
+    "tags": [
+      "poisson",
+      "fruits_de_mer",
+      "restaurant"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_025",
+    "categorie": "restaurants",
+    "intention": "halal_vegetarien",
+    "question_fr": "Y a-t-il des options halal et végétariennes ?",
+    "question_en": "Are there halal and vegetarian options?",
+    "question_ar": "هل توجد خيارات حلال ونباتية؟",
+    "reponse_fr": "Presque tous les restaurants sont halal au Maroc. Options végétariennes : La Fabrique, salades et tajines aux légumes dans la plupart des restaurants.",
+    "reponse_en": "Almost all restaurants are halal in Morocco. Vegetarian options: La Fabrique, salads and vegetable tagines at most restaurants.",
+    "reponse_ar": "جميع المطاعم تقريباً حلال في المغرب. خيارات نباتية: لا فابريك، سلطات وطواجن خضار في معظم المطاعم.",
+    "tags": [
+      "halal",
+      "vegetarien",
+      "regime"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_026",
+    "categorie": "restaurants",
+    "intention": "street_food",
+    "question_fr": "Où trouver le meilleur street food ?",
+    "question_en": "Where to find the best street food?",
+    "question_ar": "أين أجد أفضل طعام الشارع؟",
+    "reponse_fr": "Grand Socco (jus d'orange, msemen), Souk Food Court, stands de brochettes Rue de la Marine, marchands de babbouche (soupe d'escargots).",
+    "reponse_en": "Grand Socco (orange juice, msemen), Souk Food Court, brochette stands on Rue de la Marine, babbouche (snail soup) vendors.",
+    "reponse_ar": "السوق الكبير (عصير البرتقال، المسمن)، ساحة أكل السوق، أكشاك المشاوي في شارع البحرية، باعة البابوش.",
+    "tags": [
+      "street_food",
+      "local",
+      "budget"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_027",
+    "categorie": "restaurants",
+    "intention": "brunch_cafe",
+    "question_fr": "Où prendre un bon brunch ou café ?",
+    "question_en": "Where to get a good brunch or coffee?",
+    "question_ar": "أين أتناول فطوراً متأخراً أو قهوة جيدة؟",
+    "reponse_fr": "La Fabrique (brunch, café de spécialité), Café de Paris (historique), Panoramic Café (vue 360°), Café Baba (thé mythique).",
+    "reponse_en": "La Fabrique (brunch, specialty coffee), Café de Paris (historic), Panoramic Café (360° view), Café Baba (mythical tea).",
+    "reponse_ar": "لا فابريك (فطور متأخر، قهوة مميزة)، مقهى باريس (تاريخي)، مقهى بانورامي (إطلالة 360°)، مقهى بابا (شاي أسطوري).",
+    "tags": [
+      "cafe",
+      "brunch",
+      "petit_dejeuner"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_028",
+    "categorie": "restaurants",
+    "intention": "reservation_conseil",
+    "question_fr": "Faut-il réserver dans les restaurants ?",
+    "question_en": "Do you need reservations at restaurants?",
+    "question_ar": "هل يجب الحجز في المطاعم؟",
+    "reponse_fr": "Réservation recommandée pour : El Morocco Club, Dar Nour, Nord-Pinus, El Korsan, Le Saveur de Poisson. Pas nécessaire pour les restaurants populaires.",
+    "reponse_en": "Reservation recommended for: El Morocco Club, Dar Nour, Nord-Pinus, El Korsan, Le Saveur de Poisson. Not needed for popular restaurants.",
+    "reponse_ar": "الحجز مستحسن في: المغرب كلوب، دار النور، نور-بينوس، الكرسان، سافور دو بواسون. غير ضروري للمطاعم الشعبية.",
+    "tags": [
+      "reservation",
+      "conseil",
+      "restaurant"
+    ],
+    "priorite": 3
+  }
+]
