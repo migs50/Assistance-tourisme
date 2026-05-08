@@ -1,0 +1,708 @@
+{
+  "_metadata": {
+    "fichier": "assurances.json",
+    "version": "2.0",
+    "usage": "RAG / Chatbot touristique – Tanger",
+    "avertissement": "Toutes les données sont SYNTHÉTIQUES. Aucun numéro de contrat réel, aucune donnée personnelle identifiable.",
+    "source": "PFE – Licence Data Analytics – données fictives à des fins académiques"
+  },
+
+  "informations_generales_assurance_maroc": {
+    "titre": "Comment fonctionne l'assurance au Maroc ?",
+    "description": "Au Maroc, le secteur des assurances est réglementé par l'Autorité de Contrôle des Assurances et de la Prévoyance Sociale (ACAPS). Les touristes étrangers peuvent souscrire une assurance voyage avant ou pendant leur séjour.",
+    "points_cles": [
+      "L'assurance voyage n'est pas obligatoire au Maroc, mais fortement recommandée.",
+      "Les assureurs locaux (Wafa, RMA, Atlanta) proposent des offres adaptées aux séjours courts.",
+      "Les assureurs internationaux (AXA, Allianz, Generali) couvrent souvent plusieurs pays en une seule police.",
+      "En cas de sinistre, il faut TOUJOURS conserver les originaux des factures médicales et des rapports de police.",
+      "Le remboursement peut prendre entre 15 et 60 jours selon la compagnie.",
+      "La carte CNOPS ou CMIM ne couvre que les ressortissants marocains affiliés."
+    ],
+    "types_assurance_disponibles": {
+      "voyage": "Couvre les imprévus liés au déplacement : annulation, retard, perte de bagages.",
+      "accident_corporel": "Indemnise en cas de blessure ou d'invalidité suite à un accident.",
+      "hospitalisation": "Prend en charge les frais d'hospitalisation dans les cliniques partenaires.",
+      "rapatriement_medical": "Organise et finance le transport médicalisé vers le pays d'origine.",
+      "rapatriement_corps": "Couvre les frais de rapatriement du corps en cas de décès à l'étranger.",
+      "responsabilite_civile": "Protège si le touriste cause un dommage à un tiers.",
+      "assistance_juridique": "Fournit un conseil juridique ou un avocat en cas de litige local.",
+      "multi_risques": "Combinaison de plusieurs couvertures en un seul contrat."
+    },
+    "que_faire_en_urgence": [
+      "1. Appelez le numéro d'urgence 24h de votre assureur (indiqué sur votre police).",
+      "2. Ne payez rien sans avoir contacté votre assureur au préalable.",
+      "3. Obtenez un rapport médical officiel de l'hôpital ou de la clinique.",
+      "4. En cas d'agression ou vol, déposez une plainte à la police et conservez le récépissé.",
+      "5. Photographiez tous les dommages matériels (bagages, effets personnels).",
+      "6. Conservez TOUS les originaux des factures — les copies ne sont pas acceptées."
+    ],
+    "organismes_regulation": {
+      "ACAPS": {
+        "nom_complet": "Autorité de Contrôle des Assurances et de la Prévoyance Sociale",
+        "role": "Régulateur officiel du secteur des assurances au Maroc",
+        "site_web": "https://www.acaps.ma",
+        "telephone_reclamation": "08 00 10 02 00"
+      },
+      "FMA": {
+        "nom_complet": "Fédération Marocaine des Sociétés d'Assurances et de Réassurance",
+        "role": "Représente les compagnies d'assurance marocaines",
+        "site_web": "https://www.fma.ma"
+      }
+    },
+    "faq_generale": [
+      {
+        "question_fr": "Est-ce que mon assurance européenne couvre le Maroc ?",
+        "question_en": "Does my European insurance cover Morocco ?",
+        "question_ar": "هل تغطي تأميناتي الأوروبية المغرب؟",
+        "reponse_fr": "Certaines assurances européennes incluent le Maroc dans leur zone de couverture, notamment les cartes bancaires haut de gamme (Visa Premier, Mastercard Gold). Vérifiez votre contrat ou contactez votre banque avant le départ.",
+        "tags": ["europe", "couverture_internationale", "banque", "visa"]
+      },
+      {
+        "question_fr": "Comment déclarer un sinistre au Maroc ?",
+        "question_en": "How to file a claim in Morocco ?",
+        "question_ar": "كيف أُبلغ عن حادثة تأمينية في المغرب؟",
+        "reponse_fr": "Contactez immédiatement votre assureur par téléphone, fournissez votre numéro de police, rassemblez les justificatifs (rapport médical, factures, rapport police si nécessaire), puis soumettez votre dossier dans les délais prévus au contrat.",
+        "tags": ["sinistre", "déclaration", "procédure", "remboursement"]
+      },
+      {
+        "question_fr": "Puis-je souscrire une assurance après mon arrivée à Tanger ?",
+        "question_en": "Can I buy travel insurance after arriving in Tangier ?",
+        "question_ar": "هل يمكنني الاشتراك في التأمين بعد وصولي إلى طنجة؟",
+        "reponse_fr": "Oui, il est possible de souscrire sur place auprès d'agences locales comme Wafa, RMA ou Atlanta. Cependant, les sinistres survenus avant la souscription ne sont jamais couverts.",
+        "tags": ["souscription", "arrivée", "local", "tanger"]
+      },
+      {
+        "question_fr": "Que faire si je perds mon passeport à Tanger ?",
+        "question_en": "What to do if I lose my passport in Tangier ?",
+        "question_ar": "ماذا أفعل إذا فقدت جواز سفري في طنجة؟",
+        "reponse_fr": "1) Déposez une plainte au commissariat le plus proche. 2) Contactez votre ambassade ou consulat à Rabat ou Casablanca. 3) Informez votre assureur si votre contrat couvre la perte de documents. 4) Gardez le récépissé de la plainte.",
+        "tags": ["passeport", "perte_documents", "ambassade", "police"]
+      },
+      {
+        "question_fr": "Les urgences dentaires sont-elles couvertes ?",
+        "question_en": "Are dental emergencies covered ?",
+        "question_ar": "هل تُغطّى حالات طوارئ الأسنان؟",
+        "reponse_fr": "Uniquement chez certains assureurs (ex: Atlanta, CMIM). Vérifiez le champ 'cas_couverts' de votre police. En général, seules les urgences dentaires aiguës (fracture, abcès) sont remboursées, pas les soins esthétiques.",
+        "tags": ["dentaire", "urgence_dentaire", "couverture", "remboursement"]
+      }
+    ]
+  },
+
+  "compagnies": [
+    {
+      "id": "ASS001",
+      "nom": "Wafa Assurance – Agence Tanger Centre",
+      "categorie": "assureur_local_marocain",
+      "type_assurance": ["voyage", "accident", "annulation", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "12 Rue de la Liberté, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@wafaassurance.ma",
+        "site_web": "https://www.wafaassurance.ma",
+        "latitude": 35.7762,
+        "longitude": -5.8091
+      },
+      "horaires": {
+        "lundi_vendredi": "09:00–18:00",
+        "samedi": "09:00–13:00",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": false
+      },
+      "numero_urgence_24h": "Disponible sur votre police d'assurance Wafa",
+      "langues_disponibles": ["fr", "ar"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 250000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": false,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 8000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": false
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "chute_blessure",
+        "perte_documents",
+        "hospitalisation_prolongee"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Appeler le numéro d'urgence figurant sur votre police",
+        "etape_2": "Communiquer votre numéro de police d'assurance (sur votre contrat)",
+        "etape_3": "Fournir une copie du passeport et du billet de transport",
+        "etape_4": "Attendre la validation et suivre les instructions de l'opérateur",
+        "etape_5": "Constituer le dossier de remboursement avec tous les originaux"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "factures_originales",
+        "billets_transport",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 45,
+      "note_moyenne": 4.1,
+      "avis_count": 124,
+      "tags": ["urgence", "accident", "économique", "local"],
+      "partenaires_hopitaux": ["urg_001", "urg_003"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 80,
+      "note_rag": "Assureur local marocain. Adapté aux budgets moyens. Pas de permanence 24h à l'agence — utiliser le numéro de police pour joindre l'assistance."
+    },
+    {
+      "id": "ASS002",
+      "nom": "RMA Assurance – Agence Tanger Malabata",
+      "categorie": "assureur_local_marocain",
+      "type_assurance": ["voyage", "accident", "vol", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "45 Avenue des Nations Unies, Malabata, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@rma.ma",
+        "site_web": "https://www.rma.ma",
+        "latitude": 35.7825,
+        "longitude": -5.8060
+      },
+      "horaires": {
+        "lundi_vendredi": "08:30–17:30",
+        "samedi": "Fermé",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": false
+      },
+      "numero_urgence_24h": "Disponible sur votre police d'assurance RMA",
+      "langues_disponibles": ["fr", "ar"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 300000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": true,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 12000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": true
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "agression_vol",
+        "perte_documents",
+        "maladie_aiguë"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Composer le numéro d'urgence indiqué sur votre police RMA",
+        "etape_2": "Donner le numéro de police et votre nom complet",
+        "etape_3": "Envoyer la copie du passeport par email à l'adresse communiquée",
+        "etape_4": "Suivre les instructions du conseiller d'assistance",
+        "etape_5": "Déposer le dossier de sinistre dans les 30 jours suivant l'incident"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "rapport_medical_ou_hospitalier",
+        "rapport_police_si_agression",
+        "billets_transport"
+      ],
+      "delai_remboursement_jours": 40,
+      "note_moyenne": 4.0,
+      "avis_count": 98,
+      "tags": ["accident", "vol", "juridique", "local"],
+      "partenaires_hopitaux": ["urg_002", "urg_004"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 95,
+      "note_rag": "Bon choix pour les risques d'agression ou vol. Couvre l'assistance juridique. Pas d'agence ouverte le week-end."
+    },
+    {
+      "id": "ASS003",
+      "nom": "Atlanta Assurance – Agence Tanger Hassan",
+      "categorie": "assureur_local_marocain",
+      "type_assurance": ["voyage", "accident", "annulation", "vol", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "7 Boulevard Hassan II, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@atlantasanad.ma",
+        "site_web": "https://www.atlantasanad.ma",
+        "latitude": 35.7708,
+        "longitude": -5.8023
+      },
+      "horaires": {
+        "lundi_vendredi": "09:15–18:15",
+        "samedi": "09:15–13:00",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": false
+      },
+      "numero_urgence_24h": "Disponible sur votre police d'assurance Atlanta",
+      "langues_disponibles": ["fr", "ar", "es"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 275000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": false,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 10000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": false
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "chute_blessure",
+        "perte_documents",
+        "urgence_dentaire"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Contacter le numéro d'urgence sur votre police Atlanta",
+        "etape_2": "Fournir le numéro de contrat",
+        "etape_3": "Envoyer les pièces justificatives demandées",
+        "etape_4": "Recevoir le bon de prise en charge",
+        "etape_5": "Régler le sinistre avec le service client dans les délais"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "factures_originales",
+        "photos_preuves",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 42,
+      "note_moyenne": 3.9,
+      "avis_count": 87,
+      "tags": ["accident", "annulation", "économique", "local"],
+      "partenaires_hopitaux": ["urg_001", "urg_005"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 75,
+      "note_rag": "Option économique avec couverture dentaire d'urgence. Parle espagnol — utile pour les touristes espagnols traversant le Détroit."
+    },
+    {
+      "id": "ASS004",
+      "nom": "AXA Assurance – Bureau Tanger Corniche",
+      "categorie": "assureur_international",
+      "type_assurance": ["voyage", "accident", "annulation", "vol", "hospitalisation", "responsabilite_civile", "multi-risques"],
+      "coordonnees": {
+        "adresse": "22 Avenue de la Corniche, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@axa.ma",
+        "site_web": "https://www.axa.ma",
+        "latitude": 35.7842,
+        "longitude": -5.7980
+      },
+      "horaires": {
+        "lundi_vendredi": "08:00–18:00",
+        "samedi": "08:00–14:00",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": true
+      },
+      "numero_urgence_24h": "Disponible sur votre police AXA (numéro international 24h/24)",
+      "langues_disponibles": ["fr", "ar", "en", "es", "de"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 850000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": true,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 25000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": true
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "maladie_aiguë",
+        "chute_blessure",
+        "perte_documents",
+        "evacuation_medicale",
+        "decès_accidentel"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Appeler le centre d'assistance AXA 24h/24 (numéro sur votre police)",
+        "etape_2": "Communiquer le numéro de police et le pays du sinistre",
+        "etape_3": "Envoyer le passeport et les billets par email sécurisé AXA",
+        "etape_4": "Suivre les directives médicales ou d'évacuation communiquées",
+        "etape_5": "Déposer la demande de remboursement en ligne sous 60 jours"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "billets_transport",
+        "formulaire_sinistre",
+        "photos_preuves"
+      ],
+      "delai_remboursement_jours": 30,
+      "note_moyenne": 4.6,
+      "avis_count": 240,
+      "tags": ["international", "premium", "24h", "multilingue", "rapatriement", "médical"],
+      "partenaires_hopitaux": ["urg_001", "urg_003", "urg_004"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 140,
+      "note_rag": "Assureur international haut de gamme. Permanence 24h garantie. Recommandé pour les touristes européens et nord-américains. Plafond médical élevé."
+    },
+    {
+      "id": "ASS005",
+      "nom": "Allianz Travel – Bureau Tanger Port",
+      "categorie": "assureur_international",
+      "type_assurance": ["voyage", "accident", "annulation", "vol", "hospitalisation", "rapatriement", "responsabilite_civile", "multi-risques"],
+      "coordonnees": {
+        "adresse": "3 Rue du Port, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@allianz.ma",
+        "site_web": "https://www.allianz.ma",
+        "latitude": 35.7700,
+        "longitude": -5.8020
+      },
+      "horaires": {
+        "lundi_vendredi": "07:30–17:30",
+        "samedi": "09:00–13:00",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": true
+      },
+      "numero_urgence_24h": "Disponible sur votre police Allianz (numéro international 24h/24)",
+      "langues_disponibles": ["fr", "ar", "en", "de", "es", "it"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 950000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": true,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 28000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": true
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "noyade",
+        "maladie_aiguë",
+        "intoxication_alimentaire",
+        "evacuation_medicale",
+        "decès_accidentel"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Composer le numéro international Allianz Assistance 24h (sur la police)",
+        "etape_2": "Préciser le pays et le type de sinistre",
+        "etape_3": "Transmettre les documents d'identité et la police d'assurance",
+        "etape_4": "Obtenir la prise en charge directe ou le bon d'évacuation",
+        "etape_5": "Compléter le formulaire sinistre en ligne sur allianz.ma"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "billets_transport",
+        "photos_preuves",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 25,
+      "note_moyenne": 4.7,
+      "avis_count": 268,
+      "tags": ["international", "premium", "24h", "multilingue", "rapatriement", "médical"],
+      "partenaires_hopitaux": ["urg_003", "urg_004", "urg_005"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 145,
+      "note_rag": "Meilleure note du dataset. Couvre 6 langues dont l'italien et l'allemand. Plafond médical le plus élevé. Idéal pour rapatriement d'urgence."
+    },
+    {
+      "id": "ASS006",
+      "nom": "Generali Assurance – Bureau Tanger Ville Nouvelle",
+      "categorie": "assureur_international",
+      "type_assurance": ["voyage", "accident", "annulation", "vol", "hospitalisation", "responsabilite_civile", "multi-risques"],
+      "coordonnees": {
+        "adresse": "18 Avenue de la République, Ville Nouvelle, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@generali.ma",
+        "site_web": "https://www.generali.ma",
+        "latitude": 35.7800,
+        "longitude": -5.8150
+      },
+      "horaires": {
+        "lundi_vendredi": "08:00–18:00",
+        "samedi": "10:00–14:00",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": true
+      },
+      "numero_urgence_24h": "Disponible sur votre police Generali (numéro international 24h/24)",
+      "langues_disponibles": ["fr", "ar", "en", "es", "it"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 920000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": true,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 30000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": true
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "maladie_aiguë",
+        "noyade",
+        "intoxication_alimentaire",
+        "malaise_cardiaque",
+        "decès_accidentel"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Appeler la plateforme Generali Assistance 24h (numéro sur police)",
+        "etape_2": "Donner le numéro de police et le lieu du sinistre",
+        "etape_3": "Envoyer les documents médicaux dès qu'ils sont disponibles",
+        "etape_4": "Recevoir la prise en charge directe ou le bon de rapatriement",
+        "etape_5": "Déclarer le sinistre via le portail client Generali sous 90 jours"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "billets_transport",
+        "photos_preuves"
+      ],
+      "delai_remboursement_jours": 28,
+      "note_moyenne": 4.5,
+      "avis_count": 195,
+      "tags": ["international", "premium", "multilingue", "rapatriement", "24h", "médical"],
+      "partenaires_hopitaux": ["urg_002", "urg_004", "urg_005"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 138,
+      "note_rag": "Forte couverture malaise cardiaque et noyade. Plafond bagages le plus élevé (30 000 MAD). Portail sinistre avec délai de 90 jours très flexible."
+    },
+    {
+      "id": "ASS007",
+      "nom": "CNOPS – Délégation Tanger",
+      "categorie": "mutuelle_sante",
+      "type_assurance": ["hospitalisation", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "Avenue Ibn Battouta, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "delegation.tanger@cnops.ma",
+        "site_web": "https://www.cnops.ma",
+        "latitude": 35.7730,
+        "longitude": -5.8070
+      },
+      "horaires": {
+        "lundi_vendredi": "08:30–16:30",
+        "samedi": "Fermé",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": false
+      },
+      "numero_urgence_24h": "Numéro adhérent CNOPS figurant sur votre carte mutuelle",
+      "langues_disponibles": ["fr", "ar"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 120000,
+        "rapatriement_medical": false,
+        "rapatriement_corps": false,
+        "accident_corporel": false,
+        "perte_bagages_max_mad": 5000,
+        "annulation_voyage": false,
+        "responsabilite_civile": true,
+        "assistance_juridique": false
+      },
+      "cas_couverts": [
+        "malaise_cardiaque",
+        "hospitalisation_prolongee",
+        "maladie_aiguë"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Contacter le service adhérent CNOPS via votre carte mutuelle",
+        "etape_2": "Fournir le numéro d'adhérent (sur la carte CNOPS) et le passeport",
+        "etape_3": "Décrire la situation médicale à l'opérateur",
+        "etape_4": "Suivre les orientations vers les établissements partenaires CNOPS",
+        "etape_5": "Soumettre les justificatifs de frais pour remboursement partiel"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 18,
+      "note_moyenne": 3.8,
+      "avis_count": 62,
+      "tags": ["médical", "économique", "mutuelle", "maroc"],
+      "partenaires_hopitaux": ["urg_001", "urg_002"],
+      "applicable_nationalites": ["maroc"],
+      "tarif_journalier_moyen_mad": 35,
+      "note_rag": "Réservé aux ressortissants marocains affiliés CNOPS. Ne couvre pas les touristes étrangers. Pas de rapatriement ni bagages."
+    },
+    {
+      "id": "ASS008",
+      "nom": "CMIM – Espace Mutualiste Tanger",
+      "categorie": "mutuelle_sante",
+      "type_assurance": ["hospitalisation", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "Rue Chérif Idrissi, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "espace.tanger@cmim.ma",
+        "site_web": "https://www.cmim.ma",
+        "latitude": 35.7775,
+        "longitude": -5.8105
+      },
+      "horaires": {
+        "lundi_vendredi": "09:00–17:00",
+        "samedi": "Fermé",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": false
+      },
+      "numero_urgence_24h": "Numéro adhérent CMIM figurant sur votre carte mutuelle",
+      "langues_disponibles": ["fr", "ar"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 110000,
+        "rapatriement_medical": false,
+        "rapatriement_corps": false,
+        "accident_corporel": false,
+        "perte_bagages_max_mad": 5500,
+        "annulation_voyage": false,
+        "responsabilite_civile": true,
+        "assistance_juridique": false
+      },
+      "cas_couverts": [
+        "malaise_cardiaque",
+        "hospitalisation_prolongee",
+        "urgence_dentaire"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Appeler le service mutualiste CMIM (numéro sur votre carte)",
+        "etape_2": "Communiquer le numéro d'adhérent CMIM",
+        "etape_3": "Décrire les symptômes et l'établissement de soins choisi",
+        "etape_4": "Suivre les instructions de prise en charge CMIM",
+        "etape_5": "Déposer les factures pour remboursement partiel dans les délais"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 15,
+      "note_moyenne": 3.7,
+      "avis_count": 58,
+      "tags": ["médical", "économique", "mutuelle", "maroc"],
+      "partenaires_hopitaux": ["urg_002", "urg_003"],
+      "applicable_nationalites": ["maroc"],
+      "tarif_journalier_moyen_mad": 30,
+      "note_rag": "Délai remboursement le plus court du dataset (15 jours). Réservé aux affiliés marocains CMIM. Couvre urgences dentaires, utile à noter."
+    },
+    {
+      "id": "ASS009",
+      "nom": "Europ Assistance – Centre Tanger",
+      "categorie": "assistance_voyage_specialisee",
+      "type_assurance": ["voyage", "accident", "annulation", "vol", "hospitalisation", "rapatriement", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "Rue des Nations, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@europ-assistance.ma",
+        "site_web": "https://www.europ-assistance.com",
+        "latitude": 35.7810,
+        "longitude": -5.8130
+      },
+      "horaires": {
+        "lundi_vendredi": "08:00–19:00",
+        "samedi": "09:00–14:00",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": true
+      },
+      "numero_urgence_24h": "Disponible sur votre police Europ Assistance (numéro international 24h/24)",
+      "langues_disponibles": ["fr", "ar", "en", "es"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 600000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": true,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 22000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": true
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "chute_blessure",
+        "intoxication_alimentaire",
+        "evacuation_medicale",
+        "agression_vol",
+        "perte_documents"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Composer le numéro d'urgence Europ Assistance 24h (sur la police)",
+        "etape_2": "Préciser le numéro de contrat et la nature du sinistre",
+        "etape_3": "Transmettre le passeport et les billets par email sécurisé",
+        "etape_4": "Recevoir les directives d'évacuation ou de soins de l'opérateur",
+        "etape_5": "Déclarer le sinistre en ligne dans les 30 jours suivant l'incident"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "billets_transport",
+        "rapport_police_si_agression",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 22,
+      "note_moyenne": 4.4,
+      "avis_count": 178,
+      "tags": ["urgence", "rapatriement", "24h", "multilingue", "assistance_specialisee"],
+      "partenaires_hopitaux": ["urg_003", "urg_004", "urg_005"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 115,
+      "note_rag": "Spécialiste assistance voyage. Très bon pour intoxications alimentaires et agressions. Ouverture agence jusqu'à 19h en semaine."
+    },
+    {
+      "id": "ASS010",
+      "nom": "Mondial Assistance – Tanger Détroit",
+      "categorie": "assistance_voyage_specialisee",
+      "type_assurance": ["voyage", "accident", "annulation", "vol", "hospitalisation", "rapatriement", "responsabilite_civile"],
+      "coordonnees": {
+        "adresse": "Boulevard de la Méditerranée, Tanger 90000",
+        "telephone_agence": "+212 539 XX XX XX",
+        "email_contact": "agence.tanger@mondial-assistance.ma",
+        "site_web": "https://www.mondial-assistance.com",
+        "latitude": 35.7769,
+        "longitude": -5.7995
+      },
+      "horaires": {
+        "lundi_vendredi": "08:30–18:30",
+        "samedi": "09:30–13:30",
+        "dimanche": "Fermé",
+        "permanence_urgence_24h": true
+      },
+      "numero_urgence_24h": "Disponible sur votre police Mondial Assistance (numéro international 24h/24)",
+      "langues_disponibles": ["fr", "ar", "en", "es", "de"],
+      "couvertures": {
+        "frais_medicaux_max_mad": 580000,
+        "rapatriement_medical": true,
+        "rapatriement_corps": true,
+        "accident_corporel": true,
+        "perte_bagages_max_mad": 21000,
+        "annulation_voyage": true,
+        "responsabilite_civile": true,
+        "assistance_juridique": true
+      },
+      "cas_couverts": [
+        "accident_de_la_route",
+        "chute_blessure",
+        "noyade",
+        "intoxication_alimentaire",
+        "agression_vol",
+        "evacuation_medicale"
+      ],
+      "procedure_urgence": {
+        "etape_1": "Appeler le numéro Mondial Assistance 24h figurant sur votre police",
+        "etape_2": "Fournir le numéro de police et le passeport",
+        "etape_3": "Envoyer les billets de transport et les preuves du sinistre",
+        "etape_4": "Suivre les consignes de l'équipe d'assistance dédiée",
+        "etape_5": "Déclarer le sinistre via le portail client en ligne"
+      },
+      "documents_requis_remboursement": [
+        "passport_ou_CNI",
+        "police_assurance",
+        "rapport_medical_ou_hospitalier",
+        "factures_originales",
+        "billets_transport",
+        "photos_preuves",
+        "formulaire_sinistre"
+      ],
+      "delai_remboursement_jours": 24,
+      "note_moyenne": 4.3,
+      "avis_count": 152,
+      "tags": ["urgence", "rapatriement", "24h", "multilingue", "bagages", "assistance_specialisee"],
+      "partenaires_hopitaux": ["urg_001", "urg_004", "urg_005"],
+      "applicable_nationalites": ["toutes"],
+      "tarif_journalier_moyen_mad": 112,
+      "note_rag": "Spécialiste noyade et accidents nautiques — pertinent pour Tanger côtière. Couverture bagages solide. Agence ouverte le samedi matin."
+    }
+  ]
+}
