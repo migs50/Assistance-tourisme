@@ -26,6 +26,7 @@ LOGISTICS_KEYWORDS = [
     "aéroport", "gare", "trajet", "itinéraire", "comment aller", "comment se rendre",
     "route", "chemin", "distance", "durée", "horaire", "billet", "ticket",
     "voiture", "location", "déplacement", "partir", "arriver",
+    "assurance", "couverture", "sinistre", "remboursement",
     "how to get", "directions", "schedule",
     "سيارة", "حافلة", "قطار", "مواصلات",
 ]

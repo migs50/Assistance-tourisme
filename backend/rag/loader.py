@@ -26,15 +26,11 @@ DATASET_FILES = {
     "services_urgence.json":  "service_urgence",
     "faq_part1.json":         "faq",
     "avis.json":              "avis",
-    "assurances.json":        "assurance",
+    
 }
 
-# Ajoute ces groupes après DATASET_FILES
-AGENT_CATEGORIES = {
-    "leisure":    ["hotel", "restaurant", "activite", "plage", "musee", "lieu_touristique"],
-    "logistics":  ["transport", "itineraire"],
-    "emergency":  ["service_urgence", "faq"],
-}
+
+
 def _load_json(filepath: Path) -> Any:
     """Charge un fichier JSON et retourne son contenu."""
     with open(filepath, encoding="utf-8") as f:
@@ -75,7 +71,7 @@ def load_all_documents() -> list[dict]:
         filepath = DATASET_PATH / filename
 
         if not filepath.exists():
-            print(f"[LOADER] ⚠️  Fichier introuvable : {filename}")
+            print(f"[LOADER]  Fichier introuvable : {filename}")
             continue
 
         try:

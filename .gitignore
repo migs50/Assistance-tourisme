@@ -17,3 +17,7 @@ coverage.xml
 *.log
 .git/
 .ipynb_checkpoints/
+backend/chroma_db/
+venv/
+.env
+__pycache__/

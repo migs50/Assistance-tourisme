@@ -17,7 +17,7 @@ CHROMA_PATH = Path(__file__).resolve().parent.parent / "chroma_db"
 
 # Modèle d'embedding multilingue (français + arabe + anglais)
 EMBEDDING_MODEL  = "paraphrase-multilingual-MiniLM-L12-v2"
-COLLECTION_NAME  = "tanger_tourisme"
+COLLECTION_NAME  = "tanger_V2"
 
 
 def get_chroma_client() -> chromadb.PersistentClient:

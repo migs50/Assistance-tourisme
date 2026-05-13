@@ -1,7 +1,6 @@
 """
 agents/base_agent.py
 Classe de base abstraite partagée par tous les agents.
-Chaque agent hérite de BaseAgent et surcharge `system_prompt` et `categories`.
 """
 import os
 from abc import ABC, abstractmethod
@@ -11,45 +10,47 @@ from models.schemas import AgentType, Source
 
 
 class BaseAgent(ABC):
-    """Agent de base : récupère le contexte RAG puis génère une réponse Llama 3."""
 
-    MODEL = "llama-3.1-8b-instant"   # Modèle Groq disponible en avril 2025
+    MODEL = "llama-3.1-8b-instant"
 
     def __init__(self):
         self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-    # ── À surcharger dans chaque agent ────────────────────────────────────────
-
     @property
     @abstractmethod
     def agent_type(self) -> AgentType:
-        """Type de l'agent (utilisé dans la réponse API)."""
+        pass
 
     @property
     @abstractmethod
     def categories(self) -> list[str]:
-        """Catégories RAG que cet agent utilise."""
+        pass
 
     @property
     @abstractmethod
     def system_prompt(self) -> str:
-        """Prompt système spécifique à l'agent."""
+        pass
 
-    # ── Méthode principale ────────────────────────────────────────────────────
+    def _get_active_categories(self) -> list[str]:
+      val = getattr(self, "_override_categories", None)
+      return val if val else self.categories
+
+    def _get_active_prompt(self) -> str:
+      val = getattr(self, "_override_prompt", None)
+      return val if val else self.system_prompt
 
     def run(self, user_message: str, language: str = "fr") -> dict:
-        """
-        1. Récupère les documents pertinents dans ChromaDB.
-        2. Construit le prompt avec contexte RAG.
-        3. Appelle Groq / Llama 3 et retourne la réponse.
-        """
-        # Recherche RAG — on essaie chaque catégorie de l'agent
+        # Utilise les catégories et prompt actifs (surchargés ou par défaut)
+        active_categories = self._get_active_categories()
+        active_prompt     = self._get_active_prompt()
+
+        # Recherche RAG par catégorie
         all_docs = []
-        for cat in self.categories:
+        for cat in active_categories:
             docs = retrieve(user_message, n_results=3, category_filter=cat)
             all_docs.extend(docs)
 
-        # Si aucun doc trouvé avec filtre, recherche globale
+        # Fallback recherche globale si rien trouvé
         if not all_docs:
             all_docs = retrieve(user_message, n_results=5)
 
@@ -64,36 +65,33 @@ class BaseAgent(ABC):
 
         context = format_context(unique_docs[:5])
 
-        # Construction du prompt
         lang_instruction = {
             "fr": "Réponds toujours en français.",
             "en": "Always answer in English.",
             "ar": "أجب دائماً باللغة العربية.",
         }.get(language, "Réponds toujours en français.")
 
-        full_system = f"{self.system_prompt}\n\n{lang_instruction}"
+        full_system = f"{active_prompt}\n\n{lang_instruction}"
 
         user_content = f"""Question du touriste : {user_message}
 
 {context}
 
-En te basant UNIQUEMENT sur les informations ci-dessus, donne une réponse précise, utile et amicale.
-Si l'information n'est pas disponible, dis-le poliment et propose une alternative."""
+En te basant UNIQUEMENT sur les informations ci-dessus, donne une réponse précise et directe.
+Si l'information n'est pas disponible dans les données, dis-le clairement."""
 
-        # Appel Groq
         completion = self.client.chat.completions.create(
             model=self.MODEL,
             messages=[
-                {"role": "system",  "content": full_system},
-                {"role": "user",    "content": user_content},
+                {"role": "system", "content": full_system},
+                {"role": "user",   "content": user_content},
             ],
-            temperature=0.2,   
-            max_tokens=500,  
+            temperature=0.2,
+            max_tokens=500,
         )
 
         response_text = completion.choices[0].message.content
 
-        # Sources à retourner
         sources = [
             Source(
                 text=d["text"][:200],
@@ -103,6 +101,14 @@ Si l'information n'est pas disponible, dis-le poliment et propose une alternativ
             )
             for d in unique_docs[:3]
         ]
+
+        # Nettoyage des overrides après exécution
+        self._override_categories = None
+        self._override_prompt     = None
+        if hasattr(self, "_override_categories"):
+          del self._override_categories
+        if hasattr(self, "_override_prompt"):
+          del self._override_prompt
 
         return {
             "agent":    self.agent_type,
