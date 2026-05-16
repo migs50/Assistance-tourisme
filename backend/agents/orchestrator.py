@@ -1,7 +1,5 @@
 """
 agents/orchestrator.py
-Orchestrateur central : détecte l'intention de l'utilisateur
-et route la requête vers le bon agent spécialisé.
 """
 import re
 from models.schemas import AgentType, ChatResponse
@@ -10,9 +8,7 @@ from agents.logistics_agent import LogisticsAgent
 from agents.emergency_agent import EmergencyAgent
 from agents.general_agent   import GeneralAgent
 
-
-# ─── Mots-clés par domaine ────────────────────────────────────────────────────
-
+# --- Mots-clés (inchangés) ---
 EMERGENCY_KEYWORDS = [
     "urgence", "urgent", "secours", "ambulance", "police", "pompier",
     "accident", "blessé", "hôpital", "pharmacie", "médecin", "docteur",
@@ -44,7 +40,6 @@ LEISURE_KEYWORDS = [
 
 
 class Orchestrator:
-    """Route les messages utilisateur vers l'agent le plus adapté."""
 
     def __init__(self):
         self._agents = {
@@ -54,49 +49,64 @@ class Orchestrator:
             AgentType.GENERAL:   GeneralAgent(),
         }
 
-    # ── Détection d'intention ─────────────────────────────────────────────────
-
-    def _detect_agent(self, message: str) -> AgentType:
+    # ── NOUVEAU : détecte une liste d'agents ──────────────────────────────────
+    def _detect_agents(self, message: str) -> list[AgentType]:
         """
-        Détermine quel agent doit traiter le message.
-        Priorité : Urgence > Logistique > Loisirs > Général
+        Retourne la liste de tous les agents concernés par le message.
+        Si un seul domaine → liste avec 1 agent.
+        Si plusieurs → liste avec 2-3 agents (sans GENERAL).
         """
         msg_lower = message.lower()
+        detected  = []
 
-        # 1. Urgence — priorité maximale
+        # Urgence — priorité maximale, toujours seul
         if any(kw in msg_lower for kw in EMERGENCY_KEYWORDS):
-            return AgentType.EMERGENCY
+            return [AgentType.EMERGENCY]
 
-        # 2. Logistique
         if any(kw in msg_lower for kw in LOGISTICS_KEYWORDS):
-            return AgentType.LOGISTICS
+            detected.append(AgentType.LOGISTICS)
 
-        # 3. Loisirs
         if any(kw in msg_lower for kw in LEISURE_KEYWORDS):
-            return AgentType.LEISURE
+            detected.append(AgentType.LEISURE)
 
-        # 4. Général par défaut
-        return AgentType.GENERAL
+        # Aucun domaine détecté → General
+        if not detected:
+            return [AgentType.GENERAL]
 
-    # ── Point d'entrée principal ──────────────────────────────────────────────
+        return detected  # Peut contenir 1 ou 2 agents
 
+    # ── handle() mis à jour ───────────────────────────────────────────────────
     def handle(
         self,
-        message: str,
+        message:    str,
         session_id: str = "default",
         language:   str = "fr",
     ) -> ChatResponse:
-        """
-        Traite un message utilisateur de bout en bout :
-        détection → sélection de l'agent → appel RAG + LLM → réponse.
-        """
-        agent_type = self._detect_agent(message)
-        agent      = self._agents[agent_type]
 
-        print(f"[ORCHESTRATOR] Message : '{message[:60]}…'")
-        print(f"[ORCHESTRATOR] Agent sélectionné : {agent_type.value}")
+        agent_types = self._detect_agents(message)
 
-        result = agent.run(message, language=language)
+        print(f"[ORCHESTRATOR] Message    : '{message[:60]}…'")
+        print(f"[ORCHESTRATOR] Agent(s)   : {[a.value for a in agent_types]}")
+
+        # ── Cas simple : 1 seul agent (comportement inchangé) ─────────────────
+        if len(agent_types) == 1:
+            result = self._agents[agent_types[0]].run(message, language=language)
+
+        # ── Cas multi-agents : collecte + fusion via GeneralAgent ─────────────
+        else:
+            results = []
+            for agent_type in agent_types:
+                r = self._agents[agent_type].run(message, language=language)
+                results.append(r)
+                print(f"[ORCHESTRATOR] ✅ {agent_type.value} a répondu.")
+
+            # GeneralAgent fusionne toutes les réponses
+            result = self._agents[AgentType.GENERAL].synthesize(
+                user_message=message,
+                agent_results=results,
+                language=language,
+            )
+            print(f"[ORCHESTRATOR] 🔀 Fusion effectuée par GeneralAgent.")
 
         return ChatResponse(
             agent      = result["agent"],
@@ -106,7 +116,6 @@ class Orchestrator:
         )
 
     def get_agent_for_category(self, category: str) -> AgentType:
-        """Retourne l'AgentType responsable d'une catégorie donnée."""
         CATEGORY_MAP = {
             "hotel":            AgentType.LEISURE,
             "restaurant":       AgentType.LEISURE,
