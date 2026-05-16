@@ -21,3 +21,45 @@ backend/chroma_db/
 venv/
 .env
 __pycache__/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/
+.ipynb_checkpoints/
+backend/chroma_db/
+venv/
+.env
+__pycache__/
+#Dataset (déjà sur git / trop lourd)
+dataset/
+# Node modules
+frontend/node_modules/
+frontend/dist/
+# Fichiers système Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+# Scripts de génération de données
+gen_*.py
+update_*.py
+validate_*.py
