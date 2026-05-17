@@ -1,0 +1,233 @@
+[
+  {
+    "nom": "Musée Ibn Battouta",
+    "prix": "30 DH",
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80",
+    "type": "historique",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "centre-ville",
+    "description": "Musée dédié au célèbre explorateur tangérois Ibn Battouta, retraçant ses voyages à travers le monde musulman au 14ème siècle. Cartes anciennes, manuscrits et reconstitutions de scènes de voyage."
+  },
+  {
+    "nom": "Cinémathèque de Tanger",
+    "prix": "40 DH",
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+    "type": "culture",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Espace culturel fondé par le cinéaste Yto Barrada dans l'ancien ciné-club Rif, programmant des films d'auteur et des expositions d'art contemporain. Café-lecture et activités pédagogiques pour la jeunesse."
+  },
+  {
+    "nom": "Grand Socco et Petit Socco",
+    "prix": "Gratuit",
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    "type": "historique",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Places emblématiques de la vie tangéroise, le Grand Socco avec sa fontaine et ses palmiers, le Petit Socco au cœur des ruelles. Points de rencontre historiques entre cultures, témoins de l'âge d'or de Tanger internationale."
+  },
+  {
+    "nom": "Croisière vers Tarifa",
+    "prix": "600 DH",
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    "type": "aventure",
+    "budget": "luxe",
+    "duree": "Journée complète",
+    "localisation": "centre-ville",
+    "description": "Traversée en ferry rapide vers l'Espagne pour une journée à Tarifa, capitale européenne du kite-surf. Découverte de la vieille ville andalouse, tapas sur la place principale et retour le soir avec vue sur deux continents."
+  },
+  {
+    "nom": "Excursion à Chefchaouen",
+    "prix": "350 DH",
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "Journée complète",
+    "localisation": "extérieurs",
+    "description": "Excursion d'une journée vers la célèbre ville bleue de Chefchaouen dans le Rif, à deux heures de route. Ruelles azurées, artisanat local, cascade de Ras El Maa et déjeuner dans un restaurant panoramique."
+  },
+  {
+    "nom": "Promenade sur la Corniche",
+    "prix": "Gratuit",
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "type": "famille",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "centre-ville",
+    "description": "Belle promenade balnéaire longeant la côte ouest de Tanger, reliant le centre-ville au Cap Spartel. Vue permanente sur la mer, bancs publics, cafés et ambiance relaxante pour une balade en famille au bord de l'eau."
+  },
+  {
+    "nom": "Tour en calèche de la médina",
+    "prix": "100 DH",
+    "rating": 4.2,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    "type": "famille",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Balade traditionnelle en calèche à cheval à travers les rues de la médina et le long de la corniche. Moyen pittoresque et charmant de découvrir les quartiers historiques, apprécié des enfants et des familles."
+  },
+  {
+    "nom": "Atelier de cuisine marocaine",
+    "prix": "300 DH",
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
+    "type": "culture",
+    "budget": "moyen",
+    "duree": "Demi-journée",
+    "localisation": "médina",
+    "description": "Cours de cuisine interactif chez l'habitant pour apprendre à préparer tajines, couscous et pastilla. Visite du marché local pour acheter les ingrédients, puis dégstration des plats préparés ensemble."
+  },
+  {
+    "nom": "Plongée sous-marine",
+    "prix": "500 DH",
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    "type": "aventure",
+    "budget": "luxe",
+    "duree": "Demi-journée",
+    "localisation": "extérieurs",
+    "description": "Session de plongée sous-marine dans les eaux cristallines du détroit de Gibraltar, encadrée par des moniteurs certifiés. Découverte de la faune et flore marines, épaves et fonds rocheux spectaculaires."
+  },
+  {
+    "nom": "Kitesurf à Dalia",
+    "prix": "450 DH",
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
+    "type": "aventure",
+    "budget": "luxe",
+    "duree": "Demi-journée",
+    "localisation": "extérieurs",
+    "description": "Cours de kitesurf sur la plage de Dalia, spot réputé pour ses vents réguliers et ses conditions idéales. Initiation ou perfectionnement avec équipement fourni, encadré par des instructeurs expérimentés."
+  },
+  {
+    "nom": "Musée archéologique de Tanger",
+    "prix": "20 DH",
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80",
+    "type": "historique",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "centre-ville",
+    "description": "Musée abritant des collections archéologiques allant de la préhistoire à l'époque islamique. Mosaïques romaines, céramiques phéniciennes et objets funéraires témoignant de la richesse du passé tangérois."
+  },
+  {
+    "nom": "Hammam traditionnel",
+    "prix": "150 DH",
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80",
+    "type": "famille",
+    "budget": "moyen",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Expérience authentique de hammam marocain dans un établissement historique de la médina. Gommage au savon noir, enveloppement au rhassoul et massage aux huiles essentielles pour un moment de bien-être inoubliable."
+  },
+  {
+    "nom": "Galerie d'art contemporain",
+    "prix": "Gratuit",
+    "rating": 4.2,
+    "image": "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+    "type": "culture",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Espace d'exposition dédié à l'art contemporain marocain et international, installé dans un ancien entrepôt de la médina. Expositions rotatives, vernissages et rencontres avec les artistes tout au long de l'année."
+  },
+  {
+    "nom": "Surf à Achakar",
+    "prix": "300 DH",
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1502680390548-bdbac40b3029?w=800&q=80",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "Demi-journée",
+    "localisation": "extérieurs",
+    "description": "Leçon de surf sur les vagues de la plage d'Achakar, adaptée aux débutants comme aux surfeurs confirmés. Combinaison et planche fournies, avec instructeur diplômé pour une initiation en toute sécurité."
+  },
+  {
+    "nom": "Marché aux puces de la médina",
+    "prix": "Gratuit",
+    "rating": 4.1,
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    "type": "culture",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Marché animé où se mêlent antiquités, artisanat, vêtements et bibelots de toutes sortes. Paradis des chineurs et des curieux, on y trouve des trésors insoupçonnés à prix cassés après un peu de marchandage."
+  },
+  {
+    "nom": "Visite du Palais du Méchouar",
+    "prix": "40 DH",
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80",
+    "type": "historique",
+    "budget": "économique",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Ancien palais royal situé dans l'enceinte de la Kasbah, abritant un musée des arts et traditions. Jardins andalous, zelliges anciens et collections de costumes et d'armes traditionnelles."
+  },
+  {
+    "nom": "VTT dans les collines de Tanger",
+    "prix": "350 DH",
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "Demi-journée",
+    "localisation": "extérieurs",
+    "description": "Balade en VTT à travers les collines et les sentiers forestiers autour de Tanger, avec des vues panoramiques sur la mer. Parcours adaptés à tous les niveaux, encadrés par des guides locaux passionnés."
+  },
+  {
+    "nom": "Excursion au Parc National d'Al Hoceima",
+    "prix": "500 DH",
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
+    "type": "aventure",
+    "budget": "luxe",
+    "duree": "Journée complète",
+    "localisation": "extérieurs",
+    "description": "Excursion d'une journée vers le parc national d'Al Hoceima sur la côte méditerranéenne. Randonnée dans les montagnes du Rif, plages sauvages et observation de la faune marine dans un cadre protégé exceptionnel."
+  },
+  {
+    "nom": "Soirée de musique gnawa",
+    "prix": "200 DH",
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+    "type": "culture",
+    "budget": "moyen",
+    "duree": "Quelques heures",
+    "localisation": "médina",
+    "description": "Soirée immersive dans un riad de la médina pour découvrir la musique gnawa, patrimoine culturel immatériel de l'UNESCO. Concert live, dance participative et thé à la menthe dans une ambiance spirituelle."
+  },
+  {
+    "nom": "Kayak de mer",
+    "prix": "250 DH",
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1472745433479-4556f22e32c2?w=800&q=80",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "Demi-journée",
+    "localisation": "extérieurs",
+    "description": "Sortie en kayak de mer le long de la côte rocheuse de Tanger, avec arrêts dans des criques cachées et grottes marines. Activité sportive et ludique offrant une perspective unique sur la ville depuis l'eau."
+  },
+  {
+    "nom": "Visite du nouveau port Tanger Med",
+    "prix": "Gratuit",
+    "rating": 4.0,
+    "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80",
+    "type": "culture",
+    "budget": "économique",
+    "duree": "Demi-journée",
+    "localisation": "extérieurs",
+    "description": "Découverte du plus grand port d'Afrique, hub maritime reliant l'Europe et l'Afrique. Visite guidée des installations, explications sur le commerce maritime et vue spectaculaire sur les grues et les navires en transit."
+  }
+]

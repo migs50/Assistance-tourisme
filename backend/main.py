@@ -16,9 +16,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.chat      import router as chat_router
 from routes.recommend  import router as recommend_router
 from rag.embedder     import build_index
+from routes.recommandation import router as recommandation_router
 
 # Chargement des variables d'environnement (.env)
-
 
 
 @asynccontextmanager
@@ -65,7 +65,7 @@ app.add_middleware(
 # Enregistrement des routes
 app.include_router(chat_router)
 app.include_router(recommend_router)
-
+app.include_router(recommandation_router, prefix="/api/recommandation", tags=["Recommandation"])
 
 # ─── Endpoints de base ────────────────────────────────────────────────────────
 
