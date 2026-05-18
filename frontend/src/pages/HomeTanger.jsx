@@ -949,21 +949,462 @@ function SectionAccueil({ onOpenChat }) {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// DONNÉES ACTIVITÉS & ÉVÉNEMENTS
+// ─────────────────────────────────────────────────────────────────────────────
+const ACTIVITES_DATA = [
+  { nom: "Musée Ibn Battouta", prix: "30 DH", rating: 4.6, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80", description: "Musée dédié au célèbre explorateur tangérois Ibn Battouta, retraçant ses voyages à travers le monde musulman au 14ème siècle." },
+  { nom: "Cinémathèque de Tanger", prix: "40 DH", rating: 4.7, type: "culture", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80", description: "Espace culturel fondé par le cinéaste Yto Barrada dans l'ancien ciné-club Rif, programmant des films d'auteur et des expositions d'art contemporain." },
+  { nom: "Grand Socco et Petit Socco", prix: "Gratuit", rating: 4.5, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", description: "Places emblématiques de la vie tangéroise, témoins de l'âge d'or de Tanger internationale." },
+  { nom: "Croisière vers Tarifa", prix: "600 DH", rating: 4.5, type: "aventure", budget: "luxe", duree: "Journée complète", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", description: "Traversée en ferry rapide vers l'Espagne pour une journée à Tarifa, capitale européenne du kite-surf." },
+  { nom: "Excursion à Chefchaouen", prix: "350 DH", rating: 4.8, type: "aventure", budget: "moyen", duree: "Journée complète", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80", description: "Excursion d'une journée vers la célèbre ville bleue de Chefchaouen dans le Rif, à deux heures de route." },
+  { nom: "Promenade sur la Corniche", prix: "Gratuit", rating: 4.4, type: "famille", budget: "économique", duree: "Quelques heures", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80", description: "Belle promenade balnéaire longeant la côte ouest de Tanger, reliant le centre-ville au Cap Spartel." },
+  { nom: "Tour en calèche de la médina", prix: "100 DH", rating: 4.2, type: "famille", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", description: "Balade traditionnelle en calèche à cheval à travers les rues de la médina et le long de la corniche." },
+  { nom: "Atelier de cuisine marocaine", prix: "300 DH", rating: 4.7, type: "culture", budget: "moyen", duree: "Demi-journée", localisation: "médina", image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80", description: "Cours de cuisine interactif chez l'habitant pour apprendre à préparer tajines, couscous et pastilla." },
+  { nom: "Plongée sous-marine", prix: "500 DH", rating: 4.5, type: "aventure", budget: "luxe", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", description: "Session de plongée sous-marine dans les eaux cristallines du détroit de Gibraltar, encadrée par des moniteurs certifiés." },
+  { nom: "Kitesurf à Dalia", prix: "450 DH", rating: 4.6, type: "aventure", budget: "luxe", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80", description: "Cours de kitesurf sur la plage de Dalia, spot réputé pour ses vents réguliers et ses conditions idéales." },
+  { nom: "Musée archéologique de Tanger", prix: "20 DH", rating: 4.3, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80", description: "Musée abritant des collections archéologiques allant de la préhistoire à l'époque islamique." },
+  { nom: "Hammam traditionnel", prix: "150 DH", rating: 4.8, type: "famille", budget: "moyen", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80", description: "Expérience authentique de hammam marocain dans un établissement historique de la médina." },
+  { nom: "Galerie d'art contemporain", prix: "Gratuit", rating: 4.2, type: "culture", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80", description: "Espace d'exposition dédié à l'art contemporain marocain et international." },
+  { nom: "Surf à Achakar", prix: "300 DH", rating: 4.4, type: "aventure", budget: "moyen", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1502680390548-bdbac40b3029?w=800&q=80", description: "Leçon de surf sur les vagues de la plage d'Achakar, adaptée aux débutants comme aux surfeurs confirmés." },
+  { nom: "Soirée de musique gnawa", prix: "200 DH", rating: 4.6, type: "culture", budget: "moyen", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80", description: "Soirée immersive dans un riad de la médina pour découvrir la musique gnawa, patrimoine culturel immatériel de l'UNESCO." },
+  { nom: "VTT dans les collines", prix: "350 DH", rating: 4.5, type: "aventure", budget: "moyen", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80", description: "Balade en VTT à travers les collines et les sentiers forestiers autour de Tanger, avec des vues panoramiques." },
+  { nom: "Kayak de mer", prix: "250 DH", rating: 4.4, type: "aventure", budget: "moyen", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1472745433479-4556f22e32c2?w=800&q=80", description: "Sortie en kayak de mer le long de la côte rocheuse de Tanger, avec arrêts dans des criques cachées." },
+  { nom: "Visite du Palais du Méchouar", prix: "40 DH", rating: 4.5, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80", description: "Ancien palais royal situé dans l'enceinte de la Kasbah, abritant un musée des arts et traditions." },
+  { nom: "Excursion Parc National d'Al Hoceima", prix: "500 DH", rating: 4.7, type: "aventure", budget: "luxe", duree: "Journée complète", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80", description: "Randonnée dans les montagnes du Rif, plages sauvages et observation de la faune marine." },
+  { nom: "Marché aux puces de la médina", prix: "Gratuit", rating: 4.1, type: "culture", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", description: "Marché animé où se mêlent antiquités, artisanat, vêtements et bibelots de toutes sortes." },
+  { nom: "Visite Tanger Med", prix: "Gratuit", rating: 4.0, type: "culture", budget: "économique", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80", description: "Découverte du plus grand port d'Afrique, hub maritime reliant l'Europe et l'Afrique." },
+];
+
+const EVENTS_DATA = [
+  { id: "fete_musique", title: "Fête de la Musique - Tanger 2026", date: "Du 21 au 26 Juin 2026", location: "Palais des Arts, Tanger", category: "Musique", image_url: "https://images.unsplash.com/photo-1777290734934-1d6fd526f016?w=1200&q=80&fit=crop", description: "Concerts gratuits, jams sessions et performances live animeront la ville du Détroit dans une ambiance festive et conviviale." },
+  { id: "expo_back_to_morocco", title: "Exposition « Back to Morocco »", date: "Du 17 Juin au 31 Août 2026", location: "Musée de la Kasbah, Tanger", category: "Culture", image_url: "https://images.unsplash.com/photo-1778339098347-d2c013164b3a?w=1200&q=80&fit=crop", description: "Exposition photographique exceptionnelle retraçant les premiers temps de la photographie au Maroc." },
+  { id: "festival_plages", title: "Festival des Plages Maroc Telecom", date: "Du 15 Juillet au 21 Août 2026", location: "Corniche de Tanger", category: "Musique", image_url: "https://images.unsplash.com/photo-1759250451085-cd57dfa49b5c?w=1200&q=80&fit=crop", description: "Le plus grand festival gratuit du Maroc investit les plages de Tanger pour plusieurs semaines de concerts live en plein air." },
+  { id: "salon_livre", title: "Salon Régional du Livre", date: "Juillet 2026", location: "Centre Culturel de Tanger", category: "Culture", image_url: "https://images.unsplash.com/photo-1758839448242-1d4d6035e210?w=1200&q=80&fit=crop", description: "Éditeurs, auteurs et lecteurs se retrouvent pour des rencontres littéraires, des dédicaces et des tables rondes." },
+  { id: "tanjazz", title: "Tanjazz - 23e Festival International de Jazz", date: "Du 18 au 20 Septembre 2026", location: "Palais des Institutions Italiennes", category: "Musique", image_url: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=1200&q=80&fit=crop", description: "Tanjazz revient pour sa 23e édition — trois jours de concerts, de jam sessions et de rencontres musicales." },
+  { id: "tiff", title: "Tangier International Film Festival - 15e édition", date: "Du 7 au 10 Octobre 2026", location: "Cinémas et centres culturels", category: "Cinéma", image_url: "https://images.unsplash.com/photo-1762215609231-538f04f78d75?w=1200&q=80&fit=crop", description: "Compétition internationale de courts et longs métrages, projections en plein air et masterclasses." },
+  { id: "fnf", title: "26e Festival National du Film", date: "Du 23 au 31 Octobre 2026", location: "Palais des Congrès, Tanger", category: "Cinéma", image_url: "https://images.unsplash.com/photo-1702890764798-eda71e941da1?w=1200&q=80&fit=crop", description: "Neuf jours de compétition, de projections et de débats qui célèbrent la production cinématographique marocaine." },
+  { id: "marathon", title: "Marathon International de Tanger 2026", date: "Dimanche 15 Novembre 2026", location: "Tanja Marina Bay", category: "Sport", image_url: "https://images.unsplash.com/photo-1771166446975-2e9e9a9cd3d0?w=1200&q=80&fit=crop", description: "Marathon 42K, semi-marathon 21K et course 10K le long du détroit de Gibraltar." },
+  { id: "bachikh", title: "12e Festival Bachikh - Nouvel An Amazigh", date: "Du 12 au 13 Janvier 2027", location: "Tanger (lieux culturels)", category: "Culture", image_url: "https://images.unsplash.com/photo-1757947513279-217814eb998d?w=1200&q=80&fit=crop", description: "Concerts de musique amazighe, spectacles de danse, défilés traditionnels et gastronomie berbère." },
+  { id: "latin_festival", title: "9e Tangier International Latin Festival", date: "Janvier 2027", location: "Hôtel Kenzi Solazur, Tanger", category: "Culture", image_url: "https://images.unsplash.com/photo-1568805647632-69f6deec1547?w=1200&q=80&fit=crop", description: "Cinq jours de danse latine avec plus de 1500 danseurs internationaux — Salsa, Bachata et Kizomba." },
+];
+
+// ── Type → couleur & emoji
+const TYPE_CONFIG = {
+  aventure:   { color: "#f97316", emoji: "🏄", label: "Aventure" },
+  culture:    { color: "#06b6d4", emoji: "🎨", label: "Culture" },
+  historique: { color: "#a855f7", emoji: "🏛️", label: "Historique" },
+  famille:    { color: "#10b981", emoji: "👨‍👩‍👧", label: "Famille" },
+};
+const CAT_EVENT_CONFIG = {
+  Musique:  { color: "#f97316", emoji: "🎵" },
+  Culture:  { color: "#06b6d4", emoji: "🎨" },
+  Cinéma:   { color: "#a855f7", emoji: "🎬" },
+  Sport:    { color: "#10b981", emoji: "🏃" },
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SECTION ACTIVITÉS
+// ─────────────────────────────────────────────────────────────────────────────
 function SectionActivites() {
+  const [filter, setFilter]   = useState("tous");
+  const [budget, setBudget]   = useState("tous");
+  const [search, setSearch]   = useState("");
+  const [hovered, setHovered] = useState(null);
+
+  const types   = ["tous", "aventure", "culture", "historique", "famille"];
+  const budgets = ["tous", "économique", "moyen", "luxe"];
+
+  const filtered = ACTIVITES_DATA.filter(a => {
+    const matchType   = filter === "tous" || a.type === filter;
+    const matchBudget = budget === "tous" || a.budget === budget;
+    const matchSearch = !search || a.nom.toLowerCase().includes(search.toLowerCase()) || a.description.toLowerCase().includes(search.toLowerCase());
+    return matchType && matchBudget && matchSearch;
+  });
+
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px", textAlign: "center" }}>
-      <h2 style={{ color: "#f1f5f9", fontSize: "24px", fontWeight: 800, marginBottom: "12px" }}>Activités à Tanger</h2>
-      <p style={{ color: "#64748b", fontSize: "14px" }}>Section activités — à compléter</p>
-    </div>
+    <>
+      {/* Hero */}
+      <div style={{
+        background: "linear-gradient(160deg, #0f2040 0%, #0a1628 100%)",
+        borderBottom: "1px solid #1e3a5f",
+        padding: "52px 24px 44px",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(168,85,247,0.08) 0%, transparent 70%)",
+        }} />
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <span style={{
+            display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em",
+            textTransform: "uppercase", color: "#a855f7", background: "rgba(168,85,247,0.12)",
+            border: "1px solid rgba(168,85,247,0.3)", borderRadius: "100px", padding: "5px 16px", marginBottom: "18px",
+          }}>🎭 Activités</span>
+          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem,4vw,2.8rem)", fontWeight: 700, color: "#f1f5f9", margin: "0 0 10px" }}>
+            Que faire à <em style={{ fontStyle: "italic", color: "#a855f7" }}>Tanger ?</em>
+          </h1>
+          <p style={{ color: "#64748b", fontSize: "14px", margin: "0 auto 28px", maxWidth: "480px" }}>
+            {ACTIVITES_DATA.length} activités sélectionnées — aventure, culture, histoire, famille
+          </p>
+          {/* Stats */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "32px", flexWrap: "wrap" }}>
+            {Object.entries(TYPE_CONFIG).map(([k, v]) => (
+              <div key={k} style={{ textAlign: "center" }}>
+                <div style={{ fontSize: "22px" }}>{v.emoji}</div>
+                <div style={{ fontSize: "12px", color: v.color, fontWeight: 700, marginTop: "4px" }}>
+                  {ACTIVITES_DATA.filter(a => a.type === k).length} {v.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 24px 80px" }}>
+
+        {/* Barre de recherche + filtres */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "32px", alignItems: "center" }}>
+          {/* Search */}
+          <div style={{ position: "relative", flex: "1", minWidth: "200px" }}>
+            <span style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", fontSize: "14px", color: "#64748b" }}>🔍</span>
+            <input
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              placeholder="Rechercher une activité…"
+              style={{
+                width: "100%", padding: "10px 14px 10px 38px", boxSizing: "border-box",
+                background: "#112240", border: "1.5px solid #1e3a5f", borderRadius: "10px",
+                color: "#f1f5f9", fontSize: "14px", outline: "none",
+              }}
+              onFocus={e => e.target.style.borderColor = "#a855f7"}
+              onBlur={e => e.target.style.borderColor = "#1e3a5f"}
+            />
+          </div>
+
+          {/* Type pills */}
+          <div style={{ display: "flex", gap: "7px", flexWrap: "wrap" }}>
+            {types.map(t => {
+              const cfg = TYPE_CONFIG[t];
+              const isActive = filter === t;
+              return (
+                <button key={t} onClick={() => setFilter(t)} style={{
+                  padding: "7px 16px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 700,
+                  border: `1.5px solid ${isActive ? (cfg?.color || "#f97316") : "#1e3a5f"}`,
+                  background: isActive ? `${cfg?.color || "#f97316"}18` : "none",
+                  color: isActive ? (cfg?.color || "#f97316") : "#64748b",
+                  transition: "all 0.2s",
+                }}>
+                  {cfg ? `${cfg.emoji} ${cfg.label}` : "Tous"}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Budget pills */}
+          <div style={{ display: "flex", gap: "7px", flexWrap: "wrap" }}>
+            {budgets.map(b => {
+              const isActive = budget === b;
+              return (
+                <button key={b} onClick={() => setBudget(b)} style={{
+                  padding: "7px 14px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 600,
+                  border: `1.5px solid ${isActive ? "#f5c842" : "#1e3a5f"}`,
+                  background: isActive ? "rgba(245,200,66,0.12)" : "none",
+                  color: isActive ? "#f5c842" : "#64748b",
+                  transition: "all 0.2s",
+                }}>
+                  {b === "tous" ? "💰 Tous budgets" : b === "économique" ? "💚 Éco" : b === "moyen" ? "🟡 Moyen" : "💎 Luxe"}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Compteur */}
+        <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "24px" }}>
+          {filtered.length} activité{filtered.length > 1 ? "s" : ""} trouvée{filtered.length > 1 ? "s" : ""}
+        </p>
+
+        {/* Grille */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
+          {filtered.map((act, i) => {
+            const cfg = TYPE_CONFIG[act.type] || { color: "#f97316", emoji: "🎯" };
+            const isHov = hovered === i;
+            return (
+              <div key={i}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                style={{
+                  background: "#112240", borderRadius: "16px", overflow: "hidden",
+                  border: `1.5px solid ${isHov ? cfg.color : "#1e3a5f"}`,
+                  boxShadow: isHov ? `0 12px 36px rgba(0,0,0,0.45), 0 0 20px ${cfg.color}18` : "0 4px 16px rgba(0,0,0,0.3)",
+                  transform: isHov ? "translateY(-5px)" : "translateY(0)",
+                  transition: "all 0.22s",
+                }}
+              >
+                {/* Image */}
+                <div style={{
+                  height: "180px",
+                  background: `url(${act.image}) center/cover no-repeat, #0d2137`,
+                  position: "relative",
+                }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #112240 0%, transparent 50%)" }} />
+                  <span style={{
+                    position: "absolute", top: "12px", left: "12px",
+                    background: `${cfg.color}22`, border: `1px solid ${cfg.color}60`,
+                    color: cfg.color, fontSize: "11px", fontWeight: 700,
+                    padding: "3px 10px", borderRadius: "100px",
+                  }}>
+                    {cfg.emoji} {cfg.label}
+                  </span>
+                  <span style={{
+                    position: "absolute", top: "12px", right: "12px",
+                    background: "rgba(13,27,42,0.85)", color: "#f5c842",
+                    fontSize: "12px", fontWeight: 700, padding: "3px 9px", borderRadius: "100px",
+                  }}>
+                    ★ {act.rating}
+                  </span>
+                </div>
+
+                <div style={{ padding: "16px 18px 18px" }}>
+                  <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: "#f1f5f9", margin: "0 0 6px" }}>
+                    {act.nom}
+                  </h3>
+                  <p style={{
+                    fontSize: "12px", color: "#64748b", lineHeight: 1.55, margin: "0 0 14px",
+                    display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
+                  }}>
+                    {act.description}
+                  </p>
+
+                  {/* Meta */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "14px" }}>
+                    {[
+                      { icon: "📍", val: act.localisation },
+                      { icon: "⏱️", val: act.duree },
+                      { icon: "💰", val: act.budget },
+                    ].map((m, j) => (
+                      <span key={j} style={{
+                        fontSize: "10px", fontWeight: 500, color: "#64748b",
+                        background: "#0d2137", borderRadius: "100px", padding: "3px 9px",
+                      }}>
+                        {m.icon} {m.val}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer prix + CTA */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid #1e3a5f" }}>
+                    <span style={{ fontSize: "15px", fontWeight: 800, color: act.prix === "Gratuit" ? "#4ade80" : "#f1f5f9" }}>
+                      {act.prix}
+                    </span>
+                    <button style={{
+                      background: `linear-gradient(135deg, ${cfg.color}, ${cfg.color}cc)`,
+                      border: "none", borderRadius: "100px", color: "#fff",
+                      fontSize: "12px", fontWeight: 700, padding: "7px 16px", cursor: "pointer",
+                      transition: "opacity 0.2s",
+                    }}
+                      onMouseEnter={e => e.currentTarget.style.opacity = "0.82"}
+                      onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+                    >
+                      Réserver →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {filtered.length === 0 && (
+          <div style={{ textAlign: "center", padding: "60px 0", color: "#64748b" }}>
+            <div style={{ fontSize: "3rem", marginBottom: "12px" }}>🔍</div>
+            <p>Aucune activité trouvée — essayez d'autres filtres.</p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// SECTION ÉVÉNEMENTS
+// ─────────────────────────────────────────────────────────────────────────────
 function SectionEvenements() {
+  const [filter, setFilter]   = useState("tous");
+  const [hovered, setHovered] = useState(null);
+  const [expanded, setExpanded] = useState(null);
+
+  const cats = ["tous", "Musique", "Culture", "Cinéma", "Sport"];
+
+  const filtered = EVENTS_DATA.filter(e =>
+    filter === "tous" || e.category === filter
+  );
+
+  // Prochain événement (featured)
+  const featured = EVENTS_DATA[0];
+
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px", textAlign: "center" }}>
-      <h2 style={{ color: "#f1f5f9", fontSize: "24px", fontWeight: 800, marginBottom: "12px" }}>Événements à Tanger</h2>
-      <p style={{ color: "#64748b", fontSize: "14px" }}>Section événements — à compléter</p>
-    </div>
+    <>
+      {/* Hero avec l'événement vedette */}
+      <div style={{
+        position: "relative", overflow: "hidden",
+        background: `linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.95) 100%), url(${featured.image_url}) center/cover no-repeat`,
+        padding: "80px 24px 60px",
+        textAlign: "center",
+      }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "700px", margin: "0 auto" }}>
+          <span style={{
+            display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em",
+            textTransform: "uppercase", color: "#f97316", background: "rgba(249,115,22,0.15)",
+            border: "1px solid rgba(249,115,22,0.3)", borderRadius: "100px", padding: "5px 16px", marginBottom: "18px",
+          }}>📅 Agenda 2026–2027</span>
+          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem,4vw,2.8rem)", fontWeight: 700, color: "#f1f5f9", margin: "0 0 10px" }}>
+            Événements à <em style={{ fontStyle: "italic", color: "#f97316" }}>Tanger</em>
+          </h1>
+          <p style={{ color: "#94a3b8", fontSize: "14px", margin: "0 auto 28px", maxWidth: "500px" }}>
+            {EVENTS_DATA.length} événements à venir — concerts, festivals, culture et sport
+          </p>
+
+          {/* Stats catégories */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
+            {Object.entries(CAT_EVENT_CONFIG).map(([k, v]) => (
+              <div key={k} style={{ textAlign: "center" }}>
+                <div style={{ fontSize: "20px" }}>{v.emoji}</div>
+                <div style={{ fontSize: "12px", color: v.color, fontWeight: 700, marginTop: "4px" }}>
+                  {EVENTS_DATA.filter(e => e.category === k).length} {k}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 24px 80px" }}>
+
+        {/* Filtres catégorie */}
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "32px" }}>
+          {cats.map(c => {
+            const cfg = CAT_EVENT_CONFIG[c];
+            const isActive = filter === c;
+            return (
+              <button key={c} onClick={() => setFilter(c)} style={{
+                padding: "8px 18px", borderRadius: "100px", cursor: "pointer",
+                fontSize: "13px", fontWeight: 700,
+                border: `1.5px solid ${isActive ? (cfg?.color || "#f97316") : "#1e3a5f"}`,
+                background: isActive ? `${cfg?.color || "#f97316"}15` : "none",
+                color: isActive ? (cfg?.color || "#f97316") : "#64748b",
+                transition: "all 0.2s",
+              }}>
+                {cfg ? `${cfg.emoji} ${c}` : "🗓️ Tous"}
+              </button>
+            );
+          })}
+        </div>
+
+        <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "28px" }}>
+          {filtered.length} événement{filtered.length > 1 ? "s" : ""}
+        </p>
+
+        {/* Cards événements */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+          {filtered.map((ev, i) => {
+            const cfg = CAT_EVENT_CONFIG[ev.category] || { color: "#f97316", emoji: "🎉" };
+            const isHov = hovered === i;
+            const isExp = expanded === i;
+            return (
+              <div key={ev.id}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                style={{
+                  background: "#112240", borderRadius: "16px", overflow: "hidden",
+                  border: `1.5px solid ${isHov || isExp ? cfg.color : "#1e3a5f"}`,
+                  boxShadow: isHov ? `0 8px 28px rgba(0,0,0,0.4), 0 0 16px ${cfg.color}14` : "0 4px 16px rgba(0,0,0,0.25)",
+                  transition: "all 0.22s",
+                }}
+              >
+                <div style={{ display: "flex", gap: 0, flexWrap: "wrap" }}>
+                  {/* Image */}
+                  <div style={{
+                    width: "220px", minWidth: "220px", flexShrink: 0,
+                    background: `url(${ev.image_url}) center/cover no-repeat, #0d2137`,
+                    position: "relative",
+                    minHeight: "160px",
+                  }}>
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, transparent 60%, #112240 100%)" }} />
+                    <span style={{
+                      position: "absolute", top: "12px", left: "12px",
+                      background: `${cfg.color}22`, border: `1px solid ${cfg.color}60`,
+                      color: cfg.color, fontSize: "11px", fontWeight: 700,
+                      padding: "3px 10px", borderRadius: "100px",
+                    }}>
+                      {cfg.emoji} {ev.category}
+                    </span>
+                  </div>
+
+                  {/* Contenu */}
+                  <div style={{ flex: 1, padding: "20px 22px", minWidth: 0 }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px", marginBottom: "8px" }}>
+                      <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700, color: "#f1f5f9", margin: 0, lineHeight: 1.25 }}>
+                        {ev.title}
+                      </h3>
+                      {/* Badge à venir */}
+                      <span style={{
+                        flexShrink: 0, fontSize: "10px", fontWeight: 700, letterSpacing: "0.06em",
+                        background: "rgba(74,222,128,0.1)", color: "#4ade80",
+                        border: "1px solid rgba(74,222,128,0.25)", borderRadius: "100px", padding: "3px 10px",
+                      }}>À venir</span>
+                    </div>
+
+                    {/* Date & lieu */}
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "10px" }}>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: cfg.color, fontWeight: 600 }}>
+                        📅 {ev.date}
+                      </span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: "#64748b" }}>
+                        📍 {ev.location}
+                      </span>
+                    </div>
+
+                    {/* Description (collapse) */}
+                    <p style={{
+                      fontSize: "13px", color: "#64748b", lineHeight: 1.6, margin: "0 0 14px",
+                      ...(isExp ? {} : { display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }),
+                    }}>
+                      {ev.description}
+                    </p>
+
+                    {/* Actions */}
+                    <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                      <button onClick={() => setExpanded(isExp ? null : i)} style={{
+                        background: "none", border: "1px solid #1e3a5f",
+                        borderRadius: "100px", color: "#64748b",
+                        fontSize: "12px", fontWeight: 600, padding: "6px 14px", cursor: "pointer",
+                        transition: "all 0.2s",
+                      }}
+                        onMouseEnter={e => { e.currentTarget.style.borderColor = cfg.color; e.currentTarget.style.color = cfg.color; }}
+                        onMouseLeave={e => { e.currentTarget.style.borderColor = "#1e3a5f"; e.currentTarget.style.color = "#64748b"; }}
+                      >
+                        {isExp ? "Voir moins ↑" : "Lire plus ↓"}
+                      </button>
+                      <button style={{
+                        background: `linear-gradient(135deg, ${cfg.color}, ${cfg.color}cc)`,
+                        border: "none", borderRadius: "100px", color: "#fff",
+                        fontSize: "12px", fontWeight: 700, padding: "7px 16px", cursor: "pointer",
+                      }}>
+                        🎟️ En savoir plus
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 }
 
