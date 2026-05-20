@@ -109,6 +109,7 @@
         "permanence_urgence_24h": false
       },
       "numero_urgence_24h": "Disponible sur votre police d'assurance Wafa",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar"],
       "couvertures": {
         "frais_medicaux_max_mad": 250000,
@@ -169,6 +170,7 @@
         "permanence_urgence_24h": false
       },
       "numero_urgence_24h": "Disponible sur votre police d'assurance RMA",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar"],
       "couvertures": {
         "frais_medicaux_max_mad": 300000,
@@ -229,6 +231,7 @@
         "permanence_urgence_24h": false
       },
       "numero_urgence_24h": "Disponible sur votre police d'assurance Atlanta",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar", "es"],
       "couvertures": {
         "frais_medicaux_max_mad": 275000,
@@ -289,6 +292,7 @@
         "permanence_urgence_24h": true
       },
       "numero_urgence_24h": "Disponible sur votre police AXA (numéro international 24h/24)",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar", "en", "es", "de"],
       "couvertures": {
         "frais_medicaux_max_mad": 850000,
@@ -353,6 +357,7 @@
         "permanence_urgence_24h": true
       },
       "numero_urgence_24h": "Disponible sur votre police Allianz (numéro international 24h/24)",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar", "en", "de", "es", "it"],
       "couvertures": {
         "frais_medicaux_max_mad": 950000,
@@ -417,6 +422,7 @@
         "permanence_urgence_24h": true
       },
       "numero_urgence_24h": "Disponible sur votre police Generali (numéro international 24h/24)",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar", "en", "es", "it"],
       "couvertures": {
         "frais_medicaux_max_mad": 920000,
@@ -480,6 +486,7 @@
         "permanence_urgence_24h": false
       },
       "numero_urgence_24h": "Numéro adhérent CNOPS figurant sur votre carte mutuelle",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar"],
       "couvertures": {
         "frais_medicaux_max_mad": 120000,
@@ -538,6 +545,7 @@
         "permanence_urgence_24h": false
       },
       "numero_urgence_24h": "Numéro adhérent CMIM figurant sur votre carte mutuelle",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar"],
       "couvertures": {
         "frais_medicaux_max_mad": 110000,
@@ -596,6 +604,7 @@
         "permanence_urgence_24h": true
       },
       "numero_urgence_24h": "Disponible sur votre police Europ Assistance (numéro international 24h/24)",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar", "en", "es"],
       "couvertures": {
         "frais_medicaux_max_mad": 600000,
@@ -660,6 +669,7 @@
         "permanence_urgence_24h": true
       },
       "numero_urgence_24h": "Disponible sur votre police Mondial Assistance (numéro international 24h/24)",
+      "image_url": "https://source.unsplash.com/600x400/?insurance,office,morocco",
       "langues_disponibles": ["fr", "ar", "en", "es", "de"],
       "couvertures": {
         "frais_medicaux_max_mad": 580000,
