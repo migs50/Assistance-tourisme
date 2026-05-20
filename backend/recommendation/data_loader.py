@@ -58,8 +58,7 @@ logger = logging.getLogger(__name__)
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────
 
-_BACKEND_ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = _BACKEND_ROOT / "data"
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "dataset"
 
 DATASET_FILES: dict[str, str] = {
     "hotels":      "hotels.json",
