@@ -98,10 +98,10 @@ FIELD_DEFAULTS: dict[str, Any] = {
 
 # Renommage de champs
 FIELD_ALIASES: dict[str, dict[str, str]] = {
-    "hotels":      {"categorie": "budget",     "type": "type_sejour"},
-    "plages":      {"preference": "type_plage", "compagnie": "type_sejour"},
-    "activites":   {"type": "type_activite"},
-    "restaurants": {},
+    "hotels":      {"categorie": "budget", "type": "type_sejour", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
+    "plages":      {"preference": "type_plage", "compagnie": "type_sejour", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
+    "activites":   {"type": "type_activite", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
+    "restaurants": {"note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation", "type_cuisine": "cuisine"},
 }
 
 # Mapping valeurs type_plage (après remove_accents + lower)
