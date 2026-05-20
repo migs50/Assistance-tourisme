@@ -3,7 +3,7 @@
  * Avec onglets : Accueil | Recommandation | Activités | Événements | Dashboard
  * Section Recommandation : wizard interactif complet (inline, sans fichiers externes)
  */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import NavbarTanger from "../components/NavbarTanger";
 import Footer       from "../components/Footer";
 
@@ -324,14 +324,14 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
 // STEP 3 — ResultCards
 // ─────────────────────────────────────────────────────────────────────────────
 const PREF_MAP = {
-  budget:        { icon: "💰", labels: { economique: "Économique", moyen: "Moyen", luxe: "Luxe" } },
-  type_sejour:   { icon: "👥", labels: { couple: "Couple", famille: "Famille", solo: "Solo", amis: "Amis" } },
-  cuisine:       { icon: "🍴", labels: { marocaine: "Marocaine", internationale: "Internationale", cafe: "Café" } },
-  ambiance:      { icon: "✨", labels: { calme: "Calme", romantique: "Romantique", moderne: "Moderne" } },
-  type_plage:    { icon: "🌊", labels: { calme: "Calme", animee: "Animée", randonnee: "Randonnée", coucher_soleil: "Coucher de soleil" } },
-  type_activite: { icon: "🎯", labels: { aventure: "Aventure", historique: "Historique", famille: "Famille", culture: "Culture" } },
-  distance:      { icon: "🛣️", labels: { proche: "Proche", moyen: "Moyen", loin: "Loin" } },
-  localisation:  { icon: "📍" },
+  budget:        { icon: "", labels: { economique: "Économique", moyen: "Moyen", luxe: "Luxe" } },
+  type_sejour:   { icon: "", labels: { couple: "Couple", famille: "Famille", solo: "Solo", amis: "Amis" } },
+  cuisine:       { icon: "", labels: { marocaine: "Marocaine", internationale: "Internationale", cafe: "Café" } },
+  ambiance:      { icon: "", labels: { calme: "Calme", romantique: "Romantique", moderne: "Moderne" } },
+  type_plage:    { icon: "", labels: { calme: "Calme", animee: "Animée", randonnee: "Randonnée", coucher_soleil: "Coucher de soleil" } },
+  type_activite: { icon: "", labels: { aventure: "Aventure", historique: "Historique", famille: "Famille", culture: "Culture" } },
+  distance:      { icon: "", labels: { proche: "Proche", moyen: "Moyen", loin: "Loin" } },
+  localisation:  { icon: "" },
 };
 
 function cap(s) {
@@ -349,7 +349,7 @@ function ResultCard({ item, rank }) {
 
   const tags = [
     item.budget        && cap(item.budget),
-    item.localisation  && `📍 ${cap(item.localisation)}`,
+    item.localisation  && ` ${cap(item.localisation)}`,
     item.type_sejour   && cap(item.type_sejour),
     item.cuisine       && cap(item.cuisine),
     item.ambiance      && cap(item.ambiance),
@@ -385,7 +385,7 @@ function ResultCard({ item, rank }) {
           fontSize: "10px", fontWeight: 800, letterSpacing: "0.1em",
           textTransform: "uppercase", padding: "3px 10px", borderRadius: "100px",
         }}>
-          ⭐ Meilleur choix
+           Meilleur choix
         </div>
       )}
       {isFallback && (
@@ -408,7 +408,7 @@ function ResultCard({ item, rank }) {
         fontSize: "3rem",
         position: "relative",
       }}>
-        {!item.image && <span>🏙️</span>}
+        {!item.image && <span></span>}
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0, height: "50%",
           background: "linear-gradient(to top, #112240, transparent)",
@@ -489,7 +489,7 @@ function ResultCard({ item, rank }) {
               <span style={{ fontSize: "13px", fontWeight: 700, color: S.ivory }}>{prix}</span>
             </>}
             {!prix && item.adresse && (
-              <span style={{ fontSize: "11px", color: S.muted }}>📍 {item.adresse}</span>
+              <span style={{ fontSize: "11px", color: S.muted }}> {item.adresse}</span>
             )}
           </div>
           <button style={{
@@ -743,7 +743,7 @@ function SectionRecom() {
             borderRadius: "10px", padding: "13px 18px",
             color: "#fca5a5", fontSize: "13px", marginBottom: "24px",
           }}>
-            <span>⚠️ {error}</span>
+            <span> {error}</span>
             <button onClick={() => setError(null)} style={{
               background: "none", border: "none", color: "#fca5a5", cursor: "pointer", fontSize: "15px",
             }}>✕</button>
@@ -953,27 +953,36 @@ function SectionAccueil({ onOpenChat }) {
 // DONNÉES ACTIVITÉS & ÉVÉNEMENTS
 // ─────────────────────────────────────────────────────────────────────────────
 const ACTIVITES_DATA = [
-  { nom: "Musée Ibn Battouta", prix: "30 DH", rating: 4.6, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80", description: "Musée dédié au célèbre explorateur tangérois Ibn Battouta, retraçant ses voyages à travers le monde musulman au 14ème siècle." },
-  { nom: "Cinémathèque de Tanger", prix: "40 DH", rating: 4.7, type: "culture", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80", description: "Espace culturel fondé par le cinéaste Yto Barrada dans l'ancien ciné-club Rif, programmant des films d'auteur et des expositions d'art contemporain." },
-  { nom: "Grand Socco et Petit Socco", prix: "Gratuit", rating: 4.5, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", description: "Places emblématiques de la vie tangéroise, témoins de l'âge d'or de Tanger internationale." },
-  { nom: "Croisière vers Tarifa", prix: "600 DH", rating: 4.5, type: "aventure", budget: "luxe", duree: "Journée complète", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", description: "Traversée en ferry rapide vers l'Espagne pour une journée à Tarifa, capitale européenne du kite-surf." },
-  { nom: "Excursion à Chefchaouen", prix: "350 DH", rating: 4.8, type: "aventure", budget: "moyen", duree: "Journée complète", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80", description: "Excursion d'une journée vers la célèbre ville bleue de Chefchaouen dans le Rif, à deux heures de route." },
-  { nom: "Promenade sur la Corniche", prix: "Gratuit", rating: 4.4, type: "famille", budget: "économique", duree: "Quelques heures", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80", description: "Belle promenade balnéaire longeant la côte ouest de Tanger, reliant le centre-ville au Cap Spartel." },
-  { nom: "Tour en calèche de la médina", prix: "100 DH", rating: 4.2, type: "famille", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", description: "Balade traditionnelle en calèche à cheval à travers les rues de la médina et le long de la corniche." },
-  { nom: "Atelier de cuisine marocaine", prix: "300 DH", rating: 4.7, type: "culture", budget: "moyen", duree: "Demi-journée", localisation: "médina", image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80", description: "Cours de cuisine interactif chez l'habitant pour apprendre à préparer tajines, couscous et pastilla." },
-  { nom: "Plongée sous-marine", prix: "500 DH", rating: 4.5, type: "aventure", budget: "luxe", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", description: "Session de plongée sous-marine dans les eaux cristallines du détroit de Gibraltar, encadrée par des moniteurs certifiés." },
-  { nom: "Kitesurf à Dalia", prix: "450 DH", rating: 4.6, type: "aventure", budget: "luxe", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80", description: "Cours de kitesurf sur la plage de Dalia, spot réputé pour ses vents réguliers et ses conditions idéales." },
-  { nom: "Musée archéologique de Tanger", prix: "20 DH", rating: 4.3, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "centre-ville", image: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80", description: "Musée abritant des collections archéologiques allant de la préhistoire à l'époque islamique." },
-  { nom: "Hammam traditionnel", prix: "150 DH", rating: 4.8, type: "famille", budget: "moyen", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80", description: "Expérience authentique de hammam marocain dans un établissement historique de la médina." },
-  { nom: "Galerie d'art contemporain", prix: "Gratuit", rating: 4.2, type: "culture", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80", description: "Espace d'exposition dédié à l'art contemporain marocain et international." },
-  { nom: "Surf à Achakar", prix: "300 DH", rating: 4.4, type: "aventure", budget: "moyen", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1502680390548-bdbac40b3029?w=800&q=80", description: "Leçon de surf sur les vagues de la plage d'Achakar, adaptée aux débutants comme aux surfeurs confirmés." },
-  { nom: "Soirée de musique gnawa", prix: "200 DH", rating: 4.6, type: "culture", budget: "moyen", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80", description: "Soirée immersive dans un riad de la médina pour découvrir la musique gnawa, patrimoine culturel immatériel de l'UNESCO." },
-  { nom: "VTT dans les collines", prix: "350 DH", rating: 4.5, type: "aventure", budget: "moyen", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80", description: "Balade en VTT à travers les collines et les sentiers forestiers autour de Tanger, avec des vues panoramiques." },
-  { nom: "Kayak de mer", prix: "250 DH", rating: 4.4, type: "aventure", budget: "moyen", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1472745433479-4556f22e32c2?w=800&q=80", description: "Sortie en kayak de mer le long de la côte rocheuse de Tanger, avec arrêts dans des criques cachées." },
-  { nom: "Visite du Palais du Méchouar", prix: "40 DH", rating: 4.5, type: "historique", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?w=800&q=80", description: "Ancien palais royal situé dans l'enceinte de la Kasbah, abritant un musée des arts et traditions." },
-  { nom: "Excursion Parc National d'Al Hoceima", prix: "500 DH", rating: 4.7, type: "aventure", budget: "luxe", duree: "Journée complète", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80", description: "Randonnée dans les montagnes du Rif, plages sauvages et observation de la faune marine." },
-  { nom: "Marché aux puces de la médina", prix: "Gratuit", rating: 4.1, type: "culture", budget: "économique", duree: "Quelques heures", localisation: "médina", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", description: "Marché animé où se mêlent antiquités, artisanat, vêtements et bibelots de toutes sortes." },
-  { nom: "Visite Tanger Med", prix: "Gratuit", rating: 4.0, type: "culture", budget: "économique", duree: "Demi-journée", localisation: "extérieurs", image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80", description: "Découverte du plus grand port d'Afrique, hub maritime reliant l'Europe et l'Afrique." },
+  { nom: "Quad Aventure Cap Spartel", prix: "250 MAD", rating: 4.5, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", type: "aventure", budget: "moyen", duree: "2h", localisation: "extérieur", description: "Explorez les dunes et les pistes sauvages autour du Cap Spartel à bord de quads puissants. Une expérience de conduite tout-terrain inoubliable avec vue sur l'Atlantique et le détroit de Gibraltar, encadrée par des guides professionnels." },
+  { nom: "Karting Tanger Indoor", prix: "120 MAD", rating: 4.2, image: "https://images.unsplash.com/photo-1504204267155-aaad8e81290d?w=800&q=80", type: "sport", budget: "économique", duree: "1h", localisation: "intérieur", description: "Un circuit de karting couvert moderne au cœur de Tanger. Idéal pour les familles et groupes d'amis, avec des karts adaptés aux adultes et aux enfants. Sensations de vitesse garanties dans un environnement sécurisé." },
+  { nom: "Paintball Tanger Zone de Combat", prix: "180 MAD", rating: 4.3, image: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?w=800&q=80", type: "aventure", budget: "moyen", duree: "2h", localisation: "extérieur", description: "Affrontez vos amis dans des parties de paintball épiques sur un terrain aménagé en plein air près de la zone industrielle de Tanger. Équipements fournis, casques et combinaisons inclus. Parfait pour les team buildings et anniversaires." },
+  { nom: "Escape Room Tanger Mystery", prix: "150 MAD", rating: 4.6, image: "https://images.unsplash.com/photo-1596553700955-3b1f622a4c71?w=800&q=80", type: "aventure", budget: "moyen", duree: "1h", localisation: "intérieur", description: "Plongez dans une expérience de jeu d'évasion immersive avec plusieurs scénarios thématiques inspirés de la ville de Tanger et de son histoire." },
+  { nom: "Bowling Tanger Méditerranée", prix: "80 MAD", rating: 4.0, image: "https://images.unsplash.com/photo-1545680945-f56f99a4afe0?w=800&q=80", type: "famille", budget: "économique", duree: "2h", localisation: "intérieur", description: "Une salle de bowling moderne avec des pistes bien entretenues, idéale pour les sorties en famille ou entre amis. Lumières néon, musique animée et snack-bar sur place." },
+  { nom: "Hammam & Spa Riad Dar Jameel", prix: "380 MAD", rating: 4.8, image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80", type: "détente", budget: "luxe", duree: "2h", localisation: "intérieur", description: "Ressourcez-vous dans le hammam traditionnel et le spa du Riad Dar Jameel dans la médina de Tanger. Gommage au savon beldi, massage à l'huile d'argan, enveloppement au ghassoul." },
+  { nom: "Atelier Poterie Médina de Tanger", prix: "160 MAD", rating: 4.6, image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80", type: "créatif", budget: "moyen", duree: "2h", localisation: "intérieur", description: "Découvrez l'art ancestral de la poterie marocaine dans un atelier authentique au cœur de la médina. Un maître artisan vous initie au tour de potier et aux motifs berbères traditionnels." },
+  { nom: "Atelier Cuisine Marocaine Dar Tanger", prix: "350 MAD", rating: 4.9, image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80", type: "gastronomie", budget: "luxe", duree: "demi-journée", localisation: "intérieur", description: "Initiez-vous aux secrets de la gastronomie marocaine dans un riad de charme en médina. Visite du souk pour les épices, puis préparation du tajine, couscous et pastilla guidée par un chef local." },
+  { nom: "Live Music Jazz & Gnawa Café Hafa", prix: "50 MAD", rating: 4.7, image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80", type: "nightlife", budget: "économique", duree: "soirée", localisation: "extérieur", description: "Vivez une soirée musicale inoubliable au légendaire Café Hafa, perché sur la falaise avec vue sur la mer. Jazz, gnawa et musique andalouse dans une atmosphère bohème unique." },
+  { nom: "Surf Plage Merkala", prix: "200 MAD", rating: 4.5, image: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&q=80", type: "sport", budget: "moyen", duree: "2h", localisation: "plage", description: "Prenez vos premières vagues ou perfectionnez votre technique à la plage de Merkala. Cours pour tous niveaux avec instructeurs certifiés, planches et combinaisons disponibles." },
+  { nom: "Kayak de Mer Grottes d'Hercule", prix: "250 MAD", rating: 4.7, image: "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=800&q=80", type: "aventure", budget: "moyen", duree: "demi-journée", localisation: "plage", description: "Pagayez le long du littoral atlantique jusqu'aux célèbres Grottes d'Hercule à Cap Spartel. Kayak de mer encadré avec vue sur falaises spectaculaires." },
+  { nom: "Yoga au Lever du Soleil Cap Spartel", prix: "100 MAD", rating: 4.7, image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80", type: "détente", budget: "économique", duree: "1h", localisation: "extérieur", description: "Séance de yoga en plein air au lever du soleil sur les hauteurs du Cap Spartel, à la jonction de l'Atlantique et de la Méditerranée. Instructrice certifiée, tapis fournis." },
+  { nom: "Jet Ski Plage Malabata", prix: "350 MAD", rating: 4.6, image: "https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80", type: "sport", budget: "luxe", duree: "1h", localisation: "plage", description: "Sillonnez les eaux turquoise du détroit de Gibraltar à bord d'un jet ski puissant depuis la plage de Malabata. Location avec gilet de sauvetage et briefing sécurité inclus." },
+  { nom: "Randonnée Jbel Moussa", prix: "120 MAD", rating: 4.8, image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80", type: "aventure", budget: "économique", duree: "journée complète", localisation: "montagne", description: "Ascension guidée du Jbel Moussa (882 m) avec vue panoramique sur Tanger, Gibraltar et l'Espagne. Guide local inclus, pique-nique en option." },
+  { nom: "Tour en Bateau Détroit de Gibraltar", prix: "400 MAD", rating: 4.8, image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80", type: "aventure", budget: "luxe", duree: "demi-journée", localisation: "plage", description: "Croisière dans le légendaire détroit de Gibraltar depuis le port de Tanger. Observation des dauphins, vue sur l'Europe et l'Afrique, passage devant le Cap Spartel." },
+  { nom: "Paint & Sip Workshop Tanger Art Studio", prix: "200 MAD", rating: 4.7, image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&q=80", type: "créatif", budget: "moyen", duree: "2h", localisation: "intérieur", description: "Atelier de peinture convivial guidé par un artiste local, verre de jus à la main. Ambiance décontractée, toiles et pinceaux fournis. Idéal pour anniversaires et soirées entre amis." },
+  { nom: "Rooftop Café El Morocco Club", prix: "80 MAD", rating: 4.6, image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=800&q=80", type: "nightlife", budget: "moyen", duree: "soirée", localisation: "centre-ville", description: "Cocktails, thé à la menthe et tapas marocaines sur le rooftop iconique en plein cœur de Tanger. Vue imprenable sur la médina et la baie. DJ les weekends." },
+  { nom: "Aqua Fun Park Asilah", prix: "200 MAD", rating: 4.4, image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80", type: "famille", budget: "moyen", duree: "journée complète", localisation: "extérieur", description: "À 40 km de Tanger, le parc aquatique d'Asilah offre toboggans géants, piscines à vagues et lazy river. Idéal pour les familles en été." },
+  { nom: "Dégustation de Thé & Pâtisseries Marocaines", prix: "70 MAD", rating: 4.5, image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80", type: "gastronomie", budget: "économique", duree: "1h", localisation: "centre-ville", description: "Découvrez le rituel du thé à la menthe marocain dans un salon de thé traditionnel de la médina. Cornes de gazelle, briwat et chebakia préparés maison." },
+  { nom: "Padel Club Tanger", prix: "100 MAD", rating: 4.3, image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=800&q=80", type: "sport", budget: "économique", duree: "1h", localisation: "extérieur", description: "Courts de padel bien entretenus dans un club moderne à Tanger. Location de raquettes disponible, cours pour débutants et créneaux compétitifs pour joueurs confirmés." },
+  { nom: "Tyrolienne Cap Malabata", prix: "280 MAD", rating: 4.8, image: "https://images.unsplash.com/photo-1533692328991-08159ff19fca?w=800&q=80", type: "aventure", budget: "moyen", duree: "1h", localisation: "extérieur", description: "Glissez en tyrolienne au-dessus des falaises et de la forêt de Cap Malabata avec vue imprenable sur le détroit. Accessible dès 12 ans. Adrénaline garantie." },
+  { nom: "Beach Club La Tangerina", prix: "200 MAD", rating: 4.5, image: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=800&q=80", type: "détente", budget: "moyen", duree: "journée complète", localisation: "plage", description: "Transats premium, bar à cocktails, cuisine de mer fraîche et piscine à débordement face à l'océan. Musique lounge et ambiance internationale." },
+  { nom: "VR Experience Tanger", prix: "120 MAD", rating: 4.4, image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80", type: "famille", budget: "moyen", duree: "1h", localisation: "intérieur", description: "Mondes virtuels époustouflants grâce aux casques VR de dernière génération. Jeux multijoueurs, simulations de vol et aventures fantastiques." },
+  { nom: "Plongée Sous-Marine Détroit de Gibraltar", prix: "450 MAD", rating: 4.7, image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", type: "aventure", budget: "luxe", duree: "demi-journée", localisation: "plage", description: "Explorez les fonds marins exceptionnels du détroit de Gibraltar avec un club certifié PADI. Dauphins, thons, murènes et pieuvres au programme." },
+  { nom: "Cake Design Workshop Tanger", prix: "220 MAD", rating: 4.5, image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80", type: "créatif", budget: "moyen", duree: "2h", localisation: "intérieur", description: "Apprenez à décorer des gâteaux comme un professionnel. Fondant, ganache, fleurs en sucre et techniques modernes. Repartez avec votre création." },
+  { nom: "Équitation Ranch Ksar Sghir", prix: "300 MAD", rating: 4.5, image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80", type: "sport", budget: "moyen", duree: "2h", localisation: "extérieur", description: "Balade équestre dans les paysages verdoyants autour de Ksar Sghir, à 30 km de Tanger. Chevaux barbes bien dressés, encadrement par des cavaliers expérimentés." },
+  { nom: "Piscine & Bien-être Hôtel Ibis Tanger", prix: "150 MAD", rating: 4.1, image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80", type: "détente", budget: "moyen", duree: "demi-journée", localisation: "intérieur", description: "Accès journée à la piscine chauffée et aux installations de bien-être. Transats, pool-bar, serviettes fournies. Une parenthèse de détente en plein cœur de Tanger." },
+  { nom: "Gaming Zone Tanger City Mall", prix: "50 MAD", rating: 4.0, image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80", type: "famille", budget: "économique", duree: "2h", localisation: "intérieur", description: "Espace de jeux vidéo et d'arcade moderne au Tanger City Mall. Consoles dernière génération, simulateurs de conduite et jeux de tir laser." },
+  { nom: "Cinéma Dawliz Méga", prix: "60 MAD", rating: 4.1, image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80", type: "famille", budget: "économique", duree: "2h", localisation: "intérieur", description: "Dernières sorties internationales et arabes dans des salles climatisées dotées de systèmes son Dolby. Popcorn et boissons disponibles au comptoir." },
+  { nom: "Visite Guidée Médina & Kasbah de Tanger", prix: "130 MAD", rating: 4.6, image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=800&q=80", type: "culture", budget: "économique", duree: "demi-journée", localisation: "centre-ville", description: "Explorez les ruelles labyrinthiques de la médina millénaire et la majestueuse Kasbah avec un guide certifié. Palais du Mendoub, Grande Mosquée, souks d'épices." },
 ];
 
 const EVENTS_DATA = [
@@ -991,40 +1000,259 @@ const EVENTS_DATA = [
 
 // ── Type → couleur & emoji
 const TYPE_CONFIG = {
-  aventure:   { color: "#f97316", emoji: "🏄", label: "Aventure" },
-  culture:    { color: "#06b6d4", emoji: "🎨", label: "Culture" },
-  historique: { color: "#a855f7", emoji: "🏛️", label: "Historique" },
-  famille:    { color: "#10b981", emoji: "👨‍👩‍👧", label: "Famille" },
+  // Types du nouveau dataset JSON
+  aventure:    { color: "#f97316",  label: "Aventure" },
+  sport:       { color: "#3b82f6",  label: "Sport" },
+  détente:     { color: "#ec4899", label: "Détente" },
+  culture:     { color: "#06b6d4", label: "Culture" },
+  gastronomie: { color: "#f59e0b", label: "Gastronomie" },
+  créatif:     { color: "#8b5cf6", label: "Créatif" },
+  nightlife:   { color: "#6366f1", label: "Nightlife" },
+  famille:     { color: "#10b981", label: "Famille" },
+  // Anciens types (compatibilité avec l'autre dataset)
+  historique:  { color: "#a855f7", label: "Historique" },
 };
+
 const CAT_EVENT_CONFIG = {
-  Musique:  { color: "#f97316", emoji: "🎵" },
-  Culture:  { color: "#06b6d4", emoji: "🎨" },
-  Cinéma:   { color: "#a855f7", emoji: "🎬" },
-  Sport:    { color: "#10b981", emoji: "🏃" },
+  Musique:  { color: "#f97316"},
+  Culture:  { color: "#06b6d4" },
+  Cinéma:   { color: "#a855f7" },
+  Sport:    { color: "#10b981"},
 };
+
+
+ 
+// ─────────────────────────────────────────────────────────────────────────────
+// Constantes de filtre — extraites dynamiquement depuis le dataset
+// ─────────────────────────────────────────────────────────────────────────────
+const ALL_TYPES   = ["tous", ...Object.keys(TYPE_CONFIG).filter(k =>
+  ACTIVITES_DATA.some(a => a.type === k)
+)];
+const ALL_BUDGETS = ["tous", "économique", "moyen", "luxe"];
+ 
+const BUDGET_CONFIG = {
+  économique: {  label: "Éco" },
+  moyen:      { label: "Moyen" },
+  luxe:       { label: "Luxe" },
+};
+ 
+const LOCALISATION_ICONS = {
+  intérieur:    "🏠",
+  extérieur:    "🌿",
+  plage:        "🏖️",
+  montagne:     "⛰️",
+  "centre-ville":"🏙️",
+  médina:       "🕌",
+  extérieurs:   "🌿",
+};
+ 
+// ─────────────────────────────────────────────────────────────────────────────
+// Formatage durée — normalise les deux formats (1h / Quelques heures)
+// ─────────────────────────────────────────────────────────────────────────────
+function formatDuree(duree) {
+  const map = {
+    "1h":              "1h",
+    "2h":              "2h",
+    "demi-journée":    "Demi-journée",
+    "Demi-journée":    "Demi-journée",
+    "journée complète":"Journée complète",
+    "Journée complète":"Journée complète",
+    "soirée":          "Soirée",
+    "quelques heures": "Quelques heures",
+    "Quelques heures": "Quelques heures",
+  };
+  return map[duree] ?? duree;
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SECTION ACTIVITÉS
 // ─────────────────────────────────────────────────────────────────────────────
+function ActiviteCard({ act, index }) {
+  const [hovered, setHovered] = useState(false);
+  const cfg = TYPE_CONFIG[act.type] ?? { color: "#94a3b8", label: act.type };
+  const isGratuit = act.prix?.toLowerCase() === "gratuit";
+ 
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: "#112240",
+        borderRadius: "16px",
+        overflow: "hidden",
+        border: `1.5px solid ${hovered ? cfg.color : "#1e3a5f"}`,
+        boxShadow: hovered
+          ? `0 16px 40px rgba(0,0,0,0.5), 0 0 24px ${cfg.color}20`
+          : "0 4px 16px rgba(0,0,0,0.3)",
+        transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
+        animation: `fadeInUp 0.4s ease both`,
+        animationDelay: `${index * 0.04}s`,
+      }}
+    >
+      {/* IMAGE */}
+      <div
+        style={{
+          height: "185px",
+          backgroundImage: `url(${act.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "#0d2137",
+          position: "relative",
+        }}
+      >
+        {/* Dégradé bas */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to top, #112240 0%, transparent 55%)",
+        }} />
+ 
+        {/* Badge type */}
+        <span style={{
+          position: "absolute", top: "12px", left: "12px",
+          background: `${cfg.color}25`,
+          border: `1px solid ${cfg.color}55`,
+          color: cfg.color,
+          fontSize: "11px", fontWeight: 700,
+          padding: "4px 11px", borderRadius: "100px",
+          backdropFilter: "blur(6px)",
+        }}>
+          {cfg.emoji} {cfg.label}
+        </span>
+ 
+        {/* Rating */}
+        <span style={{
+          position: "absolute", top: "12px", right: "12px",
+          background: "rgba(10,20,35,0.82)",
+          color: "#f5c842",
+          fontSize: "12px", fontWeight: 700,
+          padding: "4px 10px", borderRadius: "100px",
+          backdropFilter: "blur(6px)",
+        }}>
+          ★ {act.rating.toFixed(1)}
+        </span>
+      </div>
+ 
+      {/* CONTENU */}
+      <div style={{ padding: "16px 18px 18px" }}>
+ 
+        <h3 style={{
+          fontFamily: "Georgia, serif",
+          fontSize: "1.05rem", fontWeight: 700,
+          color: "#f1f5f9", margin: "0 0 7px",
+          lineHeight: 1.3,
+        }}>
+          {act.nom}
+        </h3>
+ 
+        <p style={{
+          fontSize: "12px", color: "#64748b",
+          lineHeight: 1.6, margin: "0 0 14px",
+          display: "-webkit-box",
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+        }}>
+          {act.description}
+        </p>
+ 
+        {/* META BADGES */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "14px" }}>
+          {/* Localisation */}
+          <span style={metaBadgeStyle}>
+            {LOCALISATION_ICONS[act.localisation] ?? ""} {act.localisation}
+          </span>
+          {/* Durée */}
+          <span style={metaBadgeStyle}>
+            ⏱️ {formatDuree(act.duree)}
+          </span>
+          {/* Budget */}
+          <span style={metaBadgeStyle}>
+            {BUDGET_CONFIG[act.budget]?.emoji ?? ""} {act.budget}
+          </span>
+        </div>
+ 
+        {/* FOOTER : prix + CTA */}
+        <div style={{
+          display: "flex", alignItems: "center",
+          justifyContent: "space-between",
+          paddingTop: "13px",
+          borderTop: "1px solid #1e3a5f",
+        }}>
+          <span style={{
+            fontSize: "16px", fontWeight: 800,
+            color: isGratuit ? "#4ade80" : "#f1f5f9",
+          }}>
+            {act.prix}
+          </span>
+ 
+          <button
+            style={{
+              background: `linear-gradient(135deg, ${cfg.color} 0%, ${cfg.color}bb 100%)`,
+              border: "none", borderRadius: "100px",
+              color: "#fff", fontSize: "12px", fontWeight: 700,
+              padding: "8px 18px", cursor: "pointer",
+              transition: "opacity 0.2s, transform 0.15s",
+              letterSpacing: "0.02em",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = "0.82"; e.currentTarget.style.transform = "scale(0.97)"; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "scale(1)"; }}
+          >
+            Réserver →
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+ 
+const metaBadgeStyle = {
+  fontSize: "11px", fontWeight: 500, color: "#94a3b8",
+  background: "#0d2137", borderRadius: "100px",
+  padding: "3px 10px", whiteSpace: "nowrap",
+};
+ 
+// ─────────────────────────────────────────────────────────────────────────────
+// SECTION ACTIVITÉS PRINCIPALE
+// ─────────────────────────────────────────────────────────────────────────────
 function SectionActivites() {
-  const [filter, setFilter]   = useState("tous");
-  const [budget, setBudget]   = useState("tous");
-  const [search, setSearch]   = useState("");
-  const [hovered, setHovered] = useState(null);
-
-  const types   = ["tous", "aventure", "culture", "historique", "famille"];
-  const budgets = ["tous", "économique", "moyen", "luxe"];
-
-  const filtered = ACTIVITES_DATA.filter(a => {
-    const matchType   = filter === "tous" || a.type === filter;
-    const matchBudget = budget === "tous" || a.budget === budget;
-    const matchSearch = !search || a.nom.toLowerCase().includes(search.toLowerCase()) || a.description.toLowerCase().includes(search.toLowerCase());
-    return matchType && matchBudget && matchSearch;
-  });
-
+  const [activeType,   setActiveType]   = useState("tous");
+  const [activeBudget, setActiveBudget] = useState("tous");
+  const [search,       setSearch]       = useState("");
+ 
+  // ── Filtrage mémoïsé ──────────────────────────────────────────────────────
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase().trim();
+    return ACTIVITES_DATA.filter(a => {
+      const matchType   = activeType   === "tous" || a.type   === activeType;
+      const matchBudget = activeBudget === "tous" || a.budget === activeBudget;
+      const matchSearch = !q
+        || a.nom.toLowerCase().includes(q)
+        || a.description.toLowerCase().includes(q)
+        || a.type.toLowerCase().includes(q)
+        || a.localisation.toLowerCase().includes(q);
+      return matchType && matchBudget && matchSearch;
+    });
+  }, [activeType, activeBudget, search]);
+ 
+  // ── Compteurs par type (pour les stats hero) ──────────────────────────────
+  const countByType = useMemo(() =>
+    Object.keys(TYPE_CONFIG).reduce((acc, t) => {
+      acc[t] = ACTIVITES_DATA.filter(a => a.type === t).length;
+      return acc;
+    }, {}),
+  []);
+ 
   return (
     <>
-      {/* Hero */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(18px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+ 
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <div style={{
         background: "linear-gradient(160deg, #0f2040 0%, #0a1628 100%)",
         borderBottom: "1px solid #1e3a5f",
@@ -1035,193 +1263,217 @@ function SectionActivites() {
       }}>
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(168,85,247,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(99,102,241,0.09) 0%, transparent 70%)",
         }} />
+ 
         <div style={{ position: "relative", zIndex: 1 }}>
           <span style={{
-            display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em",
-            textTransform: "uppercase", color: "#a855f7", background: "rgba(168,85,247,0.12)",
-            border: "1px solid rgba(168,85,247,0.3)", borderRadius: "100px", padding: "5px 16px", marginBottom: "18px",
-          }}>🎭 Activités</span>
-          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem,4vw,2.8rem)", fontWeight: 700, color: "#f1f5f9", margin: "0 0 10px" }}>
+            display: "inline-block", fontSize: "12px", fontWeight: 700,
+            letterSpacing: "0.12em", textTransform: "uppercase",
+            color: "#a855f7", background: "rgba(168,85,247,0.12)",
+            border: "1px solid rgba(168,85,247,0.3)",
+            borderRadius: "100px", padding: "5px 16px", marginBottom: "18px",
+          }}>
+             Activités
+          </span>
+ 
+          <h1 style={{
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+            fontWeight: 700, color: "#f1f5f9",
+            margin: "0 0 10px",
+          }}>
             Que faire à <em style={{ fontStyle: "italic", color: "#a855f7" }}>Tanger ?</em>
           </h1>
-          <p style={{ color: "#64748b", fontSize: "14px", margin: "0 auto 28px", maxWidth: "480px" }}>
-            {ACTIVITES_DATA.length} activités sélectionnées — aventure, culture, histoire, famille
+ 
+          <p style={{ color: "#64748b", fontSize: "14px", margin: "0 auto 32px", maxWidth: "480px" }}>
+            {ACTIVITES_DATA.length} activités sélectionnées — aventure, sport, culture, famille & plus
           </p>
-          {/* Stats */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "32px", flexWrap: "wrap" }}>
-            {Object.entries(TYPE_CONFIG).map(([k, v]) => (
-              <div key={k} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "22px" }}>{v.emoji}</div>
-                <div style={{ fontSize: "12px", color: v.color, fontWeight: 700, marginTop: "4px" }}>
-                  {ACTIVITES_DATA.filter(a => a.type === k).length} {v.label}
-                </div>
-              </div>
-            ))}
+ 
+          {/* Stats par type */}
+          <div style={{
+            display: "flex", justifyContent: "center",
+            gap: "20px", flexWrap: "wrap",
+          }}>
+            {ALL_TYPES.filter(t => t !== "tous").map(t => {
+              const cfg = TYPE_CONFIG[t];
+              const count = countByType[t] ?? 0;
+              if (!count) return null;
+              return (
+                <button
+                  key={t}
+                  onClick={() => setActiveType(t === activeType ? "tous" : t)}
+                  style={{
+                    background: "none", border: "none",
+                    cursor: "pointer", textAlign: "center", padding: "4px",
+                  }}
+                >
+                  <div style={{ fontSize: "20px" }}>{cfg.emoji}</div>
+                  <div style={{ fontSize: "11px", color: cfg.color, fontWeight: 700, marginTop: "3px" }}>
+                    {count} {cfg.label}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
-
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 24px 80px" }}>
-
-        {/* Barre de recherche + filtres */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "32px", alignItems: "center" }}>
-          {/* Search */}
-          <div style={{ position: "relative", flex: "1", minWidth: "200px" }}>
-            <span style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", fontSize: "14px", color: "#64748b" }}>🔍</span>
+ 
+      {/* ── CONTENU ──────────────────────────────────────────────────────── */}
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 24px 80px" }}>
+ 
+        {/* ── Barre de filtres ── */}
+        <div style={{
+          background: "#0d1f38", border: "1px solid #1e3a5f",
+          borderRadius: "14px", padding: "18px 20px",
+          marginBottom: "32px",
+          display: "flex", flexDirection: "column", gap: "14px",
+        }}>
+ 
+          {/* Recherche */}
+          <div style={{ position: "relative" }}>
+            <span style={{
+              position: "absolute", left: "14px", top: "50%",
+              transform: "translateY(-50%)", fontSize: "14px", color: "#64748b",
+              pointerEvents: "none",
+            }}>🔍</span>
             <input
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Rechercher une activité…"
+              placeholder="Rechercher une activité, un lieu, un type…"
               style={{
-                width: "100%", padding: "10px 14px 10px 38px", boxSizing: "border-box",
-                background: "#112240", border: "1.5px solid #1e3a5f", borderRadius: "10px",
-                color: "#f1f5f9", fontSize: "14px", outline: "none",
+                width: "100%", boxSizing: "border-box",
+                padding: "10px 14px 10px 40px",
+                background: "#112240", border: "1.5px solid #1e3a5f",
+                borderRadius: "10px", color: "#f1f5f9", fontSize: "14px",
+                outline: "none", transition: "border-color 0.2s",
               }}
-              onFocus={e => e.target.style.borderColor = "#a855f7"}
+              onFocus={e => e.target.style.borderColor = "#6366f1"}
               onBlur={e => e.target.style.borderColor = "#1e3a5f"}
             />
           </div>
-
-          {/* Type pills */}
-          <div style={{ display: "flex", gap: "7px", flexWrap: "wrap" }}>
-            {types.map(t => {
+ 
+          {/* Filtres type */}
+          <div style={{ display: "flex", gap: "7px", flexWrap: "wrap", alignItems: "center" }}>
+            <span style={{ fontSize: "11px", color: "#475569", fontWeight: 600, marginRight: "4px", whiteSpace: "nowrap" }}>
+              TYPE :
+            </span>
+            {ALL_TYPES.map(t => {
               const cfg = TYPE_CONFIG[t];
-              const isActive = filter === t;
+              const isActive = activeType === t;
+              const activeColor = cfg?.color ?? "#94a3b8";
               return (
-                <button key={t} onClick={() => setFilter(t)} style={{
-                  padding: "7px 16px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 700,
-                  border: `1.5px solid ${isActive ? (cfg?.color || "#f97316") : "#1e3a5f"}`,
-                  background: isActive ? `${cfg?.color || "#f97316"}18` : "none",
-                  color: isActive ? (cfg?.color || "#f97316") : "#64748b",
-                  transition: "all 0.2s",
-                }}>
-                  {cfg ? `${cfg.emoji} ${cfg.label}` : "Tous"}
+                <button
+                  key={t}
+                  onClick={() => setActiveType(t)}
+                  style={{
+                    padding: "6px 14px", borderRadius: "100px",
+                    cursor: "pointer", fontSize: "12px", fontWeight: 700,
+                    border: `1.5px solid ${isActive ? activeColor : "#1e3a5f"}`,
+                    background: isActive ? `${activeColor}18` : "transparent",
+                    color: isActive ? activeColor : "#64748b",
+                    transition: "all 0.2s",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {t === "tous" ? "✦ Tous" : `${cfg.emoji} ${cfg.label}`}
                 </button>
               );
             })}
           </div>
-
-          {/* Budget pills */}
-          <div style={{ display: "flex", gap: "7px", flexWrap: "wrap" }}>
-            {budgets.map(b => {
-              const isActive = budget === b;
+ 
+          {/* Filtres budget */}
+          <div style={{ display: "flex", gap: "7px", flexWrap: "wrap", alignItems: "center" }}>
+            <span style={{ fontSize: "11px", color: "#475569", fontWeight: 600, marginRight: "4px", whiteSpace: "nowrap" }}>
+              BUDGET :
+            </span>
+            {ALL_BUDGETS.map(b => {
+              const isActive = activeBudget === b;
+              const cfg = BUDGET_CONFIG[b];
               return (
-                <button key={b} onClick={() => setBudget(b)} style={{
-                  padding: "7px 14px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 600,
-                  border: `1.5px solid ${isActive ? "#f5c842" : "#1e3a5f"}`,
-                  background: isActive ? "rgba(245,200,66,0.12)" : "none",
-                  color: isActive ? "#f5c842" : "#64748b",
-                  transition: "all 0.2s",
-                }}>
-                  {b === "tous" ? "💰 Tous budgets" : b === "économique" ? "💚 Éco" : b === "moyen" ? "🟡 Moyen" : "💎 Luxe"}
+                <button
+                  key={b}
+                  onClick={() => setActiveBudget(b)}
+                  style={{
+                    padding: "6px 14px", borderRadius: "100px",
+                    cursor: "pointer", fontSize: "12px", fontWeight: 700,
+                    border: `1.5px solid ${isActive ? "#f5c842" : "#1e3a5f"}`,
+                    background: isActive ? "rgba(245,200,66,0.12)" : "transparent",
+                    color: isActive ? "#f5c842" : "#64748b",
+                    transition: "all 0.2s",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {b === "tous" ? " Tous budgets" : `${cfg.emoji} ${cfg.label}`}
                 </button>
               );
             })}
-          </div>
-        </div>
-
-        {/* Compteur */}
-        <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "24px" }}>
-          {filtered.length} activité{filtered.length > 1 ? "s" : ""} trouvée{filtered.length > 1 ? "s" : ""}
-        </p>
-
-        {/* Grille */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
-          {filtered.map((act, i) => {
-            const cfg = TYPE_CONFIG[act.type] || { color: "#f97316", emoji: "🎯" };
-            const isHov = hovered === i;
-            return (
-              <div key={i}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
+ 
+            {/* Reset filtres */}
+            {(activeType !== "tous" || activeBudget !== "tous" || search) && (
+              <button
+                onClick={() => { setActiveType("tous"); setActiveBudget("tous"); setSearch(""); }}
                 style={{
-                  background: "#112240", borderRadius: "16px", overflow: "hidden",
-                  border: `1.5px solid ${isHov ? cfg.color : "#1e3a5f"}`,
-                  boxShadow: isHov ? `0 12px 36px rgba(0,0,0,0.45), 0 0 20px ${cfg.color}18` : "0 4px 16px rgba(0,0,0,0.3)",
-                  transform: isHov ? "translateY(-5px)" : "translateY(0)",
-                  transition: "all 0.22s",
+                  padding: "6px 14px", borderRadius: "100px",
+                  cursor: "pointer", fontSize: "12px", fontWeight: 700,
+                  border: "1.5px solid #ef4444",
+                  background: "rgba(239,68,68,0.1)",
+                  color: "#ef4444", transition: "all 0.2s",
+                  marginLeft: "auto",
+                  whiteSpace: "nowrap",
                 }}
               >
-                {/* Image */}
-                <div style={{
-                  height: "180px",
-                  background: `url(${act.image}) center/cover no-repeat, #0d2137`,
-                  position: "relative",
-                }}>
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #112240 0%, transparent 50%)" }} />
-                  <span style={{
-                    position: "absolute", top: "12px", left: "12px",
-                    background: `${cfg.color}22`, border: `1px solid ${cfg.color}60`,
-                    color: cfg.color, fontSize: "11px", fontWeight: 700,
-                    padding: "3px 10px", borderRadius: "100px",
-                  }}>
-                    {cfg.emoji} {cfg.label}
-                  </span>
-                  <span style={{
-                    position: "absolute", top: "12px", right: "12px",
-                    background: "rgba(13,27,42,0.85)", color: "#f5c842",
-                    fontSize: "12px", fontWeight: 700, padding: "3px 9px", borderRadius: "100px",
-                  }}>
-                    ★ {act.rating}
-                  </span>
-                </div>
-
-                <div style={{ padding: "16px 18px 18px" }}>
-                  <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: "#f1f5f9", margin: "0 0 6px" }}>
-                    {act.nom}
-                  </h3>
-                  <p style={{
-                    fontSize: "12px", color: "#64748b", lineHeight: 1.55, margin: "0 0 14px",
-                    display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
-                  }}>
-                    {act.description}
-                  </p>
-
-                  {/* Meta */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "14px" }}>
-                    {[
-                      { icon: "📍", val: act.localisation },
-                      { icon: "⏱️", val: act.duree },
-                      { icon: "💰", val: act.budget },
-                    ].map((m, j) => (
-                      <span key={j} style={{
-                        fontSize: "10px", fontWeight: 500, color: "#64748b",
-                        background: "#0d2137", borderRadius: "100px", padding: "3px 9px",
-                      }}>
-                        {m.icon} {m.val}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Footer prix + CTA */}
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid #1e3a5f" }}>
-                    <span style={{ fontSize: "15px", fontWeight: 800, color: act.prix === "Gratuit" ? "#4ade80" : "#f1f5f9" }}>
-                      {act.prix}
-                    </span>
-                    <button style={{
-                      background: `linear-gradient(135deg, ${cfg.color}, ${cfg.color}cc)`,
-                      border: "none", borderRadius: "100px", color: "#fff",
-                      fontSize: "12px", fontWeight: 700, padding: "7px 16px", cursor: "pointer",
-                      transition: "opacity 0.2s",
-                    }}
-                      onMouseEnter={e => e.currentTarget.style.opacity = "0.82"}
-                      onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-                    >
-                      Réserver →
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                ✕ Réinitialiser
+              </button>
+            )}
+          </div>
         </div>
-
-        {filtered.length === 0 && (
-          <div style={{ textAlign: "center", padding: "60px 0", color: "#64748b" }}>
-            <div style={{ fontSize: "3rem", marginBottom: "12px" }}>🔍</div>
-            <p>Aucune activité trouvée — essayez d'autres filtres.</p>
+ 
+        {/* Compteur résultats */}
+        <p style={{ color: "#475569", fontSize: "13px", marginBottom: "24px" }}>
+          <span style={{ color: "#f1f5f9", fontWeight: 700 }}>{filtered.length}</span>
+          {" "}activité{filtered.length > 1 ? "s" : ""} trouvée{filtered.length > 1 ? "s" : ""}
+          {activeType !== "tous" && (
+            <span style={{ color: TYPE_CONFIG[activeType]?.color }}>
+              {" "}· {TYPE_CONFIG[activeType]?.label}
+            </span>
+          )}
+          {activeBudget !== "tous" && (
+            <span style={{ color: "#f5c842" }}> · budget {activeBudget}</span>
+          )}
+          {search && (
+            <span style={{ color: "#94a3b8" }}> · "{search}"</span>
+          )}
+        </p>
+ 
+        {/* ── Grille de cartes ── */}
+        {filtered.length > 0 ? (
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: "20px",
+          }}>
+            {filtered.map((act, i) => (
+              <ActiviteCard key={`${act.nom}-${i}`} act={act} index={i} />
+            ))}
+          </div>
+        ) : (
+          <div style={{ textAlign: "center", padding: "70px 0", color: "#475569" }}>
+            <div style={{ fontSize: "3rem", marginBottom: "14px" }}>🔍</div>
+            <p style={{ fontSize: "16px", marginBottom: "8px" }}>Aucune activité trouvée.</p>
+            <p style={{ fontSize: "13px" }}>Essayez d'autres filtres ou effacez la recherche.</p>
+            <button
+              onClick={() => { setActiveType("tous"); setActiveBudget("tous"); setSearch(""); }}
+              style={{
+                marginTop: "16px", padding: "9px 22px",
+                borderRadius: "100px", cursor: "pointer",
+                background: "rgba(99,102,241,0.15)",
+                border: "1.5px solid #6366f1",
+                color: "#6366f1", fontSize: "13px", fontWeight: 700,
+              }}
+            >
+              Réinitialiser les filtres
+            </button>
           </div>
         )}
       </div>
@@ -1260,16 +1512,17 @@ function SectionEvenements() {
             display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em",
             textTransform: "uppercase", color: "#f97316", background: "rgba(249,115,22,0.15)",
             border: "1px solid rgba(249,115,22,0.3)", borderRadius: "100px", padding: "5px 16px", marginBottom: "18px",
-          }}>📅 Agenda 2026–2027</span>
+          }}> Agenda 2026–2027</span>
           <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem,4vw,2.8rem)", fontWeight: 700, color: "#f1f5f9", margin: "0 0 10px" }}>
             Événements à <em style={{ fontStyle: "italic", color: "#f97316" }}>Tanger</em>
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "14px", margin: "0 auto 28px", maxWidth: "500px" }}>
-            {EVENTS_DATA.length} événements à venir — concerts, festivals, culture et sport
+           événements à venir — concerts, festivals, culture et sport
           </p>
 
           {/* Stats catégories */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
+           
+             <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
             {Object.entries(CAT_EVENT_CONFIG).map(([k, v]) => (
               <div key={k} style={{ textAlign: "center" }}>
                 <div style={{ fontSize: "20px" }}>{v.emoji}</div>
@@ -1280,7 +1533,9 @@ function SectionEvenements() {
             ))}
           </div>
         </div>
+        
       </div>
+          
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 24px 80px" }}>
 
@@ -1298,7 +1553,7 @@ function SectionEvenements() {
                 color: isActive ? (cfg?.color || "#f97316") : "#64748b",
                 transition: "all 0.2s",
               }}>
-                {cfg ? `${cfg.emoji} ${c}` : "🗓️ Tous"}
+                {cfg ? `${cfg.emoji} ${c}` : "Tous"}
               </button>
             );
           })}
@@ -1311,7 +1566,7 @@ function SectionEvenements() {
         {/* Cards événements */}
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           {filtered.map((ev, i) => {
-            const cfg = CAT_EVENT_CONFIG[ev.category] || { color: "#f97316", emoji: "🎉" };
+            const cfg = CAT_EVENT_CONFIG[ev.category] || { color: "#f97316", };
             const isHov = hovered === i;
             const isExp = expanded === i;
             return (
@@ -1361,10 +1616,10 @@ function SectionEvenements() {
                     {/* Date & lieu */}
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "10px" }}>
                       <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: cfg.color, fontWeight: 600 }}>
-                        📅 {ev.date}
+                         {ev.date}
                       </span>
                       <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: "#64748b" }}>
-                        📍 {ev.location}
+                         {ev.location}
                       </span>
                     </div>
 
@@ -1394,7 +1649,7 @@ function SectionEvenements() {
                         border: "none", borderRadius: "100px", color: "#fff",
                         fontSize: "12px", fontWeight: 700, padding: "7px 16px", cursor: "pointer",
                       }}>
-                        🎟️ En savoir plus
+                        En savoir plus
                       </button>
                     </div>
                   </div>
@@ -1408,12 +1663,869 @@ function SectionEvenements() {
   );
 }
 
-function SectionDashboard() {
+// ─────────────────────────────────────────────────────────────────────────────
+// DASHBOARD — Constantes & utilitaires
+// ─────────────────────────────────────────────────────────────────────────────
+const API_DASH = "/api/dashboard";
+
+async function dashFetch(path) {
+  const res = await fetch(`${API_DASH}${path}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+// Couleurs par catégorie
+const CAT_COLORS = {
+  culture:      "#a855f7",
+  nature:       "#22c55e",
+  gastronomie:  "#ef4444",
+  détente:      "#06b6d4",
+  aventure:     "#f97316",
+  sport:        "#3b82f6",
+  famille:      "#f59e0b",
+  nightlife:    "#ec4899",
+  autre:        "#64748b",
+};
+const CAT_EMOJI = {
+  culture: "🏛️", nature: "🌿", gastronomie: "🍽️", détente: "🧘",
+  aventure: "🪂", sport: "⚽", famille: "👨‍👩‍👧", nightlife: "🎶", autre: "📍",
+};
+const BUDGET_COLORS = { économique: "#22c55e", moyen: "#3b82f6", luxe: "#f5c842" };
+const SAISON_COLORS = { automne: "#f97316", printemps: "#22c55e", ete: "#06b6d4", hiver: "#a855f7" };
+const SAISON_EMOJI  = { automne: "🍂", printemps: "🌸", ete: "☀️", hiver: "❄️" };
+
+// Barre de progression réutilisable
+function ProgressBar({ value, max, color, height = 8 }) {
+  const pct = Math.round((value / max) * 100);
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px", textAlign: "center" }}>
-      <h2 style={{ color: "#f1f5f9", fontSize: "24px", fontWeight: 800, marginBottom: "12px" }}>Dashboard</h2>
-      <p style={{ color: "#64748b", fontSize: "14px" }}>Section dashboard — statistiques et analyses</p>
+    <div style={{ height, background: "#1e3a5f", borderRadius: 100, overflow: "hidden" }}>
+      <div style={{
+        height: "100%", width: `${pct}%`, borderRadius: 100,
+        background: color, transition: "width 0.8s cubic-bezier(0.4,0,0.2,1)",
+      }} />
     </div>
+  );
+}
+
+// Carte KPI simple
+function KPICard({ label, value, sub, icon, color = S.orange, onClick }) {
+  const [hov, setHov] = useState(false);
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        ...S.surface,
+        padding: "22px 20px",
+        cursor: onClick ? "pointer" : "default",
+        transition: "transform 0.2s, border-color 0.2s, box-shadow 0.2s",
+        transform: hov ? "translateY(-4px)" : "translateY(0)",
+        borderColor: hov ? color : "#1e3a5f",
+        boxShadow: hov ? `0 12px 32px rgba(0,0,0,0.4), 0 0 20px ${color}18` : "0 4px 16px rgba(0,0,0,0.25)",
+        position: "relative", overflow: "hidden",
+      }}
+    >
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0, height: "3px",
+        background: color, opacity: hov ? 1 : 0, transition: "opacity 0.2s",
+      }} />
+      <div style={{ fontSize: "1.8rem", marginBottom: "10px", lineHeight: 1 }}>{icon}</div>
+      <div style={{ fontSize: "1.9rem", fontWeight: 800, color: color, lineHeight: 1, marginBottom: "4px", fontVariantNumeric: "tabular-nums" }}>
+        {value}
+      </div>
+      <div style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{label}</div>
+      {sub && <div style={{ fontSize: "11px", color: S.muted, marginTop: "3px" }}>{sub}</div>}
+    </div>
+  );
+}
+
+// Spinner de chargement
+function Spinner({ color = S.orange }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", padding: "40px" }}>
+      <div style={{
+        width: 36, height: 36,
+        border: `3px solid #1e3a5f`,
+        borderTopColor: color,
+        borderRadius: "50%",
+        animation: "dashSpin 0.8s linear infinite",
+      }} />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SUB-SECTIONS DU DASHBOARD
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Vue Globale ───────────────────────────────────────────────────────────────
+function DashGlobal({ data }) {
+  if (!data) return <Spinner />;
+  const { overview, pricing, quality, geography } = data;
+  const kpis = [
+    { label: "Lieux touristiques", value: overview.total_lieux_touristiques, icon: "🏛️",  color: "#a855f7" },
+    { label: "Activités",          value: overview.total_activites,           icon: "🎯",  color: "#f97316" },
+    { label: "Hôtels",             value: overview.total_hotels,              icon: "🏨",  color: "#f5c842" },
+    { label: "Restaurants",        value: overview.total_restaurants,         icon: "🍽️", color: "#ef4444" },
+    { label: "Plages & Espaces",   value: overview.total_plages,              icon: "🏖️", color: "#06b6d4" },
+    { label: "Événements 2026",    value: overview.total_events,              icon: "🎪",  color: "#22c55e" },
+    { label: "Avis collectés",     value: overview.total_avis,                icon: "💬",  color: "#3b82f6" },
+    { label: "Profils analysés",   value: overview.total_utilisateurs,        icon: "👤",  color: "#ec4899" },
+  ];
+
+  const maxQuartier = geography.top_quartiers[0]?.count || 1;
+
+  return (
+    <div>
+      {/* KPI grid */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "14px", marginBottom: "28px" }}>
+        {kpis.map(k => <KPICard key={k.label} {...k} />)}
+      </div>
+
+      {/* Ligne : prix + note + quartiers */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.4fr", gap: "14px" }}>
+
+        {/* Prix moyens */}
+        <div style={{ ...S.surface, padding: "22px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>
+            💰 Prix moyens
+          </p>
+          {[
+            { label: "Hôtel / nuit", val: `${pricing.prix_moyen_hotel_mad.toLocaleString()} MAD`, color: "#f5c842" },
+            { label: "Repas / pers.", val: `${pricing.prix_moyen_restaurant_mad} MAD`, color: "#ef4444" },
+          ].map(row => (
+            <div key={row.label} style={{ marginBottom: "14px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                <span style={{ fontSize: "12px", color: S.muted }}>{row.label}</span>
+                <span style={{ fontSize: "14px", fontWeight: 800, color: row.color }}>{row.val}</span>
+              </div>
+              <ProgressBar value={pricing.prix_moyen_hotel_mad === row.val.replace(" MAD","") ? 1038 : 160} max={2000} color={row.color} />
+            </div>
+          ))}
+        </div>
+
+        {/* Note globale */}
+        <div style={{ ...S.surface, padding: "22px", textAlign: "center" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>
+            ⭐ Satisfaction globale
+          </p>
+          <div style={{ fontSize: "3.8rem", fontWeight: 900, color: S.gold, lineHeight: 1 }}>
+            {quality.note_moyenne_globale}
+          </div>
+          <div style={{ fontSize: "12px", color: S.muted, margin: "6px 0 16px" }}>/ 5.0 · {quality.total_avis_collectes} avis</div>
+          {/* Étoiles visuelles */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "4px" }}>
+            {[1,2,3,4,5].map(i => (
+              <div key={i} style={{
+                width: 28, height: 28, borderRadius: "50%",
+                background: i <= Math.round(quality.note_moyenne_globale)
+                  ? `${S.gold}22` : "#1e3a5f",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: "14px",
+              }}>
+                {i <= Math.round(quality.note_moyenne_globale) ? "⭐" : "☆"}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Top quartiers */}
+        <div style={{ ...S.surface, padding: "22px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>
+            📍 Top quartiers touristiques
+          </p>
+          {geography.top_quartiers.map((q, i) => (
+            <div key={q.quartier} style={{ marginBottom: "12px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <span style={{
+                    width: 20, height: 20, borderRadius: "50%",
+                    background: [S.orange,"#a855f7","#06b6d4","#22c55e","#f5c842"][i],
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: "10px", fontWeight: 800, color: "#fff", flexShrink: 0,
+                  }}>{i+1}</span>
+                  <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{q.quartier}</span>
+                </div>
+                <span style={{ fontSize: "12px", color: S.muted, fontWeight: 700 }}>{q.count} lieux</span>
+              </div>
+              <ProgressBar value={q.count} max={maxQuartier} color={[S.orange,"#a855f7","#06b6d4","#22c55e","#f5c842"][i]} height={5} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Catégories ────────────────────────────────────────────────────────────────
+function DashCategories({ data }) {
+  if (!data) return <Spinner />;
+  const entries = Object.entries(data).sort((a, b) => b[1] - a[1]);
+  const total = entries.reduce((s, [, v]) => s + v, 0);
+  const maxVal = entries[0]?.[1] || 1;
+
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "20px" }}>
+
+      {/* Barres horizontales */}
+      <div style={{ ...S.surface, padding: "24px" }}>
+        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>
+          🗂️ Répartition par catégorie
+        </p>
+        {entries.map(([cat, val]) => {
+          const color = CAT_COLORS[cat] || "#64748b";
+          const pct = Math.round((val / total) * 100);
+          return (
+            <div key={cat} style={{ marginBottom: "14px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <span style={{ fontSize: "15px" }}>{CAT_EMOJI[cat] || "📍"}</span>
+                  <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600, textTransform: "capitalize" }}>{cat}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ fontSize: "12px", color: S.muted }}>{pct}%</span>
+                  <span style={{
+                    fontSize: "13px", fontWeight: 800, color: color,
+                    background: `${color}15`, borderRadius: 100, padding: "2px 10px",
+                    minWidth: 36, textAlign: "center",
+                  }}>{val}</span>
+                </div>
+              </div>
+              <ProgressBar value={val} max={maxVal} color={color} height={7} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Donut SVG */}
+      <div style={{ ...S.surface, padding: "24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px", alignSelf: "flex-start" }}>
+          🎯 Distribution visuelle
+        </p>
+        <DashDonut entries={entries} total={total} />
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "16px", justifyContent: "center" }}>
+          {entries.slice(0, 6).map(([cat]) => (
+            <span key={cat} style={{
+              fontSize: "11px", fontWeight: 700, borderRadius: 100, padding: "3px 10px",
+              background: `${CAT_COLORS[cat] || "#64748b"}18`,
+              color: CAT_COLORS[cat] || "#64748b",
+              border: `1px solid ${CAT_COLORS[cat] || "#64748b"}30`,
+            }}>
+              {CAT_EMOJI[cat]} {cat}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DashDonut({ entries, total }) {
+  const r = 70, cx = 90, cy = 90, stroke = 22;
+  const circumference = 2 * Math.PI * r;
+  let offset = 0;
+  const slices = entries.slice(0, 7).map(([cat, val]) => {
+    const pct = val / total;
+    const dash = pct * circumference;
+    const gap = circumference - dash;
+    const slice = { cat, val, pct, dash, gap, offset, color: CAT_COLORS[cat] || "#64748b" };
+    offset += dash;
+    return slice;
+  });
+
+  return (
+    <svg width={180} height={180} viewBox="0 0 180 180">
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#1e3a5f" strokeWidth={stroke} />
+      {slices.map(s => (
+        <circle key={s.cat} cx={cx} cy={cy} r={r} fill="none"
+          stroke={s.color} strokeWidth={stroke}
+          strokeDasharray={`${s.dash} ${s.gap}`}
+          strokeDashoffset={-s.offset + circumference * 0.25}
+          style={{ transition: "stroke-dasharray 0.8s ease" }}
+        />
+      ))}
+      <text x={cx} y={cy - 6} textAnchor="middle" fill={S.ivory} fontSize={22} fontWeight={800}>{total}</text>
+      <text x={cx} y={cy + 14} textAnchor="middle" fill={S.muted} fontSize={11}>lieux</text>
+    </svg>
+  );
+}
+
+// ── Budget ────────────────────────────────────────────────────────────────────
+function DashBudget({ data }) {
+  if (!data) return <Spinner />;
+  const users  = data.users  || {};
+  const hotels = data.hotels || {};
+  const acts   = data.activites || {};
+  const totalU = Object.values(users).reduce((s, v) => s + v, 0) || 1;
+
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
+
+      {/* Utilisateurs */}
+      <div style={{ ...S.surface, padding: "24px" }}>
+        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>
+          👤 Budget visiteurs
+        </p>
+        {["moyen", "économique", "luxe"].map(b => {
+          const val = users[b] || 0;
+          const color = BUDGET_COLORS[b];
+          const pct = Math.round((val / totalU) * 100);
+          return (
+            <div key={b} style={{ marginBottom: "18px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "7px" }}>
+                <span style={{ fontSize: "14px", color: S.ivory, fontWeight: 700, textTransform: "capitalize" }}>
+                  {{ économique: "💚", moyen: "💙", luxe: "💛" }[b]} {b}
+                </span>
+                <span style={{ fontSize: "20px", fontWeight: 900, color }}>{pct}%</span>
+              </div>
+              <ProgressBar value={val} max={totalU} color={color} height={10} />
+              <div style={{ fontSize: "11px", color: S.muted, marginTop: "4px", textAlign: "right" }}>
+                {val} visiteurs
+              </div>
+            </div>
+          );
+        })}
+        <div style={{
+          marginTop: "16px", padding: "12px 16px",
+          background: `${S.orange}0a`, border: `1px solid ${S.orange}20`, borderRadius: "12px",
+        }}>
+          <div style={{ fontSize: "11px", color: S.muted, marginBottom: "2px" }}>Budget moyen / jour</div>
+          <div style={{ fontSize: "22px", fontWeight: 900, color: S.orange }}>
+            {(data.budget_moyen_utilisateur_mad || 1160).toLocaleString()} MAD
+          </div>
+        </div>
+      </div>
+
+      {/* Hôtels par segment */}
+      <div style={{ ...S.surface, padding: "24px" }}>
+        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>
+          🏨 Segment hôtelier
+        </p>
+        {["économique", "moyen", "luxe"].map(b => {
+          const val = hotels[b] || 0;
+          const color = BUDGET_COLORS[b];
+          const total = Object.values(hotels).reduce((s, v) => s + v, 0) || 1;
+          return (
+            <div key={b} style={{ marginBottom: "16px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600, textTransform: "capitalize" }}>{b}</span>
+                <span style={{ fontSize: "14px", fontWeight: 800, color }}>{val} hôtels</span>
+              </div>
+              <ProgressBar value={val} max={total} color={color} height={8} />
+            </div>
+          );
+        })}
+        <div style={{ borderTop: "1px solid #1e3a5f", paddingTop: "16px", marginTop: "8px" }}>
+          <div style={{ fontSize: "11px", color: S.muted, marginBottom: "2px" }}>Total parc hôtelier</div>
+          <div style={{ fontSize: "28px", fontWeight: 900, color: "#f5c842" }}>
+            {Object.values(hotels).reduce((s,v)=>s+v,0)} hôtels
+          </div>
+        </div>
+      </div>
+
+      {/* Activités par budget */}
+      <div style={{ ...S.surface, padding: "24px" }}>
+        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>
+          🎯 Activités par budget
+        </p>
+        {["économique", "moyen", "luxe"].map(b => {
+          const val = acts[b] || 0;
+          const color = BUDGET_COLORS[b];
+          const total = Object.values(acts).reduce((s, v) => s + v, 0) || 1;
+          return (
+            <div key={b} style={{ marginBottom: "16px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600, textTransform: "capitalize" }}>{b}</span>
+                <span style={{ fontSize: "14px", fontWeight: 800, color }}>{val} activités</span>
+              </div>
+              <ProgressBar value={val} max={total} color={color} height={8} />
+            </div>
+          );
+        })}
+        <div style={{
+          marginTop: "16px", padding: "12px 16px",
+          background: "#0d2137", borderRadius: "12px",
+          display: "flex", flexDirection: "column", gap: "6px",
+        }}>
+          {[["Économique", "< 200 MAD", "#22c55e"], ["Moyen", "200–500 MAD", "#3b82f6"], ["Luxe", "> 500 MAD", "#f5c842"]].map(([l,r,c]) => (
+            <div key={l} style={{ display: "flex", justifyContent: "space-between" }}>
+              <span style={{ fontSize: "11px", color: S.muted }}>{l}</span>
+              <span style={{ fontSize: "11px", fontWeight: 700, color: c }}>{r}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Hôtels ────────────────────────────────────────────────────────────────────
+function DashHotels({ data }) {
+  if (!data) return <Spinner />;
+  const { prix, rating_moyen, par_categorie, par_localisation, amenites } = data;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+      {/* KPIs hôtel */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+        {[
+          { label: "Prix moyen / nuit", value: `${prix?.moyen_mad?.toLocaleString()} MAD`, icon: "💰", color: S.orange },
+          { label: "Prix médian",        value: `${prix?.median_mad?.toLocaleString()} MAD`, icon: "📊", color: "#3b82f6" },
+          { label: "Note moyenne",       value: `${rating_moyen}/5`, icon: "⭐", color: S.gold },
+          { label: "Avec piscine",       value: `${amenites?.pct_avec_piscine}%`, icon: "🏊", color: "#06b6d4" },
+        ].map(k => <KPICard key={k.label} {...k} />)}
+      </div>
+
+      {/* Segmentation */}
+      <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "16px" }}>
+
+        {/* Par catégorie */}
+        <div style={{ ...S.surface, padding: "24px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>
+            🏷️ Segmentation tarifaire
+          </p>
+          {par_categorie?.map(cat => {
+            const color = BUDGET_COLORS[cat.categorie] || "#64748b";
+            return (
+              <div key={cat.categorie} style={{
+                padding: "16px", marginBottom: "10px", borderRadius: "12px",
+                background: `${color}08`, border: `1px solid ${color}25`,
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
+                  <span style={{ fontSize: "14px", fontWeight: 700, color, textTransform: "capitalize" }}>
+                    {{ économique: "💚", moyen: "💙", luxe: "💛" }[cat.categorie]} Segment {cat.categorie}
+                  </span>
+                  <span style={{ fontSize: "12px", color: S.muted }}>{cat.count} hôtels</span>
+                </div>
+                <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+                  {[
+                    { l: "Moy.", v: `${cat.prix_moyen} MAD` },
+                    { l: "Min", v: `${cat.prix_min} MAD` },
+                    { l: "Max", v: `${cat.prix_max} MAD` },
+                    { l: "Note", v: `★ ${cat.rating_moyen}` },
+                  ].map(({ l, v }) => (
+                    <div key={l}>
+                      <div style={{ fontSize: "10px", color: S.muted }}>{l}</div>
+                      <div style={{ fontSize: "14px", fontWeight: 800, color }}>{v}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Par localisation + amenités */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ ...S.surface, padding: "22px" }}>
+            <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>
+              📍 Par localisation
+            </p>
+            {par_localisation?.map(loc => (
+              <div key={loc.localisation} style={{ marginBottom: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
+                  <span style={{ fontSize: "13px", color: S.ivory, textTransform: "capitalize" }}>{loc.localisation}</span>
+                  <span style={{ fontSize: "12px", color: S.gold, fontWeight: 700 }}>{loc.prix_moyen} MAD</span>
+                </div>
+                <ProgressBar value={loc.prix_moyen} max={2000} color={S.gold} height={5} />
+              </div>
+            ))}
+          </div>
+
+          <div style={{ ...S.surface, padding: "22px" }}>
+            <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>
+              ✨ Équipements
+            </p>
+            {[
+              { label: "Avec piscine", pct: amenites?.pct_avec_piscine, icon: "🏊", color: "#06b6d4" },
+              { label: "Vue mer",      pct: amenites?.pct_avec_vue_mer,  icon: "🌊", color: "#3b82f6" },
+            ].map(eq => (
+              <div key={eq.label} style={{ marginBottom: "12px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                  <span style={{ fontSize: "13px", color: S.ivory }}>{eq.icon} {eq.label}</span>
+                  <span style={{ fontSize: "16px", fontWeight: 800, color: eq.color }}>{eq.pct}%</span>
+                </div>
+                <ProgressBar value={eq.pct} max={100} color={eq.color} height={8} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Top Activités ─────────────────────────────────────────────────────────────
+function DashTopActivites({ data }) {
+  if (!data) return <Spinner />;
+  const { top_activities, methode, prior_global_m, poids } = data;
+  const maxScore = top_activities[0]?.score_hybride || 1;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+      {/* Explication méthode */}
+      <div style={{ ...S.surface, padding: "20px", background: `${S.orange}06`, borderColor: `${S.orange}25` }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+          <span style={{ fontSize: "22px" }}>🧮</span>
+          <div>
+            <p style={{ fontSize: "12px", fontWeight: 700, color: S.orange, margin: "0 0 4px" }}>Méthode de scoring</p>
+            <p style={{ fontSize: "12px", color: S.muted, margin: "0 0 10px" }}>{methode}</p>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              {Object.entries(poids).map(([k, v]) => (
+                <span key={k} style={{
+                  fontSize: "11px", fontWeight: 700,
+                  background: `${S.orange}15`, color: S.orange,
+                  borderRadius: 100, padding: "2px 10px",
+                }}>
+                  {k.replace(/_/g," ")} {Math.round(v*100)}%
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Podium top 3 */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr 1fr", gap: "12px", alignItems: "flex-end" }}>
+        {[top_activities[1], top_activities[0], top_activities[2]].filter(Boolean).map((act, i) => {
+          const isCenter = i === 1;
+          const color = isCenter ? S.orange : ["#94a3b8","#f5c842"][i === 0 ? 1 : 0];
+          const height = isCenter ? "190px" : "150px";
+          const medal  = isCenter ? "🥇" : i === 0 ? "🥈" : "🥉";
+          return (
+            <div key={act.nom} style={{
+              ...S.surface,
+              padding: "16px 14px",
+              height,
+              display: "flex", flexDirection: "column", justifyContent: "flex-end",
+              borderColor: isCenter ? S.orange : "#1e3a5f",
+              boxShadow: isCenter ? `0 0 28px ${S.orange}25` : "0 4px 16px rgba(0,0,0,0.25)",
+              position: "relative", overflow: "hidden",
+            }}>
+              {isCenter && (
+                <div style={{
+                  position: "absolute", top: 0, left: 0, right: 0, height: "3px",
+                  background: `linear-gradient(90deg, ${S.orange}, ${S.gold})`,
+                }} />
+              )}
+              <div style={{ fontSize: "22px", marginBottom: "6px" }}>{medal}</div>
+              <div style={{ fontSize: "11px", color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "4px" }}>
+                {CAT_EMOJI[act.type] || "🎯"} {act.type}
+              </div>
+              <div style={{ fontSize: "13px", fontWeight: 700, color: S.ivory, lineHeight: 1.3, marginBottom: "8px" }}>
+                {act.nom}
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontSize: "12px", color: S.gold }}>★ {act.rating}</span>
+                <span style={{ fontSize: "12px", fontWeight: 800, color }}>{act.score_hybride.toFixed(3)}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Liste complète */}
+      {top_activities.slice(3).map((act, i) => {
+        const color = CAT_COLORS[act.type] || "#64748b";
+        return (
+          <div key={act.nom} style={{
+            ...S.surface, padding: "16px 18px",
+            display: "flex", alignItems: "center", gap: "14px",
+          }}>
+            <span style={{
+              width: 32, height: 32, borderRadius: "50%", background: "#1e3a5f",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: "14px", fontWeight: 800, color: S.muted, flexShrink: 0,
+            }}>{act.rang}</span>
+            <span style={{ fontSize: "18px" }}>{CAT_EMOJI[act.type] || "🎯"}</span>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: "14px", fontWeight: 700, color: S.ivory }}>{act.nom}</div>
+              <div style={{ fontSize: "11px", color: S.muted, marginTop: "2px" }}>{act.duree} · {act.prix}</div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{ fontSize: "12px", color: S.gold }}>★ {act.rating}</div>
+              <div style={{ fontSize: "11px", color, fontWeight: 700 }}>score {act.score_hybride.toFixed(3)}</div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Profil Utilisateur ────────────────────────────────────────────────────────
+function DashUserProfile({ data }) {
+  if (!data) return <Spinner />;
+  const { profil_type, demographique, preferences, saisons } = data;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+      {/* Ligne 1 : profil principal */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+        {[
+          { label: "Type dominant",  value: profil_type.type_voyageur,      icon: { couple:"💑", solo:"🧳", famille:"👨‍👩‍👧", groupe:"👥" }[profil_type.type_voyageur] || "👤", color: "#a855f7" },
+          { label: "Âge moyen",      value: `${Math.round(profil_type.age_moyen)} ans`, icon: "🎂", color: "#06b6d4" },
+          { label: "Budget / jour",  value: `${profil_type.budget_moyen_mad?.toLocaleString()} MAD`, icon: "💰", color: S.orange },
+          { label: "Durée séjour",   value: `${profil_type.duree_sejour_jours?.toFixed(1)} jours`, icon: "📅", color: "#22c55e" },
+        ].map(k => <KPICard key={k.label} {...k} />)}
+      </div>
+
+      {/* Ligne 2 : saisons + nationalités + préférences */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.2fr", gap: "16px" }}>
+
+        {/* Saisons */}
+        <div style={{ ...S.surface, padding: "22px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 18px" }}>
+            🗓️ Saison préférée
+          </p>
+          {Object.entries(saisons.distribution || {})
+            .sort((a, b) => b[1] - a[1])
+            .map(([s, n]) => {
+              const total = Object.values(saisons.distribution).reduce((a, b) => a + b, 0);
+              const color = SAISON_COLORS[s] || "#64748b";
+              return (
+                <div key={s} style={{ marginBottom: "12px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
+                    <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>
+                      {SAISON_EMOJI[s]} {s.charAt(0).toUpperCase()+s.slice(1)}
+                    </span>
+                    <span style={{ fontSize: "12px", color, fontWeight: 700 }}>{Math.round(n/total*100)}%</span>
+                  </div>
+                  <ProgressBar value={n} max={total} color={color} height={7} />
+                </div>
+              );
+            })
+          }
+        </div>
+
+        {/* Nationalités */}
+        <div style={{ ...S.surface, padding: "22px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 18px" }}>
+            🌍 Top nationalités
+          </p>
+          {Object.entries(demographique.top_nationalites || {})
+            .sort((a,b) => b[1]-a[1])
+            .slice(0,5)
+            .map(([nat, n], i) => {
+              const colors = [S.orange, "#a855f7", "#06b6d4", "#22c55e", "#f5c842"];
+              const max = Object.values(demographique.top_nationalites)[0];
+              return (
+                <div key={nat} style={{ marginBottom: "10px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
+                      <span style={{
+                        width: 18, height: 18, borderRadius: "50%",
+                        background: colors[i], display: "flex", alignItems: "center",
+                        justifyContent: "center", fontSize: "9px", fontWeight: 800, color: "#0d1b2a",
+                      }}>{i+1}</span>
+                      <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{nat}</span>
+                    </div>
+                    <span style={{ fontSize: "12px", fontWeight: 700, color: colors[i] }}>{n}</span>
+                  </div>
+                  <ProgressBar value={n} max={max} color={colors[i]} height={5} />
+                </div>
+              );
+            })
+          }
+        </div>
+
+        {/* Scores catégories */}
+        <div style={{ ...S.surface, padding: "22px" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>
+            🎯 Intérêts moyens (score 0–10)
+          </p>
+          {(preferences.categories || []).map(c => {
+            const color = CAT_COLORS[c.categorie] || "#64748b";
+            return (
+              <div key={c.categorie} style={{ marginBottom: "11px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
+                  <span style={{ fontSize: "12px", color: S.ivory, fontWeight: 600 }}>
+                    {CAT_EMOJI[c.categorie] || "📊"} {c.categorie}
+                  </span>
+                  <span style={{ fontSize: "13px", fontWeight: 800, color }}>{c.score_moyen}</span>
+                </div>
+                <ProgressBar value={c.score_moyen} max={10} color={color} height={6} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Ligne 3 : intérêts populaires */}
+      <div style={{ ...S.surface, padding: "22px" }}>
+        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>
+          💡 Top intérêts déclarés
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          {(preferences.top_interets || []).map((item, i) => {
+            const colors = [S.orange, "#a855f7", "#06b6d4", "#22c55e", "#f5c842", "#ef4444", "#3b82f6", "#ec4899"];
+            const c = colors[i % colors.length];
+            return (
+              <div key={item.interet} style={{
+                padding: "8px 16px", borderRadius: 100,
+                background: `${c}12`, border: `1.5px solid ${c}30`,
+                display: "flex", alignItems: "center", gap: "8px",
+              }}>
+                <span style={{ fontSize: "12px", fontWeight: 700, color: c, textTransform: "capitalize" }}>
+                  {item.interet.replace(/_/g, " ")}
+                </span>
+                <span style={{
+                  fontSize: "10px", fontWeight: 800, color: "#0d1b2a",
+                  background: c, borderRadius: 100, padding: "1px 7px",
+                }}>{item.count}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SECTION DASHBOARD PRINCIPALE
+// ─────────────────────────────────────────────────────────────────────────────
+const DASH_TABS = [
+  { id: "global",       label: "Vue globale",    emoji: "🌍" },
+  { id: "categories",   label: "Catégories",     emoji: "🗂️" },
+  { id: "budget",       label: "Budget",         emoji: "💰" },
+  { id: "hotels",       label: "Hôtels",         emoji: "🏨" },
+  { id: "activites",    label: "Top activités",  emoji: "🏆" },
+  { id: "profil",       label: "Profil visiteur",emoji: "👤" },
+];
+
+function SectionDashboard() {
+  const [activePanel, setActivePanel] = useState("global");
+  const [data,        setData]        = useState({});
+  const [loading,     setLoading]     = useState({});
+  const [errors,      setErrors]      = useState({});
+  const [hovered,     setHovered]     = useState(null);
+
+  // Endpoints par panel
+  const PANEL_ENDPOINTS = {
+    global:     "/stats/global",
+    categories: "/stats/categories",
+    budget:     "/stats/budget",
+    hotels:     "/stats/hotels",
+    activites:  "/stats/top-activities?top=5",
+    profil:     "/stats/user-profile",
+  };
+
+  // Chargement lazy : seulement quand on accède au panel
+  useEffect(() => {
+    if (data[activePanel] || loading[activePanel]) return;
+    setLoading(l => ({ ...l, [activePanel]: true }));
+    dashFetch(PANEL_ENDPOINTS[activePanel])
+      .then(d => setData(prev => ({ ...prev, [activePanel]: d })))
+      .catch(e => setErrors(prev => ({ ...prev, [activePanel]: e.message })))
+      .finally(() => setLoading(l => ({ ...l, [activePanel]: false })));
+  }, [activePanel]);
+
+  return (
+    <>
+      {/* Styles inline pour animations */}
+      <style>{`
+        @keyframes dashSpin { to { transform: rotate(360deg); } }
+        @keyframes dashFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+      `}</style>
+
+      {/* Hero header */}
+      <div style={{
+        background: "linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)",
+        borderBottom: "1px solid #1e3a5f",
+        padding: "40px 24px 0",
+      }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
+          {/* Titre */}
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "8px" }}>
+            <div>
+              <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, letterSpacing: "0.12em", textTransform: "uppercase", margin: "0 0 6px" }}>
+                📊 Analytics · Plateforme Touristique
+              </p>
+              <h1 style={{ fontFamily: "Georgia, serif", fontSize: "2rem", fontWeight: 800, color: S.ivory, margin: 0, lineHeight: 1.1 }}>
+                Dashboard — Tanger
+              </h1>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{ fontSize: "11px", color: S.muted, marginBottom: "2px" }}>Données temps réel</div>
+              <div style={{
+                fontSize: "11px", fontWeight: 700, color: "#22c55e",
+                background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)",
+                borderRadius: 100, padding: "3px 10px", display: "inline-flex", alignItems: "center", gap: "5px",
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block" }} />
+                Backend connecté
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation panels */}
+          <div style={{ display: "flex", gap: "2px", marginTop: "24px", overflowX: "auto" }}>
+            {DASH_TABS.map(tab => {
+              const isActive = activePanel === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActivePanel(tab.id)}
+                  onMouseEnter={() => setHovered(tab.id)}
+                  onMouseLeave={() => setHovered(null)}
+                  style={{
+                    padding: "10px 18px", cursor: "pointer", whiteSpace: "nowrap",
+                    background: isActive ? "#112240" : "none",
+                    border: "none",
+                    borderBottom: `2.5px solid ${isActive ? S.orange : "transparent"}`,
+                    borderRadius: "8px 8px 0 0",
+                    color: isActive ? S.ivory : hovered === tab.id ? "#94a3b8" : S.muted,
+                    fontSize: "13px", fontWeight: isActive ? 700 : 500,
+                    transition: "all 0.18s",
+                  }}
+                >
+                  {tab.emoji} {tab.label}
+                  {loading[tab.id] && (
+                    <span style={{ marginLeft: "6px", display: "inline-block", width: 8, height: 8, borderRadius: "50%", border: `2px solid ${S.orange}`, borderTopColor: "transparent", animation: "dashSpin 0.6s linear infinite" }} />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Contenu */}
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "28px 24px 80px", animation: "dashFadeIn 0.35s ease" }}
+        key={activePanel}
+      >
+        {errors[activePanel] ? (
+          <div style={{
+            ...S.surface, padding: "32px", textAlign: "center",
+            borderColor: "#ef444440",
+          }}>
+            <div style={{ fontSize: "32px", marginBottom: "12px" }}>⚠️</div>
+            <p style={{ color: "#ef4444", fontWeight: 700, margin: "0 0 6px" }}>Erreur de chargement</p>
+            <p style={{ color: S.muted, fontSize: "12px", margin: 0 }}>{errors[activePanel]}</p>
+            <p style={{ color: S.muted, fontSize: "11px", margin: "8px 0 0" }}>
+              Vérifiez que le backend tourne sur <code style={{ color: S.orange }}>localhost:8000</code>
+            </p>
+          </div>
+        ) : loading[activePanel] ? (
+          <Spinner />
+        ) : (
+          <>
+            {activePanel === "global"     && <DashGlobal        data={data.global}     />}
+            {activePanel === "categories" && <DashCategories     data={data.categories} />}
+            {activePanel === "budget"     && <DashBudget         data={data.budget}     />}
+            {activePanel === "hotels"     && <DashHotels         data={data.hotels}     />}
+            {activePanel === "activites"  && <DashTopActivites   data={data.activites}  />}
+            {activePanel === "profil"     && <DashUserProfile    data={data.profil}     />}
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

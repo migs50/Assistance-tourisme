@@ -17,6 +17,8 @@ from routes.chat      import router as chat_router
 from routes.recommend  import router as recommend_router
 from rag.embedder     import build_index
 from routes.recommandation import router as recommandation_router
+from routes.dashboard import router as dashboard_router
+
 
 # Chargement des variables d'environnement (.env)
 
@@ -66,7 +68,7 @@ app.add_middleware(
 app.include_router(chat_router)
 app.include_router(recommend_router)
 app.include_router(recommandation_router, prefix="/api/recommandation", tags=["Recommandation"])
-
+app.include_router(dashboard_router, prefix="/api/dashboard", tags=["Dashboard"])
 # ─── Endpoints de base ────────────────────────────────────────────────────────
 
 @app.get("/", tags=["Général"])
