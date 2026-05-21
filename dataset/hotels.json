@@ -56,7 +56,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,5",
+    "image_url": "https://serpapi.com/searches/6a0d9fdfb13aa7ee97ebc8cb/images/8OjF_AxZ8lhw5-tuW18VzybBiD8jGlv3Wu-9djwSTws.jpeg",
     "site_web": "https://www.elminzah.com",
     "telephone": "+212539935885",
     "email_contact": "reservation@elminzah.com",
@@ -119,7 +119,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,5",
+    "image_url": "https://serpapi.com/searches/6a0d9fdfb13aa7ee97ebc8cb/images/8OjF_AxZ8lhw5-tuW18VzybBiD8jGlv3Wu-9djwSTws.jpeg",
     "site_web": "https://www.fairmont.com",
     "telephone": "+212539335000",
     "email_contact": "tazi@fairmont.com",
@@ -182,7 +182,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,5",
+    "image_url":  "https://serpapi.com/searches/6a0da0a33882c57eda00a212/images/rhjUeB_rF1L29u5XlEwA7uUBnlsa_Df100kYDkVbEkc.jpeg",
     "site_web": "https://www.hilton.com",
     "telephone": "+212539906060",
     "email_contact": "tanger@hilton.com",
@@ -245,9 +245,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,5",
-    "site_web": "https://www.barcelo.com",
-    "telephone": "+212539942000",
+    "image_url":  "https://serpapi.com/searches/6a0da1308da5eac630394257/images/JiwtGLnCELqRN--rtwzJ3J7acjgW1oMK9IwmY5YPQrc.jpeg",
     "email_contact": "tanger@barcelo.com",
     "source_donnee": "Google Places + TripAdvisor"
   },
@@ -299,7 +297,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url": "https://serpapi.com/searches/6a0da1ccff596e4d7c84618b/images/il33JWA2H0pWlW1nxCuV4sbx-tfD6fBHhCOEkpdicMM.jpeg",
     "site_web": "https://www.goldentulip.com",
     "telephone": "+212539946644",
     "email_contact": "farah@goldentulip.com",
@@ -353,7 +351,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url": "https://serpapi.com/searches/6a0da2240676dcb712ab75f6/images/sALXkSAEx9PTddGSIAd2IEWykHoyX0fpU40a0mOnVTk.jpeg",
     "site_web": null,
     "telephone": "+212539937870",
     "email_contact": "info@hotelrembrandt.ma",
@@ -408,7 +406,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url":  "https://serpapi.com/searches/6a0da265d45a38d5a0378291/images/_QTbLz3bufAVDRDA3--jWFNHXEQR7ru9G6tXC06XgiU.jpeg",
     "site_web": "https://www.eloumniapuerto.com",
     "telephone": "+212539947410",
     "email_contact": "reservation@eloumniapuerto.com",
@@ -462,7 +460,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url": "https://serpapi.com/searches/6a0da2a7a1de12ad05fe7688/images/X954E_WmkwQ_eYK5ZuJ5ZtlR474X7lHKin0dcsJrwwo.jpeg",
     "site_web": null,
     "telephone": "+212539942930",
     "email_contact": "info@hotelchellah.ma",
@@ -516,7 +514,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url":  "https://serpapi.com/searches/6a0da2fe8ffd7bb3e88485e2/images/VohNB8rd_-KolBq-mXqOw0lTLY14xEbh3wSqV7XiFXw.jpeg",
     "site_web": null,
     "telephone": "+212539938279",
     "email_contact": "info@tanflandria.ma",
@@ -565,7 +563,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0da35473bf59849d853e47/images/mDQ0A03UjAJDN-teTk3KiZ9FerzDhmRrTW_M3GdyYvA.jpeg",
     "site_web": "https://www.ibis.com",
     "telephone": "+212539300200",
     "email_contact": "tanger@ibis.com",
@@ -614,60 +612,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0da3b8e22fed84383d16b8/images/-1PaqD8wK7slQiiQ1od3V4oBgiZqf1XodMzjAK87IQM.jpeg",
     "site_web": null,
     "telephone": "+212539393400",
     "email_contact": "ibnbatouta@gmail.com",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_020",
-    "nom": "Hotel Bab Bhar",
-    "categorie": "3_etoiles",
-    "type": "hotel",
-    "latitude": 35.787,
-    "longitude": -5.812,
-    "adresse": "Hotel Bab Bhar, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Hôtel 3 étoiles confortable et bien situé à Tanger, idéal pour les voyageurs recherchant confort et praticité sans sacrifier leur budget. Les chambres propres et fonctionnelles sont équipées du wifi gratuit et de la climatisation. La réception est disponible pour vous aider à planifier vos visites dans la ville. Un petit-déjeuner marocain authentique peut être servi sur demande. Excellent point de départ pour explorer la médina, la Kasbah et les nombreux sites historiques de la ville.",
-    "description_en": "A comfortable and well-located 3-star hotel in Tangier, ideal for travelers seeking comfort and practicality without breaking the budget. Clean and functional rooms are equipped with free wifi and air conditioning. The reception is available to help you plan your city visits. An authentic Moroccan breakfast can be served on request. An excellent base to explore the medina, Kasbah, and the city's many historic sites.",
-    "description_ar": "فندق 3 نجوم مريح وموقعه ممتاز في طنجة، مثالي للمسافرين الذين يبحثون عن الراحة والعملية دون الإخلال بالميزانية. الغرف النظيفة والعملية مجهزة بواي فاي مجاني وتكييف هواء. الاستقبال متاح لمساعدتك في التخطيط لزياراتك في المدينة.",
-    "prix_nuit_min_mad": 380,
-    "prix_nuit_max_mad": 680,
-    "budget_type": "moyen",
-    "note_moyenne": 3.9,
-    "nb_avis": 230,
-    "equipements": [
-      "wifi",
-      "restaurant",
-      "parking",
-      "climatisation",
-      "room_service"
-    ],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": false,
-    "animaux_acceptes": false,
-    "nombre_chambres": 50,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "standard",
-      "bon_rapport_qualite_prix",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
-    "site_web": null,
-    "telephone": "+212539934390",
-    "email_contact": "info@babbhar.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -713,7 +661,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0da43a3b93e3c500747311/images/qAP5S8B8Hm_iE23mEQ2XMlUy4KNz87hSw5eaMx3lEuw.jpeg",
     "site_web": null,
     "telephone": "+212539942244",
     "email_contact": "info@eldjenina.ma",
@@ -762,7 +710,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0da483ae678cfea6e3dbd6/images/rELdqJOU8pb_gFulALBVmBO4VXJF3-HdYKZLqwL0hpI.jpeg",
     "site_web": null,
     "telephone": "+212539941124",
     "email_contact": "info@marcopolo.ma",
@@ -812,7 +760,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url": "https://serpapi.com/searches/6a0da4a62efef8644f4a874d/images/sn15-2bBpspWmML5_7pJbFwtB4GvP3bPnC7w48W_arY.jpeg",
     "site_web": null,
     "telephone": "+212539940164",
     "email_contact": "info@solazur.ma",
@@ -862,7 +810,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url": "https://serpapi.com/searches/6a0da4ddb24c5de016b51f66/images/-Ma6gNCxfYiEiJctgjuyQ_WbabVVYujPdrX1nceS6CI.jpeg",
     "site_web": null,
     "telephone": "+212539944740",
     "email_contact": "info@dawliz.ma",
@@ -911,7 +859,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0da51c3d870102d325eb46/images/XvacZFxN2VtCSjG0_ce3v22oJUxNFMHKxYXCnwFm-14.jpeg",
     "site_web": null,
     "telephone": "+212539946610",
     "email_contact": "info@hotelrif.ma",
@@ -960,7 +908,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0da5542ddc43318dacafc7/images/Z8n2i3jJZGHQ1ycLReYJDWwOEWoj-aAZFiklFzPSPgs.jpeg",
     "site_web": null,
     "telephone": "+212539941817",
     "email_contact": "info@hotelvalencia.ma",
@@ -1007,7 +955,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
+    "image_url": "https://serpapi.com/searches/6a0da581cc56d3b7720c2a88/images/nxvkYGx3SusbYy2BwJZeGYpqHrpNW7GO6R93pEVIlHQ.jpeg",
     "site_web": null,
     "telephone": "+212539938271",
     "email_contact": "info@mamora.ma",
@@ -1054,7 +1002,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
+    "image_url":  "https://serpapi.com/searches/6a0da5acf5c2f81fe6c85f2a/images/3Ik_I5CAkSMDZTcnPzuzu_Jj1gSsP3GC4POacSrr6MA.jpeg",
     "site_web": null,
     "telephone": "+212539938420",
     "email_contact": "info@andaluz.ma",
@@ -1101,7 +1049,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
+    "image_url": "https://serpapi.com/searches/6a0da5e37d6e70a5d0ab15aa/images/pTxJh_C8zMnpYZJNFz2d34GF6zt5U0dEm2H8qzlzKoM.jpeg",
     "site_web": null,
     "telephone": "+212539943910",
     "email_contact": "info@hotelfaro.ma",
@@ -1148,104 +1096,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
+    "image_url":  "https://serpapi.com/searches/6a0da6433882c53dca3d24c8/images/n7nLsDwKxkZ9FpHv55lzriBolDCk0LKGVS7dbc5K48k.jpeg",
     "site_web": null,
     "telephone": "+212539935801",
     "email_contact": "info@mauritania.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_032",
-    "nom": "Hotel Nassim",
-    "categorie": "2_etoiles",
-    "type": "hotel",
-    "latitude": 35.776,
-    "longitude": -5.806,
-    "adresse": "Hotel Nassim, Centre-ville, Tanger 90000, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Hôtel 2 étoiles simple et propre, parfaitement adapté aux voyageurs soucieux de leur budget à Tanger. Les chambres fonctionnelles offrent tout l'essentiel pour un séjour confortable. Idéalement situé en centre-ville, il permet d'accéder facilement à pied aux principaux sites touristiques. Le personnel sympathique se fera un plaisir de vous donner des conseils sur les meilleures adresses de la ville.",
-    "description_en": "A simple and clean 2-star hotel, perfectly suited for budget-conscious travelers in Tangier. Functional rooms offer all the essentials for a comfortable stay. Ideally located in the city center, major tourist sites are easily accessible on foot. The friendly staff will be happy to share their recommendations for the best addresses in the city.",
-    "description_ar": "فندق بسيط ونظيف من فئة نجمتين، مناسب تماماً للمسافرين الحريصين على ميزانيتهم في طنجة. توفر الغرف الوظيفية جميع الضروريات لإقامة مريحة. يتيح الموقع المثالي في وسط المدينة الوصول إلى المعالم السياحية الرئيسية سيراً على الأقدام.",
-    "prix_nuit_min_mad": 190,
-    "prix_nuit_max_mad": 330,
-    "budget_type": "economique",
-    "note_moyenne": 3.3,
-    "nb_avis": 110,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "reception_24h"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": false,
-    "animaux_acceptes": false,
-    "nombre_chambres": 28,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "economique",
-      "budget"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
-    "site_web": null,
-    "telephone": "+212539941425",
-    "email_contact": "info@nassim.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_035",
-    "nom": "Hotel Excelsior",
-    "categorie": "2_etoiles",
-    "type": "hotel",
-    "latitude": 35.785,
-    "longitude": -5.8125,
-    "adresse": "Hotel Excelsior, Centre-ville, Tanger 90000, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Hôtel 2 étoiles simple et propre, parfaitement adapté aux voyageurs soucieux de leur budget à Tanger. Les chambres fonctionnelles offrent tout l'essentiel pour un séjour confortable. Idéalement situé en centre-ville, il permet d'accéder facilement à pied aux principaux sites touristiques. Le personnel sympathique se fera un plaisir de vous donner des conseils sur les meilleures adresses de la ville.",
-    "description_en": "A simple and clean 2-star hotel, perfectly suited for budget-conscious travelers in Tangier. Functional rooms offer all the essentials for a comfortable stay. Ideally located in the city center, major tourist sites are easily accessible on foot. The friendly staff will be happy to share their recommendations for the best addresses in the city.",
-    "description_ar": "فندق بسيط ونظيف من فئة نجمتين، مناسب تماماً للمسافرين الحريصين على ميزانيتهم في طنجة. توفر الغرف الوظيفية جميع الضروريات لإقامة مريحة. يتيح الموقع المثالي في وسط المدينة الوصول إلى المعالم السياحية الرئيسية سيراً على الأقدام.",
-    "prix_nuit_min_mad": 200,
-    "prix_nuit_max_mad": 340,
-    "budget_type": "economique",
-    "note_moyenne": 3.3,
-    "nb_avis": 150,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "reception_24h"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": false,
-    "animaux_acceptes": false,
-    "nombre_chambres": 40,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "economique",
-      "budget"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
-    "site_web": null,
-    "telephone": "+212539937271",
-    "email_contact": "info@excelsior.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -1298,7 +1152,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0da731302394e5f83195be/images/v0RIedleEmLzyEA8vAHrrh0My1N25ihE2yiSqI3hu4Q.jpeg",
     "site_web": "https://www.darsultan.com",
     "telephone": "+212539336362",
     "email_contact": "info@darsultan.com",
@@ -1354,7 +1208,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0da760f607a9e8844e6609/images/TPxIZZmUrVGm2YfRJ0AIF3ihJfO_sfKGCvKBGlvkQZU.jpeg",
     "site_web": "https://www.latangerina.com",
     "telephone": "+212539947731",
     "email_contact": "info@latangerina.com",
@@ -1410,7 +1264,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0da78e822c5f64ce8ad769/images/C4ix0kXH5ISmL7CsFdbUjZV_wfXMd4M5SzS2IFkCqr8.jpeg",
     "site_web": "https://www.darchams.com",
     "telephone": "+212539332323",
     "email_contact": "info@darchams.com",
@@ -1466,66 +1320,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0da865e82707f320c81b2d/images/ANs-fC7EID9jGZJ5TcvJDG8PB6j-R-149tmhC2zgaUM.jpeg",
     "site_web": "https://www.darnour.com",
     "telephone": "+212539930339",
     "email_contact": "reservation@darnour.com",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_042",
-    "nom": "El Morocco Club Riad",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.7865,
-    "longitude": -5.8118,
-    "adresse": "El Morocco Club Riad, Kasbah, Tanger 90000, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Riad traditionnel authentiquement marocain situé dans les ruelles pittoresques de la médina ou de la Kasbah de Tanger. Ce joyau architectural s'organise autour d'un patio central orné de zelliges colorés et d'une fontaine apaisante. Les chambres décorées avec des matériaux nobles (bois de cèdre, stuc sculpté, tissus berbères) offrent une atmosphère chaleureuse et intime. Le toit-terrasse offre une vue panoramique sur les toits de la médina et le détroit de Gibraltar. Une hospitalité marocaine authentique et personnalisée pour une expérience mémorable.",
-    "description_en": "An authentically Moroccan traditional riad located in the picturesque alleys of Tangier's medina or Kasbah. This architectural gem is organized around a central patio adorned with colorful zellige tiles and a soothing fountain. Rooms decorated with noble materials (cedar wood, sculpted stucco, Berber fabrics) offer a warm and intimate atmosphere. The rooftop terrace offers a panoramic view over the medina's rooftops and the Strait of Gibraltar. Authentic and personalized Moroccan hospitality for an unforgettable experience.",
-    "description_ar": "رياض تقليدي أصيل يقع في الأزقة الخلابة للمدينة القديمة أو القصبة في طنجة. تتمحور هذه الجوهرة المعمارية حول فناء مركزي مزين بالزليج الملون ونافورة هادئة. تقدم الغرف المزينة بمواد نبيلة أجواء دافئة وحميمة. تطل التراس على أسطح المدينة القديمة ومضيق جبل طارق.",
-    "prix_nuit_min_mad": 900,
-    "prix_nuit_max_mad": 1800,
-    "budget_type": "premium",
-    "note_moyenne": 4.7,
-    "nb_avis": 220,
-    "equipements": [
-      "wifi",
-      "riad",
-      "patio",
-      "hammam",
-      "petit_dejeuner",
-      "terrasse",
-      "climatisation"
-    ],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 12,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "traditionnel",
-      "medina",
-      "riad",
-      "authentique",
-      "charme",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
-    "site_web": "https://www.elmoroccclub.com",
-    "telephone": "+212539948439",
-    "email_contact": "info@elmoroccoclub.com",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -1574,62 +1372,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
+    "image_url": "https://serpapi.com/searches/6a0da8fc9c23124bf5bffb0d/images/uvWiHZtEj5D1z4OZktijNrA2UuowKvE_OWpSmgw5JBc.jpeg",
     "site_web": "https://www.hihostels.com",
     "telephone": "+212539946127",
     "email_contact": "tanger@hihostels.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_047",
-    "nom": "Bab Bhar Hostel",
-    "categorie": "auberge",
-    "type": "auberge_jeunesse",
-    "latitude": 35.787,
-    "longitude": -5.8125,
-    "adresse": "Bab Bhar Hostel, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Auberge de jeunesse accueillante et conviviale, idéale pour les voyageurs souhaitant découvrir Tanger avec un budget serré. Les dortoirs propres et les espaces communs animés favorisent les échanges entre voyageurs du monde entier. La cuisine commune permet de préparer ses propres repas et de faire des économies. L'équipe dynamique et passionnée organise régulièrement des visites guidées de la médina et des excursions dans la région.",
-    "description_en": "A welcoming and friendly youth hostel, ideal for travelers wishing to discover Tangier on a tight budget. Clean dormitories and lively common areas encourage exchanges between travelers from around the world. The shared kitchen allows guests to prepare their own meals and save money. The dynamic and passionate team regularly organizes guided tours of the medina and excursions in the region.",
-    "description_ar": "نزل شباب مرحب وودي، مثالي للمسافرين الراغبين في اكتشاف طنجة بميزانية محدودة. تشجع الأسرة النظيفة والمساحات المشتركة الحيوية التبادل بين المسافرين من جميع أنحاء العالم. تتيح المطبخ المشترك إعداد الوجبات الخاصة وتوفير المال.",
-    "prix_nuit_min_mad": 90,
-    "prix_nuit_max_mad": 160,
-    "budget_type": "economique",
-    "note_moyenne": 4.0,
-    "nb_avis": 310,
-    "equipements": [
-      "wifi",
-      "cuisine_commune",
-      "consigne_bagages",
-      "reception_24h",
-      "dortoirs"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": false,
-    "animaux_acceptes": false,
-    "nombre_chambres": 30,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "backpacker",
-      "budget",
-      "social",
-      "jeunesse"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
-    "site_web": null,
-    "telephone": "+212661456789",
-    "email_contact": "info@babbharhostel.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -1678,7 +1424,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
+    "image_url":  "https://serpapi.com/searches/6a0daad455ba658cded35a78/images/5PZW9yBT6FgnTN8NmtveBE6e7p9D58wdEffyUaE9w1Y.jpeg",
     "site_web": null,
     "telephone": "+212661567890",
     "email_contact": "info@tangerinn.ma",
@@ -1731,7 +1477,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
+    "image_url": "https://serpapi.com/searches/6a0dab49683863e2483f011c/images/Kam6AV7o6sPm3fZbRrXcLSMmSRssIjMeY2F-Xf8XVcE.jpeg",
     "site_web": null,
     "telephone": "+212661678901",
     "email_contact": "info@kasbahbackpackers.ma",
@@ -1783,7 +1529,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
+    "image_url":  "https://serpapi.com/searches/6a0dabe050d43e7199fe05ac/images/X-FXQ1r-yjid-38mfVURQObogF71ntJjd6cQ4OQmWVw.jpeg",
     "site_web": null,
     "telephone": "+212661789012",
     "email_contact": "info@surfstay.ma",
@@ -1832,7 +1578,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxkM_HO4jIRf5HiXF4IJMsE5iTQ0AOquiJA&s",
     "site_web": null,
     "telephone": "+212539938028",
     "email_contact": "info@hotelbiarritz.ma",
@@ -1928,7 +1674,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url": "https://serpapi.com/searches/6a0dedff0a91564f6be6b99c/images/vHwmXmcbQKMBZpRnk-BCmqnZq6B_aeV-NcSFq82bd7c.jpeg",
     "site_web": null,
     "telephone": "+212539936026",
     "email_contact": "info@lutecia.ma",
@@ -1975,114 +1721,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
+    "image_url":  "https://serpapi.com/searches/6a0deca270e9d086e980198f/images/ZpMWB2ApgZgytXAy0p_Ikrz556GvNTSvYQcedIL2YnQ.jpeg",
     "site_web": null,
     "telephone": "+212539933271",
     "email_contact": "info@hotelparis-tanger.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_055",
-    "nom": "Hotel Dawliz Résidence",
-    "categorie": "4_etoiles",
-    "type": "hotel",
-    "latitude": 35.7905,
-    "longitude": -5.803,
-    "adresse": "Hotel Dawliz Résidence, Corniche, Tanger 90000, Maroc",
-    "quartier": "Corniche",
-    "description_fr": "Hôtel 4 étoiles confortable et bien situé à Tanger. Restaurant, parking et climatisation inclus. Excellent rapport qualité-prix pour un séjour agréable.",
-    "description_en": "A comfortable 4-star hotel well located in Tangier. Restaurant, parking and air conditioning included. Excellent value for money for a pleasant stay.",
-    "description_ar": "فندق 4 نجوم مريح وموقعه جيد في طنجة. مطعم وموقف سيارات وتكييف هواء. قيمة ممتازة لإقامة ممتعة.",
-    "prix_nuit_min_mad": 700,
-    "prix_nuit_max_mad": 1200,
-    "budget_type": "moyen",
-    "note_moyenne": 4.0,
-    "nb_avis": 210,
-    "equipements": [
-      "wifi",
-      "restaurant",
-      "bar",
-      "parking",
-      "climatisation",
-      "room_service",
-      "fitness",
-      "piscine"
-    ],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 60,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "confort",
-      "restaurant",
-      "centre_ville",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
-    "site_web": null,
-    "telephone": "+212539940022",
-    "email_contact": "info@dawlizresidence.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_056",
-    "nom": "Hotel Tanger City Center",
-    "categorie": "3_etoiles",
-    "type": "hotel",
-    "latitude": 35.773,
-    "longitude": -5.804,
-    "adresse": "Hotel Tanger City Center, Centre-ville, Tanger 90000, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Hôtel 3 étoiles propre et fonctionnel, idéal pour explorer Tanger. Wifi gratuit, climatisation et personnel accueillant pour un séjour sans surprise.",
-    "description_en": "A clean and functional 3-star hotel, perfect for exploring Tangier. Free wifi, air conditioning and welcoming staff for a worry-free stay.",
-    "description_ar": "فندق 3 نجوم نظيف وعملي، مثالي لاستكشاف طنجة. واي فاي مجاني وتكييف وطاقم ودود.",
-    "prix_nuit_min_mad": 420,
-    "prix_nuit_max_mad": 720,
-    "budget_type": "moyen",
-    "note_moyenne": 3.9,
-    "nb_avis": 260,
-    "equipements": [
-      "wifi",
-      "restaurant",
-      "parking",
-      "climatisation",
-      "room_service"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 75,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "standard",
-      "bon_rapport_qualite_prix"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
-    "site_web": null,
-    "telephone": "+212539348800",
-    "email_contact": "info@tangercitycenter.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -2129,120 +1771,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url": "https://serpapi.com/searches/6a0deb41410cdab73fdd3abd/images/XZM0_95ppEoNFU74GcIpOlpDGIkU0vvHNJxlHiDWSUY.jpeg",
     "site_web": null,
     "telephone": "+212539933191",
     "email_contact": "info@miramor.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_058",
-    "nom": "Hotel Playa",
-    "categorie": "4_etoiles",
-    "type": "hotel",
-    "latitude": 35.793,
-    "longitude": -5.799,
-    "adresse": "Hotel Playa, Malabata, Tanger 90000, Maroc",
-    "quartier": "Malabata",
-    "description_fr": "Hôtel 4 étoiles confortable et bien situé à Tanger. Restaurant, parking et climatisation inclus. Excellent rapport qualité-prix pour un séjour agréable.",
-    "description_en": "A comfortable 4-star hotel well located in Tangier. Restaurant, parking and air conditioning included. Excellent value for money for a pleasant stay.",
-    "description_ar": "فندق 4 نجوم مريح وموقعه جيد في طنجة. مطعم وموقف سيارات وتكييف هواء. قيمة ممتازة لإقامة ممتعة.",
-    "prix_nuit_min_mad": 780,
-    "prix_nuit_max_mad": 1400,
-    "budget_type": "moyen",
-    "note_moyenne": 4.1,
-    "nb_avis": 310,
-    "equipements": [
-      "wifi",
-      "restaurant",
-      "bar",
-      "parking",
-      "climatisation",
-      "room_service",
-      "fitness",
-      "piscine"
-    ],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 90,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "confort",
-      "restaurant",
-      "centre_ville",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
-    "site_web": null,
-    "telephone": "+212539942444",
-    "email_contact": "info@hotelplaya.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_059",
-    "nom": "Riad Boussa Tanger",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.7852,
-    "longitude": -5.8112,
-    "adresse": "Riad Boussa Tanger, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Riad traditionnel authentique niché dans les ruelles de la médina ou Kasbah. Patio central, fontaine andalouse, décor en zelliges, terrasse panoramique et hospitalité marocaine chaleureuse.",
-    "description_en": "An authentic traditional riad nestled in the alleys of the medina or Kasbah. Central patio, Andalusian fountain, zellige decor, panoramic terrace and warm Moroccan hospitality.",
-    "description_ar": "رياض تقليدي أصيل في أزقة المدينة القديمة أو القصبة. فناء مركزي ونافورة أندلسية وزليج وتراس بانورامي وضيافة مغربية دافئة.",
-    "prix_nuit_min_mad": 500,
-    "prix_nuit_max_mad": 950,
-    "budget_type": "moyen",
-    "note_moyenne": 4.6,
-    "nb_avis": 125,
-    "equipements": [
-      "wifi",
-      "riad",
-      "patio",
-      "hammam",
-      "petit_dejeuner",
-      "terrasse",
-      "climatisation"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 8,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "traditionnel",
-      "medina",
-      "riad",
-      "authentique",
-      "charme"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
-    "site_web": null,
-    "telephone": "+212661891234",
-    "email_contact": "info@riadboussa.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -2294,7 +1826,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0dea42ae678c0980a66ea5/images/9FJr5k5uzZ6e7TBBGTXELKoCQLbeljpXL8rg9OSh2qg.jpeg",
     "site_web": null,
     "telephone": "+212661902345",
     "email_contact": "info@riad-albaraka.ma",
@@ -2349,169 +1881,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url":  "https://serpapi.com/searches/6a0de9be2328e17d3b125597/images/yCxRY2hooKU-sol9BJJv5GDwaPb31fHFDRuBgK5S1x8.jpeg",
     "site_web": null,
     "telephone": "+212539937788",
     "email_contact": "suites@dawliz.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_062",
-    "nom": "Riad Mabrouka",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.787,
-    "longitude": -5.8124,
-    "adresse": "Riad Mabrouka, Kasbah, Tanger 90000, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Riad traditionnel authentique niché dans les ruelles de la médina ou Kasbah. Patio central, fontaine andalouse, décor en zelliges, terrasse panoramique et hospitalité marocaine chaleureuse.",
-    "description_en": "An authentic traditional riad nestled in the alleys of the medina or Kasbah. Central patio, Andalusian fountain, zellige decor, panoramic terrace and warm Moroccan hospitality.",
-    "description_ar": "رياض تقليدي أصيل في أزقة المدينة القديمة أو القصبة. فناء مركزي ونافورة أندلسية وزليج وتراس بانورامي وضيافة مغربية دافئة.",
-    "prix_nuit_min_mad": 650,
-    "prix_nuit_max_mad": 1200,
-    "budget_type": "premium",
-    "note_moyenne": 4.7,
-    "nb_avis": 165,
-    "equipements": [
-      "wifi",
-      "riad",
-      "patio",
-      "hammam",
-      "petit_dejeuner",
-      "terrasse",
-      "climatisation"
-    ],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 7,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "traditionnel",
-      "medina",
-      "riad",
-      "authentique",
-      "charme",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
-    "site_web": "https://www.riadmabrouka.com",
-    "telephone": "+212539332432",
-    "email_contact": "info@riadmabrouka.com",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_063",
-    "nom": "Hotel La Girafe",
-    "categorie": "2_etoiles",
-    "type": "hotel",
-    "latitude": 35.7808,
-    "longitude": -5.8098,
-    "adresse": "Hotel La Girafe, Centre-ville, Tanger 90000, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Hôtel économique simple et propre en plein cœur de Tanger. Parfait pour les voyageurs budget souhaitant découvrir la ville sans se ruiner.",
-    "description_en": "A simple and clean budget hotel in the heart of Tangier. Perfect for budget travelers wishing to discover the city without overspending.",
-    "description_ar": "فندق اقتصادي بسيط ونظيف في قلب طنجة. مثالي للمسافرين ذوي الميزانية المحدودة.",
-    "prix_nuit_min_mad": 200,
-    "prix_nuit_max_mad": 350,
-    "budget_type": "economique",
-    "note_moyenne": 3.4,
-    "nb_avis": 105,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "reception_24h"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": false,
-    "animaux_acceptes": false,
-    "nombre_chambres": 32,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "economique",
-      "budget"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
-    "site_web": null,
-    "telephone": "+212539938760",
-    "email_contact": "info@lagirafe.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_064",
-    "nom": "Dar Ayniwen",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.788,
-    "longitude": -5.8128,
-    "adresse": "Dar Ayniwen, Kasbah, Tanger 90000, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Riad traditionnel authentique niché dans les ruelles de la médina ou Kasbah. Patio central, fontaine andalouse, décor en zelliges, terrasse panoramique et hospitalité marocaine chaleureuse.",
-    "description_en": "An authentic traditional riad nestled in the alleys of the medina or Kasbah. Central patio, Andalusian fountain, zellige decor, panoramic terrace and warm Moroccan hospitality.",
-    "description_ar": "رياض تقليدي أصيل في أزقة المدينة القديمة أو القصبة. فناء مركزي ونافورة أندلسية وزليج وتراس بانورامي وضيافة مغربية دافئة.",
-    "prix_nuit_min_mad": 700,
-    "prix_nuit_max_mad": 1350,
-    "budget_type": "premium",
-    "note_moyenne": 4.8,
-    "nb_avis": 98,
-    "equipements": [
-      "wifi",
-      "riad",
-      "patio",
-      "hammam",
-      "petit_dejeuner",
-      "terrasse",
-      "climatisation"
-    ],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 6,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "traditionnel",
-      "medina",
-      "riad",
-      "authentique",
-      "charme",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
-    "site_web": "https://www.darayniwen.com",
-    "telephone": "+212539946944",
-    "email_contact": "info@darayniwen.com",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -2557,65 +1930,9 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
-    "site_web": null,
+    "image_url": "https://serpapi.com/searches/6a0de784a26f56262fb1a315/images/ukMq11PhA7pDk6RxeqhVHD0M4DPpVnvbWEMurZRxkqA.jpeg",
     "telephone": "+212539946390",
     "email_contact": "info@ahlan.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_066",
-    "nom": "Riad La Brasserie Bavaroise",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.7858,
-    "longitude": -5.8114,
-    "adresse": "Riad La Brasserie Bavaroise, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Riad traditionnel authentique niché dans les ruelles de la médina ou Kasbah. Patio central, fontaine andalouse, décor en zelliges, terrasse panoramique et hospitalité marocaine chaleureuse.",
-    "description_en": "An authentic traditional riad nestled in the alleys of the medina or Kasbah. Central patio, Andalusian fountain, zellige decor, panoramic terrace and warm Moroccan hospitality.",
-    "description_ar": "رياض تقليدي أصيل في أزقة المدينة القديمة أو القصبة. فناء مركزي ونافورة أندلسية وزليج وتراس بانورامي وضيافة مغربية دافئة.",
-    "prix_nuit_min_mad": 480,
-    "prix_nuit_max_mad": 900,
-    "budget_type": "moyen",
-    "note_moyenne": 4.4,
-    "nb_avis": 88,
-    "equipements": [
-      "wifi",
-      "riad",
-      "patio",
-      "hammam",
-      "petit_dejeuner",
-      "terrasse",
-      "climatisation"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 8,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "traditionnel",
-      "medina",
-      "riad",
-      "authentique",
-      "charme"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
-    "site_web": null,
-    "telephone": "+212661123890",
-    "email_contact": "info@brasserie-riad.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -2674,7 +1991,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,5",
+    "image_url":   "https://serpapi.com/searches/6a0de7bb2ddc43405c228254/images/dAuLHoD8qCdbUQ5a5IYcThkzKqyf68_SXjkWiTIuvhY.jpeg",
     "site_web": null,
     "telephone": "+212539335885",
     "email_contact": "palace@elminzah.com",
@@ -2728,7 +2045,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url":  "https://serpapi.com/searches/6a0de184b2c613006ed2b412/images/ngkiAjocPwSVv6Oxjqct2-YwZg7uLz1VEs_tGObGcgs.jpeg",
     "site_web": "https://www.ryadmogador.com",
     "telephone": "+212539370900",
     "email_contact": "tanger@ryadmogador.com",
@@ -2777,62 +2094,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0de14355ba65813b4bb10c/images/4ipAqQbP2AXKwv5IbqHCWdXfzjbVyykh5NgHE_r84ow.jpeg",
     "site_web": null,
     "telephone": "+212539900100",
     "email_contact": "info@tangerparadise.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_070",
-    "nom": "Casa Blanca Hostel",
-    "categorie": "auberge",
-    "type": "auberge_jeunesse",
-    "latitude": 35.7842,
-    "longitude": -5.8108,
-    "adresse": "Casa Blanca Hostel, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Auberge de jeunesse conviviale pour les voyageurs budget. Dortoirs propres, espaces communs, cuisine partagée et équipe dynamique organisant des visites guidées.",
-    "description_en": "A friendly youth hostel for budget travelers. Clean dorms, common areas, shared kitchen and dynamic team organizing guided tours.",
-    "description_ar": "نزل شباب ودي للمسافرين بميزانية محدودة. أسرة نظيفة ومساحات مشتركة ومطبخ مشترك وفريق ينظم جولات.",
-    "prix_nuit_min_mad": 95,
-    "prix_nuit_max_mad": 170,
-    "budget_type": "economique",
-    "note_moyenne": 4.1,
-    "nb_avis": 220,
-    "equipements": [
-      "wifi",
-      "cuisine_commune",
-      "consigne_bagages",
-      "reception_24h",
-      "dortoirs"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 18,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "backpacker",
-      "budget",
-      "social",
-      "jeunesse"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
-    "site_web": null,
-    "telephone": "+212661234908",
-    "email_contact": "info@casablancahostel.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -2884,65 +2149,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url": "https://serpapi.com/searches/6a0de0c566bc789ef489cc5b/images/P8iVi5WSWwR1a3GKTeTF4wYifKZfR8DuT74cDxUM9mc.jpeg",
     "site_web": null,
     "telephone": "+212539394040",
     "email_contact": "info@rivieratanger.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_072",
-    "nom": "Riad Laila",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.7853,
-    "longitude": -5.811,
-    "adresse": "Riad Laila, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Riad traditionnel authentique niché dans les ruelles de la médina ou Kasbah. Patio central, fontaine andalouse, décor en zelliges, terrasse panoramique et hospitalité marocaine chaleureuse.",
-    "description_en": "An authentic traditional riad nestled in the alleys of the medina or Kasbah. Central patio, Andalusian fountain, zellige decor, panoramic terrace and warm Moroccan hospitality.",
-    "description_ar": "رياض تقليدي أصيل في أزقة المدينة القديمة أو القصبة. فناء مركزي ونافورة أندلسية وزليج وتراس بانورامي وضيافة مغربية دافئة.",
-    "prix_nuit_min_mad": 460,
-    "prix_nuit_max_mad": 880,
-    "budget_type": "moyen",
-    "note_moyenne": 4.3,
-    "nb_avis": 75,
-    "equipements": [
-      "wifi",
-      "riad",
-      "patio",
-      "hammam",
-      "petit_dejeuner",
-      "terrasse",
-      "climatisation"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 7,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "traditionnel",
-      "medina",
-      "riad",
-      "authentique",
-      "charme"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
-    "site_web": null,
-    "telephone": "+212661345890",
-    "email_contact": "info@riadlaila.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -2988,7 +2198,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
+    "image_url":  "https://serpapi.com/searches/6a0de065d0a88f62a9b28f5e/images/oy_mUkjIuipsHAO8Rj9hJUY2aNEoyvbX94jvfs69vnQ.jpeg",
     "site_web": null,
     "telephone": "+212539932730",
     "email_contact": "info@andalusia.ma",
@@ -3035,111 +2245,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
+    "image_url":  "https://serpapi.com/searches/6a0de029f0114a9585ebe453/images/xiFzO7PVmQOkvgLkNm5ALWPH4WafO7jez1YnbegZLUU.jpeg",
     "site_web": null,
     "telephone": "+212539937330",
     "email_contact": "info@oasis-tanger.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_075",
-    "nom": "Medina Hostel Tanger",
-    "categorie": "auberge",
-    "type": "auberge_jeunesse",
-    "latitude": 35.7848,
-    "longitude": -5.8106,
-    "adresse": "Medina Hostel Tanger, Médina, Tanger 90000, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Auberge de jeunesse conviviale pour les voyageurs budget. Dortoirs propres, espaces communs, cuisine partagée et équipe dynamique organisant des visites guidées.",
-    "description_en": "A friendly youth hostel for budget travelers. Clean dorms, common areas, shared kitchen and dynamic team organizing guided tours.",
-    "description_ar": "نزل شباب ودي للمسافرين بميزانية محدودة. أسرة نظيفة ومساحات مشتركة ومطبخ مشترك وفريق ينظم جولات.",
-    "prix_nuit_min_mad": 100,
-    "prix_nuit_max_mad": 175,
-    "budget_type": "economique",
-    "note_moyenne": 4.2,
-    "nb_avis": 165,
-    "equipements": [
-      "wifi",
-      "cuisine_commune",
-      "consigne_bagages",
-      "reception_24h",
-      "dortoirs"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 22,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "backpacker",
-      "budget",
-      "social",
-      "jeunesse"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,auberge",
-    "site_web": null,
-    "telephone": "+212661456980",
-    "email_contact": "info@medinahostel.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_076",
-    "nom": "Hotel Tanger Garden",
-    "categorie": "3_etoiles",
-    "type": "hotel",
-    "latitude": 35.772,
-    "longitude": -5.82,
-    "adresse": "Hotel Tanger Garden, Centre-ville, Tanger 90000, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Hôtel 3 étoiles propre et fonctionnel, idéal pour explorer Tanger. Wifi gratuit, climatisation et personnel accueillant pour un séjour sans surprise.",
-    "description_en": "A clean and functional 3-star hotel, perfect for exploring Tangier. Free wifi, air conditioning and welcoming staff for a worry-free stay.",
-    "description_ar": "فندق 3 نجوم نظيف وعملي، مثالي لاستكشاف طنجة. واي فاي مجاني وتكييف وطاقم ودود.",
-    "prix_nuit_min_mad": 410,
-    "prix_nuit_max_mad": 720,
-    "budget_type": "moyen",
-    "note_moyenne": 3.8,
-    "nb_avis": 175,
-    "equipements": [
-      "wifi",
-      "restaurant",
-      "parking",
-      "climatisation",
-      "room_service"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 55,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "standard",
-      "bon_rapport_qualite_prix"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
-    "site_web": null,
-    "telephone": "+212539947000",
-    "email_contact": "info@tangergarden.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -3192,59 +2301,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0ddfa5cbcccfb762173c5a/images/p-06zN7NB9xnol3PvBk5W-3Qel3vAop1VTNjaaNXz4U.jpeg",
     "site_web": null,
     "telephone": "+212661567980",
     "email_contact": "info@laicha-riad.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "hotel_078",
-    "nom": "Hotel Residence Al Manara",
-    "categorie": "3_etoiles",
-    "type": "hotel",
-    "latitude": 35.7745,
-    "longitude": -5.809,
-    "adresse": "Hotel Residence Al Manara, Centre-ville, Tanger 90000, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Hôtel 3 étoiles propre et fonctionnel, idéal pour explorer Tanger. Wifi gratuit, climatisation et personnel accueillant pour un séjour sans surprise.",
-    "description_en": "A clean and functional 3-star hotel, perfect for exploring Tangier. Free wifi, air conditioning and welcoming staff for a worry-free stay.",
-    "description_ar": "فندق 3 نجوم نظيف وعملي، مثالي لاستكشاف طنجة. واي فاي مجاني وتكييف وطاقم ودود.",
-    "prix_nuit_min_mad": 430,
-    "prix_nuit_max_mad": 750,
-    "budget_type": "moyen",
-    "note_moyenne": 3.9,
-    "nb_avis": 190,
-    "equipements": [
-      "wifi",
-      "restaurant",
-      "parking",
-      "climatisation",
-      "room_service"
-    ],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 60,
-    "check_in": "14:00",
-    "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "arabe"
-    ],
-    "tags": [
-      "standard",
-      "bon_rapport_qualite_prix"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,3",
-    "site_web": null,
-    "telephone": "+212539945800",
-    "email_contact": "info@almanara.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -3296,7 +2356,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,4",
+    "image_url":  "https://serpapi.com/searches/6a0ddf422088af252fb46e74/images/OBV_VBH-0B9EqP8oD0giaR56RbRLoXz0bAM9orEu3DE.jpeg",
     "site_web": null,
     "telephone": "+212539933490",
     "email_contact": "info@bab-elbahr.ma",
@@ -3351,43 +2411,10 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,riad",
+    "image_url":  "https://serpapi.com/searches/6a0ddf06ccb1e9bc1d3b83c1/images/_a6Ybt7EHqREgHo8WRT8GEjm3ZsGsmN7HZAGsUhb0t0.jpeg",
     "site_web": null,
     "telephone": "+212661678980",
     "email_contact": "info@darfatima-riad.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "riads_001",
-    "nom": "Riad Dar Al Amane",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.7880,
-    "longitude": -5.8145,
-    "adresse": "Rue des Oudayas, Kasbah, Tanger 90000, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Charmant riad au cœur de la kasbah de Tanger, offrant des chambres décorées à la marocaine traditionnelle, une petite terrasse avec vue sur la médina et un patio central avec une fontaine. Service personnalisé et petit‑déjeuner maison inclus.",
-    "description_en": "Charming riad in the heart of Tangier's Kasbah, featuring traditionally decorated rooms, a small terrace with a view over the medina, and a central patio with a fountain. Personalized service and homemade breakfast included.",
-    "description_ar": "رياض جذاب في قلب قصبة طنجة، يضم غرفًا مزينة بالديكور المغربي التقليدي وتراسًا صغيرًا يطل على المدينة القديمة وساحة مركزية مع نافورة. خدمة شخصية وإفطار منزلي شامل.",
-    "prix_nuit_min_mad": 900,
-    "prix_nuit_max_mad": 1800,
-    "budget_type": "mid",
-    "note_moyenne": 4.6,
-    "nb_avis": 240,
-    "equipements": ["wifi", "wifi", "climatisation", "cuisine", "parking", "terrasse"],
-    "vue_mer": false,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 12,
-    "check_in": "15:00",
-    "check_out": "11:00",
-    "langues_personnel": ["français", "anglais", "arabe"],
-    "tags": ["riad", "kasbah", "authentique"],
-    "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,tangier,kasbah",
-    "site_web": "https://www.riad-dar-al-amane.ma",
-    "telephone": "+212539123456",
-    "email_contact": "contact@riad-dar-al-amane.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -3417,7 +2444,7 @@
     "langues_personnel": ["français", "anglais", "arabe"],
     "tags": ["riad", "médina", "luxueux"],
     "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,medina,tangier",
+    "image_url":  "https://serpapi.com/searches/6a0ddead02706ad2e3649032/images/TyQ_u8c7ZT6N_odEReadayJJPy3EuYDZccmK1LHZXm0.jpeg",
     "site_web": "https://www.riad-al-bahia.ma",
     "telephone": "+212539234567",
     "email_contact": "info@riad-al-bahia.ma",
@@ -3450,7 +2477,7 @@
     "langues_personnel": ["français", "anglais", "arabe"],
     "tags": ["riad", "luxueux", "palais"],
     "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,luxury,tangier",
+    "image_url":  "https://serpapi.com/searches/6a0dde6a16a5a86373ba0733/images/6AYBu0Lcs6mXe8KPyPE5FV9-4UNxGPR4JzTVWbNc40M.jpeg",
     "site_web": "https://www.riad-le-sultan.ma",
     "telephone": "+212539567890",
     "email_contact": "info@riad-le-sultan.ma",
@@ -3483,7 +2510,7 @@
     "langues_personnel": ["français", "anglais", "arabe"],
     "tags": ["riad", "vue_mer", "kasbah"],
     "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,sea,tangier",
+    "image_url":  "https://serpapi.com/searches/6a0dde1471577f39774bc609/images/XTzmn02tI5fiTO1VdEQ3Tlpy9XmQqBOhP22SXFO0ycY.jpeg",
     "site_web": "https://www.riad-casa-blanca.ma",
     "telephone": "+212539678901",
     "email_contact": "contact@riad-casa-blanca.ma",
@@ -3516,7 +2543,7 @@
     "langues_personnel": ["français", "anglais", "arabe"],
     "tags": ["riad", "rooftop", "vue_mer"],
     "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,rooftop,tangier",
+    "image_url":  "https://serpapi.com/searches/6a0ddde9fd9b90f53593163b/images/a225EKFMf9j8S_rgaU0eOOArGErjUBoHlmyZrPiirxw.jpeg",
     "site_web": "https://www.riad-al-mouja.ma",
     "telephone": "+212539789012",
     "email_contact": "info@riad-al-mouja.ma",
@@ -3549,43 +2576,10 @@
     "langues_personnel": ["français", "anglais", "arabe"],
     "tags": ["riad", "oasis", "méditerranée"],
     "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,oasis,tangier",
+    "image_url":  "https://serpapi.com/searches/6a0dddbe6c4c0c9960840d2f/images/k3hZT2w6kk2DjpZNXQMAWGp0b2IA-c5yGeoHfwmbD5A.jpeg",
     "site_web": "https://www.riad-dar-loasis.ma",
     "telephone": "+212539234567",
     "email_contact": "contact@riad-dar-loasis.ma",
-    "source_donnee": "Google Places + TripAdvisor"
-  },
-  {
-    "id": "riads_015",
-    "nom": "Riad Étoile du Nord",
-    "categorie": "riad",
-    "type": "riad",
-    "latitude": 35.7918,
-    "longitude": -5.8042,
-    "adresse": "Rue des Étoiles, Corniche, Tanger 90000, Maroc",
-    "quartier": "Corniche",
-    "description_fr": "Riad de style art déco avec 9 chambres, terrasse panoramique, bar à cocktails et petit‑déjeuner continental offert.",
-    "description_en": "Art‑deco style riad with 9 rooms, panoramic terrace, cocktail bar and complimentary continental breakfast.",
-    "description_ar": "رياض بطراز آرت ديكو يضم 9 غرف وتراس بانورامي وبار كوكتيل وإفطار قاريٍ مجاني.",
-    "prix_nuit_min_mad": 1300,
-    "prix_nuit_max_mad": 2600,
-    "budget_type": "premium",
-    "note_moyenne": 4.9,
-    "nb_avis": 43,
-    "equipements": ["wifi", "climatisation", "terrasse", "bar", "parking"],
-    "vue_mer": true,
-    "petit_dejeuner_inclus": true,
-    "animaux_acceptes": false,
-    "nombre_chambres": 9,
-    "check_in": "15:00",
-    "check_out": "12:00",
-    "langues_personnel": ["français", "anglais", "arabe"],
-    "tags": ["riad", "artdeco", "vue_mer"],
-    "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riads,artdeco,tangier",
-    "site_web": "https://www.riad-etoile-nord.ma",
-    "telephone": "+212539567890",
-    "email_contact": "info@riad-etoile-nord.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -3615,7 +2609,7 @@
     "langues_personnel": ["français", "anglais", "arabe"],
     "tags": ["riad", "seafood", "rooftop"],
     "saison_haute": ["juillet", "août", "septembre"],
-    "image_url": "https://source.unsplash.com/600x400/?riad,sea,tangier",
+    "image_url":  "https://serpapi.com/searches/6a0ddd4db4ab72deb8ef454d/images/KTgWCDUmuWOwVpFwWj4xKJc1xxJI63JHq4TGn7MQUmI.jpeg",
     "site_web": "https://www.riad-le-pecheur.ma",
     "telephone": "+212539678901",
     "email_contact": "contact@riad-le-pecheur.ma",

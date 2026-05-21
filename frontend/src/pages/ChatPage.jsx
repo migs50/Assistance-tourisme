@@ -9,12 +9,12 @@ import ChatMessage      from "../components/ChatMessage";
 import ChatInput        from "../components/ChatInput";
 
 const SUGGESTIONS = [
-  { icon: "🏨", text: "Meilleur hôtel à Tanger ?" },
-  { icon: "🍽️", text: "Restaurant traditionnel marocain ?" },
-  { icon: "🚌", text: "Comment aller à l'aéroport ?" },
-  { icon: "🏖️", text: "Les plus belles plages ?" },
-  { icon: "🚨", text: "Numéro d'urgence médical ?" },
-  { icon: "🏛️", text: "Visiter la Kasbah ?" },
+  { text: "Meilleur hôtel à Tanger ?" },
+  { text: "Restaurant traditionnel marocain ?" },
+  { text: "Comment aller à l'aéroport ?" },
+  { text: "Les plus belles plages ?" },
+  { text: "Numéro d'urgence médical ?" },
+  { text: "Visiter la Kasbah ?" },
 ];
 
 export default function ChatPage({ onBack }) {

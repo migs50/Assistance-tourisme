@@ -65,6 +65,7 @@ DATASET_FILES: dict[str, str] = {
     "restaurants": "restaurants.json",
     "plages":      "plages.json",
     "activites":   "activites.json",
+    "evenement":   "evenements.json",
 }
 
 # Champs obligatoires après normalisation
@@ -73,6 +74,7 @@ REQUIRED_FIELDS: dict[str, list[str]] = {
     "restaurants": ["id", "nom", "rating", "localisation", "cuisine", "budget", "description", "image"],
     "plages":      ["id", "nom", "rating", "localisation", "type_plage", "description", "image"],
     "activites":   ["id", "nom", "rating", "localisation", "type_activite", "budget", "description", "image"],
+    "evenement":   ["id", "nom", "localisation", "description", "image"],
 }
 
 # Valeurs par défaut pour champs absents
@@ -102,6 +104,7 @@ FIELD_ALIASES: dict[str, dict[str, str]] = {
     "plages":      {"preference": "type_plage", "compagnie": "type_sejour", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
     "activites":   {"type": "type_activite", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
     "restaurants": {"note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation", "type_cuisine": "cuisine"},
+    "evenement":   {"image_url": "image", "description_fr": "description", "quartier": "localisation", "categorie": "type_evenement"},
 }
 
 # Mapping valeurs type_plage (après remove_accents + lower)
@@ -183,7 +186,7 @@ class _CacheEntry:
     file_mtime: float = 0.0
     item_count: int   = 0
 
-    def is_stale(self, ttl: float = 300.0) -> bool:
+    def is_stale(self, ttl: float = 5.0) -> bool:
         return (time.time() - self.loaded_at) > ttl
 
 

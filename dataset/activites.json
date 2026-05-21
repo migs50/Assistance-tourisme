@@ -1,1849 +1,321 @@
 [
   {
-    "id": "act_001",
-    "nom": "Randonnée Parc Perdicaris",
-    "categorie": "activite_sportive",
-    "sous_categorie": "randonnee",
-    "latitude": 35.7905,
-    "longitude": -5.849,
-    "adresse": "Parc Perdicaris, Tanger, Maroc",
-    "quartier": "Parc Perdicaris",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 150,
-    "prix_groupe_mad": 450,
-    "taille_groupe_max": 8,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.5,
-    "nb_avis": 188,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "marche",
-      "nature",
-      "foret",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?randonnee,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Quad Aventure Cap Spartel",
+    "prix": "250 MAD",
+    "rating": 4.5,
+    "image": "https://serpapi.com/searches/6a0e87417dcfbe66d6a7c19c/images/CqlpZEjaoOgwkhHStdHxYkUotauCxnKc98Ma2b6Iw3U.jpeg",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "extérieur",
+    "description": "Explorez les dunes et les pistes sauvages autour du Cap Spartel à bord de quads puissants. Une expérience de conduite tout-terrain inoubliable avec vue sur l'Atlantique et le détroit de Gibraltar, encadrée par des guides professionnels."
   },
   {
-    "id": "act_002",
-    "nom": "Surf à la plage d'Achakkar",
-    "categorie": "activite_sportive",
-    "sous_categorie": "surf",
-    "latitude": 35.762,
-    "longitude": -5.938,
-    "adresse": "Plage Achakkar, Tanger, Maroc",
-    "quartier": "Plage Achakkar",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 200,
-    "prix_groupe_mad": 600,
-    "taille_groupe_max": 20,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.1,
-    "nb_avis": 295,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "surf",
-      "plage",
-      "sport",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?surf,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Karting Tanger Indoor",
+    "prix": "120 MAD",
+    "rating": 4.2,
+    "image":  "https://serpapi.com/searches/6a0e880cb13aa787a908a0b2/images/YEtrqTvRA2JvMKw2KEqtPErlRWioxf9hF2rEAAziDlE.jpeg",
+    "type": "sport",
+    "budget": "économique",
+    "duree": "1h",
+    "localisation": "intérieur",
+    "description": "Un circuit de karting couvert moderne au cœur de Tanger. Idéal pour les familles et groupes d'amis, avec des karts adaptés aux adultes et aux enfants. Sensations de vitesse garanties dans un environnement sécurisé."
   },
   {
-    "id": "act_003",
-    "nom": "VTT dans la Forêt Diplomatique",
-    "categorie": "activite_sportive",
-    "sous_categorie": "velo",
-    "latitude": 35.68,
-    "longitude": -5.92,
-    "adresse": "Forêt Diplomatique, Tanger, Maroc",
-    "quartier": "Forêt Diplomatique",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 4,
-    "prix_par_personne_mad": 300,
-    "prix_groupe_mad": 900,
-    "taille_groupe_max": 8,
-    "niveau_requis": "intermediaire",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.8,
-    "nb_avis": 116,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "velo",
-      "foret",
-      "aventure",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?velo,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Paintball Tanger Zone de Combat",
+    "prix": "180 MAD",
+    "rating": 4.3,
+    "image": "https://serpapi.com/searches/6a0e883d7dcfbe57b1e3bd77/images/D1YfOD8o9IC01DFODEl4b9PLvfFidZftGMGkHKNHTC8.jpeg",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "extérieur",
+    "description": "Affrontez vos amis dans des parties de paintball épiques sur un terrain aménagé en plein air près de la zone industrielle de Tanger. Équipements fournis, casques et combinaisons inclus. Parfait pour les team buildings et anniversaires."
   },
   {
-    "id": "act_004",
-    "nom": "Yoga sur la plage",
-    "categorie": "activite_sportive",
-    "sous_categorie": "yoga",
-    "latitude": 35.794,
-    "longitude": -5.808,
-    "adresse": "Corniche, Tanger, Maroc",
-    "quartier": "Corniche",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 1,
-    "prix_par_personne_mad": 100,
-    "prix_groupe_mad": 300,
-    "taille_groupe_max": 12,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.1,
-    "nb_avis": 99,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "yoga",
-      "detente",
-      "mer",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?yoga,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Escape Room Tanger Mystery",
+    "prix": "150 MAD",
+    "rating": 4.6,
+    "image":  "https://serpapi.com/searches/6a0e8879895d9027f877fbc2/images/ZaHlLDtcA9y65v_ytWk60onUpY_HdBAw3Y0FHL_knFM.jpeg",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "1h",
+    "localisation": "intérieur",
+    "description": "Plongez dans une expérience de jeu d'évasion immersive avec plusieurs scénarios thématiques inspirés de la ville de Tanger et de son histoire. Résolvez les énigmes en équipe avant que le temps ne s'écoule. Disponible en arabe, français et espagnol."
   },
   {
-    "id": "act_005",
-    "nom": "Trek dans les montagnes du Rif",
-    "categorie": "activite_sportive",
-    "sous_categorie": "randonnee",
-    "latitude": 35.75,
-    "longitude": -5.7,
-    "adresse": "Environs Tanger, Tanger, Maroc",
-    "quartier": "Environs Tanger",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 8,
-    "prix_par_personne_mad": 400,
-    "prix_groupe_mad": 1200,
-    "taille_groupe_max": 20,
-    "niveau_requis": "avance",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.3,
-    "nb_avis": 211,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "trek",
-      "montagne",
-      "nature",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?randonnee,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Bowling Tanger Méditerranée",
+    "prix": "80 MAD",
+    "rating": 4.0, 
+    "image": "https://serpapi.com/searches/6a0e88e1a89e02cdb2793790/images/vhQhDdivC6qDJaFfoVqwcUe9z9skZRHviAuZ2jVDLnk.jpeg",
+    "type": "famille",
+    "budget": "économique",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Une salle de bowling moderne avec des pistes bien entretenues, idéale pour les sorties en famille ou entre amis. Lumières néon, musique animée et snack-bar sur place. Ouvert en soirée jusqu'à minuit les weekends."
   },
   {
-    "id": "act_006",
-    "nom": "Course à pied sur la Corniche",
-    "categorie": "activite_sportive",
-    "sous_categorie": "course",
-    "latitude": 35.792,
-    "longitude": -5.806,
-    "adresse": "Corniche, Tanger, Maroc",
-    "quartier": "Corniche",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 50,
-    "prix_groupe_mad": 150,
-    "taille_groupe_max": 8,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.5,
-    "nb_avis": 164,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "course",
-      "sport",
-      "urbain",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?course,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Cinéma Dawliz Méga",
+    "prix": "60 MAD",
+    "rating": 4.1,
+    "image":  "https://serpapi.com/searches/6a0e89c9fdfbabca73d097ad/images/F7BBg4BOhcHYcsQwfgy3bBoH7z6sL9nvltvkcRUbnCY.jpeg",
+    "type": "culture",
+    "budget": "économique",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Le complexe cinématographique Dawliz propose les dernières sorties internationales et arabes dans des salles climatisées dotées de systèmes son Dolby. Popcorn, boissons et confiseries disponibles au comptoir. Programmation hebdomadaire variée."
   },
   {
-    "id": "act_007",
-    "nom": "Paddle au Cap Spartel",
-    "categorie": "activite_sportive",
-    "sous_categorie": "paddle",
-    "latitude": 35.7926,
-    "longitude": -5.9275,
-    "adresse": "Cap Spartel, Tanger, Maroc",
-    "quartier": "Cap Spartel",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 250,
-    "prix_groupe_mad": 750,
-    "taille_groupe_max": 8,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.0,
-    "nb_avis": 160,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "paddle",
-      "ocean",
-      "nature",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?paddle,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Gaming Zone Tanger City Mall",
+    "prix": "50 MAD",
+    "rating": 4.0,
+    "image": "https://serpapi.com/searches/6a0e89fffda6078923592c77/images/ZlHfHzWwpTSxiyywRpCbHJIBu9_jReAvsymCzbKHEN4.jpeg",
+    "type": "famille",
+    "budget": "économique",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Un espace de jeux vidéo et d'arcade moderne situé dans le Tanger City Mall. Consoles dernière génération, simulateurs de conduite, jeux de tir laser et attractions pour enfants. Formules à l'heure ou à la partie disponibles."
   },
   {
-    "id": "act_008",
-    "nom": "Equitation sur la plage",
-    "categorie": "activite_sportive",
-    "sous_categorie": "equitation",
-    "latitude": 35.762,
-    "longitude": -5.938,
-    "adresse": "Achakkar, Tanger, Maroc",
-    "quartier": "Achakkar",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 300,
-    "prix_groupe_mad": 900,
-    "taille_groupe_max": 20,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 194,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "cheval",
-      "plage",
-      "coucher_soleil",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?equitation,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "VR Experience Tanger",
+    "prix": "120 MAD",
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "1h",
+    "localisation": "intérieur",
+    "description": "Immergez-vous dans des mondes virtuels époustouflants grâce aux casques VR de dernière génération. Jeux multijoueurs, simulations de vol, plongée sous-marine virtuelle et aventures fantastiques. Une expérience futuriste unique à Tanger."
   },
   {
-    "id": "act_009",
-    "nom": "Tennis Club de Tanger",
-    "categorie": "activite_sportive",
-    "sous_categorie": "tennis",
-    "latitude": 35.78,
-    "longitude": -5.81,
-    "adresse": "Centre-ville, Tanger, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 150,
-    "prix_groupe_mad": 450,
-    "taille_groupe_max": 12,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.8,
-    "nb_avis": 301,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "tennis",
-      "club",
-      "sport",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?tennis,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Paint & Sip Workshop Tanger Art Studio",
+    "prix": "200 MAD",
+    "rating": 4.7,
+    "image":  "https://serpapi.com/searches/6a0e8a741290d9825f286586/images/zOSyWZ_a-1h8hHs2Yejmyn4NJAatPbBDh8YCC92vHkg.jpeg",
+    "type": "créatif",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Un atelier de peinture convivial où vous créez votre chef-d'œuvre guidé par un artiste local, verre de jus ou boisson à la main. Ambiance décontractée, toiles et pinceaux fournis. Idéal pour les anniversaires et les soirées entre amis."
   },
   {
-    "id": "act_010",
-    "nom": "Escalade indoor",
-    "categorie": "activite_sportive",
-    "sous_categorie": "escalade",
-    "latitude": 35.77,
-    "longitude": -5.8,
-    "adresse": "Zone moderne, Tanger, Maroc",
-    "quartier": "Zone moderne",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite sportive. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite sportive activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite sportive. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 120,
-    "prix_groupe_mad": 360,
-    "taille_groupe_max": 4,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.8,
-    "nb_avis": 472,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite sportive Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "escalade",
-      "indoor",
-      "sport",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?escalade,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Atelier Poterie Médina de Tanger",
+    "prix": "160 MAD",
+    "rating": 4.6,
+    "image":  "https://serpapi.com/searches/6a0e8aac18dc9314fcca36f6/images/i_QhSWOrUHwTieJ8eYf-9ioGqTPb9IQ7IVaSqbXZPpI.jpeg",
+    "type": "créatif",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Découvrez l'art ancestral de la poterie marocaine dans un atelier authentique au cœur de la médina. Un maître artisan vous initie au tour de potier, aux techniques de modelage et aux motifs berbères traditionnels. Repartez avec votre création."
   },
   {
-    "id": "act_011",
-    "nom": "Cours de Cuisine Marocaine",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "cours_cuisine",
-    "latitude": 35.7892,
-    "longitude": -5.8129,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 4,
-    "prix_par_personne_mad": 350,
-    "prix_groupe_mad": 1050,
-    "taille_groupe_max": 20,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.1,
-    "nb_avis": 308,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "cuisine",
-      "gastronomie",
-      "tradition",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?cours,cuisine,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Cake Design Workshop Tanger",
+    "prix": "220 MAD",
+    "rating": 4.5,
+    "image":  "https://serpapi.com/searches/6a0e8b1e217ade7a39b85620/images/eRVUwJa-8ZT9Ep9eZ7L51cKWbE4NlbomJcAuv60zop8.jpeg",
+    "type": "créatif",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Apprenez à décorer des gâteaux comme un professionnel dans cet atelier de cake design animé par une pâtissière diplômée. Fondant, ganache, fleurs en sucre et techniques modernes sont au programme. Repartez avec votre création à déguster."
   },
   {
-    "id": "act_012",
-    "nom": "Expérience Hammam Traditionnel",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "bien_etre",
-    "latitude": 35.785,
-    "longitude": -5.811,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 250,
-    "prix_groupe_mad": 750,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 238,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "hammam",
-      "detente",
-      "tradition",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?bien,etre,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Padel Club Tanger",
+    "prix": "100 MAD",
+    "rating": 4.3,
+    "image":  "https://serpapi.com/searches/6a0e8b87079a2bb87f37aad7/images/uQH_NlWr8pd9x6kv-npOgklmZorIzRGTALQWfOtd6CU.jpeg",
+    "type": "sport",
+    "budget": "économique",
+    "duree": "1h",
+    "localisation": "extérieur",
+    "description": "Profitez de courts de padel bien entretenus dans un club moderne à Tanger. Location de raquettes disponible, cours pour débutants et créneaux compétitifs pour les joueurs confirmés. Ambiance sportive et conviviale dans un cadre agréable."
   },
   {
-    "id": "act_013",
-    "nom": "Atelier de Thé à la Menthe",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "degustation",
-    "latitude": 35.7838,
-    "longitude": -5.81,
-    "adresse": "Grand Socco, Tanger, Maroc",
-    "quartier": "Grand Socco",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 1,
-    "prix_par_personne_mad": 100,
-    "prix_groupe_mad": 300,
-    "taille_groupe_max": 12,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.8,
-    "nb_avis": 482,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "the",
-      "tradition",
-      "culture",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?degustation,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Tyrolienne Cap Malabata",
+    "prix": "280 MAD",
+    "rating": 4.8,
+    "image":  "https://serpapi.com/searches/6a0e8bb571a41d8ed767af8c/images/hyP8oXnPwIrwtOe-kVK-FLg6opHzhlyOsV4G1cSNgpk.jpeg",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "1h",
+    "localisation": "extérieur",
+    "description": "Glissez en tyrolienne au-dessus des falaises et de la forêt de Cap Malabata avec une vue imprenable sur le détroit de Gibraltar. Une aventure aérienne encadrée par des moniteurs certifiés. Accessible dès 12 ans. Sensation d'adrénaline assurée."
   },
   {
-    "id": "act_014",
-    "nom": "Soirée Gnaoua",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "musique",
-    "latitude": 35.7876,
-    "longitude": -5.8128,
-    "adresse": "Kasbah, Tanger, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 200,
-    "prix_groupe_mad": 600,
-    "taille_groupe_max": 20,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 339,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "musique",
-      "gnaoua",
-      "soiree",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?musique,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Plongée Sous-Marine Détroit de Gibraltar",
+    "prix": "450 MAD",
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    "type": "aventure",
+    "budget": "luxe",
+    "duree": "demi-journée",
+    "localisation": "plage",
+    "description": "Explorez les fonds marins exceptionnels du détroit de Gibraltar avec un club de plongée certifié PADI basé à Tanger. Découvrez une faune marine remarquable : dauphins, thons, murènes et pieuvres. Baptêmes pour débutants et plongées pour certifiés."
   },
   {
-    "id": "act_015",
-    "nom": "Dégustation Street Food",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "gastronomie",
-    "latitude": 35.7838,
-    "longitude": -5.8097,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 250,
-    "prix_groupe_mad": 750,
-    "taille_groupe_max": 8,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 239,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "street_food",
-      "degustation",
-      "local",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?gastronomie,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Équitation Ranch Tanger",
+    "prix": "300 MAD",
+    "rating": 4.5,
+    "image":  "https://serpapi.com/searches/6a0e8c3c80f30e1a5a1376d0/images/5gnPirjT7NRNXzWvblRSFjCG3hswn-fr2a3PPtNkeZ4.jpeg",
+    "type": "sport",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "extérieur",
+    "description": "Partez en balade équestre dans les paysages verdoyants autour de Tanger. Des chevaux barbes et arabes-barbes bien dressés vous emmènent le long de sentiers avec vue sur la mer. Encadrement par des cavaliers expérimentés."
   },
   {
-    "id": "act_016",
-    "nom": "Hammam et Spa de Luxe",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "bien_etre",
-    "latitude": 35.79,
-    "longitude": -5.8,
-    "adresse": "Corniche, Tanger, Maroc",
-    "quartier": "Corniche",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 800,
-    "prix_groupe_mad": 2400,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.1,
-    "nb_avis": 61,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "spa",
-      "luxe",
-      "detente",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?bien,etre,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Piscine & Espace Bien-être Hôtel Ibis Tanger",
+    "prix": "150 MAD",
+    "rating": 4.1,
+    "image":  "https://serpapi.com/searches/6a0e8c83018c48c410eded66/images/mb6x_xGxbAZEDFbALhZ_qxT26245QoOJxmDRz75yvQI.jpeg",
+    "type": "détente",
+    "budget": "moyen",
+    "duree": "demi-journée",
+    "localisation": "intérieur",
+    "description": "Profitez d'un accès journée à la piscine chauffée et aux installations de bien-être de l'hôtel Ibis. Transats, pool-bar, serviettes fournies. Une parenthèse de détente en plein cœur de Tanger, idéale pour les résidents comme pour les touristes."
   },
   {
-    "id": "act_017",
-    "nom": "Atelier de Parfums Orientaux",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "artisanat",
-    "latitude": 35.786,
-    "longitude": -5.81,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 300,
-    "prix_groupe_mad": 900,
-    "taille_groupe_max": 20,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 56,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "parfum",
-      "creation",
-      "oriental",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?artisanat,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Aqua Fun Park Asilah",
+    "prix": "200 MAD",
+    "rating": 4.4,
+    "image":  "https://serpapi.com/searches/6a0e8cab3d34ddc1a57b8ff4/images/d0rpeK3ERw6HCEzlcP0__HkNcZJoGaDNwh2jIsclbI8.jpeg",
+    "type": "famille",
+    "budget": "moyen",
+    "duree": "journée complète",
+    "localisation": "extérieur",
+    "description": "À seulement 40 km de Tanger, le parc aquatique d'Asilah offre toboggans géants, piscines à vagues, lazy river et espaces aquatiques pour enfants. Restauration sur place et transats disponibles. La destination idéale pour les familles en été."
   },
   {
-    "id": "act_018",
-    "nom": "Rencontre avec un conteur",
-    "categorie": "experience_culturelle",
-    "sous_categorie": "tradition_orale",
-    "latitude": 35.7845,
-    "longitude": -5.809,
-    "adresse": "Petit Socco, Tanger, Maroc",
-    "quartier": "Petit Socco",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type experience culturelle. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do experience culturelle activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع experience culturelle. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 150,
-    "prix_groupe_mad": 450,
-    "taille_groupe_max": 12,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.8,
-    "nb_avis": 203,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Experience culturelle Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "conteur",
-      "histoire",
-      "culture",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?tradition,orale,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Jet Ski Plage Malabata",
+    "prix": "350 MAD",
+    "rating": 4.6,
+    "image":  "https://serpapi.com/searches/6a0e8ce9b8b4a5fe980c8896/images/Qpq3zqdKipY4n8QHpcVsYd18KlU63-7aPVVCUDyeobo.jpeg",
+    "type": "sport",
+    "budget": "luxe",
+    "duree": "1h",
+    "localisation": "plage",
+    "description": "Sillonnez les eaux turquoise du détroit de Gibraltar à bord d'un jet ski puissant depuis la plage de Malabata. Location avec gilet de sauvetage et briefing sécurité inclus. Formules 30 minutes ou 1 heure disponibles. Sensations fortes garanties."
   },
   {
-    "id": "act_019",
-    "nom": "Excursion d'une journée à Chefchaouen",
-    "categorie": "excursion",
-    "sous_categorie": "excursion_ville",
-    "latitude": 35.1714,
-    "longitude": -5.2697,
-    "adresse": "Chefchaouen, Tanger, Maroc",
-    "quartier": "Chefchaouen",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type excursion. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do excursion activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع excursion. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 10,
-    "prix_par_personne_mad": 600,
-    "prix_groupe_mad": 1800,
-    "taille_groupe_max": 12,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 445,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Excursion Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "chefchaouen",
-      "excursion",
-      "ville_bleue",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?excursion,ville,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Surf Plage Merkala",
+    "prix": "200 MAD",
+    "rating": 4.5,
+    "image":  "https://serpapi.com/searches/6a0e8e42c2bb999bd4fba57a/images/P99PgVHFb5-A02xPPQjeSN3tNG1wDbyuCczG79B-tds.jpeg",
+    "type": "sport",
+    "budget": "moyen",
+    "duree": "2h",
+    "localisation": "plage",
+    "description": "Prenez vos premières vagues ou perfectionnez votre technique à la plage de Merkala, l'un des spots de surf les plus appréciés de la région de Tanger. Cours pour tous niveaux avec instructeurs certifiés, planches et combinaisons disponibles à la location."
   },
   {
-    "id": "act_020",
-    "nom": "Découverte d'Asilah",
-    "categorie": "excursion",
-    "sous_categorie": "excursion_ville",
-    "latitude": 35.4667,
-    "longitude": -6.0333,
-    "adresse": "Asilah, Tanger, Maroc",
-    "quartier": "Asilah",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type excursion. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do excursion activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع excursion. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 6,
-    "prix_par_personne_mad": 400,
-    "prix_groupe_mad": 1200,
-    "taille_groupe_max": 8,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.8,
-    "nb_avis": 446,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Excursion Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "asilah",
-      "art",
-      "medina",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?excursion,ville,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Kayak de Mer Grottes d'Hercule",
+    "prix": "250 MAD",
+    "rating": 4.7,
+    "image":  "https://serpapi.com/searches/6a0e8ecb65f7018409615d86/images/kKF1Wjo9y_kSO1yXl5jLd2uYw2DZY9lEjc5sH9d62OU.jpeg",
+    "type": "aventure",
+    "budget": "moyen",
+    "duree": "demi-journée",
+    "localisation": "plage",
+    "description": "Pagayez le long du littoral atlantique jusqu'aux célèbres Grottes d'Hercule à Cap Spartel. Une expérience de kayak de mer encadrée qui combine nature sauvage, falaises spectaculaires et histoire mythologique. Départ depuis la plage de Sidi Qanqouch."
   },
   {
-    "id": "act_021",
-    "nom": "Tour du Cap Spartel et Grottes d'Hercule",
-    "categorie": "excursion",
-    "sous_categorie": "nature",
-    "latitude": 35.7595,
-    "longitude": -5.9395,
-    "adresse": "Cap Spartel, Tanger, Maroc",
-    "quartier": "Cap Spartel",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type excursion. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do excursion activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع excursion. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 4,
-    "prix_par_personne_mad": 350,
-    "prix_groupe_mad": 1050,
-    "taille_groupe_max": 20,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.3,
-    "nb_avis": 236,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Excursion Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "cap_spartel",
-      "grottes",
-      "nature",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?nature,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Randonnée Jbel Moussa",
+    "prix": "120 MAD",
+    "rating": 4.8,
+    "image":  "https://serpapi.com/searches/6a0e8f179df9ddfc51af458e/images/FWLYkBurfIe3SaSPxVp7PW3C3YGYAKtaedKZjkfFR50.jpeg",
+    "type": "aventure",
+    "budget": "économique",
+    "duree": "journée complète",
+    "localisation": "montagne",
+    "description": "Ascension guidée du Jbel Moussa (882 m), l'un des deux Piliers d'Hercule, avec vue panoramique sur Tanger, Gibraltar et l'Espagne. Départ de Ksar Sghir, sentiers bien balisés. Guide local inclus, pique-nique en option. Randonnée de niveau modéré."
   },
   {
-    "id": "act_022",
-    "nom": "Excursion à Tétouan",
-    "categorie": "excursion",
-    "sous_categorie": "excursion_ville",
-    "latitude": 35.5785,
-    "longitude": -5.3684,
-    "adresse": "Tétouan, Tanger, Maroc",
-    "quartier": "Tétouan",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type excursion. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do excursion activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع excursion. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 8,
-    "prix_par_personne_mad": 500,
-    "prix_groupe_mad": 1500,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 298,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Excursion Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "tetouan",
-      "patrimoine",
-      "excursion",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?excursion,ville,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Rooftop Café El Morocco Club",
+    "prix": "80 MAD",
+    "rating": 4.6,
+    "image":  "https://serpapi.com/searches/6a0e8f5980c9639205142361/images/sWoKMiU9fMCvYAs-pt-xZbk5m3MZOKJtRq-ztjuSHl0.jpeg",
+    "type": "nightlife",
+    "budget": "moyen",
+    "duree": "soirée",
+    "localisation": "centre-ville",
+    "description": "Savourez cocktails, thé à la menthe et tapas marocaines sur le rooftop iconique du Morocco Club en plein cœur de Tanger. Vue imprenable sur la médina et la baie. Ambiance lounge avec DJ les weekends. L'adresse incontournable pour les couchers de soleil."
   },
   {
-    "id": "act_023",
-    "nom": "Visite Guidée de la Médina",
-    "categorie": "visite_guidee",
-    "sous_categorie": "historique",
-    "latitude": 35.785,
-    "longitude": -5.812,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 200,
-    "prix_groupe_mad": 600,
-    "taille_groupe_max": 12,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 344,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "medina",
-      "histoire",
-      "guide",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?historique,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Beach Club La Tangerina",
+    "prix": "200 MAD",
+    "rating": 4.5,
+    "image": "https://serpapi.com/searches/6a0e8fd504e10ade986cb24e/images/oU47FKybqafQGBQnbf5CQd5W6rbHf4VtE3NX1gko4nY.jpeg",
+    "type": "détente",
+    "budget": "moyen",
+    "duree": "journée complète",
+    "localisation": "plage",
+    "description": "Profitez d'une journée de détente au beach club La Tangerina sur la côte atlantique. Transats premium, bar à cocktails, cuisine de mer fraîche et piscine à débordement face à l'océan. Musique lounge, ambiance internationale et service impeccable."
   },
   {
-    "id": "act_024",
-    "nom": "Visite de la Kasbah",
-    "categorie": "visite_guidee",
-    "sous_categorie": "historique",
-    "latitude": 35.7876,
-    "longitude": -5.8128,
-    "adresse": "Kasbah, Tanger, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 150,
-    "prix_groupe_mad": 450,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 278,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "kasbah",
-      "histoire",
-      "panorama",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?historique,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Hammam & Spa Riad Dar Jameel",
+    "prix": "380 MAD",
+    "rating": 4.8,
+    "image":  "https://serpapi.com/searches/6a0e902bc986af0a50793e31/images/DgWph6RS1crqSRsPp9vwxDwm95ZmfrGgJ8odUBdhVEs.jpeg",
+    "type": "détente",
+    "budget": "luxe",
+    "duree": "2h",
+    "localisation": "intérieur",
+    "description": "Ressourcez-vous dans le hammam traditionnel et le spa du Riad Dar Jameel dans la médina de Tanger. Gommage au savon beldi, massage à l'huile d'argan, enveloppement au ghassoul. Un rituel de beauté ancestral marocain dans un cadre de rêve."
   },
   {
-    "id": "act_025",
-    "nom": "Tanger sur les pas des écrivains",
-    "categorie": "visite_guidee",
-    "sous_categorie": "litteraire",
-    "latitude": 35.783,
-    "longitude": -5.81,
-    "adresse": "Tanger, Tanger, Maroc",
-    "quartier": "Tanger",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 4,
-    "prix_par_personne_mad": 250,
-    "prix_groupe_mad": 750,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.7,
-    "nb_avis": 133,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "litterature",
-      "histoire",
-      "bowles",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?litteraire,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Yoga au Lever du Soleil Cap Spartel",
+    "prix": "100 MAD",
+    "rating": 4.7,
+    "image":  "https://serpapi.com/searches/6a0e909288de92eebe8b3476/images/-0l7lfTIIm3E5CvRBtvsZJAE3twnHW9gkqfAnccXiwI.jpeg",
+    "type": "détente",
+    "budget": "économique",
+    "duree": "1h",
+    "localisation": "extérieur",
+    "description": "Séance de yoga en plein air au lever du soleil sur les hauteurs du Cap Spartel, à la jonction de l'Atlantique et de la Méditerranée. Instructrice certifiée, tapis fournis. Une expérience zen et spirituelle dans l'un des plus beaux sites naturels de Tanger."
   },
   {
-    "id": "act_026",
-    "nom": "Tour Architectural de Tanger",
-    "categorie": "visite_guidee",
-    "sous_categorie": "architecture",
-    "latitude": 35.78,
-    "longitude": -5.81,
-    "adresse": "Centre-ville, Tanger, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 200,
-    "prix_groupe_mad": 600,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 190,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "architecture",
-      "art_deco",
-      "histoire",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?architecture,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Atelier Cuisine Marocaine Dar Tanger",
+    "prix": "350 MAD",
+    "rating": 4.9,
+    "image":  "https://serpapi.com/searches/6a0e90ddcf887094bcd34bb4/images/zMy_Hx1wD9UoBL_H5TDuw_2If9TV-CVKVm1icFZAzno.jpeg",
+    "type": "gastronomie",
+    "budget": "luxe",
+    "duree": "demi-journée",
+    "localisation": "intérieur",
+    "description": "Initiez-vous aux secrets de la gastronomie marocaine dans un riad de charme en médina. Visite du souk pour les épices, puis préparation du tajine, couscous et pastilla guidée par un chef local. Dégustation conviviale incluse. Cours en petits groupes."
   },
   {
-    "id": "act_027",
-    "nom": "Visite des Marchés et Souks",
-    "categorie": "visite_guidee",
-    "sous_categorie": "culturel",
-    "latitude": 35.7838,
-    "longitude": -5.8097,
-    "adresse": "Grand Socco, Tanger, Maroc",
-    "quartier": "Grand Socco",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 150,
-    "prix_groupe_mad": 450,
-    "taille_groupe_max": 8,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.0,
-    "nb_avis": 274,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "souk",
-      "shopping",
-      "local",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?culturel,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Tour en Bateau Détroit de Gibraltar",
+    "prix": "400 MAD",
+    "rating": 4.8,
+    "image":  "https://serpapi.com/searches/6a0e9284badf0b20de095c3b/images/6JKpPHRPuCQXMQUgDVewxsvCHjzVZBElE4qsaisKpZk.jpeg",
+    "type": "culture",
+    "budget": "luxe",
+    "duree": "demi-journée",
+    "localisation": "plage",
+    "description": "Embarquez pour une croisière dans le légendaire détroit de Gibraltar depuis le port de Tanger. Observation des dauphins, vue simultanée sur l'Europe et l'Afrique, passage devant le Cap Spartel. Guide bilingue à bord, boissons fraîches incluses. Départs matin et après-midi."
   },
   {
-    "id": "act_028",
-    "nom": "Tanger la nuit",
-    "categorie": "visite_guidee",
-    "sous_categorie": "nocturne",
-    "latitude": 35.7845,
-    "longitude": -5.811,
-    "adresse": "Tanger, Tanger, Maroc",
-    "quartier": "Tanger",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 250,
-    "prix_groupe_mad": 750,
-    "taille_groupe_max": 20,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.4,
-    "nb_avis": 408,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "nuit",
-      "visite",
-      "lumiere",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?nocturne,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Visite Guidée Médina & Kasbah de Tanger",
+    "prix": "130 MAD",
+    "rating": 4.6,
+    "image":  "https://serpapi.com/searches/6a0e93b6c4f20f665d3af62e/images/eB52K-QZw9D7L_GDeM0GL8lufx0tJnnQlOVC9PXFKPc.jpeg",
+    "type": "culture",
+    "budget": "économique",
+    "duree": "demi-journée",
+    "localisation": "centre-ville",
+    "description": "Explorez les ruelles labyrinthiques de la médina millénaire et la majestueuse Kasbah de Tanger avec un guide certifié. Découvrez le Palais du Mendoub, la Grande Mosquée, les souks d'épices et de cuivre, et les points de vue panoramiques sur le détroit."
   },
   {
-    "id": "act_029",
-    "nom": "Sur les traces d'Ibn Battuta",
-    "categorie": "visite_guidee",
-    "sous_categorie": "historique",
-    "latitude": 35.7855,
-    "longitude": -5.8115,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type visite guidee. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do visite guidee activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع visite guidee. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 200,
-    "prix_groupe_mad": 600,
-    "taille_groupe_max": 4,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.3,
-    "nb_avis": 376,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Visite guidee Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "ibn_battuta",
-      "histoire",
-      "voyage",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?historique,activity",
-    "source_donnee": "Google Places + Viator"
-  },
-  {
-    "id": "act_030",
-    "nom": "Atelier de Poterie Marocaine",
-    "categorie": "activite_artistique",
-    "sous_categorie": "poterie",
-    "latitude": 35.7865,
-    "longitude": -5.81,
-    "adresse": "Médina, Tanger, Maroc",
-    "quartier": "Médina",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite artistique. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite artistique activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite artistique. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 300,
-    "prix_groupe_mad": 900,
-    "taille_groupe_max": 12,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 444,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite artistique Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "poterie",
-      "art",
-      "creation",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?poterie,activity",
-    "source_donnee": "Google Places + Viator"
-  },
-  {
-    "id": "act_031",
-    "nom": "Initiation à la Calligraphie",
-    "categorie": "activite_artistique",
-    "sous_categorie": "calligraphie",
-    "latitude": 35.784,
-    "longitude": -5.811,
-    "adresse": "Centre-ville, Tanger, Maroc",
-    "quartier": "Centre-ville",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite artistique. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite artistique activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite artistique. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 200,
-    "prix_groupe_mad": 600,
-    "taille_groupe_max": 4,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.5,
-    "nb_avis": 366,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite artistique Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "calligraphie",
-      "art",
-      "arabe",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?calligraphie,activity",
-    "source_donnee": "Google Places + Viator"
-  },
-  {
-    "id": "act_032",
-    "nom": "Cours de Peinture Zellige",
-    "categorie": "activite_artistique",
-    "sous_categorie": "peinture",
-    "latitude": 35.787,
-    "longitude": -5.812,
-    "adresse": "Kasbah, Tanger, Maroc",
-    "quartier": "Kasbah",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite artistique. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite artistique activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite artistique. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 3,
-    "prix_par_personne_mad": 250,
-    "prix_groupe_mad": 750,
-    "taille_groupe_max": 20,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.5,
-    "nb_avis": 134,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 6,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite artistique Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "zellige",
-      "peinture",
-      "artisanat",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?peinture,activity",
-    "source_donnee": "Google Places + Viator"
-  },
-  {
-    "id": "act_033",
-    "nom": "Plongée sous-marine au Détroit",
-    "categorie": "activite_nautique",
-    "sous_categorie": "plongee",
-    "latitude": 35.795,
-    "longitude": -5.8,
-    "adresse": "Port de Tanger, Tanger, Maroc",
-    "quartier": "Port de Tanger",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite nautique. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite nautique activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite nautique. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 4,
-    "prix_par_personne_mad": 600,
-    "prix_groupe_mad": 1800,
-    "taille_groupe_max": 8,
-    "niveau_requis": "intermediaire",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 253,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite nautique Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "plongee",
-      "mer",
-      "detroit",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?plongee,activity",
-    "source_donnee": "Google Places + Viator"
-  },
-  {
-    "id": "act_034",
-    "nom": "Kitesurf à Dalia",
-    "categorie": "activite_nautique",
-    "sous_categorie": "kitesurf",
-    "latitude": 35.74,
-    "longitude": -5.95,
-    "adresse": "Plage Dalia, Tanger, Maroc",
-    "quartier": "Plage Dalia",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite nautique. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite nautique activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite nautique. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 4,
-    "prix_par_personne_mad": 500,
-    "prix_groupe_mad": 1500,
-    "taille_groupe_max": 4,
-    "niveau_requis": "debutant",
-    "materiel_fourni": true,
-    "langues_disponibles": [
-      "français",
-      "anglais",
-      "arabe",
-      "espagnol"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.3,
-    "nb_avis": 51,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 10,
-    "accessible_pmr": false,
-    "organisateur": "Tanger Activite nautique Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "kitesurf",
-      "mer",
-      "vent",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?kitesurf,activity",
-    "source_donnee": "Google Places + Viator"
-  },
-  {
-    "id": "act_035",
-    "nom": "Balade en bateau dans le détroit",
-    "categorie": "activite_nautique",
-    "sous_categorie": "bateau",
-    "latitude": 35.795,
-    "longitude": -5.8,
-    "adresse": "Marina Tanger, Tanger, Maroc",
-    "quartier": "Marina Tanger",
-    "description_fr": "Plongez dans l'authenticité de Tanger avec cette activité incontournable de type activite nautique. Que vous soyez novice ou expérimenté, cette expérience vous fera découvrir une nouvelle facette de la région. Encadrée par des professionnels passionnés, vous profiterez d'un moment inoubliable tout en vous imprégnant de l'atmosphère locale et du savoir-faire marocain. Une excellente façon d'enrichir votre séjour.",
-    "description_en": "Dive into the authenticity of Tangier with this must-do activite nautique activity. Whether you are a novice or experienced, this experience will help you discover a new facet of the region. Guided by passionate professionals, you will enjoy an unforgettable moment while soaking up the local atmosphere and Moroccan know-how. A great way to enrich your stay.",
-    "description_ar": "انغمس في أصالة طنجة مع هذا النشاط الذي لا يُفوّت من نوع activite nautique. سواء كنت مبتدئًا أو خبيرًا، ستجعلك هذه التجربة تكتشف جانبًا جديدًا من المنطقة. بإشراف محترفين شغوفين، ستستمتع بلحظة لا تُنسى بينما تتشرب الجو المحلي والخبرة المغربية. طريقة ممتازة لإثراء إقامتك.",
-    "duree_heures": 2,
-    "prix_par_personne_mad": 400,
-    "prix_groupe_mad": 1200,
-    "taille_groupe_max": 20,
-    "niveau_requis": "tous_niveaux",
-    "materiel_fourni": false,
-    "langues_disponibles": [
-      "français",
-      "anglais"
-    ],
-    "inclus": [
-      "encadrement professionnel",
-      "équipement de base"
-    ],
-    "non_inclus": [
-      "transport",
-      "boissons",
-      "pourboires"
-    ],
-    "reservation_requise": true,
-    "delai_annulation_heures": 24,
-    "note_moyenne": 4.6,
-    "nb_avis": 154,
-    "saison_disponible": [
-      "toute_annee"
-    ],
-    "age_minimum": 16,
-    "accessible_pmr": true,
-    "organisateur": "Tanger Activite nautique Tours",
-    "telephone": "+212661234567",
-    "tags": [
-      "bateau",
-      "detroit",
-      "panorama",
-      "tanger",
-      "experience"
-    ],
-    "image_url": "https://source.unsplash.com/600x400/?bateau,activity",
-    "source_donnee": "Google Places + Viator"
+    "nom": "Dégustation de Thé & Pâtisseries Marocaines",
+    "prix": "70 MAD",
+    "rating": 4.5,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRazwhv53e29PLNmAqTwGINP7CBwGP2ebebcQ&s",
+    "type": "gastronomie",
+    "budget": "économique",
+    "duree": "1h",
+    "localisation": "centre-ville",
+    "description": "Découvrez le rituel du thé à la menthe marocain dans un salon de thé traditionnel de la médina de Tanger. Accompagné de cornes de gazelle, briwat et chebakia préparés maison. Une expérience gustative authentique et conviviale au cœur de la culture tangéroise."
   }
 ]

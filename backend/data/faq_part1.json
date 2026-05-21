@@ -1,0 +1,2175 @@
+[
+  {
+    "id": "faq_001",
+    "categorie": "transport",
+    "intention": "info_aeroport",
+    "question_fr": "Comment aller de l'aéroport au centre-ville ?",
+    "question_en": "How to get from the airport to the city center?",
+    "question_ar": "كيف أصل من المطار إلى وسط المدينة؟",
+    "reponse_fr": "L'aéroport Ibn Battouta est à 12 km. Options : Grand taxi (150-200 MAD, 20 min), bus ALSA L15 (5 MAD, 45 min), VTC Careem/InDrive (80-120 MAD).",
+    "reponse_en": "Ibn Battouta Airport is 12 km away. Options: Grand taxi (150-200 MAD, 20 min), ALSA bus L15 (5 MAD, 45 min), ride-hailing Careem/InDrive (80-120 MAD).",
+    "reponse_ar": "مطار ابن بطوطة على بعد 12 كم. الخيارات: سيارة أجرة كبيرة (150-200 درهم)، حافلة ألسا L15 (5 دراهم)، تطبيق كريم/إندرايف (80-120 درهم).",
+    "tags": [
+      "aeroport",
+      "taxi",
+      "bus"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_002",
+    "categorie": "transport",
+    "intention": "taxi_fonctionnement",
+    "question_fr": "Comment fonctionnent les taxis à Tanger ?",
+    "question_en": "How do taxis work in Tangier?",
+    "question_ar": "كيف تعمل سيارات الأجرة في طنجة؟",
+    "reponse_fr": "Petits taxis bleus (en ville, compteur, 3 places). Grands taxis Mercedes (interurbain, partagés). Insistez sur le compteur. Supplément nuit 50% après 20h.",
+    "reponse_en": "Blue petit taxis (in-city, meter, 3 seats). Grand taxis Mercedes (intercity, shared). Insist on the meter. 50% night supplement after 8pm.",
+    "reponse_ar": "سيارات أجرة صغيرة زرقاء (داخل المدينة، عداد، 3 مقاعد). سيارات أجرة كبيرة مرسيدس (بين المدن، مشتركة). أصر على العداد.",
+    "tags": [
+      "taxi",
+      "transport"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_003",
+    "categorie": "transport",
+    "intention": "tgv_info",
+    "question_fr": "Comment prendre le TGV depuis Tanger ?",
+    "question_en": "How to take the TGV from Tangier?",
+    "question_ar": "كيف آخذ القطار فائق السرعة من طنجة؟",
+    "reponse_fr": "Le TGV Al Boraq relie Tanger à Casablanca en 2h10. Gare Tanger Ville. Réservez sur oncf.ma. Tarifs : 149 MAD (éco) à 249 MAD (1ère).",
+    "reponse_en": "Al Boraq TGV connects Tangier to Casablanca in 2h10. Tanger Ville station. Book at oncf.ma. Fares: 149 MAD (economy) to 249 MAD (1st class).",
+    "reponse_ar": "قطار البراق يربط طنجة بالدار البيضاء في ساعتين و10 دقائق. محطة طنجة المدينة. احجز على oncf.ma.",
+    "tags": [
+      "tgv",
+      "train",
+      "transport"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_004",
+    "categorie": "transport",
+    "intention": "ferry_espagne",
+    "question_fr": "Comment aller en Espagne par ferry ?",
+    "question_en": "How to get to Spain by ferry?",
+    "question_ar": "كيف أذهب إلى إسبانيا بالعبّارة؟",
+    "reponse_fr": "Ferry Tanger Med-Tarifa (35 min, FRS) ou Tanger Med-Algésiras (1h30, Balearia). Réservez en avance en été. Port Tanger Med à 50 km de la ville.",
+    "reponse_en": "Ferry Tanger Med-Tarifa (35 min, FRS) or Tanger Med-Algeciras (1h30, Balearia). Book ahead in summer. Tanger Med port is 50 km from city.",
+    "reponse_ar": "عبّارة طنجة المتوسط-طريفة (35 دقيقة) أو طنجة المتوسط-الجزيرة الخضراء (ساعة و30 دقيقة). احجز مسبقاً في الصيف.",
+    "tags": [
+      "ferry",
+      "espagne",
+      "transport"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_005",
+    "categorie": "transport",
+    "intention": "bus_urbain",
+    "question_fr": "Comment utiliser le bus urbain ?",
+    "question_en": "How to use the urban bus?",
+    "question_ar": "كيف أستخدم الحافلة الحضرية؟",
+    "reponse_fr": "Bus ALSA, ticket 5 MAD à bord. Lignes principales : L1 (Centre-Médina), L5 (Cap Spartel), L9 (Corniche). Fréquence 15-30 min.",
+    "reponse_en": "ALSA buses, 5 MAD ticket on board. Main lines: L1 (Center-Medina), L5 (Cape Spartel), L9 (Corniche). Frequency 15-30 min.",
+    "reponse_ar": "حافلات ألسا، تذكرة 5 دراهم. الخطوط الرئيسية: L1 (المركز-المدينة)، L5 (رأس سبارطيل)، L9 (الكورنيش).",
+    "tags": [
+      "bus",
+      "transport"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_006",
+    "categorie": "transport",
+    "intention": "vtc_app",
+    "question_fr": "Quelles applications VTC sont disponibles ?",
+    "question_en": "What ride-hailing apps are available?",
+    "question_ar": "ما تطبيقات النقل المتوفرة؟",
+    "reponse_fr": "Careem et InDrive sont les plus utilisés à Tanger. Prix estimé à l'avance. Paiement en espèces ou carte. Plus sûr que les taxis classiques.",
+    "reponse_en": "Careem and InDrive are most used in Tangier. Price estimated in advance. Cash or card payment. Safer than regular taxis.",
+    "reponse_ar": "كريم وإندرايف الأكثر استخداماً في طنجة. السعر محدد مسبقاً. الدفع نقداً أو بالبطاقة.",
+    "tags": [
+      "vtc",
+      "application",
+      "transport"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_007",
+    "categorie": "transport",
+    "intention": "chefchaouen_trajet",
+    "question_fr": "Comment aller à Chefchaouen depuis Tanger ?",
+    "question_en": "How to get to Chefchaouen from Tangier?",
+    "question_ar": "كيف أذهب إلى شفشاون من طنجة؟",
+    "reponse_fr": "Bus CTM (60 MAD, 3h), Grand taxi partagé (80-100 MAD, 2h30), excursion organisée (500-800 MAD/jour), ou location de voiture.",
+    "reponse_en": "CTM bus (60 MAD, 3h), shared Grand taxi (80-100 MAD, 2h30), organized day trip (500-800 MAD/day), or car rental.",
+    "reponse_ar": "حافلة CTM (60 درهم، 3 ساعات)، سيارة أجرة كبيرة مشتركة (80-100 درهم)، رحلة منظمة (500-800 درهم/يوم).",
+    "tags": [
+      "chefchaouen",
+      "excursion"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_008",
+    "categorie": "transport",
+    "intention": "location_voiture",
+    "question_fr": "Peut-on louer une voiture à Tanger ?",
+    "question_en": "Can you rent a car in Tangier?",
+    "question_ar": "هل يمكن استئجار سيارة في طنجة؟",
+    "reponse_fr": "Oui, agences à l'aéroport et en ville (Europcar, Hertz, Avis). À partir de 300 MAD/jour. Permis international recommandé. Attention à la circulation dense.",
+    "reponse_en": "Yes, agencies at airport and in town (Europcar, Hertz, Avis). From 300 MAD/day. International license recommended. Watch out for dense traffic.",
+    "reponse_ar": "نعم، وكالات في المطار والمدينة. ابتداءً من 300 درهم/يوم. رخصة دولية مستحسنة.",
+    "tags": [
+      "voiture",
+      "location"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_009",
+    "categorie": "lieux",
+    "intention": "top_attractions",
+    "question_fr": "Quels sont les incontournables de Tanger ?",
+    "question_en": "What are the must-see attractions in Tangier?",
+    "question_ar": "ما هي المعالم التي لا يمكن تفويتها في طنجة؟",
+    "reponse_fr": "Les incontournables : Kasbah, Grottes d'Hercule, Cap Spartel, Médina, Terrasse des Paresseux, Café Hafa, Grand Socco et Dar el Makhzen.",
+    "reponse_en": "Must-sees: Kasbah, Caves of Hercules, Cape Spartel, Medina, Terrace of the Lazy, Café Hafa, Grand Socco and Dar el Makhzen.",
+    "reponse_ar": "المعالم الأساسية: القصبة، مغارات هرقل، رأس سبارطيل، المدينة القديمة، مصطبة الكسالى، مقهى الحافة، السوق الكبير ودار المخزن.",
+    "tags": [
+      "attractions",
+      "tourisme"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_010",
+    "categorie": "lieux",
+    "intention": "medina_visite",
+    "question_fr": "Comment visiter la médina sans se perdre ?",
+    "question_en": "How to visit the medina without getting lost?",
+    "question_ar": "كيف أزور المدينة القديمة دون أن أضيع؟",
+    "reponse_fr": "Prenez un guide officiel (200 MAD/3h) ou suivez les panneaux directionnels. Repérez le Grand Socco comme point de repère. Évitez les faux guides.",
+    "reponse_en": "Hire an official guide (200 MAD/3h) or follow directional signs. Use Grand Socco as a landmark. Avoid unofficial guides.",
+    "reponse_ar": "استعن بمرشد رسمي (200 درهم/3 ساعات) أو اتبع اللافتات. استخدم السوق الكبير كنقطة مرجعية.",
+    "tags": [
+      "medina",
+      "guide"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_011",
+    "categorie": "lieux",
+    "intention": "grottes_hercule",
+    "question_fr": "Comment accéder aux Grottes d'Hercule ?",
+    "question_en": "How to access the Caves of Hercules?",
+    "question_ar": "كيف أصل إلى مغارات هرقل؟",
+    "reponse_fr": "À 14 km du centre. Taxi (100-150 MAD aller), ou combinez avec Cap Spartel. Entrée 10 MAD. Ouvert 9h-18h tous les jours.",
+    "reponse_en": "14 km from center. Taxi (100-150 MAD one way), or combine with Cape Spartel. Entry 10 MAD. Open 9am-6pm daily.",
+    "reponse_ar": "على بعد 14 كم من المركز. سيارة أجرة (100-150 درهم ذهاب). تذكرة 10 دراهم. مفتوح يومياً 9-18.",
+    "tags": [
+      "grottes",
+      "hercule",
+      "excursion"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_012",
+    "categorie": "lieux",
+    "intention": "cap_spartel",
+    "question_fr": "Que voir au Cap Spartel ?",
+    "question_en": "What to see at Cape Spartel?",
+    "question_ar": "ماذا أرى في رأس سبارطيل؟",
+    "reponse_fr": "Le phare historique (1864), la jonction Atlantique-Méditerranée, coucher de soleil spectaculaire. Gratuit. Combinez avec les Grottes d'Hercule et Plage Achakkar.",
+    "reponse_en": "Historic lighthouse (1864), Atlantic-Mediterranean junction, spectacular sunset. Free. Combine with Caves of Hercules and Achakkar Beach.",
+    "reponse_ar": "المنارة التاريخية (1864)، ملتقى الأطلسي والمتوسط، غروب مذهل. مجاني. اجمعها مع مغارات هرقل وشاطئ أشقار.",
+    "tags": [
+      "cap_spartel",
+      "phare",
+      "coucher_soleil"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_013",
+    "categorie": "lieux",
+    "intention": "kasbah_musee",
+    "question_fr": "Quels musées visiter dans la Kasbah ?",
+    "question_en": "What museums to visit in the Kasbah?",
+    "question_ar": "ما المتاحف التي يمكن زيارتها في القصبة؟",
+    "reponse_fr": "Dar el Makhzen (musée archéologique, 20 MAD), Musée de la Kasbah (art marocain). Fermés le mardi. Prévoir 2h pour les deux.",
+    "reponse_en": "Dar el Makhzen (archaeological museum, 20 MAD), Kasbah Museum (Moroccan art). Closed Tuesdays. Allow 2h for both.",
+    "reponse_ar": "دار المخزن (متحف أثري، 20 درهم)، متحف القصبة (فن مغربي). مغلقان يوم الثلاثاء.",
+    "tags": [
+      "musee",
+      "kasbah",
+      "culture"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_014",
+    "categorie": "lieux",
+    "intention": "plages_tanger",
+    "question_fr": "Quelles sont les meilleures plages ?",
+    "question_en": "What are the best beaches?",
+    "question_ar": "ما هي أفضل الشواطئ؟",
+    "reponse_fr": "Plage Municipale (urbaine, accessible), Achakkar (surf, sauvage), Sidi Kankouch (crique isolée), Malabata (vue Gibraltar). Baignade juin-septembre.",
+    "reponse_en": "Municipal Beach (urban, accessible), Achakkar (surf, wild), Sidi Kankouch (isolated cove), Malabata (Gibraltar view). Swimming June-September.",
+    "reponse_ar": "الشاطئ البلدي (حضري)، أشقار (ركوب أمواج)، سيدي كنكوش (خليج منعزل)، ملاباطا (إطلالة جبل طارق).",
+    "tags": [
+      "plage",
+      "baignade",
+      "mer"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_015",
+    "categorie": "lieux",
+    "intention": "cafe_hafa",
+    "question_fr": "Pourquoi le Café Hafa est-il célèbre ?",
+    "question_en": "Why is Café Hafa famous?",
+    "question_ar": "لماذا مقهى الحافة مشهور؟",
+    "reponse_fr": "Fondé en 1921, perché sur les falaises face au détroit. Fréquenté par les Beatles et Rolling Stones. Célèbre pour son thé à la menthe et coucher de soleil.",
+    "reponse_en": "Founded in 1921, perched on cliffs facing the strait. Frequented by the Beatles and Rolling Stones. Famous for mint tea and sunset.",
+    "reponse_ar": "تأسس عام 1921 على الجرف أمام المضيق. ارتاده بيتلز ورولينغ ستونز. مشهور بالشاي بالنعناع والغروب.",
+    "tags": [
+      "cafe",
+      "histoire",
+      "coucher_soleil"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_016",
+    "categorie": "lieux",
+    "intention": "terrasse_paresseux",
+    "question_fr": "Où avoir la meilleure vue sur le détroit ?",
+    "question_en": "Where to get the best strait view?",
+    "question_ar": "أين أجد أفضل إطلالة على المضيق؟",
+    "reponse_fr": "Terrasse des Paresseux (centre-ville, gratuit), Belvédère de la Kasbah, Colline du Charf (360°), et Café Hafa. Idéal au coucher du soleil.",
+    "reponse_en": "Terrace of the Lazy (city center, free), Kasbah Belvedere, Charf Hill (360°), and Café Hafa. Best at sunset.",
+    "reponse_ar": "مصطبة الكسالى (مجاني)، مرقب القصبة، تلة الشرف (360°)، ومقهى الحافة. الأفضل عند الغروب.",
+    "tags": [
+      "panorama",
+      "vue",
+      "coucher_soleil"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_017",
+    "categorie": "lieux",
+    "intention": "marche_central",
+    "question_fr": "Quand visiter le Marché Central ?",
+    "question_en": "When to visit the Central Market?",
+    "question_ar": "متى أزور السوق المركزي؟",
+    "reponse_fr": "Le matin (7h-14h) pour la fraîcheur. Poisson, épices, olives, fruits. Fermé l'après-midi. Ambiance authentique et colorée.",
+    "reponse_en": "Morning (7am-2pm) for freshness. Fish, spices, olives, fruits. Closed in the afternoon. Authentic and colorful atmosphere.",
+    "reponse_ar": "الصباح (7-14) للطزاجة. سمك، بهارات، زيتون، فواكه. مغلق بعد الظهر. أجواء أصيلة وملونة.",
+    "tags": [
+      "marche",
+      "gastronomie",
+      "local"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_018",
+    "categorie": "lieux",
+    "intention": "lieux_gratuits",
+    "question_fr": "Quels sites sont gratuits à Tanger ?",
+    "question_en": "What sites are free in Tangier?",
+    "question_ar": "ما المواقع المجانية في طنجة؟",
+    "reponse_fr": "Grand Socco, Petit Socco, Terrasse des Paresseux, Cap Spartel, Jardins Mendoubia, plages, Médina (extérieur), Belvédère Kasbah.",
+    "reponse_en": "Grand Socco, Petit Socco, Terrace of the Lazy, Cape Spartel, Mendoubia Gardens, beaches, Medina (exterior), Kasbah Belvedere.",
+    "reponse_ar": "السوق الكبير، السوق الداخل، مصطبة الكسالى، رأس سبارطيل، حدائق المندوبية، الشواطئ، المدينة القديمة.",
+    "tags": [
+      "gratuit",
+      "budget",
+      "tourisme"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_019",
+    "categorie": "lieux",
+    "intention": "quartier_marshan",
+    "question_fr": "Que voir dans le quartier Marshan ?",
+    "question_en": "What to see in the Marshan district?",
+    "question_ar": "ماذا أرى في حي المرشان؟",
+    "reponse_fr": "Café Hafa, Parc Perdicaris, Villa Harris, Palais du Mendoub, et la vue panoramique sur le détroit. Quartier résidentiel historique.",
+    "reponse_en": "Café Hafa, Perdicaris Park, Villa Harris, Mendoub Palace, and panoramic strait views. Historic residential district.",
+    "reponse_ar": "مقهى الحافة، حديقة بيرديكاريس، فيلا هاريس، قصر المندوب، وإطلالات بانورامية على المضيق.",
+    "tags": [
+      "marshan",
+      "quartier",
+      "promenade"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_020",
+    "categorie": "lieux",
+    "intention": "ibn_battuta",
+    "question_fr": "Qui était Ibn Battuta et son lien avec Tanger ?",
+    "question_en": "Who was Ibn Battuta and his link to Tangier?",
+    "question_ar": "من كان ابن بطوطة وما علاقته بطنجة؟",
+    "reponse_fr": "Né à Tanger en 1304, plus grand voyageur médiéval. Sa tombe est dans la médina. L'aéroport et le stade portent son nom.",
+    "reponse_en": "Born in Tangier in 1304, greatest medieval traveler. His tomb is in the medina. The airport and stadium bear his name.",
+    "reponse_ar": "ولد في طنجة عام 1304، أعظم رحالة في العصور الوسطى. ضريحه في المدينة القديمة. المطار والملعب يحملان اسمه.",
+    "tags": [
+      "histoire",
+      "ibn_battuta",
+      "culture"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_021",
+    "categorie": "restaurants",
+    "intention": "plats_typiques",
+    "question_fr": "Quels plats typiques goûter à Tanger ?",
+    "question_en": "What typical dishes to try in Tangier?",
+    "question_ar": "ما الأطباق النموذجية في طنجة؟",
+    "reponse_fr": "Tagine, couscous (vendredi), pastilla, harira, sardines grillées, msemen, baghrir, thé à la menthe. Street food : brochettes, babbouche, jus d'orange frais.",
+    "reponse_en": "Tagine, couscous (Friday), pastilla, harira, grilled sardines, msemen, baghrir, mint tea. Street food: brochettes, snail soup, fresh OJ.",
+    "reponse_ar": "الطاجين، الكسكس (الجمعة)، البسطيلة، الحريرة، السردين المشوي، المسمن، البغرير، الشاي بالنعناع.",
+    "tags": [
+      "gastronomie",
+      "plats",
+      "traditionnel"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_022",
+    "categorie": "restaurants",
+    "intention": "restaurant_budget",
+    "question_fr": "Où manger bien et pas cher ?",
+    "question_en": "Where to eat well on a budget?",
+    "question_ar": "أين آكل جيداً بسعر مناسب؟",
+    "reponse_fr": "Chez Abdou (médina, 40-60 MAD), Snack Atlas, Sandwicherie Maghreb, Souk Food Court. Les marchés centraux offrent aussi des repas à 30-50 MAD.",
+    "reponse_en": "Chez Abdou (medina, 40-60 MAD), Snack Atlas, Sandwicherie Maghreb, Souk Food Court. Central markets also offer meals at 30-50 MAD.",
+    "reponse_ar": "عند عبدو (المدينة، 40-60 درهم)، سناك أطلس، ساندويتش المغرب، ساحة أكل السوق. الأسواق أيضاً توفر وجبات بـ30-50 درهم.",
+    "tags": [
+      "budget",
+      "restaurant",
+      "economique"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_023",
+    "categorie": "restaurants",
+    "intention": "resto_gastronomique",
+    "question_fr": "Quels restaurants gastronomiques recommandez-vous ?",
+    "question_en": "What gourmet restaurants do you recommend?",
+    "question_ar": "ما المطاعم الراقية التي تنصحون بها؟",
+    "reponse_fr": "El Morocco Club (rooftop médina), El Korsan (hôtel El Minzah), Dar Nour (vue détroit), Nord-Pinus (bohème-chic), Maison Tingis (kasbah).",
+    "reponse_en": "El Morocco Club (medina rooftop), El Korsan (El Minzah hotel), Dar Nour (strait view), Nord-Pinus (bohemian-chic), Maison Tingis (kasbah).",
+    "reponse_ar": "المغرب كلوب (سطح المدينة)، الكرسان (فندق المنزه)، دار النور (إطلالة المضيق)، نور-بينوس، ميزون طنجيس (القصبة).",
+    "tags": [
+      "gastronomie",
+      "luxe",
+      "restaurant"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_024",
+    "categorie": "restaurants",
+    "intention": "poisson_frais",
+    "question_fr": "Où manger du poisson frais ?",
+    "question_en": "Where to eat fresh fish?",
+    "question_ar": "أين آكل سمكاً طازجاً؟",
+    "reponse_fr": "Le Saveur de Poisson (médina, expérience unique sans menu), Chez Hassan au Marché Central, La Playa (corniche), Fish & Chips Détroit.",
+    "reponse_en": "Le Saveur de Poisson (medina, unique no-menu experience), Chez Hassan at Central Market, La Playa (corniche), Fish & Chips Détroit.",
+    "reponse_ar": "سافور دو بواسون (المدينة، تجربة بدون قائمة)، عند حسان في السوق المركزي، لابلايا (الكورنيش).",
+    "tags": [
+      "poisson",
+      "fruits_de_mer",
+      "restaurant"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_025",
+    "categorie": "restaurants",
+    "intention": "halal_vegetarien",
+    "question_fr": "Y a-t-il des options halal et végétariennes ?",
+    "question_en": "Are there halal and vegetarian options?",
+    "question_ar": "هل توجد خيارات حلال ونباتية؟",
+    "reponse_fr": "Presque tous les restaurants sont halal au Maroc. Options végétariennes : La Fabrique, salades et tajines aux légumes dans la plupart des restaurants.",
+    "reponse_en": "Almost all restaurants are halal in Morocco. Vegetarian options: La Fabrique, salads and vegetable tagines at most restaurants.",
+    "reponse_ar": "جميع المطاعم تقريباً حلال في المغرب. خيارات نباتية: لا فابريك، سلطات وطواجن خضار في معظم المطاعم.",
+    "tags": [
+      "halal",
+      "vegetarien",
+      "regime"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_026",
+    "categorie": "restaurants",
+    "intention": "street_food",
+    "question_fr": "Où trouver le meilleur street food ?",
+    "question_en": "Where to find the best street food?",
+    "question_ar": "أين أجد أفضل طعام الشارع؟",
+    "reponse_fr": "Grand Socco (jus d'orange, msemen), Souk Food Court, stands de brochettes Rue de la Marine, marchands de babbouche (soupe d'escargots).",
+    "reponse_en": "Grand Socco (orange juice, msemen), Souk Food Court, brochette stands on Rue de la Marine, babbouche (snail soup) vendors.",
+    "reponse_ar": "السوق الكبير (عصير البرتقال، المسمن)، ساحة أكل السوق، أكشاك المشاوي في شارع البحرية، باعة البابوش.",
+    "tags": [
+      "street_food",
+      "local",
+      "budget"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_027",
+    "categorie": "restaurants",
+    "intention": "brunch_cafe",
+    "question_fr": "Où prendre un bon brunch ou café ?",
+    "question_en": "Where to get a good brunch or coffee?",
+    "question_ar": "أين أتناول فطوراً متأخراً أو قهوة جيدة؟",
+    "reponse_fr": "La Fabrique (brunch, café de spécialité), Café de Paris (historique), Panoramic Café (vue 360°), Café Baba (thé mythique).",
+    "reponse_en": "La Fabrique (brunch, specialty coffee), Café de Paris (historic), Panoramic Café (360° view), Café Baba (mythical tea).",
+    "reponse_ar": "لا فابريك (فطور متأخر، قهوة مميزة)، مقهى باريس (تاريخي)، مقهى بانورامي (إطلالة 360°)، مقهى بابا (شاي أسطوري).",
+    "tags": [
+      "cafe",
+      "brunch",
+      "petit_dejeuner"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_028",
+    "categorie": "restaurants",
+    "intention": "reservation_conseil",
+    "question_fr": "Faut-il réserver dans les restaurants ?",
+    "question_en": "Do you need reservations at restaurants?",
+    "question_ar": "هل يجب الحجز في المطاعم؟",
+    "reponse_fr": "Réservation recommandée pour : El Morocco Club, Dar Nour, Nord-Pinus, El Korsan, Le Saveur de Poisson. Pas nécessaire pour les restaurants populaires.",
+    "reponse_en": "Reservation recommended for: El Morocco Club, Dar Nour, Nord-Pinus, El Korsan, Le Saveur de Poisson. Not needed for popular restaurants.",
+    "reponse_ar": "الحجز مستحسن في: المغرب كلوب، دار النور، نور-بينوس، الكرسان، سافور دو بواسون. غير ضروري للمطاعم الشعبية.",
+    "tags": [
+      "reservation",
+      "conseil",
+      "restaurant"
+    ],
+    "priorite": 3
+  },
+  {
+    "id": "faq_029",
+    "categorie": "pratique",
+    "intention": "meilleure_periode",
+    "question_fr": "Quelle est la meilleure période pour visiter Tanger ?",
+    "question_en": "What is the best time to visit Tangier?",
+    "question_ar": "ما هو أفضل وقت لزيارة طنجة؟",
+    "reponse_fr": "Le printemps (avril-juin) et l'automne (septembre-octobre) offrent un climat doux. L'été est chaud et très animé. L'hiver est souvent pluvieux mais doux.",
+    "reponse_en": "Spring (April-June) and autumn (September-October) offer mild weather. Summer is hot and very lively. Winter is often rainy but mild.",
+    "reponse_ar": "الربيع (أبريل-يونيو) والخريف (سبتمبر-أكتوبر) يتميزان بجو معتدل. الصيف حار ومزدحم. الشتاء غالباً ممطر ولكنه معتدل.",
+    "tags": [
+      "meteo",
+      "climat",
+      "saison",
+      "pratique"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_030",
+    "categorie": "pratique",
+    "intention": "monnaie_change",
+    "question_fr": "Quelle monnaie est utilisée et où faire le change ?",
+    "question_en": "What currency is used and where to exchange money?",
+    "question_ar": "ما هي العملة المستخدمة وأين يمكنني صرف العملات؟",
+    "reponse_fr": "La monnaie est le Dirham marocain (MAD). 1€ = ~10.5 MAD. Évitez le change à l'aéroport. Utilisez les bureaux de change au centre-ville ou retirez aux guichets automatiques (GAB).",
+    "reponse_en": "The currency is the Moroccan Dirham (MAD). 1€ = ~10.5 MAD. Avoid exchanging at the airport. Use exchange offices in the city center or ATMs.",
+    "reponse_ar": "العملة هي الدرهم المغربي. 1 يورو = 10.5 درهم تقريباً. تجنب الصرف في المطار. استخدم مكاتب الصرافة في وسط المدينة أو أجهزة الصراف الآلي.",
+    "tags": [
+      "argent",
+      "monnaie",
+      "change",
+      "pratique"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_031",
+    "categorie": "pratique",
+    "intention": "securite",
+    "question_fr": "Est-ce que Tanger est une ville sûre pour les touristes ?",
+    "question_en": "Is Tangier safe for tourists?",
+    "question_ar": "هل طنجة مدينة آمنة للسياح؟",
+    "reponse_fr": "Oui, Tanger est globalement très sûre. Des patrouilles de police touristique sont présentes. Faites juste attention aux pickpockets dans les lieux bondés comme le Grand Socco.",
+    "reponse_en": "Yes, Tangier is generally very safe. Tourist police patrols are present. Just beware of pickpockets in crowded places like the Grand Socco.",
+    "reponse_ar": "نعم، طنجة آمنة جداً بشكل عام. تتواجد دوريات شرطة سياحية. فقط انتبه من النشالين في الأماكن المزدحمة مثل السوق الكبير.",
+    "tags": [
+      "securite",
+      "police",
+      "pratique"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_032",
+    "categorie": "pratique",
+    "intention": "carte_sim",
+    "question_fr": "Comment acheter une carte SIM pour avoir internet ?",
+    "question_en": "How to buy a SIM card for internet?",
+    "question_ar": "كيف أشتري شريحة هاتف للحصول على الإنترنت؟",
+    "reponse_fr": "Vous pouvez acheter une carte Inwi, Maroc Telecom ou Orange à l'aéroport ou dans les boutiques en ville pour environ 20 MAD, puis recharger 10 MAD/Go d'internet.",
+    "reponse_en": "You can buy an Inwi, Maroc Telecom, or Orange SIM card at the airport or city shops for about 20 MAD, then top up 10 MAD/GB of internet.",
+    "reponse_ar": "يمكنك شراء شريحة إنوي، اتصالات المغرب أو أورنج في المطار أو في متاجر المدينة بحوالي 20 درهم، ثم شحن 10 دراهم لكل جيجابايت إنترنت.",
+    "tags": [
+      "internet",
+      "wifi",
+      "sim",
+      "telephone"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_033",
+    "categorie": "pratique",
+    "intention": "eau_potable",
+    "question_fr": "Peut-on boire l'eau du robinet à Tanger ?",
+    "question_en": "Can you drink tap water in Tangier?",
+    "question_ar": "هل يمكن شرب ماء الصنبور في طنجة؟",
+    "reponse_fr": "L'eau du robinet est potable mais peut causer des maux d'estomac aux touristes à cause des minéraux différents. Il est conseillé de boire de l'eau en bouteille.",
+    "reponse_en": "Tap water is safe to drink but may cause stomach ache for tourists due to different minerals. It is recommended to drink bottled water.",
+    "reponse_ar": "ماء الصنبور صالح للشرب ولكنه قد يسبب ألماً في المعدة للسياح بسبب اختلاف المعادن. ينصح بشرب المياه المعبأة.",
+    "tags": [
+      "eau",
+      "sante",
+      "pratique"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_034",
+    "categorie": "pratique",
+    "intention": "code_vestimentaire",
+    "question_fr": "Comment s'habiller à Tanger ?",
+    "question_en": "How to dress in Tangier?",
+    "question_ar": "كيف أرتدي ملابسي في طنجة؟",
+    "reponse_fr": "Tanger est cosmopolite, mais il est respectueux de porter des vêtements qui couvrent les épaules et les genoux, surtout dans la médina. Prévoyez une veste pour les soirs venteux.",
+    "reponse_en": "Tangier is cosmopolitan, but it's respectful to wear clothes covering shoulders and knees, especially in the medina. Bring a jacket for windy evenings.",
+    "reponse_ar": "طنجة مدينة عالمية، لكن من باب الاحترام ارتداء ملابس تغطي الكتفين والركبتين، خاصة في المدينة القديمة. أحضر سترة للأمسيات العاصفة.",
+    "tags": [
+      "vetements",
+      "culture",
+      "pratique"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_035",
+    "categorie": "shopping",
+    "intention": "souvenirs",
+    "question_fr": "Que ramener de Tanger en souvenir ?",
+    "question_en": "What souvenirs to bring back from Tangier?",
+    "question_ar": "ما الهدايا التذكارية التي يمكن إحضارها من طنجة؟",
+    "reponse_fr": "L'artisanat local : cuir, tapis, céramique de Tétouan, huile d'argan, épices, produits en paille, et les célèbres foutas (serviettes traditionnelles).",
+    "reponse_en": "Local crafts: leather, carpets, Tetouan ceramics, argan oil, spices, straw products, and famous foutas (traditional towels).",
+    "reponse_ar": "الصناعات التقليدية: الجلود، السجاد، سيراميك تطوان، زيت الأركان، البهارات، منتجات القش، والفوط التقليدية الشهيرة.",
+    "tags": [
+      "shopping",
+      "souvenirs",
+      "artisanat"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_036",
+    "categorie": "shopping",
+    "intention": "marchander",
+    "question_fr": "Faut-il marchander dans les souks ?",
+    "question_en": "Should you haggle in the souks?",
+    "question_ar": "هل يجب المساومة في الأسواق؟",
+    "reponse_fr": "Oui, le marchandage est une tradition dans les souks de la médina. Proposez d'abord la moitié du prix annoncé, puis trouvez un accord avec le vendeur. Restez souriant.",
+    "reponse_en": "Yes, haggling is a tradition in the medina souks. Offer half the asking price first, then reach an agreement. Keep a smile.",
+    "reponse_ar": "نعم، المساومة تقليد في أسواق المدينة القديمة. اقترح نصف السعر المطلوب أولاً، ثم اتفق مع البائع. حافظ على ابتسامتك.",
+    "tags": [
+      "shopping",
+      "souk",
+      "marchandage",
+      "prix"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_037",
+    "categorie": "urgence",
+    "intention": "numeros_urgence",
+    "question_fr": "Quels sont les numéros d'urgence à Tanger ?",
+    "question_en": "What are the emergency numbers in Tangier?",
+    "question_ar": "ما هي أرقام الطوارئ في طنجة؟",
+    "reponse_fr": "Police : 19, Pompiers/Ambulance : 15, Gendarmerie (hors ville) : 177. Préparez ces numéros en cas de besoin.",
+    "reponse_en": "Police: 19, Fire/Ambulance: 15, Gendarmerie (outside city): 177. Keep these numbers handy.",
+    "reponse_ar": "الشرطة: 19، الإطفاء/الإسعاف: 15، الدرك (خارج المدينة): 177. احتفظ بهذه الأرقام عند الحاجة.",
+    "tags": [
+      "urgence",
+      "police",
+      "hopital",
+      "ambulance"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_038",
+    "categorie": "hebergement",
+    "intention": "quartier_logement",
+    "question_fr": "Dans quel quartier vaut-il mieux loger ?",
+    "question_en": "Which neighborhood is best to stay in?",
+    "question_ar": "في أي حي يفضل الإقامة؟",
+    "reponse_fr": "La Médina et la Kasbah pour l'authenticité (riads). Le Centre-ville (boulevard Pasteur) pour le côté pratique. La Corniche ou Malabata pour les hôtels modernes et la plage.",
+    "reponse_en": "Medina and Kasbah for authenticity (riads). City center (Pasteur boulevard) for convenience. Corniche or Malabata for modern hotels and beach.",
+    "reponse_ar": "المدينة القديمة والقصبة للأصالة (الرياض). وسط المدينة للراحة. الكورنيش أو ملاباطا للفنادق الحديثة والشاطئ.",
+    "tags": [
+      "hebergement",
+      "quartier",
+      "hotel",
+      "riad"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_039",
+    "categorie": "pratique",
+    "intention": "langue",
+    "question_fr": "Quelles langues sont parlées à Tanger ?",
+    "question_en": "What languages are spoken in Tangier?",
+    "question_ar": "ما هي اللغات المتحدث بها في طنجة؟",
+    "reponse_fr": "L'arabe marocain (darija) est la langue principale. Le français et l'espagnol sont très couramment parlés. L'anglais est de plus en plus compris dans les zones touristiques.",
+    "reponse_en": "Moroccan Arabic (darija) is the main language. French and Spanish are very widely spoken. English is increasingly understood in tourist areas.",
+    "reponse_ar": "العربية المغربية (الدارجة) هي اللغة الرئيسية. الفرنسية والإسبانية متحدث بهما بكثرة. الإنجليزية مفهومة بشكل متزايد في المناطق السياحية.",
+    "tags": [
+      "langue",
+      "communication",
+      "pratique"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_040",
+    "categorie": "pratique",
+    "intention": "visa",
+    "question_fr": "Faut-il un visa pour visiter le Maroc ?",
+    "question_en": "Do I need a visa to visit Morocco?",
+    "question_ar": "هل أحتاج إلى تأشيرة لزيارة المغرب؟",
+    "reponse_fr": "Les citoyens de l'UE, des USA, du Canada et de nombreux autres pays n'ont pas besoin de visa pour des séjours touristiques jusqu'à 90 jours. Le passeport doit être valide 6 mois.",
+    "reponse_en": "Citizens of EU, USA, Canada, and many other countries do not need a visa for tourist stays up to 90 days. Passport must be valid for 6 months.",
+    "reponse_ar": "مواطنو الاتحاد الأوروبي، أمريكا، كندا والعديد من الدول الأخرى لا يحتاجون لتأشيرة لإقامة سياحية حتى 90 يوماً. يجب أن يكون جواز السفر صالحاً لـ 6 أشهر.",
+    "tags": [
+      "visa",
+      "frontiere",
+      "passeport",
+      "pratique"
+    ],
+    "priorite": 1
+  },
+  {
+    "id": "faq_041",
+    "categorie": "transport",
+    "intention": "application_gps",
+    "question_fr": "Quelle application GPS utiliser à Tanger ?",
+    "question_en": "Which GPS app to use in Tangier?",
+    "question_ar": "ما تطبيق الخرائط الذي أستخدمه في طنجة؟",
+    "reponse_fr": "Google Maps fonctionne très bien. Cependant, dans les ruelles étroites de la Médina, le signal GPS peut se perdre, il vaut mieux se fier aux panneaux ou demander aux locaux.",
+    "reponse_en": "Google Maps works very well. However, in the narrow streets of the Medina, GPS signal can be lost, it's better to rely on signs or ask locals.",
+    "reponse_ar": "خرائط جوجل تعمل بشكل جيد جداً. ومع ذلك، في أزقة المدينة القديمة الضيقة، قد يضيع إشارة GPS، من الأفضل الاعتماد على اللافتات أو سؤال السكان المحليين.",
+    "tags": [
+      "gps",
+      "carte",
+      "navigation",
+      "pratique"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_042",
+    "categorie": "activites",
+    "intention": "activites_enfants",
+    "question_fr": "Que faire avec des enfants à Tanger ?",
+    "question_en": "What to do with kids in Tangier?",
+    "question_ar": "ماذا أفعل مع الأطفال في طنجة؟",
+    "reponse_fr": "La Corniche pour des balades à vélo, le Parc Perdicaris pour un pique-nique nature, une balade à dos de chameau près des Grottes d'Hercule, ou le parc aquatique Mnar Park.",
+    "reponse_en": "The Corniche for bike rides, Perdicaris Park for a nature picnic, a camel ride near the Caves of Hercules, or Mnar Park water park.",
+    "reponse_ar": "الكورنيش لركوب الدراجات، حديقة بيرديكاريس لنزهة في الطبيعة، ركوب الجمال قرب مغارات هرقل، أو حديقة الألعاب المائية منار بارك.",
+    "tags": [
+      "famille",
+      "enfants",
+      "activites",
+      "parc"
+    ],
+    "priorite": 2
+  },
+  {
+    "id": "faq_001",
+    "categorie": "transport",
+    "sous_categorie": "aeroport",
+    "intention": "transport_aeroport",
+    "priorite": 1,
+    "question_fr": "Comment aller de l'aéroport au centre-ville ?",
+    "question_en": "How to go from the airport to the city center?",
+    "question_ar": "كيف تذهب من المطار إلى وسط المدينة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : L'aéroport Ibn Battuta est à 15km. Le taxi coûte environ 150 MAD. Vous pouvez aussi prendre le bus urbain Ligne 9. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Ibn Battuta airport is 15km away. A taxi costs around 150 MAD. You can also take the urban bus Line 9. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. مطار ابن بطوطة يبعد 15 كم. سيارة الأجرة تكلف حوالي 150 درهم. يمكنك أيضاً ركوب حافلة المدينة خط 9. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "transport",
+      "aeroport",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Aeroport",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_002",
+    "categorie": "transport",
+    "sous_categorie": "petits_taxis",
+    "intention": "transport_petits_taxis",
+    "priorite": 1,
+    "question_fr": "Comment fonctionnent les petits taxis ?",
+    "question_en": "How do petit taxis work?",
+    "question_ar": "كيف تعمل سيارات الأجرة الصغيرة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Les petits taxis sont bleus à Tanger et utilisent obligatoirement un compteur. Ils ne peuvent pas sortir de la ville. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Petit taxis are blue in Tangier and must use a meter. They cannot go outside the city limits. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: سيارات الأجرة الصغيرة زرقاء في طنجة وتستخدم العداد. لا يمكنها الخروج من حدود المدينة. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "transport",
+      "petits_taxis",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Petits Taxis",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_003",
+    "categorie": "transport",
+    "sous_categorie": "grands_taxis",
+    "intention": "transport_grands_taxis",
+    "priorite": 1,
+    "question_fr": "Où prendre un grand taxi ?",
+    "question_en": "Where to take a grand taxi?",
+    "question_ar": "أين أستقل سيارة أجرة كبيرة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. Les grands taxis de couleur crème suivent des itinéraires fixes vers l'extérieur (Cap Spartel, Asilah) avec des tarifs partagés économiques. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Cream-colored grand taxis follow fixed routes outside (Cape Spartel, Asilah) with economical shared fares. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: سيارات الأجرة الكبيرة ذات اللون الكريمي تتبع مسارات ثابتة للخارج بتسعيرة مشتركة واقتصادية. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "transport",
+      "grands_taxis",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Grands Taxis",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_004",
+    "categorie": "transport",
+    "sous_categorie": "train_tgv",
+    "intention": "transport_train_tgv",
+    "priorite": 1,
+    "question_fr": "Où se trouve la gare TGV ?",
+    "question_en": "Where is the TGV train station?",
+    "question_ar": "أين تقع محطة قطار البراق؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : La gare de Tanger Ville est très centrale. Le TGV Al Boraq permet de rejoindre Casablanca en seulement 2h10. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Tangier Ville station is very central. The Al Boraq high-speed train connects to Casablanca in just 2h10. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: محطة طنجة المدينة مركزية. يتيح قطار البراق فائق السرعة الوصول إلى الدار البيضاء في ساعتين وعشر دقائق فقط. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "transport",
+      "train_tgv",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Train Tgv",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_005",
+    "categorie": "transport",
+    "sous_categorie": "bus",
+    "intention": "transport_bus",
+    "priorite": 1,
+    "question_fr": "Quel est le prix du bus urbain ?",
+    "question_en": "What is the price of the urban bus?",
+    "question_ar": "ما هو سعر حافلة المدينة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le réseau est géré par la société ALSA. Le ticket coûte environ 4 MAD, ce qui est très pratique. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The network is managed by the ALSA company. A ticket costs around 4 MAD, which is very convenient. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: تدير شركة ألزا شبكة الحافلات. يبلغ سعر التذكرة حوالي 4 دراهم، وهو عملي ومريح جداً. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "transport",
+      "bus",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Bus",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_006",
+    "categorie": "transport",
+    "sous_categorie": "location_voiture",
+    "intention": "transport_location_voiture",
+    "priorite": 1,
+    "question_fr": "Où louer une voiture ?",
+    "question_en": "Where to rent a car?",
+    "question_ar": "أين أستأجر سيارة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Vous trouverez de nombreuses agences de location fiables à l'aéroport ou directement sur le Boulevard Pasteur en centre-ville. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: You will find many reliable rental agencies at the airport or directly on Boulevard Pasteur in the city center. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: ستجد العديد من وكالات التأجير الموثوقة في المطار أو مباشرة في شارع باستور بوسط المدينة. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "transport",
+      "location_voiture",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Location Voiture",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_007",
+    "categorie": "transport",
+    "sous_categorie": "medina_marche",
+    "intention": "transport_medina_marche",
+    "priorite": 1,
+    "question_fr": "Peut-on rouler dans la médina ?",
+    "question_en": "Can you drive in the medina?",
+    "question_ar": "هل يمكن القيادة في المدينة القديمة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : La médina est entièrement piétonne. Préparez de bonnes chaussures de marche car les ruelles sont souvent étroites et en pente. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The medina is entirely pedestrian. Prepare good walking shoes as the alleys are often narrow and steep. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: المدينة القديمة مخصصة للمشاة بالكامل. جهز أحذية مشي جيدة لأن الأزقة غالباً ما تكون ضيقة ومنحدرة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "transport",
+      "medina_marche",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Medina Marche",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_008",
+    "categorie": "transport",
+    "sous_categorie": "ferry_espagne",
+    "intention": "transport_ferry_espagne",
+    "priorite": 1,
+    "question_fr": "Comment prendre le ferry pour l'Espagne ?",
+    "question_en": "How to take the ferry to Spain?",
+    "question_ar": "كيف أستقل العبارة إلى إسبانيا؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Les ferrys rapides FRS depuis le port de Tanger Ville mettent environ une heure pour rejoindre Tarifa en Espagne. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Fast FRS ferries from Tangier Ville port take about an hour to reach Tarifa in Spain. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. تستغرق العبارات السريعة من ميناء طنجة المدينة حوالي ساعة للوصول إلى طريفة في إسبانيا. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "transport",
+      "ferry_espagne",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Ferry Espagne",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_009",
+    "categorie": "lieux",
+    "sous_categorie": "grottes_hercule",
+    "intention": "lieux_grottes_hercule",
+    "priorite": 2,
+    "question_fr": "Comment visiter les Grottes d'Hercule ?",
+    "question_en": "How to visit the Caves of Hercules?",
+    "question_ar": "كيف أزور مغارات هرقل؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Les grottes sont à 14km du centre. C'est un site naturel mythique avec une ouverture spectaculaire en forme d'Afrique. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The caves are 14km from the center. It's a mythical natural site with a spectacular opening shaped like Africa. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: المغارات تبعد 14 كم عن المركز. إنه موقع طبيعي أسطوري بفتحة مذهلة على شكل قارة أفريقيا. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "lieux",
+      "grottes_hercule",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Grottes Hercule",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_010",
+    "categorie": "lieux",
+    "sous_categorie": "cap_spartel",
+    "intention": "lieux_cap_spartel",
+    "priorite": 2,
+    "question_fr": "Que voir au Cap Spartel ?",
+    "question_en": "What to see at Cape Spartel?",
+    "question_ar": "ماذا أرى في رأس سبارطيل؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Le Cap Spartel est le point de rencontre exact entre l'Océan Atlantique et la mer Méditerranée, célèbre pour son magnifique phare. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Cape Spartel is the exact meeting point between the Atlantic Ocean and the Mediterranean Sea, famous for its magnificent lighthouse. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: رأس سبارطيل هو نقطة الالتقاء الدقيقة بين المحيط الأطلسي والبحر الأبيض المتوسط، ويشتهر بمنارته المذهلة. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "lieux",
+      "cap_spartel",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Cap Spartel",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_011",
+    "categorie": "lieux",
+    "sous_categorie": "kasbah",
+    "intention": "lieux_kasbah",
+    "priorite": 2,
+    "question_fr": "Qu'y a-t-il dans la Kasbah ?",
+    "question_en": "What is in the Kasbah?",
+    "question_ar": "ماذا يوجد في القصبة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : La Kasbah offre une vue imprenable sur le détroit. Vous y trouverez aussi l'excellent musée de la Kasbah des cultures méditerranéennes. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The Kasbah offers stunning views of the strait. You will also find the excellent Kasbah Museum of Mediterranean Cultures there. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: توفر القصبة إطلالة خلابة على المضيق. ستجد هناك أيضاً متحف القصبة للثقافات المتوسطية الممتاز. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "lieux",
+      "kasbah",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Kasbah",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_012",
+    "categorie": "lieux",
+    "sous_categorie": "grand_socco",
+    "intention": "lieux_grand_socco",
+    "priorite": 2,
+    "question_fr": "Où se trouve le Grand Socco ?",
+    "question_en": "Where is the Grand Socco?",
+    "question_ar": "أين يقع السوق الكبير؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le Grand Socco, ou Place du 9 Avril, marque la frontière animée entre la ville nouvelle moderne et l'ancienne médina. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The Grand Socco, or April 9 Square, marks the bustling border between the modern new city and the old medina. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: السوق الكبير، أو ساحة 9 أبريل، يمثل الحدود النابضة بالحياة بين المدينة الجديدة الحديثة والمدينة القديمة. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "lieux",
+      "grand_socco",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Grand Socco",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_013",
+    "categorie": "lieux",
+    "sous_categorie": "petit_socco",
+    "intention": "lieux_petit_socco",
+    "priorite": 2,
+    "question_fr": "Pourquoi le Petit Socco est-il célèbre ?",
+    "question_en": "Why is the Petit Socco famous?",
+    "question_ar": "لماذا يشتهر السوق الصغير؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : C'est une petite place historique au coeur de la médina, entourée de cafés anciens où se réunissaient autrefois les écrivains internationaux. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: It is a historic little square in the heart of the medina, surrounded by old cafes where international writers used to gather. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: إنها ساحة تاريخية صغيرة في قلب المدينة القديمة، محاطة بمقاهي قديمة حيث كان يجتمع الكتاب الدوليون. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "lieux",
+      "petit_socco",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Petit Socco",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_014",
+    "categorie": "lieux",
+    "sous_categorie": "cafe_hafa",
+    "intention": "lieux_cafe_hafa",
+    "priorite": 2,
+    "question_fr": "Où se trouve le Café Hafa ?",
+    "question_en": "Where is Cafe Hafa?",
+    "question_ar": "أين يقع مقهى الحافة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Ouvert en 1921 dans le quartier Marshan, il offre un thé à la menthe parfait avec une vue en terrasses mémorable sur l'Espagne. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Opened in 1921 in the Marshan district, it offers perfect mint tea with a memorable terraced view of Spain. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. افتتح عام 1921 في حي مرشان، ويقدم شاي النعناع المثالي مع إطلالة مدرجة لا تُنسى على إسبانيا. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "lieux",
+      "cafe_hafa",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Cafe Hafa",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_015",
+    "categorie": "lieux",
+    "sous_categorie": "parc_perdicaris",
+    "intention": "lieux_parc_perdicaris",
+    "priorite": 2,
+    "question_fr": "Peut-on faire de la randonnée à Tanger ?",
+    "question_en": "Can you hike in Tangier?",
+    "question_ar": "هل يمكن ممارسة رياضة المشي في طنجة؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Oui, le somptueux Parc Perdicaris (forêt de Rmilat) est parfait pour marcher en pleine nature avec une vue plongeante sur l'océan. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Yes, the sumptuous Perdicaris Park (Rmilat forest) is perfect for walking in nature with a plunging view of the ocean. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. نعم، منتزه بيرديكاريس الفاخر (غابة الرميلات) مثالي للمشي في الطبيعة مع إطلالة رائعة على المحيط. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "lieux",
+      "parc_perdicaris",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Parc Perdicaris",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_016",
+    "categorie": "lieux",
+    "sous_categorie": "legation_americaine",
+    "intention": "lieux_legation_americaine",
+    "priorite": 2,
+    "question_fr": "Que voir au musée de la Légation Américaine ?",
+    "question_en": "What to see at the American Legation museum?",
+    "question_ar": "ماذا أرى في متحف المفوضية الأمريكية؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : C'est la première propriété diplomatique américaine au monde. Elle abrite des expositions fascinantes sur l'histoire maroco-américaine en pleine médina. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: It is the first American diplomatic property in the world. It houses fascinating exhibitions on Moroccan-American history right in the medina. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: إنها أول ملكية دبلوماسية أمريكية في العالم. تضم معارض رائعة عن التاريخ المغربي الأمريكي في قلب المدينة القديمة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "lieux",
+      "legation_americaine",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Legation Americaine",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_017",
+    "categorie": "lieux",
+    "sous_categorie": "corniche",
+    "intention": "lieux_corniche",
+    "priorite": 2,
+    "question_fr": "Où se promener le soir ?",
+    "question_en": "Where to walk in the evening?",
+    "question_ar": "أين أتنزه في المساء؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. La longue Corniche de Tanger s'étendant le long de la plage municipale est idéale pour une balade nocturne vivante et en toute sécurité. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The long Tangier Corniche stretching along the municipal beach is ideal for a lively and completely safe night walk. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: كورنيش طنجة الطويل الممتد على طول شاطئ البلدية مثالي لنزهة ليلية حيوية وآمنة تماماً. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "lieux",
+      "corniche",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Corniche",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_018",
+    "categorie": "lieux",
+    "sous_categorie": "plage_achakkar",
+    "intention": "lieux_plage_achakkar",
+    "priorite": 2,
+    "question_fr": "Quelle est la meilleure plage près de Tanger ?",
+    "question_en": "What is the best beach near Tangier?",
+    "question_ar": "ما هو أفضل شاطئ بالقرب من طنجة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. La plage d'Achakkar, située tout près des grottes d'Hercule, offre une belle étendue de sable fin très prisée des familles. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Achakkar beach, located very close to the Caves of Hercules, offers a beautiful stretch of fine sand very popular with families. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. يقدم شاطئ أشقار، الواقع بالقرب من مغارات هرقل، امتداداً جميلاً من الرمال الناعمة التي تحظى بشعبية كبيرة لدى العائلات. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "lieux",
+      "plage_achakkar",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Plage Achakkar",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_019",
+    "categorie": "lieux",
+    "sous_categorie": "asilah",
+    "intention": "lieux_asilah",
+    "priorite": 2,
+    "question_fr": "Faut-il visiter Asilah ?",
+    "question_en": "Should I visit Asilah?",
+    "question_ar": "هل يجب زيارة أصيلة؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Absolument, Asilah est une charmante ville côtière à 45km, réputée mondialement pour sa médina blanche immaculée et ses fresques murales. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Absolutely, Asilah is a charming coastal town 45km away, world-renowned for its pristine white medina and beautiful murals. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: بالتأكيد، أصيلة مدينة ساحلية ساحرة تبعد 45 كم، تشتهر عالمياً بمدينتها البيضاء النقية وجدارياتها الجميلة. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "lieux",
+      "asilah",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Asilah",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_020",
+    "categorie": "lieux",
+    "sous_categorie": "chefchaouen",
+    "intention": "lieux_chefchaouen",
+    "priorite": 2,
+    "question_fr": "Combien de temps pour aller à Chefchaouen ?",
+    "question_en": "How long to go to Chefchaouen?",
+    "question_ar": "كم يستغرق الذهاب إلى شفشاون؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Il faut compter environ 2 heures de route panoramique. La fameuse ville bleue est l'excursion d'une journée la plus populaire depuis Tanger. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. It takes about 2 hours of scenic driving. The famous blue city is the most popular day trip from Tangier. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: يستغرق الأمر حوالي ساعتين من القيادة ذات المناظر الخلابة. المدينة الزرقاء الشهيرة هي الرحلة اليومية الأكثر شعبية من طنجة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "lieux",
+      "chefchaouen",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Chefchaouen",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_021",
+    "categorie": "restaurants",
+    "sous_categorie": "cuisine_marocaine",
+    "intention": "restaurants_cuisine_marocaine",
+    "priorite": 2,
+    "question_fr": "Où manger de la cuisine marocaine authentique ?",
+    "question_en": "Where to eat authentic Moroccan cuisine?",
+    "question_ar": "أين أتناول المطبخ المغربي الأصيل؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. Des établissements incontournables comme Dar Naji ou le Restaurant Rif Kebdani proposent des tajines et des couscous traditionnels délicieux. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Must-visit establishments like Dar Naji or Restaurant Rif Kebdani offer delicious and truly traditional tagines and couscous. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: تقدم مؤسسات لا غنى عن زيارتها مثل دار ناجي أو مطعم ريف كبداني طواجن وكسكس تقليدي لذيذ وأصيل. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "restaurants",
+      "cuisine_marocaine",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Cuisine Marocaine",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_022",
+    "categorie": "restaurants",
+    "sous_categorie": "fruits_mer",
+    "intention": "restaurants_fruits_mer",
+    "priorite": 2,
+    "question_fr": "Où manger les meilleurs fruits de mer ?",
+    "question_en": "Where to eat the best seafood?",
+    "question_ar": "أين أتناول أفضل المأكولات البحرية؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Les restaurants situés juste à côté du vieux port de pêche vous garantissent des poissons et fruits de mer d'une fraîcheur exceptionnelle. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The restaurants located right next to the old fishing port guarantee you exceptionally fresh fish and delicious seafood. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: تضمن المطاعم الواقعة بجوار ميناء الصيد القديم أسماكاً ومأكولات بحرية طازجة بشكل استثنائي ولذيذ. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "restaurants",
+      "fruits_mer",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Fruits Mer",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_023",
+    "categorie": "restaurants",
+    "sous_categorie": "tapas_espagnoles",
+    "intention": "restaurants_tapas_espagnoles",
+    "priorite": 2,
+    "question_fr": "Peut-on manger espagnol à Tanger ?",
+    "question_en": "Can you eat Spanish food in Tangier?",
+    "question_ar": "هل يمكن تناول الطعام الإسباني في طنجة؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : L'héritage espagnol y est très fort. La Casa de Espana ou le restaurant Anna & Paolo servent de formidables tapas et paellas. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: The Spanish heritage is very strong here. Casa de Espana or Anna & Paolo restaurant serve wonderful tapas and authentic paellas. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: التراث الإسباني قوي جداً هنا. تقدم كازا دي إسبانيا أو مطعم آنا وباولو تاباس رائعة وباييلا أصلية. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "restaurants",
+      "tapas_espagnoles",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Tapas Espagnoles",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_024",
+    "categorie": "restaurants",
+    "sous_categorie": "petit_dejeuner",
+    "intention": "restaurants_petit_dejeuner",
+    "priorite": 2,
+    "question_fr": "Que manger au petit-déjeuner ?",
+    "question_en": "What to eat for breakfast?",
+    "question_ar": "ماذا أتناول على الفطور؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Testez la soupe de fèves (bissara) ou les crêpes marocaines (msemmen) accompagnées de thé à la menthe dans les cafés de la médina. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Test the broad bean soup (bissara) or Moroccan pancakes (msemmen) accompanied by mint tea in the old medina cafes. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. جرب حساء الفول (البيصارة) أو الفطائر المغربية (المسمن) مصحوبة بشاي النعناع في مقاهي المدينة القديمة. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "restaurants",
+      "petit_dejeuner",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Petit Dejeuner",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_025",
+    "categorie": "restaurants",
+    "sous_categorie": "cafe_historique",
+    "intention": "restaurants_cafe_historique",
+    "priorite": 2,
+    "question_fr": "Quels sont les cafés historiques ?",
+    "question_en": "What are the historic cafes?",
+    "question_ar": "ما هي المقاهي التاريخية؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Outre l'incontournable Café Hafa, le Café Baba dans la Kasbah est mythique pour avoir jadis accueilli des stars comme les Rolling Stones. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Besides the unmissable Cafe Hafa, Cafe Baba in the Kasbah is legendary for having once hosted stars like the Rolling Stones. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. إلى جانب مقهى الحافة الذي لا يفوت، يعتبر مقهى بابا في القصبة أسطورياً لاستضافته قديماً نجوماً مثل رولينج ستونز. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "restaurants",
+      "cafe_historique",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Cafe Historique",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_026",
+    "categorie": "restaurants",
+    "sous_categorie": "restaurant_vue",
+    "intention": "restaurants_restaurant_vue",
+    "priorite": 2,
+    "question_fr": "Quel restaurant a la meilleure vue ?",
+    "question_en": "Which restaurant has the best view?",
+    "question_ar": "أي مطعم لديه أفضل إطلالة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le luxueux Morocco Club dans la Kasbah ou les superbes terrasses de l'hôtel El Minzah offrent des dîners raffinés avec des vues panoramiques. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: The luxurious Morocco Club in the Kasbah or the superb terraces of the El Minzah hotel offer fine dining with panoramic views. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: نادي المغرب الفاخر في القصبة أو شرفات فندق المنزه الرائعة تقدم عشاء راقياً مع إطلالات بانورامية خلابة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "restaurants",
+      "restaurant_vue",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Restaurant Vue",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_027",
+    "categorie": "restaurants",
+    "sous_categorie": "street_food",
+    "intention": "restaurants_street_food",
+    "priorite": 2,
+    "question_fr": "Quelle street food goûter absolument ?",
+    "question_en": "What street food to absolutely taste?",
+    "question_ar": "ما هو طعام الشارع الذي يجب تذوقه بالتأكيد؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Ne manquez surtout pas le Kalinti (une succulente tarte salée à la farine de pois chiche) et les fameux sandwichs aux brochettes grillées. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Do not miss Kalinti (a succulent savory chickpea flour tart) and the famous street sandwiches with grilled meat skewers. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. لا تفوت الكالينتي (فطيرة مالحة شهية بدقيق الحمص) وسندويشات الشارع الشهيرة مع أسياخ اللحم المشوي. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "restaurants",
+      "street_food",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Street Food",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_028",
+    "categorie": "restaurants",
+    "sous_categorie": "prix_moyen",
+    "intention": "restaurants_prix_moyen",
+    "priorite": 2,
+    "question_fr": "Quel est le budget pour un repas ?",
+    "question_en": "What is the budget for a meal?",
+    "question_ar": "ما هي ميزانية الوجبة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Comptez 40-70 MAD dans les snacks locaux, 150-250 MAD pour un bon restaurant classique, et plus de 400 MAD pour une table gastronomique. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Expect 40-70 MAD in local snacks, 150-250 MAD for a good classic restaurant, and over 400 MAD for a fine dining table. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: احسب 40-70 درهم في المطاعم المحلية، 150-250 درهم لمطعم كلاسيكي جيد، وأكثر من 400 درهم لمطعم فاخر. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "restaurants",
+      "prix_moyen",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Prix Moyen",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_029",
+    "categorie": "hotels",
+    "sous_categorie": "hotel_luxe",
+    "intention": "hotels_hotel_luxe",
+    "priorite": 2,
+    "question_fr": "Quels sont les meilleurs hôtels 5 étoiles ?",
+    "question_en": "What are the best 5-star hotels?",
+    "question_ar": "ما هي أفضل الفنادق 5 نجوم؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Pour le grand luxe, l'historique El Minzah, le très spectaculaire Fairmont Tazi Palace ou le moderne Hilton City Center sont incontournables. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. For pure luxury, the historic El Minzah, the very spectacular Fairmont Tazi Palace or the modern Hilton City Center are absolute must-stays. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. للفخامة الكبيرة، فندق المنزه التاريخي، أو قصر التازي فيرمونت المذهل أو هيلتون سيتي سنتر الحديث لا غنى عنها مطلقاً. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "hotels",
+      "hotel_luxe",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Hotel Luxe",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_030",
+    "categorie": "hotels",
+    "sous_categorie": "riad_medina",
+    "intention": "hotels_riad_medina",
+    "priorite": 2,
+    "question_fr": "Est-il bien de dormir dans la médina ?",
+    "question_en": "Is it good to sleep in the medina?",
+    "question_ar": "هل من الجيد النوم في المدينة القديمة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. Loger dans un somptueux riad traditionnel (comme La Tangerina) est une expérience féerique qui vous plonge littéralement au cœur de l'histoire locale. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Staying in a sumptuous traditional riad (like La Tangerina) is a magical experience that literally plunges you into the heart of local history. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. الإقامة في رياض تقليدي فخم (مثل لا طنجرينا) هي تجربة ساحرة تغمرك حرفياً في قلب التاريخ المحلي. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "hotels",
+      "riad_medina",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Riad Medina",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_031",
+    "categorie": "hotels",
+    "sous_categorie": "hotel_budget",
+    "intention": "hotels_hotel_budget",
+    "priorite": 2,
+    "question_fr": "Où loger avec un petit budget ?",
+    "question_en": "Where to stay on a tight budget?",
+    "question_ar": "أين أقيم بميزانية محدودة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le quartier central du Grand Socco regorge de petites auberges de jeunesse et de pensions économiques offrant un excellent rapport qualité-prix. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The central Grand Socco area is full of small youth hostels and budget guesthouses offering an excellent value for money. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. تزخر منطقة السوق الكبير المركزية بنزل الشباب الصغيرة والبنسيونات الاقتصادية التي تقدم قيمة ممتازة مقابل المال. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "hotels",
+      "hotel_budget",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Hotel Budget",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_032",
+    "categorie": "hotels",
+    "sous_categorie": "hotel_plage",
+    "intention": "hotels_hotel_plage",
+    "priorite": 2,
+    "question_fr": "Quels hôtels sont directement sur la plage ?",
+    "question_en": "Which hotels are right on the beach?",
+    "question_ar": "ما الفنادق الموجودة مباشرة على الشاطئ؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Les grands complexes hôteliers prestigieux situés le long de la magnifique baie de Malabata, comme le Mövenpick ou le Barcelo, font face à la mer. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The prestigious large hotel complexes located along the beautiful Malabata bay, like the Mövenpick or Barcelo, directly face the sea. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. المنتجعات الفندقية الكبيرة المرموقة الواقعة على طول خليج ملاباطا الجميل، مثل موفنبيك أو بارسيلو، تواجه البحر مباشرة. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "hotels",
+      "hotel_plage",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Hotel Plage",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_033",
+    "categorie": "hotels",
+    "sous_categorie": "quartier_choix",
+    "intention": "hotels_quartier_choix",
+    "priorite": 2,
+    "question_fr": "Dans quel quartier vaut-il mieux loger ?",
+    "question_en": "Which neighborhood is best to stay in?",
+    "question_ar": "في أي حي يفضل الإقامة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. La Médina est de loin idéale pour l'authenticité piétonne, tandis que la Ville Nouvelle est parfaite si vous avez absolument besoin d'un parking. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The Medina is by far ideal for pedestrian authenticity, while the New City is perfect if you absolutely need a car parking space. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: المدينة القديمة مثالية للأصالة والمشاة، بينما المدينة الجديدة مثالية إذا كنت بحاجة ماسة إلى موقف لسيارتك. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "hotels",
+      "quartier_choix",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Quartier Choix",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_034",
+    "categorie": "hotels",
+    "sous_categorie": "reservation",
+    "intention": "hotels_reservation",
+    "priorite": 2,
+    "question_fr": "Faut-il réserver son hôtel à l'avance ?",
+    "question_en": "Should I book my hotel in advance?",
+    "question_ar": "هل يجب حجز الفندق مسبقاً؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Il est toujours fortement recommandé de réserver plusieurs mois à l'avance, tout particulièrement en juillet et août lorsque l'affluence est à son maximum absolu. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: It is always highly recommended to book several months in advance, especially in July and August when tourist crowds are at their absolute peak. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: يوصى دائماً بشدة بالحجز قبل عدة أشهر، خاصة في شهري يوليو وأغسطس عندما تكون الحشود السياحية في ذروتها المطلقة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "hotels",
+      "reservation",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Reservation",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_035",
+    "categorie": "urgences",
+    "sous_categorie": "numero_police",
+    "intention": "urgences_numero_police",
+    "priorite": 1,
+    "question_fr": "Quel est le numéro de la police ?",
+    "question_en": "What is the police number?",
+    "question_ar": "ما هو رقم الشرطة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. En cas de problème en ville, le numéro gratuit de la police est le 19. Hors agglomération, contactez rapidement la gendarmerie royale au 177. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. In case of a problem in town, the toll-free police number is 19. Outside the city limits, quickly contact the royal gendarmerie at 177. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. في حالة وجود مشكلة في المدينة، رقم الشرطة المجاني هو 19. خارج المنطقة الحضرية، اتصل بسرعة بالدرك الملكي على 177. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "urgences",
+      "numero_police",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Numero Police",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_036",
+    "categorie": "urgences",
+    "sous_categorie": "numero_pompier",
+    "intention": "urgences_numero_pompier",
+    "priorite": 1,
+    "question_fr": "Quel est le numéro des urgences médicales ?",
+    "question_en": "What is the medical emergency number?",
+    "question_ar": "ما هو رقم الطوارئ الطبية؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. Pour toute urgence médicale grave ou un incendie, appelez immédiatement la Protection Civile (les pompiers et ambulances) en composant directement le 15. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: For any serious medical emergency or fire, immediately call the Civil Protection (firemen and emergency ambulances) by dialing 15 directly. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: لأي طوارئ طبية خطيرة أو حريق، اتصل فوراً بالوقاية المدنية (المطافئ وسيارات الإسعاف) عن طريق الاتصال مباشرة بالرقم 15. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "urgences",
+      "numero_pompier",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Numero Pompier",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_037",
+    "categorie": "urgences",
+    "sous_categorie": "hopital_recommande",
+    "intention": "urgences_hopital_recommande",
+    "priorite": 1,
+    "question_fr": "Quel hôpital recommandez-vous ?",
+    "question_en": "Which hospital do you recommend?",
+    "question_ar": "أي مستشفى تنصح به؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : La grande Clinique Al Amal et l'Hôpital Espagnol Duc de Tovar offrent des services d'urgence fiables 24h/24 ainsi que d'excellents soins médicaux. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The large Clinique Al Amal and the Spanish Hospital Duc de Tovar offer reliable 24/7 emergency services as well as excellent medical care. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: تقدم عيادة الأمل الكبيرة والمستشفى الإسباني دوق دي توفار خدمات طوارئ موثوقة على مدار 24 ساعة بالإضافة إلى رعاية طبية ممتازة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "urgences",
+      "hopital_recommande",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Hopital Recommande",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_038",
+    "categorie": "urgences",
+    "sous_categorie": "pharmacie_garde",
+    "intention": "urgences_pharmacie_garde",
+    "priorite": 1,
+    "question_fr": "Comment trouver une pharmacie ouverte la nuit ?",
+    "question_en": "How to find an open pharmacy at night?",
+    "question_ar": "كيف أجد صيدلية مفتوحة ليلاً؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : L'indispensable liste des pharmacies de garde est toujours affichée sur la porte de chaque pharmacie. Celles de Pasteur et Rif ferment généralement très tard. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: The essential list of on-duty pharmacies is always posted on every pharmacy door. Pasteur and Rif pharmacies generally close very late. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. تُعرض قائمة الصيدليات المناوبة الضرورية دائماً على باب كل صيدلية. غالباً ما تغلق صيدليتي باستور والريف في وقت متأخر جداً. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "urgences",
+      "pharmacie_garde",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Pharmacie Garde",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_039",
+    "categorie": "urgences",
+    "sous_categorie": "perte_passeport",
+    "intention": "urgences_perte_passeport",
+    "priorite": 1,
+    "question_fr": "Que faire en cas de perte de passeport ?",
+    "question_en": "What to do if passport is lost?",
+    "question_ar": "ماذا تفعل في حالة فقدان جواز السفر؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Faites vite une déclaration de perte officielle au Commissariat Central, puis contactez immédiatement le consulat de votre pays d'origine situé à Tanger. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Quickly make an official loss declaration at the Central Police Station, then immediately contact your home country's consulate located in Tangier. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: قم بسرعة بعمل تصريح رسمي بالضياع في المفوضية المركزية، ثم اتصل فوراً بقنصلية بلدك الأصلي الموجودة في طنجة. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "urgences",
+      "perte_passeport",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Perte Passeport",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_040",
+    "categorie": "urgences",
+    "sous_categorie": "securite",
+    "intention": "urgences_securite",
+    "priorite": 1,
+    "question_fr": "Tanger est-elle une ville sûre ?",
+    "question_en": "Is Tangier a safe city?",
+    "question_ar": "هل طنجة مدينة آمنة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. Tanger est globalement une ville très sûre pour les touristes. Faites simplement attention aux habiles pickpockets dans les lieux extrêmement bondés comme les marchés. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Tangier is overall a very safe city for tourists. Just pay attention to skilled pickpockets in extremely crowded places like the bustling markets. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. طنجة مدينة آمنة جداً بشكل عام للسياح. انتبه فقط للنشالين المهرة في الأماكن المزدحمة للغاية مثل الأسواق الصاخبة. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "urgences",
+      "securite",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Securite",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_041",
+    "categorie": "culture",
+    "sous_categorie": "langues_parlees",
+    "intention": "culture_langues_parlees",
+    "priorite": 2,
+    "question_fr": "Quelles langues sont parlées à Tanger ?",
+    "question_en": "What languages are spoken in Tangier?",
+    "question_ar": "ما هي اللغات المتحدث بها في طنجة؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : La langue locale principale est la darija. L'espagnol et le français sont couramment maîtrisés par presque tous les commerçants, facilitant grandement les échanges. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The main local language is darija. Spanish and French are fluently mastered by almost all shopkeepers, greatly facilitating daily interactions. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: اللغة المحلية الرئيسية هي الدارجة. يتقن معظم التجار التحدث بالإسبانية والفرنسية بطلاقة، مما يسهل التفاعلات اليومية بشكل كبير. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "culture",
+      "langues_parlees",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Langues Parlees",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_042",
+    "categorie": "culture",
+    "sous_categorie": "tenue_vestimentaire",
+    "intention": "culture_tenue_vestimentaire",
+    "priorite": 2,
+    "question_fr": "Comment s'habiller à Tanger ?",
+    "question_en": "How to dress in Tangier?",
+    "question_ar": "كيف ترتدي ملابسك في طنجة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Une tenue décontractée est parfaitement acceptée, mais il est toujours très respectueux de bien couvrir vos épaules et genoux, particulièrement dans les quartiers historiques. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Casual attire is perfectly accepted, but it is always very respectful to properly cover your shoulders and knees, particularly in historic neighborhoods. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. اللباس غير الرسمي مقبول تماماً، لكن من الاحترام دائماً تغطية الكتفين والركبتين بشكل مناسب، خاصة في الأحياء التاريخية القديمة. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "culture",
+      "tenue_vestimentaire",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Tenue Vestimentaire",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_043",
+    "categorie": "culture",
+    "sous_categorie": "pourboire_pratique",
+    "intention": "culture_pourboire_pratique",
+    "priorite": 2,
+    "question_fr": "Doit-on laisser un pourboire ?",
+    "question_en": "Should we leave a tip?",
+    "question_ar": "هل يجب ترك بقشيش؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le pourboire n'est jamais obligatoire mais il est coutumier et très apprécié. On laisse généralement 5 à 10% de l'addition dans les bons restaurants. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Tipping is never mandatory but it is customary and highly appreciated. People generally leave 5 to 10% of the bill in good restaurants. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: البقشيش ليس إلزامياً أبداً ولكنه معتاد ومقدر جداً. يترك الناس عموماً 5 إلى 10٪ من إجمالي الفاتورة في المطاعم الجيدة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "culture",
+      "pourboire_pratique",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Pourboire Pratique",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_044",
+    "categorie": "culture",
+    "sous_categorie": "festivals",
+    "intention": "culture_festivals",
+    "priorite": 2,
+    "question_fr": "Quels sont les festivals à Tanger ?",
+    "question_en": "What are the festivals in Tangier?",
+    "question_ar": "ما هي المهرجانات في طنجة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : La ville vibre intensément au rythme du très célèbre festival Tanjazz en septembre et de l'incontournable et prestigieux Festival National du Film marocain. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: The city vibrates intensely to the rhythm of the very famous Tanjazz festival in September and the unmissable prestigious National Moroccan Film Festival. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: تنبض المدينة بقوة على إيقاع مهرجان طنجاز الشهير جداً في سبتمبر والمهرجان الوطني للفيلم المغربي المرموق الذي لا يفوت. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "culture",
+      "festivals",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Festivals",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_045",
+    "categorie": "culture",
+    "sous_categorie": "marchandage",
+    "intention": "culture_marchandage",
+    "priorite": 2,
+    "question_fr": "Faut-il marchander dans les souks ?",
+    "question_en": "Should you haggle in the souks?",
+    "question_ar": "هل يجب المساومة في الأسواق؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Oui, le marchandage est une vraie et ancienne tradition locale. N'hésitez pas à proposer calmement la moitié du prix et à négocier avec un grand sourire. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Yes, haggling is a true and ancient local tradition. Do not hesitate to calmly offer half the price and negotiate with a big smile. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "لإعداد إقامتك في طنجة بشكل جيد، إليك المعلومات الأساسية: نعم، المساومة تقليد محلي حقيقي وقديم. لا تتردد في اقتراح نصف السعر بهدوء والتفاوض بابتسامة عريضة طوال الوقت. هذه ميزة خاصة لمدينتنا الجميلة على المضيق والتي من الجيد وضعها في الاعتبار دائماً. طنجة وجهة ترحيبية للغاية وكل شيء مصمم لتسهيل حياة الزوار. لا تتردد أبداً في طلب المشورة من سكان طنجة الذين سيكونون سعداء جداً بتوجيهك ومشاركة حبهم لمدينتهم معك، فالضيافة هنا قاعدة ذهبية متأصلة.",
+    "tags": [
+      "culture",
+      "marchandage",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Marchandage",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_046",
+    "categorie": "culture",
+    "sous_categorie": "artisanat",
+    "intention": "culture_artisanat",
+    "priorite": 2,
+    "question_fr": "Quel artisanat acheter à Tanger ?",
+    "question_en": "What crafts to buy in Tangier?",
+    "question_ar": "ما هي الحرف اليدوية التي يمكن شراؤها في طنجة؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Tanger est mondialement réputée pour ses beaux articles en cuir véritable, ses céramiques richement colorées du Rif et les typiques chapeaux de paille à pompons. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Tangier is world-renowned for its beautiful genuine leather goods, its richly colored Rif ceramics and typical pom-pom straw hats. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: تشتهر طنجة عالمياً بالسلع الجلدية الأصلية الجميلة، وخزف الريف الملون الغني وقبعات القش التقليدية المزينة بكرات الصوف. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "culture",
+      "artisanat",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Artisanat",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_047",
+    "categorie": "culture",
+    "sous_categorie": "vendredi_sacre",
+    "intention": "culture_vendredi_sacre",
+    "priorite": 2,
+    "question_fr": "Que se passe-t-il le vendredi ?",
+    "question_en": "What happens on Friday?",
+    "question_ar": "ماذا يحدث يوم الجمعة؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Le vendredi est le jour sacré de la semaine. Beaucoup de boutiques ferment systématiquement à la mi-journée pour la prière, et c'est le jour traditionnel du couscous. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Friday is the sacred day of the week. Many shops systematically close at midday for prayer, and it is the traditional day for family couscous. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. الجمعة هو اليوم المقدس في الأسبوع. تغلق العديد من المتاجر بشكل منهجي في منتصف النهار للصلاة، وهو اليوم التقليدي لطبق الكسكس العائلي. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "culture",
+      "vendredi_sacre",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Vendredi Sacre",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_048",
+    "categorie": "culture",
+    "sous_categorie": "photos_locaux",
+    "intention": "culture_photos_locaux",
+    "priorite": 2,
+    "question_fr": "Peut-on photographier les habitants ?",
+    "question_en": "Can we photograph the locals?",
+    "question_ar": "هل يمكن تصوير السكان المحليين؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. Demandez systématiquement l'autorisation explicite avant de photographier quelqu'un. Certaines personnes, plus particulièrement les anciens dans la médina, n'apprécient pas du tout d'être photographiées. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Always ask for explicit permission before photographing anyone. Some people, more particularly the elders in the medina, do not appreciate being photographed at all. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. اطلب دائماً الإذن الصريح قبل تصوير أي شخص. بعض الناس، وخاصة كبار السن في المدينة القديمة، لا يقدرون على الإطلاق التقاط صور لهم. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "culture",
+      "photos_locaux",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Photos Locaux",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_049",
+    "categorie": "meteo",
+    "sous_categorie": "meilleure_periode",
+    "intention": "meteo_meilleure_periode",
+    "priorite": 2,
+    "question_fr": "Quelle est la meilleure période pour venir ?",
+    "question_en": "What is the best time to come?",
+    "question_ar": "ما هو أفضل وقت للمجيء؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le printemps radieux et l'automne offrent incontestablement le meilleur climat. Les températures y sont idéales pour explorer confortablement sans souffrir de la lourde chaleur estivale. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. Radiant spring and autumn unquestionably offer the best climate. Temperatures are ideal there to explore comfortably without suffering from the heavy summer heat. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. يوفر الربيع المشرق والخريف بلا شك أفضل مناخ. درجات الحرارة مثالية هناك للاستكشاف براحة تامة دون المعاناة من حرارة الصيف الثقيلة. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "meteo",
+      "meilleure_periode",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Meilleure Periode",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_050",
+    "categorie": "meteo",
+    "sous_categorie": "climat_hiver",
+    "intention": "meteo_climat_hiver",
+    "priorite": 2,
+    "question_fr": "Fait-il très froid en hiver ?",
+    "question_en": "Is it very cold in winter?",
+    "question_ar": "هل الجو بارد جداً في الشتاء؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Les hivers marocains sont assez doux (entre 10 et 15 degrés) mais l'importante humidité ambiante et les vents marins peuvent considérablement accentuer la sensation de froid. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Moroccan winters are quite mild (between 10 and 15 degrees) but the high ambient humidity and sea winds can considerably accentuate the cold sensation. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: فصول الشتاء المغربية معتدلة (بين 10 و 15 درجة) لكن الرطوبة العالية المحيطة والرياح البحرية يمكن أن تزيد بشكل كبير من الشعور بالبرد. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "meteo",
+      "climat_hiver",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Climat Hiver",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_051",
+    "categorie": "meteo",
+    "sous_categorie": "vent_chergui",
+    "intention": "meteo_vent_chergui",
+    "priorite": 2,
+    "question_fr": "Qu'est-ce que le vent Chergui ?",
+    "question_en": "What is the Chergui wind?",
+    "question_ar": "ما هي رياح الشرقي؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Le redoutable Chergui est un vent d'est très chaud et sec qui souffle occasionnellement l'été, augmentant alors considérablement les températures ressenties dans toute la région. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "This is an excellent question, very common among travelers visiting Tangier. The formidable Chergui is a very hot and dry east wind that occasionally blows in summer, then considerably increasing the perceived temperatures throughout the region. Keeping this information in mind will help you avoid bad surprises and save precious time during your travels. Remember that the atmosphere in Tangier is above all relaxed and warm, so enjoy it at your own pace, without rushing, and simply let yourself be charmed by the unique magic of the white city.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: الشرقي المخيف هي رياح شرقية حارة وجافة جداً تهب أحياناً في الصيف، مما يزيد بشكل كبير من درجات الحرارة المحسوسة في جميع أنحاء المنطقة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "meteo",
+      "vent_chergui",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Vent Chergui",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_052",
+    "categorie": "meteo",
+    "sous_categorie": "baignade_mer",
+    "intention": "meteo_baignade_mer",
+    "priorite": 2,
+    "question_fr": "Quand l'eau est-elle bonne pour la baignade ?",
+    "question_en": "When is the water good for swimming?",
+    "question_ar": "متى يكون الماء مناسباً للسباحة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. La période balnéaire idéale s'étend de juin à fin septembre. Sachez que l'eau tonique de l'océan Atlantique y reste toujours fraîche, dépassant rarement les 22 degrés. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The ideal beach period runs from June to late September. Note that the tonic water of the Atlantic Ocean always stays fresh, rarely exceeding 22 degrees. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: تمتد فترة الشاطئ المثالية من يونيو إلى أواخر سبتمبر. لاحظ أن المياه المنعشة للمحيط الأطلسي تظل باردة دائماً، ونادراً ما تتجاوز 22 درجة. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "meteo",
+      "baignade_mer",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Baignade Mer",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_053",
+    "categorie": "monnaie",
+    "sous_categorie": "devise_locale",
+    "intention": "monnaie_devise_locale",
+    "priorite": 2,
+    "question_fr": "Quelle monnaie est utilisée ?",
+    "question_en": "What currency is used?",
+    "question_ar": "ما هي العملة المستخدمة؟",
+    "reponse_fr": "C'est une excellente question, très fréquente chez les voyageurs visitant Tanger. La monnaie officielle nationale est le Dirham Marocain (MAD). Pour vous donner une idée précise et simple, 1 Euro vaut généralement de manière stable autour de 10,8 MAD. En gardant cette information bien en tête, vous éviterez les mauvaises surprises et gagnerez un temps précieux lors de vos déplacements. N'oubliez pas que l'atmosphère tangéroise est avant tout détendue et chaleureuse, alors profitez-en à votre propre rythme, sans vous presser, et laissez-vous simplement charmer par la magie unique de la ville blanche.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: The official national currency is the Moroccan Dirham (MAD). To give you a precise and simple idea, 1 Euro is generally stably worth around 10.8 MAD. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: العملة الوطنية الرسمية هي الدرهم المغربي. لإعطائك فكرة دقيقة وبسيطة، 1 يورو يعادل عادة بشكل مستقر حوالي 10.8 درهم. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "monnaie",
+      "devise_locale",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Devise Locale",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_054",
+    "categorie": "monnaie",
+    "sous_categorie": "bureaux_change",
+    "intention": "monnaie_bureaux_change",
+    "priorite": 2,
+    "question_fr": "Où faut-il changer son argent ?",
+    "question_en": "Where to exchange money?",
+    "question_ar": "أين يجب صرف الأموال؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Privilégiez toujours fortement les bureaux de change officiels situés sur le Boulevard Pasteur en centre-ville, leurs taux de conversion sont indéniablement bien plus avantageux qu'à l'aéroport. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: Always strongly prefer the official exchange offices located on Boulevard Pasteur in the city center, their conversion rates are undeniably much better than at the airport. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. فضل دائماً وبقوة مكاتب الصرف الرسمية الواقعة في شارع باستور بوسط المدينة، فإن أسعار التحويل الخاصة بها أفضل بكثير بلا شك من المطار. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "monnaie",
+      "bureaux_change",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Bureaux Change",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_055",
+    "categorie": "monnaie",
+    "sous_categorie": "paiement_carte",
+    "intention": "monnaie_paiement_carte",
+    "priorite": 2,
+    "question_fr": "Peut-on payer partout par carte bancaire ?",
+    "question_en": "Can we pay everywhere by credit card?",
+    "question_ar": "هل يمكننا الدفع في كل مكان بالبطاقة المصرفية؟",
+    "reponse_fr": "Voici ce que vous devez absolument savoir pour votre visite à Tanger concernant ce point précis : Les cartes internationales sont acceptées dans les grands établissements modernes, mais il est absolument vital de toujours garder de l'espèce sur soi pour les taxis et les petits commerces. La ville de Tanger, véritable carrefour culturel entre l'Europe et l'Afrique, offre de multiples options pour rendre votre expérience inoubliable. Prenez toujours le temps de bien planifier ces petits détails pratiques, cela vous permettra de vous concentrer pleinement sur la découverte de nos magnifiques paysages et de nos richesses historiques.",
+    "reponse_en": "Here is what you absolutely need to know for your visit to Tangier regarding this specific point: International cards are accepted in large modern establishments, but it is absolutely vital to always keep some cash on you for local taxis and small shops. The city of Tangier, a true cultural crossroads between Europe and Africa, offers multiple options to make your experience unforgettable. Always take the time to plan these practical details well; it will allow you to fully focus on discovering our beautiful landscapes and historical treasures.",
+    "reponse_ar": "هذا سؤال ممتاز وشائع جداً بين المسافرين الذين يزورون طنجة. تُقبل البطاقات الدولية في المؤسسات الحديثة الكبيرة، ولكن من الضروري للغاية الاحتفاظ دائماً ببعض النقود معك لسيارات الأجرة المحلية والمتاجر الصغيرة. سيساعدك وضع هذه المعلومات في الاعتبار على تجنب المفاجآت السيئة وتوفير الوقت الثمين أثناء تنقلاتك. تذكر أن الجو في طنجة مريح ودافئ قبل كل شيء، لذا استمتع به بالسرعة التي تناسبك، دون استعجال، ودع سحر المدينة البيضاء الفريد يأخذك في رحلة رائعة.",
+    "tags": [
+      "monnaie",
+      "paiement_carte",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Paiement Carte",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  },
+  {
+    "id": "faq_056",
+    "categorie": "monnaie",
+    "sous_categorie": "distributeurs_atm",
+    "intention": "monnaie_distributeurs_atm",
+    "priorite": 2,
+    "question_fr": "Trouve-t-on facilement des distributeurs ?",
+    "question_en": "Are ATMs easily found?",
+    "question_ar": "هل يسهل العثور على أجهزة الصراف الآلي؟",
+    "reponse_fr": "Pour bien préparer votre séjour à Tanger, voici les informations essentielles : Les distributeurs automatiques de billets (GAB) sont très répandus et accessibles dans toute la ville. Attention tout de même, votre propre banque pourrait appliquer des frais de retrait internationaux. C'est une particularité de notre belle ville du détroit qu'il est bon de garder à l'esprit. Tanger est très accueillante et tout est pensé pour faciliter la vie des visiteurs. N'hésitez pas à demander conseil aux Tangérois qui se feront un plaisir de vous guider et de partager avec vous l'amour de leur ville. La convivialité est ici une règle d'or.",
+    "reponse_en": "To help you prepare for your stay in Tangier, here is the essential information: Automated Teller Machines (ATMs) are very widespread and accessible throughout the city. Be careful though, your own bank might apply some international withdrawal fees. This is a particularity of our beautiful city of the strait that is good to keep in mind. Tangier is very welcoming and everything is designed to make life easier for visitors. Do not hesitate to ask the locals for advice; they will be genuinely happy to guide you and share their love for their city. Conviviality is a golden rule here.",
+    "reponse_ar": "إليك ما تحتاج بالتأكيد لمعرفته لزيارتك إلى طنجة بخصوص هذه النقطة المحددة: تنتشر أجهزة الصراف الآلي بشكل كبير ويمكن الوصول إليها في جميع أنحاء المدينة. كن حذراً رغم ذلك، فقد يطبق البنك الخاص بك بعض رسوم السحب الدولية. تقدم مدينة طنجة، وهي ملتقى ثقافي حقيقي بين أوروبا وأفريقيا، خيارات متعددة لجعل تجربتك لا تُنسى. خذ دائماً الوقت الكافي للتخطيط لهذه التفاصيل العملية جيداً، فهذا سيتيح لك التركيز بشكل كامل على اكتشاف مناظرنا الطبيعية الخلابة وكنوزنا التاريخية العظيمة.",
+    "tags": [
+      "monnaie",
+      "distributeurs_atm",
+      "pratique",
+      "tanger"
+    ],
+    "entites_mentionnees": [
+      "Distributeurs Atm",
+      "Tanger"
+    ],
+    "lien_utile": null,
+    "telephone_utile": null,
+    "source_donnee": "Office Tourisme Tanger + Données Expertes"
+  }
+]

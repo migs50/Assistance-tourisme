@@ -382,6 +382,47 @@ def search_items(
 
 
 # ─────────────────────────────────────────────────────────────
+# ENDPOINT 8.5 — Tous les items d'une catégorie (sans limite)
+# ─────────────────────────────────────────────────────────────
+
+@router.get(
+    "/all/{categorie}",
+    summary="Tous les items d'une catégorie (sans limite)",
+)
+def get_all_items(categorie: str) -> dict[str, Any]:
+    """
+    Retourne la liste complète de tous les items d'une catégorie, normalisés.
+    Utile pour l'affichage complet et le filtrage côté client dans React.
+    """
+    c = categorie.lower().strip()
+    if c not in {"hotels", "restaurants", "plages", "activites", "evenement"}:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Catégorie '{categorie}' inconnue. Acceptées : {sorted({'hotels', 'restaurants', 'plages', 'activites', 'evenement'})}",
+        )
+    try:
+        items = data_loader.load(c)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=str(exc),
+        ) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    if not items:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Aucune donnée disponible pour la catégorie '{c}'.",
+        )
+    return {
+        "categorie": c,
+        "total":     len(items),
+        "resultats": items,
+    }
+
+
+# ─────────────────────────────────────────────────────────────
 # ENDPOINT 9 — Santé & statistiques (usage interne)
 # ─────────────────────────────────────────────────────────────
 

@@ -1,0 +1,700 @@
+[
+  {
+    "id": "musee_001",
+    "nom": "Musée de la Kasbah (Dar el Makhzen)",
+    "categorie": "musee",
+    "sous_categorie": "musee_histoire",
+    "latitude": 35.7876,
+    "longitude": -5.8128,
+    "adresse": "Place de la Kasbah, Tanger 90000",
+    "quartier": "Kasbah",
+    "description_fr": "Musée incontournable de Tanger, ce lieu de mémoire et de culture préserve et met en valeur le patrimoine exceptionnel de la ville et de la région du nord du Maroc. Ses collections permanentes couvrent plusieurs millénaires d'histoire, depuis la préhistoire jusqu'à l'époque contemporaine, en passant par les périodes phénicienne, romaine, byzantine, arabe et coloniale. Les expositions temporaires régulièrement renouvelées permettent de découvrir des aspects souvent méconnus de la culture marocaine. Le cadre architectural du musée, souvent un bâtiment historique réhabilité, constitue lui-même une attraction majeure. Un incontournable pour quiconque souhaite comprendre l'histoire fascinante et complexe de Tanger, carrefour des civilisations depuis l'Antiquité.",
+    "description_en": "A must-visit museum in Tangier, this place of memory and culture preserves and showcases the exceptional heritage of the city and the northern Morocco region. Its permanent collections cover several millennia of history, from prehistory to the contemporary era, including the Phoenician, Roman, Byzantine, Arab, and colonial periods. Regularly renewed temporary exhibitions allow visitors to discover often little-known aspects of Moroccan culture. The architectural setting of the museum, often a rehabilitated historic building, is itself a major attraction. Essential for anyone wishing to understand the fascinating and complex history of Tangier, a crossroads of civilizations since Antiquity.",
+    "description_ar": "متحف لا غنى عنه في طنجة، يحفظ هذا المكان من الذاكرة والثقافة التراث الاستثنائي للمدينة ومنطقة شمال المغرب. تغطي مجموعاته الدائمة عدة آلاف من السنين من التاريخ، من عصور ما قبل التاريخ حتى العصر المعاصر. المعارض المؤقتة المتجددة تسمح باكتشاف جوانب غير معروفة من الثقافة المغربية. الإطار المعماري للمتحف يشكل نفسه جاذبية كبرى. ضروري لكل من يرغب في فهم التاريخ الرائع لطنجة، ملتقى الحضارات منذ العصور القديمة.",
+    "note_moyenne": 4.4,
+    "nb_avis": 320,
+    "prix_entree_mad": 20,
+    "prix_enfant_mad": 5,
+    "gratuit": false,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "09:00-17:00",
+      "mercredi": "09:00-17:00",
+      "jeudi": "09:00-17:00",
+      "vendredi": "09:00-12:00",
+      "samedi": "09:00-17:00",
+      "dimanche": "09:00-17:00"
+    },
+    "duree_visite_min": 45,
+    "duree_visite_max": 120,
+    "collections": [
+      "archéologie",
+      "arts_décoratifs",
+      "histoire"
+    ],
+    "guide_disponible": true,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais",
+      "arabe",
+      "espagnol"
+    ],
+    "accessibilite_pmr": false,
+    "photographie_autorisee": true,
+    "tags": [
+      "culture",
+      "histoire",
+      "kasbah",
+      "palais"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,musee,morocco",
+    "site_web": null,
+    "telephone": "+212539932097",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_002",
+    "nom": "Musée de la Légation Américaine",
+    "categorie": "musee",
+    "sous_categorie": "musee_diplomatique",
+    "latitude": 35.7832,
+    "longitude": -5.8118,
+    "adresse": "8 Rue d'Amérique, Médina, Tanger 90000",
+    "quartier": "Médina",
+    "description_fr": "Musée incontournable de Tanger, ce lieu de mémoire et de culture préserve et met en valeur le patrimoine exceptionnel de la ville et de la région du nord du Maroc. Ses collections permanentes couvrent plusieurs millénaires d'histoire, depuis la préhistoire jusqu'à l'époque contemporaine, en passant par les périodes phénicienne, romaine, byzantine, arabe et coloniale. Les expositions temporaires régulièrement renouvelées permettent de découvrir des aspects souvent méconnus de la culture marocaine. Le cadre architectural du musée, souvent un bâtiment historique réhabilité, constitue lui-même une attraction majeure. Un incontournable pour quiconque souhaite comprendre l'histoire fascinante et complexe de Tanger, carrefour des civilisations depuis l'Antiquité.",
+    "description_en": "A must-visit museum in Tangier, this place of memory and culture preserves and showcases the exceptional heritage of the city and the northern Morocco region. Its permanent collections cover several millennia of history, from prehistory to the contemporary era, including the Phoenician, Roman, Byzantine, Arab, and colonial periods. Regularly renewed temporary exhibitions allow visitors to discover often little-known aspects of Moroccan culture. The architectural setting of the museum, often a rehabilitated historic building, is itself a major attraction. Essential for anyone wishing to understand the fascinating and complex history of Tangier, a crossroads of civilizations since Antiquity.",
+    "description_ar": "متحف لا غنى عنه في طنجة، يحفظ هذا المكان من الذاكرة والثقافة التراث الاستثنائي للمدينة ومنطقة شمال المغرب. تغطي مجموعاته الدائمة عدة آلاف من السنين من التاريخ، من عصور ما قبل التاريخ حتى العصر المعاصر. المعارض المؤقتة المتجددة تسمح باكتشاف جوانب غير معروفة من الثقافة المغربية. الإطار المعماري للمتحف يشكل نفسه جاذبية كبرى. ضروري لكل من يرغب في فهم التاريخ الرائع لطنجة، ملتقى الحضارات منذ العصور القديمة.",
+    "note_moyenne": 4.8,
+    "nb_avis": 1400,
+    "prix_entree_mad": 20,
+    "prix_enfant_mad": 5,
+    "gratuit": false,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "09:00-17:00",
+      "mercredi": "09:00-17:00",
+      "jeudi": "09:00-17:00",
+      "vendredi": "09:00-12:00",
+      "samedi": "09:00-17:00",
+      "dimanche": "09:00-17:00"
+    },
+    "duree_visite_min": 45,
+    "duree_visite_max": 90,
+    "collections": [
+      "diplomatie",
+      "histoire",
+      "peinture",
+      "paul_bowles"
+    ],
+    "guide_disponible": true,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais",
+      "arabe"
+    ],
+    "accessibilite_pmr": false,
+    "photographie_autorisee": true,
+    "tags": [
+      "histoire",
+      "art",
+      "diplomatie",
+      "medina"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,musee,morocco",
+    "site_web": "+212539935317",
+    "telephone": "+212539935317",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_003",
+    "nom": "Musée de la Fondation Lorin",
+    "categorie": "musee",
+    "sous_categorie": "musee_local",
+    "latitude": 35.7852,
+    "longitude": -5.8108,
+    "adresse": "44 Rue Touahine, Médina, Tanger 90000",
+    "quartier": "Médina",
+    "description_fr": "Musée incontournable de Tanger, ce lieu de mémoire et de culture préserve et met en valeur le patrimoine exceptionnel de la ville et de la région du nord du Maroc. Ses collections permanentes couvrent plusieurs millénaires d'histoire, depuis la préhistoire jusqu'à l'époque contemporaine, en passant par les périodes phénicienne, romaine, byzantine, arabe et coloniale. Les expositions temporaires régulièrement renouvelées permettent de découvrir des aspects souvent méconnus de la culture marocaine. Le cadre architectural du musée, souvent un bâtiment historique réhabilité, constitue lui-même une attraction majeure. Un incontournable pour quiconque souhaite comprendre l'histoire fascinante et complexe de Tanger, carrefour des civilisations depuis l'Antiquité.",
+    "description_en": "A must-visit museum in Tangier, this place of memory and culture preserves and showcases the exceptional heritage of the city and the northern Morocco region. Its permanent collections cover several millennia of history, from prehistory to the contemporary era, including the Phoenician, Roman, Byzantine, Arab, and colonial periods. Regularly renewed temporary exhibitions allow visitors to discover often little-known aspects of Moroccan culture. The architectural setting of the museum, often a rehabilitated historic building, is itself a major attraction. Essential for anyone wishing to understand the fascinating and complex history of Tangier, a crossroads of civilizations since Antiquity.",
+    "description_ar": "متحف لا غنى عنه في طنجة، يحفظ هذا المكان من الذاكرة والثقافة التراث الاستثنائي للمدينة ومنطقة شمال المغرب. تغطي مجموعاته الدائمة عدة آلاف من السنين من التاريخ، من عصور ما قبل التاريخ حتى العصر المعاصر. المعارض المؤقتة المتجددة تسمح باكتشاف جوانب غير معروفة من الثقافة المغربية. الإطار المعماري للمتحف يشكل نفسه جاذبية كبرى. ضروري لكل من يرغب في فهم التاريخ الرائع لطنجة، ملتقى الحضارات منذ العصور القديمة.",
+    "note_moyenne": 4.5,
+    "nb_avis": 420,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "09:00-17:00",
+      "mercredi": "09:00-17:00",
+      "jeudi": "09:00-17:00",
+      "vendredi": "09:00-12:00",
+      "samedi": "09:00-17:00",
+      "dimanche": "09:00-17:00"
+    },
+    "duree_visite_min": 30,
+    "duree_visite_max": 60,
+    "collections": [
+      "photographie",
+      "histoire_locale",
+      "archives"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "arabe"
+    ],
+    "accessibilite_pmr": false,
+    "photographie_autorisee": true,
+    "tags": [
+      "histoire_locale",
+      "photographie",
+      "nostalgie",
+      "medina"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,musee,morocco",
+    "site_web": null,
+    "telephone": "+212539938273",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_004",
+    "nom": "Musée d'Art Contemporain de Tanger",
+    "categorie": "musee",
+    "sous_categorie": "musee_art_moderne",
+    "latitude": 35.783,
+    "longitude": -5.815,
+    "adresse": "Rue de la Kasbah, Tanger 90000",
+    "quartier": "Kasbah",
+    "description_fr": "Musée incontournable de Tanger, ce lieu de mémoire et de culture préserve et met en valeur le patrimoine exceptionnel de la ville et de la région du nord du Maroc. Ses collections permanentes couvrent plusieurs millénaires d'histoire, depuis la préhistoire jusqu'à l'époque contemporaine, en passant par les périodes phénicienne, romaine, byzantine, arabe et coloniale. Les expositions temporaires régulièrement renouvelées permettent de découvrir des aspects souvent méconnus de la culture marocaine. Le cadre architectural du musée, souvent un bâtiment historique réhabilité, constitue lui-même une attraction majeure. Un incontournable pour quiconque souhaite comprendre l'histoire fascinante et complexe de Tanger, carrefour des civilisations depuis l'Antiquité.",
+    "description_en": "A must-visit museum in Tangier, this place of memory and culture preserves and showcases the exceptional heritage of the city and the northern Morocco region. Its permanent collections cover several millennia of history, from prehistory to the contemporary era, including the Phoenician, Roman, Byzantine, Arab, and colonial periods. Regularly renewed temporary exhibitions allow visitors to discover often little-known aspects of Moroccan culture. The architectural setting of the museum, often a rehabilitated historic building, is itself a major attraction. Essential for anyone wishing to understand the fascinating and complex history of Tangier, a crossroads of civilizations since Antiquity.",
+    "description_ar": "متحف لا غنى عنه في طنجة، يحفظ هذا المكان من الذاكرة والثقافة التراث الاستثنائي للمدينة ومنطقة شمال المغرب. تغطي مجموعاته الدائمة عدة آلاف من السنين من التاريخ، من عصور ما قبل التاريخ حتى العصر المعاصر. المعارض المؤقتة المتجددة تسمح باكتشاف جوانب غير معروفة من الثقافة المغربية. الإطار المعماري للمتحف يشكل نفسه جاذبية كبرى. ضروري لكل من يرغب في فهم التاريخ الرائع لطنجة، ملتقى الحضارات منذ العصور القديمة.",
+    "note_moyenne": 4.6,
+    "nb_avis": 310,
+    "prix_entree_mad": 20,
+    "prix_enfant_mad": 10,
+    "gratuit": false,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "09:00-17:00",
+      "mercredi": "09:00-17:00",
+      "jeudi": "09:00-17:00",
+      "vendredi": "09:00-12:00",
+      "samedi": "09:00-17:00",
+      "dimanche": "09:00-17:00"
+    },
+    "duree_visite_min": 45,
+    "duree_visite_max": 90,
+    "collections": [
+      "art_contemporain",
+      "peinture",
+      "sculpture",
+      "installation"
+    ],
+    "guide_disponible": true,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais",
+      "arabe"
+    ],
+    "accessibilite_pmr": true,
+    "photographie_autorisee": true,
+    "tags": [
+      "art",
+      "contemporain",
+      "culture",
+      "kasbah"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,musee,morocco",
+    "site_web": null,
+    "telephone": "+212539947746",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_005",
+    "nom": "Galerie Conil",
+    "categorie": "galerie_art",
+    "sous_categorie": "galerie_peinture",
+    "latitude": 35.784,
+    "longitude": -5.8095,
+    "adresse": "Boulevard Pasteur, Tanger 90000",
+    "quartier": "Centre-ville",
+    "description_fr": "Espace culturel et artistique dynamique au cœur de Tanger, cette galerie est une vitrine essentielle pour la création artistique contemporaine marocaine et internationale. Elle accueille tout au long de l'année des expositions d'artistes émergents et confirmés, proposant peintures, sculptures, photographies et installations multimédia d'une grande diversité. Lieu de rencontres et d'échanges entre artistes, collectionneurs et amateurs d'art du monde entier, elle contribue activement au rayonnement culturel de Tanger comme ville d'art. Son accès souvent gratuit la rend accessible à tous les publics, des connaisseurs aux curieux de passage.",
+    "description_en": "A dynamic cultural and artistic space in the heart of Tangier, this gallery is an essential showcase for contemporary Moroccan and international artistic creation. It hosts exhibitions of emerging and established artists throughout the year, featuring paintings, sculptures, photographs, and multimedia installations of great diversity. A meeting place for artists, collectors, and art lovers from around the world, it actively contributes to Tangier's cultural influence as an art city. Its often free admission makes it accessible to all audiences, from connoisseurs to curious visitors passing through.",
+    "description_ar": "فضاء ثقافي وفني ديناميكي في قلب طنجة، هذه الغاليري واجهة أساسية للإبداع الفني المعاصر المغربي والدولي. تستضيف طوال العام معارض لفنانين ناشئين وراسخين، تعرض لوحات ومنحوتات وصوراً وتركيبات وسائط متعددة. مكان لقاء بين الفنانين والهواة من جميع أنحاء العالم، يساهم في إشعاع طنجة كمدينة فن.",
+    "note_moyenne": 4.3,
+    "nb_avis": 95,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "10:00-19:00",
+      "mercredi": "10:00-19:00",
+      "jeudi": "10:00-19:00",
+      "vendredi": "10:00-19:00",
+      "samedi": "10:00-20:00",
+      "dimanche": "ferme"
+    },
+    "duree_visite_min": 20,
+    "duree_visite_max": 45,
+    "collections": [
+      "peinture",
+      "artistes_locaux",
+      "exposition"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais",
+      "arabe",
+      "espagnol"
+    ],
+    "accessibilite_pmr": true,
+    "photographie_autorisee": true,
+    "tags": [
+      "art",
+      "galerie",
+      "gratuit",
+      "centre_ville"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,galerie,morocco",
+    "site_web": null,
+    "telephone": "+212539938900",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_006",
+    "nom": "Galerie d'Art Delacroix",
+    "categorie": "galerie_art",
+    "sous_categorie": "galerie_expositions",
+    "latitude": 35.7845,
+    "longitude": -5.8105,
+    "adresse": "Rue de la Liberté, Tanger 90000",
+    "quartier": "Centre-ville",
+    "description_fr": "Espace culturel et artistique dynamique au cœur de Tanger, cette galerie est une vitrine essentielle pour la création artistique contemporaine marocaine et internationale. Elle accueille tout au long de l'année des expositions d'artistes émergents et confirmés, proposant peintures, sculptures, photographies et installations multimédia d'une grande diversité. Lieu de rencontres et d'échanges entre artistes, collectionneurs et amateurs d'art du monde entier, elle contribue activement au rayonnement culturel de Tanger comme ville d'art. Son accès souvent gratuit la rend accessible à tous les publics, des connaisseurs aux curieux de passage.",
+    "description_en": "A dynamic cultural and artistic space in the heart of Tangier, this gallery is an essential showcase for contemporary Moroccan and international artistic creation. It hosts exhibitions of emerging and established artists throughout the year, featuring paintings, sculptures, photographs, and multimedia installations of great diversity. A meeting place for artists, collectors, and art lovers from around the world, it actively contributes to Tangier's cultural influence as an art city. Its often free admission makes it accessible to all audiences, from connoisseurs to curious visitors passing through.",
+    "description_ar": "فضاء ثقافي وفني ديناميكي في قلب طنجة، هذه الغاليري واجهة أساسية للإبداع الفني المعاصر المغربي والدولي. تستضيف طوال العام معارض لفنانين ناشئين وراسخين، تعرض لوحات ومنحوتات وصوراً وتركيبات وسائط متعددة. مكان لقاء بين الفنانين والهواة من جميع أنحاء العالم، يساهم في إشعاع طنجة كمدينة فن.",
+    "note_moyenne": 4.2,
+    "nb_avis": 78,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "10:00-19:00",
+      "mercredi": "10:00-19:00",
+      "jeudi": "10:00-19:00",
+      "vendredi": "10:00-19:00",
+      "samedi": "10:00-20:00",
+      "dimanche": "ferme"
+    },
+    "duree_visite_min": 20,
+    "duree_visite_max": 40,
+    "collections": [
+      "peinture",
+      "expositions_temporaires",
+      "artistes_marocains"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais"
+    ],
+    "accessibilite_pmr": true,
+    "photographie_autorisee": true,
+    "tags": [
+      "art",
+      "galerie",
+      "orientalisme",
+      "culture"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,galerie,morocco",
+    "site_web": null,
+    "telephone": "+212539947700",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_007",
+    "nom": "Cinémathèque de Tanger",
+    "categorie": "galerie_art",
+    "sous_categorie": "cinema_art",
+    "latitude": 35.7835,
+    "longitude": -5.809,
+    "adresse": "Place du 9 Avril, Tanger 90000",
+    "quartier": "Centre-ville",
+    "description_fr": "Espace culturel et artistique dynamique au cœur de Tanger, cette galerie est une vitrine essentielle pour la création artistique contemporaine marocaine et internationale. Elle accueille tout au long de l'année des expositions d'artistes émergents et confirmés, proposant peintures, sculptures, photographies et installations multimédia d'une grande diversité. Lieu de rencontres et d'échanges entre artistes, collectionneurs et amateurs d'art du monde entier, elle contribue activement au rayonnement culturel de Tanger comme ville d'art. Son accès souvent gratuit la rend accessible à tous les publics, des connaisseurs aux curieux de passage.",
+    "description_en": "A dynamic cultural and artistic space in the heart of Tangier, this gallery is an essential showcase for contemporary Moroccan and international artistic creation. It hosts exhibitions of emerging and established artists throughout the year, featuring paintings, sculptures, photographs, and multimedia installations of great diversity. A meeting place for artists, collectors, and art lovers from around the world, it actively contributes to Tangier's cultural influence as an art city. Its often free admission makes it accessible to all audiences, from connoisseurs to curious visitors passing through.",
+    "description_ar": "فضاء ثقافي وفني ديناميكي في قلب طنجة، هذه الغاليري واجهة أساسية للإبداع الفني المعاصر المغربي والدولي. تستضيف طوال العام معارض لفنانين ناشئين وراسخين، تعرض لوحات ومنحوتات وصوراً وتركيبات وسائط متعددة. مكان لقاء بين الفنانين والهواة من جميع أنحاء العالم، يساهم في إشعاع طنجة كمدينة فن.",
+    "note_moyenne": 4.6,
+    "nb_avis": 520,
+    "prix_entree_mad": 30,
+    "prix_enfant_mad": 15,
+    "gratuit": false,
+    "horaires": {
+      "lundi": "ferme",
+      "mardi": "10:00-19:00",
+      "mercredi": "10:00-19:00",
+      "jeudi": "10:00-19:00",
+      "vendredi": "10:00-19:00",
+      "samedi": "10:00-20:00",
+      "dimanche": "ferme"
+    },
+    "duree_visite_min": 90,
+    "duree_visite_max": 120,
+    "collections": [
+      "cinéma",
+      "films_art",
+      "festivals",
+      "projection"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais",
+      "arabe"
+    ],
+    "accessibilite_pmr": true,
+    "photographie_autorisee": true,
+    "tags": [
+      "cinema",
+      "culture",
+      "art",
+      "centre_ville"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,cinema,morocco",
+    "site_web": "https://www.cinematheque.ma",
+    "telephone": "+212539374892",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_008",
+    "nom": "Légation du Sultan (Dar El Makhzen Extérieur)",
+    "categorie": "monument_classé",
+    "sous_categorie": "palais_historique",
+    "latitude": 35.7875,
+    "longitude": -5.813,
+    "adresse": "Place de la Kasbah, Tanger 90000",
+    "quartier": "Kasbah",
+    "description_fr": "Monument historique classé au patrimoine culturel marocain, ce site témoigne de la richesse et de la complexité de l'histoire millénaire de Tanger. Chaque pierre raconte l'histoire des nombreuses civilisations qui se sont succédé dans cette ville stratégique : Phéniciens, Romains, Vandales, Byzantins, Arabes, Portugais, Espagnols et Britanniques y ont tous laissé leur empreinte indélébile. La valeur patrimoniale exceptionnelle de ce monument en fait un lieu de visite incontournable pour comprendre les forces historiques qui ont façonné non seulement Tanger, mais aussi les relations complexes entre l'Europe et l'Afrique à travers les âges.",
+    "description_en": "A historic monument classified as Moroccan cultural heritage, this site bears witness to the richness and complexity of Tangier's millennial history. Every stone tells the story of the many civilizations that have succeeded one another in this strategic city: Phoenicians, Romans, Vandals, Byzantines, Arabs, Portuguese, Spanish, and British have all left their indelible mark. The exceptional heritage value of this monument makes it an unmissable visit to understand the historical forces that shaped not only Tangier, but also the complex relations between Europe and Africa through the ages.",
+    "description_ar": "معلم تاريخي مصنف ضمن التراث الثقافي المغربي، يشهد هذا الموقع على غنى وتعقيد تاريخ طنجة الألفي. كل حجر يحكي قصة الحضارات العديدة التي تعاقبت على هذه المدينة الاستراتيجية: الفينيقيون والرومان والبيزنطيون والعرب والبرتغاليون والإسبان والبريطانيون جميعهم تركوا بصماتهم الراسخة.",
+    "note_moyenne": 4.7,
+    "nb_avis": 890,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "08:00-20:00",
+      "mardi": "08:00-20:00",
+      "mercredi": "08:00-20:00",
+      "jeudi": "08:00-20:00",
+      "vendredi": "08:00-20:00",
+      "samedi": "08:00-22:00",
+      "dimanche": "08:00-22:00"
+    },
+    "duree_visite_min": 20,
+    "duree_visite_max": 45,
+    "collections": [
+      "architecture",
+      "histoire",
+      "patrimoine"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "arabe"
+    ],
+    "accessibilite_pmr": false,
+    "photographie_autorisee": true,
+    "tags": [
+      "histoire",
+      "architecture",
+      "kasbah",
+      "patrimoine"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,palais,morocco",
+    "site_web": null,
+    "telephone": null,
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_009",
+    "nom": "Mosquée Sidi Bou Abid",
+    "categorie": "monument_classé",
+    "sous_categorie": "mosquee_historique",
+    "latitude": 35.7838,
+    "longitude": -5.81,
+    "adresse": "Grand Socco, Tanger 90000",
+    "quartier": "Centre-ville",
+    "description_fr": "Monument historique classé au patrimoine culturel marocain, ce site témoigne de la richesse et de la complexité de l'histoire millénaire de Tanger. Chaque pierre raconte l'histoire des nombreuses civilisations qui se sont succédé dans cette ville stratégique : Phéniciens, Romains, Vandales, Byzantins, Arabes, Portugais, Espagnols et Britanniques y ont tous laissé leur empreinte indélébile. La valeur patrimoniale exceptionnelle de ce monument en fait un lieu de visite incontournable pour comprendre les forces historiques qui ont façonné non seulement Tanger, mais aussi les relations complexes entre l'Europe et l'Afrique à travers les âges.",
+    "description_en": "A historic monument classified as Moroccan cultural heritage, this site bears witness to the richness and complexity of Tangier's millennial history. Every stone tells the story of the many civilizations that have succeeded one another in this strategic city: Phoenicians, Romans, Vandals, Byzantines, Arabs, Portuguese, Spanish, and British have all left their indelible mark. The exceptional heritage value of this monument makes it an unmissable visit to understand the historical forces that shaped not only Tangier, but also the complex relations between Europe and Africa through the ages.",
+    "description_ar": "معلم تاريخي مصنف ضمن التراث الثقافي المغربي، يشهد هذا الموقع على غنى وتعقيد تاريخ طنجة الألفي. كل حجر يحكي قصة الحضارات العديدة التي تعاقبت على هذه المدينة الاستراتيجية: الفينيقيون والرومان والبيزنطيون والعرب والبرتغاليون والإسبان والبريطانيون جميعهم تركوا بصماتهم الراسخة.",
+    "note_moyenne": 4.5,
+    "nb_avis": 1100,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "08:00-20:00",
+      "mardi": "08:00-20:00",
+      "mercredi": "08:00-20:00",
+      "jeudi": "08:00-20:00",
+      "vendredi": "08:00-20:00",
+      "samedi": "08:00-22:00",
+      "dimanche": "08:00-22:00"
+    },
+    "duree_visite_min": 10,
+    "duree_visite_max": 20,
+    "collections": [
+      "architecture_islamique",
+      "minaret",
+      "céramique"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "arabe"
+    ],
+    "accessibilite_pmr": false,
+    "photographie_autorisee": false,
+    "tags": [
+      "religion",
+      "architecture",
+      "histoire",
+      "ceramique"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,mosquee,morocco",
+    "site_web": null,
+    "telephone": null,
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_010",
+    "nom": "Fortaleza de Tánger (Fortifications Portugaises)",
+    "categorie": "monument_classé",
+    "sous_categorie": "fortification",
+    "latitude": 35.787,
+    "longitude": -5.8125,
+    "adresse": "Kasbah, Tanger 90000",
+    "quartier": "Kasbah",
+    "description_fr": "Monument historique classé au patrimoine culturel marocain, ce site témoigne de la richesse et de la complexité de l'histoire millénaire de Tanger. Chaque pierre raconte l'histoire des nombreuses civilisations qui se sont succédé dans cette ville stratégique : Phéniciens, Romains, Vandales, Byzantins, Arabes, Portugais, Espagnols et Britanniques y ont tous laissé leur empreinte indélébile. La valeur patrimoniale exceptionnelle de ce monument en fait un lieu de visite incontournable pour comprendre les forces historiques qui ont façonné non seulement Tanger, mais aussi les relations complexes entre l'Europe et l'Afrique à travers les âges.",
+    "description_en": "A historic monument classified as Moroccan cultural heritage, this site bears witness to the richness and complexity of Tangier's millennial history. Every stone tells the story of the many civilizations that have succeeded one another in this strategic city: Phoenicians, Romans, Vandals, Byzantines, Arabs, Portuguese, Spanish, and British have all left their indelible mark. The exceptional heritage value of this monument makes it an unmissable visit to understand the historical forces that shaped not only Tangier, but also the complex relations between Europe and Africa through the ages.",
+    "description_ar": "معلم تاريخي مصنف ضمن التراث الثقافي المغربي، يشهد هذا الموقع على غنى وتعقيد تاريخ طنجة الألفي. كل حجر يحكي قصة الحضارات العديدة التي تعاقبت على هذه المدينة الاستراتيجية: الفينيقيون والرومان والبيزنطيون والعرب والبرتغاليون والإسبان والبريطانيون جميعهم تركوا بصماتهم الراسخة.",
+    "note_moyenne": 4.6,
+    "nb_avis": 750,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "08:00-20:00",
+      "mardi": "08:00-20:00",
+      "mercredi": "08:00-20:00",
+      "jeudi": "08:00-20:00",
+      "vendredi": "08:00-20:00",
+      "samedi": "08:00-22:00",
+      "dimanche": "08:00-22:00"
+    },
+    "duree_visite_min": 30,
+    "duree_visite_max": 60,
+    "collections": [
+      "fortification",
+      "histoire_militaire",
+      "architecture_coloniale"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "anglais",
+      "arabe",
+      "espagnol"
+    ],
+    "accessibilite_pmr": false,
+    "photographie_autorisee": true,
+    "tags": [
+      "histoire",
+      "fortification",
+      "panorama",
+      "kasbah"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,fortification,morocco",
+    "site_web": null,
+    "telephone": null,
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_011",
+    "nom": "Institut Français de Tanger",
+    "categorie": "centre_culturel",
+    "sous_categorie": "institut_culturel",
+    "latitude": 35.7845,
+    "longitude": -5.811,
+    "adresse": "Rue de la Liberté, Tanger 90000",
+    "quartier": "Centre-ville",
+    "description_fr": "Centre culturel de référence à Tanger, cet espace est un carrefour vivant d'échanges culturels, linguistiques et artistiques entre le Maroc et le monde. Il propose une programmation riche et diversifiée : cours de langue, expositions d'art, projections de films, spectacles de théâtre, conférences académiques, ateliers créatifs pour enfants et adultes. Ouvert à tous et souvent gratuit pour de nombreux événements, il joue un rôle essentiel dans le dialogue interculturel et la diffusion des arts et de la culture. Sa médiathèque et ses espaces de coworking sont également très appréciés des étudiants et des professionnels locaux.",
+    "description_en": "A leading cultural center in Tangier, this space is a vibrant crossroads of cultural, linguistic, and artistic exchanges between Morocco and the world. It offers a rich and diverse program: language courses, art exhibitions, film screenings, theater performances, academic conferences, creative workshops for children and adults. Open to all and often free for many events, it plays an essential role in intercultural dialogue and the dissemination of arts and culture. Its media library and coworking spaces are also highly valued by local students and professionals.",
+    "description_ar": "مركز ثقافي مرجعي في طنجة، هذا الفضاء ملتقى حي للتبادلات الثقافية واللغوية والفنية بين المغرب والعالم. يقدم برمجة غنية ومتنوعة: دروس لغات ومعارض فنية وعروض سينمائية ومسرحية ومؤتمرات وورشات إبداعية. مفتوح للجميع وغالباً مجاني، يلعب دوراً أساسياً في الحوار بين الثقافات.",
+    "note_moyenne": 4.4,
+    "nb_avis": 310,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "09:00-18:00",
+      "mardi": "09:00-18:00",
+      "mercredi": "09:00-18:00",
+      "jeudi": "09:00-18:00",
+      "vendredi": "09:00-12:00",
+      "samedi": "09:00-13:00",
+      "dimanche": "ferme"
+    },
+    "duree_visite_min": 60,
+    "duree_visite_max": 120,
+    "collections": [
+      "langue_française",
+      "expositions",
+      "cinema",
+      "theatre"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "français",
+      "arabe"
+    ],
+    "accessibilite_pmr": true,
+    "photographie_autorisee": true,
+    "tags": [
+      "culture",
+      "francais",
+      "language",
+      "evenements"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,institut,morocco",
+    "site_web": "https://www.if-maroc.org/tanger",
+    "telephone": "+212539943127",
+    "source_donnee": "Google Places + données officielles"
+  },
+  {
+    "id": "musee_012",
+    "nom": "Instituto Cervantes de Tanger",
+    "categorie": "centre_culturel",
+    "sous_categorie": "institut_culturel",
+    "latitude": 35.7848,
+    "longitude": -5.8112,
+    "adresse": "Rue de l'Espagne, Tanger 90000",
+    "quartier": "Centre-ville",
+    "description_fr": "Centre culturel de référence à Tanger, cet espace est un carrefour vivant d'échanges culturels, linguistiques et artistiques entre le Maroc et le monde. Il propose une programmation riche et diversifiée : cours de langue, expositions d'art, projections de films, spectacles de théâtre, conférences académiques, ateliers créatifs pour enfants et adultes. Ouvert à tous et souvent gratuit pour de nombreux événements, il joue un rôle essentiel dans le dialogue interculturel et la diffusion des arts et de la culture. Sa médiathèque et ses espaces de coworking sont également très appréciés des étudiants et des professionnels locaux.",
+    "description_en": "A leading cultural center in Tangier, this space is a vibrant crossroads of cultural, linguistic, and artistic exchanges between Morocco and the world. It offers a rich and diverse program: language courses, art exhibitions, film screenings, theater performances, academic conferences, creative workshops for children and adults. Open to all and often free for many events, it plays an essential role in intercultural dialogue and the dissemination of arts and culture. Its media library and coworking spaces are also highly valued by local students and professionals.",
+    "description_ar": "مركز ثقافي مرجعي في طنجة، هذا الفضاء ملتقى حي للتبادلات الثقافية واللغوية والفنية بين المغرب والعالم. يقدم برمجة غنية ومتنوعة: دروس لغات ومعارض فنية وعروض سينمائية ومسرحية ومؤتمرات وورشات إبداعية. مفتوح للجميع وغالباً مجاني، يلعب دوراً أساسياً في الحوار بين الثقافات.",
+    "note_moyenne": 4.5,
+    "nb_avis": 270,
+    "prix_entree_mad": 0,
+    "prix_enfant_mad": 0,
+    "gratuit": true,
+    "horaires": {
+      "lundi": "09:00-18:00",
+      "mardi": "09:00-18:00",
+      "mercredi": "09:00-18:00",
+      "jeudi": "09:00-18:00",
+      "vendredi": "09:00-12:00",
+      "samedi": "09:00-13:00",
+      "dimanche": "ferme"
+    },
+    "duree_visite_min": 60,
+    "duree_visite_max": 120,
+    "collections": [
+      "langue_espagnole",
+      "expositions",
+      "culture",
+      "conférences"
+    ],
+    "guide_disponible": false,
+    "audioguide": false,
+    "langues_visite": [
+      "espagnol",
+      "arabe",
+      "français"
+    ],
+    "accessibilite_pmr": true,
+    "photographie_autorisee": true,
+    "tags": [
+      "culture",
+      "espagnol",
+      "langue",
+      "evenements"
+    ],
+    "saison_recommandee": [
+      "printemps",
+      "automne",
+      "hiver"
+    ],
+    "image_url": "https://source.unsplash.com/600x400/?museum,institut,morocco",
+    "site_web": "https://tanger.cervantes.es",
+    "telephone": "+212539932046",
+    "source_donnee": "Google Places + données officielles"
+  }
+]
