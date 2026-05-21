@@ -656,50 +656,6 @@
     "source_donnee": "Google Places + OpenStreetMap"
   },
   {
-    "id": "lieu_018",
-    "nom": "Quartier Californie",
-    "categorie": "quartier_historique",
-    "sous_categorie": "quartier_residentiel",
-    "latitude": 35.765,
-    "longitude": -5.84,
-    "adresse": "Quartier Californie, Tanger 90000, Maroc",
-    "quartier": "Californie",
-    "description_fr": "Nommé d'après l'État américain en raison de ses collines ensoleillées, de ses villas luxueuses et de son abondance de palmiers, le quartier Californie est l'enclave résidentielle la plus huppée de Tanger. Dominant la ville et entouré de pinèdes odorantes, il abrite certaines des propriétés les plus prestigieuses du Maroc, y compris des résidences royales du Golfe. Bien qu'il n'y ait pas de monuments touristiques spécifiques à visiter, une promenade en voiture à travers ses larges rues sinueuses permet d'admirer une architecture contemporaine grandiose et de superbes panoramas sur la mer.",
-    "description_en": "Named after the American state due to its sunny hills, luxurious villas, and abundance of palm trees, the Californie district is Tangier's most upscale residential enclave. Overlooking the city and surrounded by fragrant pine forests, it houses some of Morocco's most prestigious properties, including Gulf royal residences. While there are no specific tourist monuments to visit, a drive through its wide, winding streets allows one to admire grandiose contemporary architecture and stunning panoramic views of the sea.",
-    "description_ar": "سمي هذا الحي باسم الولاية الأمريكية بسبب تلاله المشمسة وفيلاته الفاخرة ووفرة أشجار النخيل فيه، وهو الجيب السكني الأكثر رقياً في طنجة. يطل على المدينة وتحيط به غابات الصنوبر العطرة، ويضم بعضاً من أرقى العقارات في المغرب، بما في ذلك المساكن الملكية الخليجية. على الرغم من عدم وجود معالم سياحية محددة يمكن زيارتها، إلا أن القيادة عبر شوارعها الواسعة والمتعرجة تتيح للمرء الاستمتاع بالهندسة المعمارية المعاصرة الرائعة والإطلالات البانورامية المذهلة على البحر.",
-    "note_moyenne": 3.9,
-    "nb_avis": 210,
-    "prix_entree_mad": 0,
-    "gratuit": true,
-    "horaires": {
-      "lundi": "09:00-18:00",
-      "mardi": "09:00-18:00",
-      "mercredi": "09:00-18:00",
-      "jeudi": "09:00-18:00",
-      "vendredi": "09:00-18:00",
-      "samedi": "09:00-20:00",
-      "dimanche": "09:00-20:00"
-    },
-    "duree_visite_min": 30,
-    "duree_visite_max": 60,
-    "tags": [
-      "quartier",
-      "luxe",
-      "architecture",
-      "panorama"
-    ],
-    "saison_recommandee": [
-      "printemps",
-      "ete",
-      "automne"
-    ],
-    "accessibilite_pmr": true,
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Qa0emjUyVPdiP0hZBvtvafpf83AFkIbKRw&s",
-    "site_web": null,
-    "telephone": null,
-    "source_donnee": "Google Places + OpenStreetMap"
-  },
-  {
     "id": "lieu_019",
     "nom": "Malabata",
     "categorie": "quartier_historique",
@@ -1232,49 +1188,6 @@
     "source_donnee": "Google Places + OpenStreetMap"
   },
   {
-    "id": "lieu_045",
-    "nom": "Ruines Romaines de Cotta",
-    "categorie": "site_archeologique",
-    "sous_categorie": "ruines_romaines",
-    "latitude": 35.755,
-    "longitude": -5.938,
-    "adresse": "Plage d'Achakkar, Tanger 90000, Maroc",
-    "quartier": "Achakkar",
-    "description_fr": "Situées à quelques dizaines de mètres de la plage près des Grottes d'Hercule, les ruines antiques de Cotta sont les vestiges remarquables d'un ancien complexe industriel romain datant du IIe ou IIIe siècle. Ce site archéologique à ciel ouvert servait principalement à la salaison du poisson et à la production du célèbre garum, un condiment très prisé dans tout l'Empire romain. Moins visitées que d'autres sites majeurs, les ruines permettent une promenade tranquille parmi d'anciens bassins de pierre, des vestiges de thermes et un temple, offrant une perspective fascinante sur l'économie antique de la région.",
-    "description_en": "Located a few dozen meters from the beach near the Caves of Hercules, the ancient ruins of Cotta are the remarkable remains of an ancient Roman industrial complex dating from the 2nd or 3rd century. This open-air archaeological site was primarily used for fish salting and the production of the famous garum, a highly prized condiment throughout the Roman Empire. Less visited than other major sites, the ruins allow for a quiet stroll among ancient stone basins, remains of thermal baths, and a temple, offering a fascinating perspective on the region's ancient economy.",
-    "description_ar": "تقع أطلال كوتا القديمة على بعد بضع عشرات من الأمتار من الشاطئ بالقرب من مغارات هرقل، وهي بقايا رائعة لمجمع صناعي روماني قديم يعود تاريخه إلى القرن الثاني أو الثالث. تم استخدام هذا الموقع الأثري في الهواء الطلق في المقام الأول لتمليح الأسماك وإنتاج الغاروم الشهير، وهو بهار يحظى بتقدير كبير في جميع أنحاء الإمبراطورية الرومانية. تسمح الأطلال، التي يزورها عدد أقل من المواقع الرئيسية الأخرى، بنزهة هادئة بين الأحواض الحجرية القديمة وبقايا الحمامات الحرارية والمعبد، مما يوفر منظوراً رائعاً للاقتصاد القديم في المنطقة.",
-    "note_moyenne": 4.1,
-    "nb_avis": 280,
-    "prix_entree_mad": 0,
-    "gratuit": true,
-    "horaires": {
-      "lundi": "09:00-18:00",
-      "mardi": "09:00-18:00",
-      "mercredi": "09:00-18:00",
-      "jeudi": "09:00-18:00",
-      "vendredi": "09:00-18:00",
-      "samedi": "09:00-20:00",
-      "dimanche": "09:00-20:00"
-    },
-    "duree_visite_min": 20,
-    "duree_visite_max": 45,
-    "tags": [
-      "archeologie",
-      "histoire",
-      "romain",
-      "nature"
-    ],
-    "saison_recommandee": [
-      "printemps",
-      "automne"
-    ],
-    "accessibilite_pmr": false,
-    "image_url": "https://serpapi.com/searches/l68NJ818HoQyr3LZohBxnQ/6a0eba28a204ab88e017919f.json",
-    "site_web": null,
-    "telephone": null,
-    "source_donnee": "Google Places + OpenStreetMap"
-  },
-  {
     "id": "lieu_049",
     "nom": "Musée d'Art Contemporain (MACVT)",
     "categorie": "musee",
@@ -1315,49 +1228,6 @@
     ],
     "accessibilite_pmr": true,
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO1LouUXY-mYbcnAhsiNXatYRxmDuRJuTV9Q&s",
-    "site_web": null,
-    "telephone": null,
-    "source_donnee": "Google Places + OpenStreetMap"
-  },
-  {
-    "id": "lieu_050",
-    "nom": "Musée Forbes (Collections de Dar el Makhzen)",
-    "categorie": "musee",
-    "sous_categorie": "musee_collection",
-    "latitude": 35.788,
-    "longitude": -5.821,
-    "adresse": "Palais Mendoub, Tanger 90000, Maroc",
-    "quartier": "Marshan",
-    "description_fr": "Jadis propriété du célèbre magnat américain Malcolm Forbes, ce magnifique palais de Marshan abritait autrefois l'une des plus grandes collections de soldats de plomb au monde, mise en scène dans des reconstitutions de batailles historiques, de Waterloo à Dien Bien Phu. Si la collection monumentale de plus de 115 000 figurines a depuis été dispersée aux enchères, l'histoire rocambolesque de ce lieu, qui a accueilli l'une des fêtes d'anniversaire les plus somptueuses et extravagantes du XXe siècle, continue d'intriguer. Le lieu accueille aujourd'hui occasionnellement des expositions privées prestigieuses et le bâtiment lui-même reste une légende de la ville.",
-    "description_en": "Once owned by the famous American magnate Malcolm Forbes, this magnificent Marshan palace formerly housed one of the largest collections of lead soldiers in the world, staged in reconstructions of historical battles, from Waterloo to Dien Bien Phu. Although the monumental collection of over 115,000 figurines has since been dispersed at auction, the incredible history of this place, which hosted one of the most sumptuous and extravagant birthday parties of the 20th century, continues to intrigue. The venue now occasionally hosts prestigious private exhibitions, and the building itself remains a city legend.",
-    "description_ar": "كان هذا القصر الرائع في المرشان، الذي كان مملوكاً في السابق لقطب الإعلام الأمريكي الشهير مالكولم فوربس، يضم في الماضي واحدة من أكبر مجموعات الجنود الرصاص في العالم بأسره، والتي تم عرضها في عمليات إعادة بناء دقيقة للمعارك التاريخية، من واترلو إلى ديان بيان فو. وعلى الرغم من أن المجموعة الضخمة التي تضم أكثر من 115 ألف تمثال قد تم بيعها منذ ذلك الحين في المزاد، إلا أن التاريخ المذهل لهذا المكان، الذي استضاف واحدة من أفخم حفلات أعياد الميلاد وأكثرها إسرافاً في القرن العشرين، لا يزال يثير الفضول. يستضيف المكان الآن معارض خاصة مرموقة في بعض الأحيان، ويبقى المبنى بحد ذاته أسطورة من أساطير المدينة.",
-    "note_moyenne": 4.2,
-    "nb_avis": 180,
-    "prix_entree_mad": 0,
-    "gratuit": true,
-    "horaires": {
-      "lundi": "09:00-18:00",
-      "mardi": "09:00-18:00",
-      "mercredi": "09:00-18:00",
-      "jeudi": "09:00-18:00",
-      "vendredi": "09:00-18:00",
-      "samedi": "09:00-20:00",
-      "dimanche": "09:00-20:00"
-    },
-    "duree_visite_min": 20,
-    "duree_visite_max": 45,
-    "tags": [
-      "histoire",
-      "insolite",
-      "collection",
-      "palais"
-    ],
-    "saison_recommandee": [
-      "printemps",
-      "automne"
-    ],
-    "accessibilite_pmr": false,
-    "image_url": "https://serpapi.com/searches/dUhdoIwxqe1bpSXvtM69bw/6a0ebaced868ddfb0d3a9537.json",
     "site_web": null,
     "telephone": null,
     "source_donnee": "Google Places + OpenStreetMap"

@@ -18,6 +18,9 @@ from routes.recommend  import router as recommend_router
 from rag.embedder     import build_index
 from routes.recommandation import router as recommandation_router
 from routes.dashboard import router as dashboard_router
+from routes.activites      import router as activites_router
+from routes.evenements     import router as evenements_router
+from routes.lieux          import router as lieux_router
 
 
 # Chargement des variables d'environnement (.env)
@@ -69,6 +72,9 @@ app.include_router(chat_router)
 app.include_router(recommend_router)
 app.include_router(recommandation_router, prefix="/api/recommandation", tags=["Recommandation"])
 app.include_router(dashboard_router, prefix="/api/dashboard", tags=["Dashboard"])
+app.include_router(activites_router,  prefix="/api", tags=["Activités"])
+app.include_router(evenements_router, prefix="/api", tags=["Événements"])
+app.include_router(lieux_router,      prefix="/api", tags=["Lieux"])
 # ─── Endpoints de base ────────────────────────────────────────────────────────
 
 @app.get("/", tags=["Général"])
