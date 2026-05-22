@@ -269,7 +269,10 @@ const TABS = [
   { key: "activites",      label: "Activités" },
   { key: "evenements",     label: "Événements" },
   { key: "dashboard",      label: "Dashboard" },
+  { key: "assurance",        label: "Assurance" },
+  { key: "Favouris",        label: "🤍" }
 ];
+
 
 /* ── COMPOSANT ────────────────────────────────────────────────── */
 export default function NavbarTanger({ onBack, onOpenChat, activeTab, onTabChange }) {
