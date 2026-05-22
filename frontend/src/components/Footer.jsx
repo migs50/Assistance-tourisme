@@ -1,15 +1,11 @@
 /**
  * Footer.jsx — REDESIGN PREMIUM FINAL
- * Carte Maroc via image locale · Badge Tanger · Contenu original
+ * Vraie silhouette Maroc SVG · Marker animé Tanger · Contenu original
  */
-import moroccoMap from "../assets/morocco-map.png";
-
 export default function Footer() {
   const T = {
     teal:      "#0f766e",
     tealDark:  "#0B5D5F",
-    tealMid:   "#14b8a6",
-    tealLight: "#ccfbf1",
     white:     "#ffffff",
     muted:     "rgba(255,255,255,0.62)",
     border:    "rgba(255,255,255,0.12)",
@@ -41,7 +37,7 @@ export default function Footer() {
       overflow:   "hidden",
     }}>
 
-      {/* ── Vague de transition en haut ── */}
+      {/* ── Vague de transition ── */}
       <div style={{ lineHeight: 0, marginTop: -1 }}>
         <svg viewBox="0 0 1440 40" preserveAspectRatio="none"
           style={{ display: "block", width: "100%", height: 40 }}>
@@ -50,36 +46,30 @@ export default function Footer() {
         </svg>
       </div>
 
-      {/* ── Cercle décoratif bg ── */}
+      {/* ── Cercle déco bg ── */}
       <div style={{
-        position:     "absolute",
-        right:        -60,
-        bottom:       -60,
-        width:        320,
-        height:       320,
-        borderRadius: "50%",
-        background:   "rgba(255,255,255,0.03)",
-        pointerEvents:"none",
+        position: "absolute", right: -60, bottom: -60,
+        width: 320, height: 320, borderRadius: "50%",
+        background: "rgba(255,255,255,0.03)", pointerEvents: "none",
       }} />
 
-      {/* ════════════════════════════════════════
+      {/* ════════════════════════════════
           GRILLE PRINCIPALE
-      ════════════════════════════════════════ */}
+      ════════════════════════════════ */}
       <div style={{
         maxWidth:            "1140px",
         margin:              "0 auto",
         padding:             "52px 40px 36px",
         display:             "grid",
-        gridTemplateColumns: "220px 1fr 240px",
+        gridTemplateColumns: "220px 1fr 260px",
         gap:                 "48px",
         alignItems:          "start",
       }}>
 
-        {/* ══════════════════════════
-            COL 1 — Logo + Identité
-        ══════════════════════════ */}
+        {/* ══════════════════
+            COL 1 — Logo
+        ══════════════════ */}
         <div>
-          {/* Montagne SVG */}
           <div style={{ marginBottom: "18px" }}>
             <svg width="56" height="46" viewBox="0 0 56 46" fill="none">
               <path d="M22 42 L38 10 L54 42 Z" fill="rgba(255,255,255,0.20)" />
@@ -89,7 +79,6 @@ export default function Footer() {
             </svg>
           </div>
 
-          {/* Nom */}
           <div style={{ marginBottom: "14px", lineHeight: 1.2 }}>
             <span style={{ fontSize: "19px", fontWeight: 800, color: T.white, display: "block" }}>
               MoroccoGuide
@@ -104,32 +93,23 @@ export default function Footer() {
             Découvrez le nord du Maroc à travers des expériences uniques.
           </p>
 
-          {/* Réseaux sociaux */}
           <div style={{ display: "flex", gap: "9px" }}>
             {["f", "in", "ig"].map((l) => (
               <a key={l} href="#" style={{
-                width:          "32px",
-                height:         "32px",
-                borderRadius:   "50%",
-                border:         "1px solid rgba(255,255,255,0.22)",
-                display:        "flex",
-                alignItems:     "center",
-                justifyContent: "center",
-                color:          T.white,
-                fontSize:       "10px",
-                fontWeight:     700,
-                textDecoration: "none",
-                transition:     "all 0.2s",
+                width: "32px", height: "32px", borderRadius: "50%",
+                border: "1px solid rgba(255,255,255,0.22)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: T.white, fontSize: "10px", fontWeight: 700,
+                textDecoration: "none", transition: "all 0.2s",
               }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background   = "rgba(255,255,255,0.15)";
-                  e.currentTarget.style.borderColor  = "rgba(255,255,255,0.55)";
+                  e.currentTarget.style.background  = "rgba(255,255,255,0.15)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.55)";
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background   = "transparent";
-                  e.currentTarget.style.borderColor  = "rgba(255,255,255,0.22)";
-                }}
-              >
+                  e.currentTarget.style.background  = "transparent";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)";
+                }}>
                 {l}
               </a>
             ))}
@@ -155,8 +135,7 @@ export default function Footer() {
               {["Destinations", "Guide Pratique", "Brochures & Cartes", "Numéros d'Urgence"].map(link => (
                 <a key={link} href="#" style={linkStyle}
                   onMouseEnter={e => e.currentTarget.style.color = T.hover}
-                  onMouseLeave={e => e.currentTarget.style.color = T.muted}
-                >
+                  onMouseLeave={e => e.currentTarget.style.color = T.muted}>
                   {link}
                 </a>
               ))}
@@ -170,8 +149,7 @@ export default function Footer() {
               {["Mentions Légales", "Politique de Confidentialité", "Gestion des Cookies", "Conditions Générales"].map(link => (
                 <a key={link} href="#" style={linkStyle}
                   onMouseEnter={e => e.currentTarget.style.color = T.hover}
-                  onMouseLeave={e => e.currentTarget.style.color = T.muted}
-                >
+                  onMouseLeave={e => e.currentTarget.style.color = T.muted}>
                   {link}
                 </a>
               ))}
@@ -195,177 +173,274 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ══════════════════════════════
-            COL 3 — Carte Maroc (image)
-        ══════════════════════════════ */}
+        {/* ════════════════════════════════════
+            COL 3 — Vraie carte Maroc SVG
+        ════════════════════════════════════ */}
         <div>
           <h4 style={{ ...colTitleStyle, marginBottom: "18px" }}>Notre territoire</h4>
 
           <div style={{ position: "relative", width: "100%" }}>
+            <svg
+              viewBox="0 0 250 230"
+              style={{
+                width:    "100%",
+                maxWidth: "240px",
+                display:  "block",
+                overflow: "visible",
+                filter:   "drop-shadow(0 6px 24px rgba(0,0,0,0.28))",
+              }}
+            >
+              <defs>
+                {/* Dégradé principal */}
+                <linearGradient id="fgMaroc" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stopColor="rgba(255,255,255,0.32)" />
+                  <stop offset="60%"  stopColor="rgba(255,255,255,0.18)" />
+                  <stop offset="100%" stopColor="rgba(255,255,255,0.08)" />
+                </linearGradient>
 
-            {/* ── Image Maroc ── */}
-           {/* ── Carte Maroc SVG — sans fond ── */}
-<svg
-  viewBox="0 0 240 210"
-  style={{ width: "100%", maxWidth: "220px", display: "block", overflow: "visible" }}
->
-  <defs>
-    <linearGradient id="mg1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stopColor="rgba(255,255,255,0.35)" />
-      <stop offset="100%" stopColor="rgba(255,255,255,0.10)" />
-    </linearGradient>
-    <linearGradient id="mg2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stopColor="rgba(255,255,255,0.18)" />
-      <stop offset="100%" stopColor="rgba(255,255,255,0.05)" />
-    </linearGradient>
-    <filter id="mglow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
+                {/* Dégradé couche intérieure */}
+                <linearGradient id="fgMaroc2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stopColor="rgba(255,255,255,0.12)" />
+                  <stop offset="100%" stopColor="rgba(255,255,255,0.04)" />
+                </linearGradient>
 
-  {/* Couche halo extérieure */}
-  <path
-    d="M30,22 L50,14 L72,10 L98,8 L124,9 L148,15 L166,26
-       L178,42 L182,60 L179,78 L185,96 L189,114 L186,130
-       L181,146 L171,158 L158,168 L142,176 L124,180
-       L106,178 L88,171 L72,160 L56,145 L42,128
-       L30,110 L20,90 L17,70 L19,50 Z"
-    fill="rgba(255,255,255,0.07)"
-    stroke="rgba(255,255,255,0.20)"
-    strokeWidth="6"
-    strokeLinejoin="round"
-    transform="translate(2,3) scale(1.03)"
-    style={{ transformOrigin: "103px 95px" }}
-  />
+                {/* Glow pour marker */}
+                <filter id="fglow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
 
-  {/* Corps principal */}
-  <path
-    d="M30,22 L50,14 L72,10 L98,8 L124,9 L148,15 L166,26
-       L178,42 L182,60 L179,78 L185,96 L189,114 L186,130
-       L181,146 L171,158 L158,168 L142,176 L124,180
-       L106,178 L88,171 L72,160 L56,145 L42,128
-       L30,110 L20,90 L17,70 L19,50 Z"
-    fill="url(#mg1)"
-    stroke="rgba(255,255,255,0.85)"
-    strokeWidth="2.2"
-    strokeLinejoin="round"
-  />
+              {/* ──────────────────────────────────────
+                  VRAIE SILHOUETTE MAROC
+                  Points calés sur la géographie réelle :
+                  - Tanger (NW) : haut-gauche
+                  - Méditerranée : haut
+                  - Algérie border : droite
+                  - Staircase : bas
+                  - Atlantique : gauche
+              ────────────────────────────────────── */}
 
-  {/* Couche intérieure (effet depth) */}
-  <path
-    d="M38,30 L56,22 L76,18 L100,16 L122,17 L144,22 L160,32
-       L170,47 L173,63 L171,79 L176,95 L179,111 L176,126
-       L172,140 L163,151 L151,161 L136,168 L120,171
-       L104,169 L88,162 L74,152 L60,138 L48,122
-       L38,104 L30,86 L28,68 L30,50 Z"
-    fill="url(#mg2)"
-    stroke="rgba(255,255,255,0.15)"
-    strokeWidth="1"
-    strokeDasharray="4 3"
-  />
+              {/* Ombre portée */}
+              <path transform="translate(4,5)"
+                d="
+                  M 82,22
+                  L 90,13 L 112,9  L 142,7  L 170,9
+                  L 195,14 L 210,22 L 216,32
+                  L 219,58 L 221,90 L 221,122
+                  L 218,150 L 214,163
+                  L 193,165 L 193,177
+                  L 161,177 L 161,189
+                  L 126,189 L 126,201
+                  L 90,205  L 64,199
+                  L 44,183  L 28,165
+                  L 22,147  L 22,129
+                  L 26,111  L 32,93
+                  L 40,76   L 50,61
+                  L 62,48   L 73,37
+                  L 82,22 Z
+                "
+                fill="rgba(0,0,0,0.20)"
+              />
 
-  {/* Villes */}
-  {[
-    { x: 100, y: 88,  label: "Rabat",       bold: true  },
-    { x: 158, y: 55,  label: "Chefchaouen", bold: false },
-    { x: 68,  y: 108, label: "Essaouira",   bold: false },
-    { x: 112, y: 118, label: "Marrakech",   bold: false },
-    { x: 74,  y: 135, label: "Agadir",      bold: false },
-  ].map(({ x, y, label, bold }) => (
-    <g key={label}>
-      <circle cx={x} cy={y} r={bold ? 3.5 : 2.5}
-        fill="rgba(255,255,255,0.90)"
-        stroke="rgba(255,255,255,0.30)" strokeWidth="1" />
-      <text x={x + 6} y={y + 4}
-        fill={bold ? "#fff" : "rgba(255,255,255,0.70)"}
-        fontSize={bold ? 9 : 7.5}
-        fontWeight={bold ? "700" : "400"}
-        fontFamily="DM Sans, sans-serif">
-        {label}
-      </text>
-    </g>
-  ))}
+              {/* Halo extérieur (effet glow) */}
+              <path
+                d="
+                  M 82,22
+                  L 90,13 L 112,9  L 142,7  L 170,9
+                  L 195,14 L 210,22 L 216,32
+                  L 219,58 L 221,90 L 221,122
+                  L 218,150 L 214,163
+                  L 193,165 L 193,177
+                  L 161,177 L 161,189
+                  L 126,189 L 126,201
+                  L 90,205  L 64,199
+                  L 44,183  L 28,165
+                  L 22,147  L 22,129
+                  L 26,111  L 32,93
+                  L 40,76   L 50,61
+                  L 62,48   L 73,37
+                  L 82,22 Z
+                "
+                fill="rgba(255,255,255,0.06)"
+                stroke="rgba(255,255,255,0.22)"
+                strokeWidth="7"
+                strokeLinejoin="round"
+                transform="scale(1.025) translate(-3,-2)"
+                style={{ transformOrigin: "125px 105px" }}
+              />
 
-  {/* ── MARKER TANGER animé ── */}
-  {/* Ring 1 */}
-  <circle cx="150" cy="22" r="16" fill="none"
-    stroke="rgba(255,255,255,0.25)" strokeWidth="1">
-    <animate attributeName="r"       values="10;22;10" dur="2.6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" repeatCount="indefinite"/>
-  </circle>
+              {/* Corps principal — forme Maroc */}
+              <path
+                d="
+                  M 82,22
+                  L 90,13 L 112,9  L 142,7  L 170,9
+                  L 195,14 L 210,22 L 216,32
+                  L 219,58 L 221,90 L 221,122
+                  L 218,150 L 214,163
+                  L 193,165 L 193,177
+                  L 161,177 L 161,189
+                  L 126,189 L 126,201
+                  L 90,205  L 64,199
+                  L 44,183  L 28,165
+                  L 22,147  L 22,129
+                  L 26,111  L 32,93
+                  L 40,76   L 50,61
+                  L 62,48   L 73,37
+                  L 82,22 Z
+                "
+                fill="url(#fgMaroc)"
+                stroke="rgba(255,255,255,0.88)"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
 
-  {/* Ring 2 */}
-  <circle cx="150" cy="22" r="10" fill="none"
-    stroke="rgba(255,255,255,0.40)" strokeWidth="1">
-    <animate attributeName="r"       values="6;15;6"  dur="2.6s" begin="0.3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0;0.6" dur="2.6s" begin="0.3s" repeatCount="indefinite"/>
-  </circle>
+              {/* Couche intérieure (effet depth) */}
+              <path
+                d="
+                  M 88,30
+                  L 96,22  L 115,18 L 142,16 L 168,18
+                  L 190,22 L 203,30 L 208,40
+                  L 211,64 L 212,94 L 212,122
+                  L 209,147 L 206,158
+                  L 186,160 L 186,170
+                  L 157,170 L 157,181
+                  L 124,181 L 124,192
+                  L 92,196  L 70,191
+                  L 52,177  L 38,161
+                  L 32,145  L 32,130
+                  L 36,114  L 42,98
+                  L 49,83   L 58,69
+                  L 68,57   L 78,47
+                  L 88,30 Z
+                "
+                fill="url(#fgMaroc2)"
+                stroke="rgba(255,255,255,0.18)"
+                strokeWidth="1"
+                strokeDasharray="4 3"
+                strokeLinejoin="round"
+              />
 
-  {/* Cercle blanc */}
-  <circle cx="150" cy="22" r="8"
-    fill="rgba(255,255,255,0.95)"
-    stroke="rgba(94,202,203,0.70)" strokeWidth="2"
-    filter="url(#mglow)" />
+              {/* ── Villes secondaires ── */}
+              {[
+                { x: 118, y: 35,  label: "Chefchaouen", bold: false, side: "right" },
+                { x: 58,  y: 62,  label: "Rabat",        bold: true,  side: "right" },
+                { x: 48,  y: 76,  label: "Casablanca",   bold: false, side: "right" },
+                { x: 178, y: 50,  label: "Fès",           bold: false, side: "right" },
+                { x: 100, y: 130, label: "Marrakech",    bold: false, side: "right" },
+                { x: 28,  y: 158, label: "Agadir",       bold: false, side: "right" },
+              ].map(({ x, y, label, bold }) => (
+                <g key={label}>
+                  <circle cx={x} cy={y}
+                    r={bold ? 3.5 : 2.5}
+                    fill={bold ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.75)"}
+                    stroke="rgba(255,255,255,0.25)"
+                    strokeWidth="1"
+                  />
+                  <text
+                    x={x + 6} y={y + 4}
+                    fill={bold ? "#ffffff" : "rgba(255,255,255,0.72)"}
+                    fontSize={bold ? 9 : 7.5}
+                    fontWeight={bold ? "700" : "400"}
+                    fontFamily="DM Sans, sans-serif"
+                  >
+                    {label}
+                  </text>
+                </g>
+              ))}
 
-  {/* Centre teal */}
-  <circle cx="150" cy="22" r="4" fill="#0f766e" />
+              {/* ══════════════════════════════
+                  MARKER TANGER ANIMÉ
+                  Position : (90, 20) → NW coast
+              ══════════════════════════════ */}
 
-  {/* Reflet */}
-  <circle cx="148" cy="20" r="1.5" fill="rgba(255,255,255,0.80)" />
+              {/* Ring pulse 3 (grand) */}
+              <circle cx="90" cy="20" r="18" fill="none"
+                stroke="rgba(255,255,255,0.18)" strokeWidth="1">
+                <animate attributeName="r"
+                  values="10;22;10" dur="2.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity"
+                  values="0.5;0;0.5" dur="2.8s" repeatCount="indefinite"/>
+              </circle>
 
-  {/* Bulle TANGER */}
-  <rect x="161" y="13" width="64" height="18" rx="5"
-    fill="rgba(255,255,255,0.20)"
-    stroke="rgba(255,255,255,0.60)" strokeWidth="1.2" />
-  <line x1="161" y1="22" x2="158" y2="22"
-    stroke="rgba(255,255,255,0.60)" strokeWidth="1" />
-  <text x="193" y="25"
-    fill="#ffffff" fontSize="8.5" fontWeight="800"
-    fontFamily="DM Sans, Montserrat, sans-serif"
-    letterSpacing="0.12em" textAnchor="middle">
-    TANGER
-  </text>
-</svg>
-            {/* ── Badge Tanger ── */}
+              {/* Ring pulse 2 */}
+              <circle cx="90" cy="20" r="12" fill="none"
+                stroke="rgba(255,255,255,0.30)" strokeWidth="1">
+                <animate attributeName="r"
+                  values="7;16;7" dur="2.8s" begin="0.35s" repeatCount="indefinite"/>
+                <animate attributeName="opacity"
+                  values="0.6;0;0.6" dur="2.8s" begin="0.35s" repeatCount="indefinite"/>
+              </circle>
+
+              {/* Cercle blanc extérieur */}
+              <circle cx="90" cy="20" r="8.5"
+                fill="rgba(255,255,255,0.96)"
+                stroke="rgba(94,202,203,0.75)"
+                strokeWidth="2"
+                filter="url(#fglow)"
+              />
+
+              {/* Centre teal */}
+              <circle cx="90" cy="20" r="4" fill="#0f766e" />
+
+              {/* Reflet */}
+              <circle cx="88" cy="18" r="1.5" fill="rgba(255,255,255,0.85)" />
+
+              {/* Bulle label TANGER */}
+              <rect x="102" y="11" width="66" height="18" rx="5"
+                fill="rgba(255,255,255,0.20)"
+                stroke="rgba(255,255,255,0.65)"
+                strokeWidth="1.2"
+              />
+              {/* Connecteur */}
+              <line x1="100" y1="20" x2="102" y2="20"
+                stroke="rgba(255,255,255,0.65)" strokeWidth="1"/>
+
+              <text x="135" y="23.5"
+                fill="#ffffff"
+                fontSize="8.5"
+                fontWeight="800"
+                fontFamily="DM Sans, Montserrat, sans-serif"
+                letterSpacing="0.12em"
+                textAnchor="middle"
+              >
+                TANGER
+              </text>
+            </svg>
+
+            {/* Badge localisation */}
             <div style={{
-              display:        "inline-flex",
-              alignItems:     "center",
-              gap:            "7px",
-              background:     "rgba(255,255,255,0.10)",
-              border:         "1px solid rgba(255,255,255,0.22)",
-              borderRadius:   "99px",
-              padding:        "5px 14px",
-              marginTop:      "10px",
+              display:      "inline-flex",
+              alignItems:   "center",
+              gap:          "8px",
+              background:   "rgba(255,255,255,0.10)",
+              border:       "1px solid rgba(255,255,255,0.22)",
+              borderRadius: "99px",
+              padding:      "5px 14px",
+              marginTop:    "10px",
             }}>
-              {/* Point lumineux animé */}
               <span style={{ position: "relative", display: "inline-flex",
                 alignItems: "center", justifyContent: "center",
                 width: "10px", height: "10px", flexShrink: 0 }}>
                 <span style={{
-                  position:     "absolute",
-                  width:        "10px",
-                  height:       "10px",
-                  borderRadius: "50%",
-                  background:   "rgba(94,202,203,0.35)",
-                  animation:    "footerPing 2s cubic-bezier(0,0,0.2,1) infinite",
+                  position: "absolute",
+                  width: "10px", height: "10px", borderRadius: "50%",
+                  background: "rgba(94,202,203,0.4)",
+                  animation: "footerPing 2s cubic-bezier(0,0,0.2,1) infinite",
                 }} />
                 <span style={{
-                  width:        "7px",
-                  height:       "7px",
-                  borderRadius: "50%",
-                  background:   "#5ECACB",
-                  boxShadow:    "0 0 6px #5ECACB",
-                  position:     "relative",
+                  width: "7px", height: "7px", borderRadius: "50%",
+                  background: "#5ECACB",
+                  boxShadow: "0 0 6px #5ECACB",
+                  position: "relative",
                 }} />
               </span>
-              <span style={{
-                color:         T.white,
-                fontSize:      "11px",
-                fontWeight:    600,
-                letterSpacing: "0.06em",
-              }}>
-                Tanger, Maroc
+              <span style={{ color: T.white, fontSize: "11px",
+                fontWeight: 600, letterSpacing: "0.06em" }}>
+                 Maroc
               </span>
             </div>
           </div>
@@ -392,15 +467,14 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* ── Animation ping badge ── */}
+      {/* ── Keyframe ping ── */}
       <style>{`
         @keyframes footerPing {
           0%   { transform: scale(1);   opacity: 0.8; }
-          70%  { transform: scale(2.2); opacity: 0; }
-          100% { transform: scale(2.2); opacity: 0; }
+          70%  { transform: scale(2.4); opacity: 0;   }
+          100% { transform: scale(2.4); opacity: 0;   }
         }
       `}</style>
-
     </footer>
   );
 }
