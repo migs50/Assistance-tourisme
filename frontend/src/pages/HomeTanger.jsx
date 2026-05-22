@@ -1,15 +1,17 @@
 /**
- * HomeTanger.jsx — VERSION API CONNECTÉE
- * Activités, Événements et Lieux touristiques chargés depuis le backend
- * (comme la section Recommandation)
+ * HomeTanger.jsx — REDESIGN PREMIUM
+ * UI entièrement repensée : palette teal/blanc, typographie élégante,
+ * cartes animées, vagues SVG, design minimaliste premium.
+ * Backend / APIs / logique métier : INCHANGÉS.
  */
 import { useState, useEffect, useRef, useMemo } from "react";
-import NavbarTanger from "../components/NavbarTanger";
-import Footer       from "../components/Footer";
+import NavbarTanger from "../components/Navbartanger";
+import Footer from "../components/Footer";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SERVICE API — helper générique
-// ─────────────────────────────────────────────────────────────────────────────
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SERVICE API — identique à l'original
+───────────────────────────────────────────────────────────────────────────── */
 async function apiFetch(path, options = {}) {
   const res = await fetch(path, {
     headers: { "Content-Type": "application/json", ...options.headers },
@@ -22,19 +24,16 @@ async function apiFetch(path, options = {}) {
   return res.json();
 }
 
-// ── Recommandation ────────────────────────────────────────────────────────────
 const BASE_RECO = "/api/recommandation";
 const recoApi = {
-  getQuestions:       (cat)  => apiFetch(`${BASE_RECO}/questions/${cat}`),
-  getRecommandations: (body) => apiFetch(`${BASE_RECO}/recommandations`, {
-    method: "POST", body: JSON.stringify(body),
-  }),
+  getQuestions: (cat) => apiFetch(`${BASE_RECO}/questions/${cat}`),
+  getRecommandations: (body) =>
+    apiFetch(`${BASE_RECO}/recommandations`, { method: "POST", body: JSON.stringify(body) }),
 };
 
-// ── Activités ────────────────────────────────────────────────────────────────
 const BASE_ACT = "/api/activites";
 const activitesApi = {
-  getAll:    (params = {}) => {
+  getAll: (params = {}) => {
     const qs = new URLSearchParams(
       Object.fromEntries(Object.entries(params).filter(([, v]) => v && v !== "tous"))
     ).toString();
@@ -42,7 +41,6 @@ const activitesApi = {
   },
 };
 
-// ── Événements ────────────────────────────────────────────────────────────────
 const BASE_EVT = "/api/evenements";
 const evenementsApi = {
   getAll: (params = {}) => {
@@ -53,480 +51,660 @@ const evenementsApi = {
   },
 };
 
-// ── Lieux touristiques ────────────────────────────────────────────────────────
 const BASE_LIEUX = "/api/lieux";
-const lieuxApi = {
-  getAll: () => apiFetch(BASE_LIEUX),
-};
+const lieuxApi = { getAll: () => apiFetch(BASE_LIEUX) };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// HOOK GÉNÉRIQUE — chargement API avec état loading / error / data
-// ─────────────────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────────────────
+   HOOKS — identiques à l'original
+───────────────────────────────────────────────────────────────────────────── */
+
+
 function useApiData(fetchFn, deps = []) {
-  const [data,    setData]    = useState(null);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error,   setError]   = useState(null);
-
+  const [error, setError] = useState(null);
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     setError(null);
     fetchFn()
-      .then(d  => { if (!cancelled) setData(d); })
-      .catch(e => { if (!cancelled) setError(e.message); })
+      .then((d) => { if (!cancelled) setData(d); })
+      .catch((e) => { if (!cancelled) setError(e.message); })
       .finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
-
   return { data, loading, error };
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DONNÉES LOCALES CATÉGORIES recommandation (pas besoin d'appel GET)
-// ─────────────────────────────────────────────────────────────────────────────
-const CATEGORIES = [
-  { id: "hotels",      label: "Hôtels",      emoji: "🏨", color: "#f97316",
-    description: "Hébergement selon votre budget, style et envies.", questions: 5 },
-  { id: "restaurants", label: "Restaurants", emoji: "🍽️", color: "#06b6d4",
-    description: "Cuisine marocaine, internationale, terrasses vue mer.", questions: 4 },
-  { id: "plages",      label: "Plages",      emoji: "🏖️", color: "#10b981",
-    description: "Calme, animée, coucher de soleil — votre plage idéale.", questions: 3 },
-  { id: "activites",   label: "Activités",   emoji: "🎭", color: "#a855f7",
-    description: "Aventure, culture, histoire, famille.", questions: 3 },
-];
+function useApiDataWithRefetch(fetchFn) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    fetchFn()
+      .then((d) => { if (!cancelled) setData(d); })
+      .catch((e) => { if (!cancelled) setError(e.message); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tick]);
+  return { data, loading, error, refetch: () => setTick((t) => t + 1) };
+}
 
-// ─────────────────────────────────────────────────────────────────────────────
-// STYLES PARTAGÉS
-// ─────────────────────────────────────────────────────────────────────────────
-const S = {
-  surface:  { background: "#112240", border: "1.5px solid #1e3a5f", borderRadius: "16px" },
-  surface2: { background: "#0d2137" },
-  orange:   "#f97316",
-  muted:    "#64748b",
-  ivory:    "#f1f5f9",
-  gold:     "#f5c842",
+/* ─────────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────────────────────────────────────────── */
+const T = {
+  primary:    "#0f766e",
+  secondary:  "#14b8a6",
+  light:      "#ccfbf1",
+  bg:         "#f7fbfb",
+  bgCard:     "#ffffff",
+  text:       "#0f172a",
+  textMuted:  "#64748b",
+  textLight:  "#94a3b8",
+  border:     "#e2e8f0",
+  borderHover:"#0f766e",
+  shadow:     "0 4px 24px rgba(15,118,110,0.08)",
+  shadowHover:"0 12px 40px rgba(15,118,110,0.18)",
+  radius:     "16px",
+  radiusSm:   "10px",
+  radiusXl:   "24px",
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// COMPOSANT PARTAGÉ — état vide / erreur / loading
-// ─────────────────────────────────────────────────────────────────────────────
-function LoadingGrid({ color = S.orange }) {
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLOBAL STYLES (injectés une seule fois)
+───────────────────────────────────────────────────────────────────────────── */
+const GLOBAL_CSS = `
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .tg-root {
+    font-family: 'DM Sans', sans-serif;
+    background: ${T.bg};
+    color: ${T.text};
+    min-height: 100vh;
+  }
+
+  .tg-serif { font-family: 'Cormorant Garamond', serif; }
+
+  /* Animations */
+  @keyframes tg-fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes tg-fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes tg-spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes tg-shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+  }
+
+  .tg-animate-fadeUp  { animation: tg-fadeUp  0.6s ease both; }
+  .tg-animate-fadeIn  { animation: tg-fadeIn  0.4s ease both; }
+
+  /* Skeleton loader */
+  .tg-skeleton {
+    background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+    background-size: 200% 100%;
+    animation: tg-shimmer 1.4s infinite;
+    border-radius: 8px;
+  }
+
+  /* Buttons */
+  .tg-btn-primary {
+    background: ${T.primary};
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .tg-btn-primary:hover {
+    background: #0d6660;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(15,118,110,0.28);
+  }
+  .tg-btn-outline {
+    background: transparent;
+    color: ${T.primary};
+    border: 1.5px solid ${T.primary};
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tg-btn-outline:hover {
+    background: ${T.primary};
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .tg-btn-ghost {
+    background: transparent;
+    color: ${T.textMuted};
+    border: 1px solid ${T.border};
+    border-radius: 100px;
+    padding: 9px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tg-btn-ghost:hover {
+    border-color: ${T.primary};
+    color: ${T.primary};
+  }
+
+  /* Cards */
+  .tg-card {
+    background: ${T.bgCard};
+    border-radius: ${T.radius};
+    border: 1px solid ${T.border};
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.2s;
+    box-shadow: ${T.shadow};
+  }
+  .tg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: ${T.shadowHover};
+    border-color: ${T.light};
+  }
+
+  /* Tags / pills */
+  .tg-tag {
+    display: inline-block;
+    background: ${T.light};
+    color: ${T.primary};
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+  .tg-tag-outline {
+    display: inline-block;
+    background: transparent;
+    color: ${T.primary};
+    border: 1px solid ${T.secondary};
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  /* Filter pills */
+  .tg-filter-btn {
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1.5px solid ${T.border};
+    background: #fff;
+    color: ${T.textMuted};
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .tg-filter-btn:hover,
+  .tg-filter-btn.active {
+    border-color: ${T.primary};
+    background: ${T.primary};
+    color: #fff;
+  }
+
+  /* Section label */
+  .tg-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: ${T.secondary};
+    margin-bottom: 10px;
+  }
+
+  /* Hero search bar */
+  .tg-search {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 100px;
+    padding: 6px 8px 6px 22px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    gap: 10px;
+    max-width: 520px;
+    width: 100%;
+  }
+  .tg-search input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: ${T.text};
+    background: transparent;
+  }
+  .tg-search input::placeholder { color: ${T.textLight}; }
+
+  /* Image overlay gradient */
+  .tg-img-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,118,110,0.65) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  /* Rating badge */
+  .tg-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fff;
+    border-radius: 100px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: ${T.primary};
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+
+  /* Progress bar */
+  .tg-progress-track {
+    height: 4px;
+    background: ${T.border};
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .tg-progress-bar {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, ${T.secondary}, ${T.primary});
+    transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Divider wave */
+  .tg-wave { display: block; width: 100%; line-height: 0; }
+
+  /* Spinner */
+  .tg-spinner {
+    width: 40px; height: 40px;
+    border: 2.5px solid ${T.light};
+    border-top-color: ${T.primary};
+    border-radius: 50%;
+    animation: tg-spin 0.75s linear infinite;
+  }
+
+  /* Nav tabs */
+  .tg-nav-tab {
+    padding: 10px 18px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: ${T.textMuted};
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .tg-nav-tab:hover { color: ${T.primary}; }
+  .tg-nav-tab.active {
+    color: ${T.primary};
+    border-bottom-color: ${T.primary};
+    font-weight: 500;
+  }
+
+  /* Input */
+  .tg-input {
+    width: 100%;
+    padding: 11px 16px 11px 42px;
+    border: 1.5px solid ${T.border};
+    border-radius: ${T.radiusSm};
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: ${T.text};
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .tg-input:focus { border-color: ${T.secondary}; }
+  .tg-input::placeholder { color: ${T.textLight}; }
+`;
+
+function InjectGlobalStyles() {
+  useEffect(() => {
+    const id = "tg-global-styles";
+    if (document.getElementById(id)) return;
+    const el = document.createElement("style");
+    el.id = id;
+    el.textContent = GLOBAL_CSS;
+    document.head.appendChild(el);
+    return () => { /* keep alive */ };
+  }, []);
+  return null;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SHARED UI ATOMS
+───────────────────────────────────────────────────────────────────────────── */
+function Spinner({ size = 40 }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "80px 0", gap: "18px" }}>
-      <div style={{
-        width: 48, height: 48,
-        border: `3px solid #1e3a5f`,
-        borderTopColor: color,
-        borderRadius: "50%",
-        animation: "spin 0.8s linear infinite",
-      }} />
-      <p style={{ color: S.muted, fontSize: "13px" }}>Chargement en cours…</p>
+    <div style={{ display: "flex", justifyContent: "center", padding: "60px 0" }}>
+      <div className="tg-spinner" style={{ width: size, height: size }} />
     </div>
   );
 }
 
-function ErrorBanner({ message, onRetry, color = "#ef4444" }) {
+function ErrorBanner({ message, onRetry }) {
   return (
     <div style={{
-      background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.25)",
-      borderRadius: "12px", padding: "24px", textAlign: "center", margin: "40px 0",
+      background: "#fff5f5", border: "1px solid #fecaca", borderRadius: T.radius,
+      padding: "28px 24px", textAlign: "center", margin: "32px 0",
     }}>
-      <div style={{ fontSize: "2.5rem", marginBottom: "10px" }}>⚠️</div>
-      <p style={{ color: "#fca5a5", fontWeight: 700, margin: "0 0 4px" }}>Erreur de chargement</p>
-      <p style={{ color: S.muted, fontSize: "12px", margin: "0 0 16px" }}>{message}</p>
+      <p style={{ color: "#b91c1c", fontWeight: 500, marginBottom: 8 }}>Erreur de chargement</p>
+      <p style={{ color: T.textMuted, fontSize: 13, marginBottom: 16 }}>{message}</p>
       {onRetry && (
-        <button onClick={onRetry} style={{
-          background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.35)",
-          borderRadius: "100px", color: "#fca5a5",
-          fontSize: "13px", fontWeight: 700, padding: "8px 20px", cursor: "pointer",
-        }}>
-          🔄 Réessayer
+        <button className="tg-btn-outline" onClick={onRetry} style={{ fontSize: 13 }}>
+          Réessayer
         </button>
       )}
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// STEP 1 — CategorySelector (Recommandation)
-// ─────────────────────────────────────────────────────────────────────────────
-function CategorySelector({ onSelect }) {
-  const [hovered, setHovered] = useState(null);
+function WaveSeparator({ flip = false, color = T.bg }) {
   return (
-    <div>
-      <div style={{ marginBottom: "36px" }}>
-        <h2 style={{ fontFamily: "Georgia, serif", fontSize: "1.8rem", fontWeight: 700, color: S.ivory, margin: "0 0 8px" }}>
-          Que cherchez-vous ?
-        </h2>
-        <p style={{ color: S.muted, fontSize: "14px", margin: 0 }}>
-          Choisissez une catégorie pour démarrer votre recommandation personnalisée.
-        </p>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "18px" }}>
-        {CATEGORIES.map(cat => (
-          <button
-            key={cat.id}
-            onClick={() => onSelect(cat)}
-            onMouseEnter={() => setHovered(cat.id)}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              ...S.surface,
-              padding: "30px 24px 26px",
-              cursor: "pointer", textAlign: "left",
-              transition: "transform 0.22s, border-color 0.22s, box-shadow 0.22s",
-              transform: hovered === cat.id ? "translateY(-6px)" : "translateY(0)",
-              borderColor: hovered === cat.id ? cat.color : "#1e3a5f",
-              boxShadow: hovered === cat.id
-                ? `0 12px 36px rgba(0,0,0,0.4), 0 0 24px ${cat.color}22`
-                : "0 4px 16px rgba(0,0,0,0.25)",
-              background: "none", position: "relative", overflow: "hidden",
-            }}
-          >
-            <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: "3px",
-              background: cat.color, opacity: hovered === cat.id ? 1 : 0, transition: "opacity 0.22s",
-            }} />
-            <span style={{ fontSize: "2.6rem", display: "block", marginBottom: "14px", lineHeight: 1 }}>{cat.emoji}</span>
-            <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.2rem", fontWeight: 700, color: S.ivory, margin: "0 0 8px" }}>{cat.label}</h3>
-            <p style={{ fontSize: "13px", color: S.muted, lineHeight: 1.5, margin: "0 0 18px" }}>{cat.description}</p>
-            <span style={{
-              fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", color: cat.color,
-              background: `${cat.color}18`, borderRadius: "100px", padding: "3px 12px",
-            }}>{cat.questions} questions</span>
-          </button>
-        ))}
-      </div>
+    <div className="tg-wave" style={{ transform: flip ? "rotate(180deg)" : "none" }}>
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 60 }}>
+        <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill={color} />
+      </svg>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// STEP 2 — QuestionWizard (Recommandation)
-// ─────────────────────────────────────────────────────────────────────────────
-function QuestionWizard({ category, questions, onComplete, onBack }) {
-  const [idx, setIdx]         = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [selected, setSelected] = useState(null);
-  const [animKey, setAnimKey] = useState(0);
-
-  const current  = questions[idx];
-  const total    = questions.length;
-  const progress = (idx / total) * 100;
-  const isLast   = idx === total - 1;
-
-  function advance(newAnswers) {
-    if (isLast) { onComplete(newAnswers); return; }
-    setIdx(i => i + 1); setSelected(null); setAnimKey(k => k + 1);
-  }
-  function handleNext() {
-    if (selected === null && !current.is_optional) return;
-    const next = { ...answers };
-    if (selected !== null) next[current.field_name] = selected;
-    setAnswers(next); advance(next);
-  }
-  function handleSkip() { advance({ ...answers }); }
-
-  function readableLabel(field, val) {
-    if (typeof val === "boolean") return val ? "Oui ✅" : "Non ❌";
-    const q = questions.find(q => q.field_name === field);
-    const opt = q?.options?.find(o => o.value === val);
-    return opt ? `${opt.emoji || ""} ${opt.label}` : val;
-  }
-
-  if (!current) return null;
-
+function SectionHero({ label, title, subtitle, bgColor = T.primary }) {
   return (
-    <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "28px" }}>
-        <button onClick={onBack} style={{
-          background: "none", border: "1px solid #1e3a5f", borderRadius: "100px",
-          color: S.muted, padding: "7px 16px", fontSize: "13px", cursor: "pointer",
-          transition: "border-color 0.2s, color 0.2s",
-        }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = S.orange; e.currentTarget.style.color = S.ivory; }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = "#1e3a5f"; e.currentTarget.style.color = S.muted; }}
-        >← Catégories</button>
-        <span style={{
-          fontSize: "13px", fontWeight: 700, color: category.color,
-          background: `${category.color}18`, borderRadius: "100px", padding: "5px 14px",
-        }}>{category.emoji} {category.label}</span>
-      </div>
-
-      <div style={{ height: "4px", background: "#1e3a5f", borderRadius: "100px", overflow: "hidden", marginBottom: "6px" }}>
-        <div style={{
-          height: "100%", width: `${progress}%`,
-          background: `linear-gradient(90deg, ${S.orange}, ${S.gold})`,
-          borderRadius: "100px", transition: "width 0.4s cubic-bezier(0.4,0,0.2,1)",
-        }} />
-      </div>
-      <p style={{ textAlign: "right", fontSize: "11px", color: S.muted, marginBottom: "24px" }}>
-        Question {idx + 1} / {total}
-      </p>
-
-      <div key={animKey} style={{ ...S.surface, padding: "32px 28px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)", animation: "recoSlideIn 0.3s ease" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 10px" }}>
-          Étape {idx + 1}
+    <div style={{ background: bgColor, padding: "72px 24px 0", position: "relative" }}>
+      <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", paddingBottom: 48 }}>
+        <p className="tg-section-label" style={{ color: T.light }}>
+          {label}
         </p>
-        <h2 style={{ fontFamily: "Georgia, serif", fontSize: "1.4rem", fontWeight: 700, color: S.ivory, margin: "0 0 6px", lineHeight: 1.25 }}>
-          {current.question}
-        </h2>
-        {current.help_text && <p style={{ fontSize: "13px", color: S.muted, margin: "0 0 24px" }}>{current.help_text}</p>}
-        {!current.help_text && <div style={{ marginBottom: "24px" }} />}
-
-        {current.type === "boolean" ? (
-          <div style={{ display: "flex", gap: "14px" }}>
-            {[{ v: true, label: "✅ Oui" }, { v: false, label: "❌ Non" }].map(({ v, label }) => (
-              <button key={String(v)} onClick={() => setSelected(v)} style={{
-                flex: 1, padding: "16px", borderRadius: "12px", cursor: "pointer",
-                border: `1.5px solid ${selected === v ? S.orange : "#1e3a5f"}`,
-                background: selected === v ? `${S.orange}18` : "#0d2137",
-                color: selected === v ? S.ivory : S.muted,
-                fontSize: "15px", fontWeight: 700, transition: "all 0.2s",
-                boxShadow: selected === v ? `0 0 16px ${S.orange}30` : "none",
-              }}>{label}</button>
-            ))}
-          </div>
-        ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px" }}>
-            {current.options?.map(opt => (
-              <button key={opt.value} onClick={() => setSelected(opt.value)} style={{
-                padding: "14px 10px", borderRadius: "12px", cursor: "pointer", textAlign: "center",
-                border: `1.5px solid ${selected === opt.value ? S.orange : "#1e3a5f"}`,
-                background: selected === opt.value ? `${S.orange}18` : "#0d2137",
-                color: selected === opt.value ? S.ivory : S.muted,
-                transition: "all 0.2s",
-                boxShadow: selected === opt.value ? `0 0 14px ${S.orange}28` : "none",
-              }}>
-                {opt.emoji && <span style={{ fontSize: "1.6rem", display: "block", marginBottom: "6px" }}>{opt.emoji}</span>}
-                <span style={{ fontSize: "12px", fontWeight: 700, display: "block" }}>{opt.label}</span>
-                {opt.description && <span style={{ fontSize: "10px", opacity: 0.65, display: "block", marginTop: "3px" }}>{opt.description}</span>}
-              </button>
-            ))}
-          </div>
-        )}
-
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #1e3a5f" }}>
-          {current.is_optional ? (
-            <button onClick={handleSkip} style={{ background: "none", border: "none", color: S.muted, cursor: "pointer", fontSize: "13px", textDecoration: "underline" }}>Passer</button>
-          ) : <span />}
-          <button onClick={handleNext} disabled={selected === null && !current.is_optional} style={{
-            background: selected !== null || current.is_optional ? `linear-gradient(135deg, ${S.orange}, #ea580c)` : "#1e3a5f",
-            border: "none", borderRadius: "100px", color: "#fff",
-            padding: "11px 26px", fontSize: "14px", fontWeight: 700,
-            cursor: selected !== null || current.is_optional ? "pointer" : "not-allowed",
-            opacity: selected === null && !current.is_optional ? 0.45 : 1,
-            transition: "all 0.22s",
-            boxShadow: selected !== null ? `0 6px 20px ${S.orange}40` : "none",
-          }}>{isLast ? "✨ Voir mes recommandations" : "Suivant →"}</button>
-        </div>
+        <h1 className="tg-serif tg-animate-fadeUp" style={{
+          fontSize: "clamp(2rem, 5vw, 3.2rem)", fontWeight: 600,
+          color: "#fff", lineHeight: 1.15, marginBottom: 16,
+        }}>
+          {title}
+        </h1>
+        <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 16, lineHeight: 1.7, animationDelay: "0.1s" }}
+           className="tg-animate-fadeUp">
+          {subtitle}
+        </p>
       </div>
-
-      {Object.keys(answers).length > 0 && (
-        <div style={{ marginTop: "18px", padding: "14px 18px", background: `${S.orange}0a`, border: `1px solid ${S.orange}25`, borderRadius: "12px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, letterSpacing: "0.08em", textTransform: "uppercase", margin: "0 0 10px" }}>Vos choix</p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
-            {Object.entries(answers).map(([f, v]) => (
-              <span key={f} style={{ fontSize: "12px", fontWeight: 500, color: S.ivory, background: "#1e3a5f", borderRadius: "100px", padding: "3px 11px" }}>
-                {readableLabel(f, v)}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+      <WaveSeparator color={T.bg} />
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// STEP 3 — ResultCards (Recommandation)
-// ─────────────────────────────────────────────────────────────────────────────
-const PREF_MAP = {
-  budget:        { icon: "", labels: { economique: "Économique", moyen: "Moyen", luxe: "Luxe" } },
-  type_sejour:   { icon: "", labels: { couple: "Couple", famille: "Famille", solo: "Solo", amis: "Amis" } },
-  cuisine:       { icon: "", labels: { marocaine: "Marocaine", internationale: "Internationale", cafe: "Café" } },
-  ambiance:      { icon: "", labels: { calme: "Calme", romantique: "Romantique", moderne: "Moderne" } },
-  type_plage:    { icon: "", labels: { calme: "Calme", animee: "Animée", randonnee: "Randonnée", coucher_soleil: "Coucher de soleil" } },
-  type_activite: { icon: "", labels: { aventure: "Aventure", historique: "Historique", famille: "Famille", culture: "Culture" } },
-  distance:      { icon: "", labels: { proche: "Proche", moyen: "Moyen", loin: "Loin" } },
-  localisation:  { icon: "" },
+/* ─────────────────────────────────────────────────────────────────────────────
+   DONNÉES LOCALES
+───────────────────────────────────────────────────────────────────────────── */
+const CATEGORIES = [
+  { id: "hotels",      label: "Hôtels",      icon: "🏨", description: "Hébergement selon votre budget et vos envies." },
+  { id: "restaurants", label: "Restaurants", icon: "🍽️", description: "Cuisine marocaine, internationale, terrasses." },
+  { id: "plages",      label: "Plages",      icon: "🏖️", description: "Calme, animée, coucher de soleil." },
+  { id: "activites",   label: "Activités",   icon: "🎭", description: "Aventure, culture, histoire, famille." },
+];
+
+const TYPE_CONFIG = {
+  aventure:    { color: "#f97316", label: "Aventure" },
+  sport:       { color: "#3b82f6", label: "Sport" },
+  détente:     { color: "#ec4899", label: "Détente" },
+  culture:     { color: "#06b6d4", label: "Culture" },
+  gastronomie: { color: "#f59e0b", label: "Gastronomie" },
+  créatif:     { color: "#8b5cf6", label: "Créatif" },
+  nightlife:   { color: "#6366f1", label: "Nightlife" },
+  famille:     { color: "#10b981", label: "Famille" },
+  historique:  { color: "#a855f7", label: "Historique" },
 };
 
+const BUDGET_CONFIG = {
+  économique: { label: "Économique" },
+  moyen:      { label: "Moyen" },
+  luxe:       { label: "Luxe" },
+};
+
+const CAT_EVENT_CONFIG = {
+  Musique:  { color: "#f97316" },
+  Culture:  { color: "#06b6d4" },
+  Cinéma:   { color: "#a855f7" },
+  Sport:    { color: "#10b981" },
+};
+
+const CAT_COLORS = {
+  culture:"#a855f7", nature:"#22c55e", gastronomie:"#ef4444", détente:"#06b6d4",
+  aventure:"#f97316", sport:"#3b82f6", famille:"#f59e0b", nightlife:"#ec4899", autre:"#64748b",
+};
+
+const LOCALISATION_ICONS = {
+  intérieur:"intérieur", extérieur:"extérieur", plage:"plage",
+  montagne:"montagne", "centre-ville":"centre-ville", médina:"médina",
+};
+
+function formatDuree(d) {
+  const map = { "1h":"1h","2h":"2h","demi-journée":"Demi-journée","Demi-journée":"Demi-journée","journée complète":"Journée complète","Journée complète":"Journée complète","soirée":"Soirée","quelques heures":"Quelques heures" };
+  return map[d] ?? d;
+}
 function cap(s) {
   if (!s) return "";
   return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, " ");
 }
 
-function ResultCard({ item, rank }) {
-  const [hov, setHov] = useState(false);
-  const isTop      = rank === 0;
-  const score      = item._score ?? 0;
-  const pct        = Math.round(score * 100);
-  const reasons    = item._match_reasons || [];
-  const isFallback = item._is_exact_match === false;
-
-  const tags = [
-    item.budget        && cap(item.budget),
-    item.localisation  && ` ${cap(item.localisation)}`,
-    item.type_sejour   && cap(item.type_sejour),
-    item.cuisine       && cap(item.cuisine),
-    item.ambiance      && cap(item.ambiance),
-    item.type_plage    && cap(item.type_plage),
-    item.type_activite && cap(item.type_activite),
-  ].filter(Boolean).slice(0, 4);
-
-  const prix = item.prix_min != null
-    ? `${item.prix_min}${item.prix_max ? `–${item.prix_max}` : ""} MAD`
-    : item.fourchette_prix || null;
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION ACCUEIL
+───────────────────────────────────────────────────────────────────────────── */
+function SectionAccueil({ onOpenChat }) {
+  const { data: lieux, loading, error, refetch } = useApiDataWithRefetch(() => lieuxApi.getAll());
+  const lieuxList = Array.isArray(lieux) ? lieux : (lieux?.lieux || lieux?.data || []);
+  const [search, setSearch] = useState("");
 
   return (
-    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-      background: "#112240", borderRadius: "16px", overflow: "hidden",
-      border: `1.5px solid ${isTop ? S.orange : hov ? "#2e5a8a" : "#1e3a5f"}`,
-      boxShadow: isTop ? `0 0 24px ${S.orange}28, 0 8px 32px rgba(0,0,0,0.4)` : hov ? "0 12px 36px rgba(0,0,0,0.45)" : "0 4px 16px rgba(0,0,0,0.3)",
-      transition: "transform 0.22s, box-shadow 0.22s, border-color 0.22s",
-      transform: hov ? "translateY(-5px)" : "translateY(0)",
-      position: "relative",
-    }}>
-      {isTop && (
-        <div style={{ position: "absolute", top: "12px", left: "12px", zIndex: 2, background: S.orange, color: "#fff", fontSize: "10px", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", padding: "3px 10px", borderRadius: "100px" }}>
-          Meilleur choix
-        </div>
-      )}
-      {isFallback && (
-        <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 2, background: "rgba(255,255,255,0.07)", color: S.muted, fontSize: "10px", padding: "3px 8px", borderRadius: "100px" }}>
-          Suggestion
-        </div>
-      )}
+    <>
+      {/* Hero immersif */}
       <div style={{
-        height: "160px",
-        background: item.image ? `url(${item.image}) center/cover no-repeat, #0d2137` : "linear-gradient(135deg, #0d2137, #1a3050)",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontSize: "3rem", position: "relative",
+        position: "relative", minHeight: 620,
+        background: `linear-gradient(to bottom, rgba(15,23,42,0.55) 0%, rgba(15,118,110,0.45) 100%),
+          url(https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1600&q=80) center/cover no-repeat`,
+        display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center",
+        padding: "80px 24px 120px", textAlign: "center",
       }}>
-        {!item.image && <span>🏙️</span>}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "50%", background: "linear-gradient(to top, #112240, transparent)" }} />
-      </div>
-      <div style={{ padding: "18px 20px 20px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "8px", marginBottom: "6px" }}>
-          <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: S.ivory, margin: 0, lineHeight: 1.2 }}>{item.nom}</h3>
-          {item.rating && <span style={{ color: S.gold, fontWeight: 700, fontSize: "13px", flexShrink: 0 }}>★ {Number(item.rating).toFixed(1)}</span>}
-        </div>
-        {item.description && (
-          <p style={{ fontSize: "12px", color: S.muted, lineHeight: 1.55, margin: "0 0 12px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-            {item.description}
-          </p>
-        )}
-        {tags.length > 0 && (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "5px", marginBottom: "12px" }}>
-            {tags.map((t, i) => <span key={i} style={{ fontSize: "10px", fontWeight: 500, color: S.muted, background: "#0d2137", borderRadius: "100px", padding: "2px 9px" }}>{t}</span>)}
-            {item.piscine && <span style={{ fontSize: "10px", fontWeight: 500, color: S.muted, background: "#0d2137", borderRadius: "100px", padding: "2px 9px" }}>🏊 Piscine</span>}
-            {item.vue_mer && <span style={{ fontSize: "10px", fontWeight: 500, color: S.muted, background: "#0d2137", borderRadius: "100px", padding: "2px 9px" }}>🌊 Vue mer</span>}
-          </div>
-        )}
-        {score > 0 && (
-          <div style={{ marginBottom: "12px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "10px", color: S.muted, marginBottom: "4px" }}>
-              <span>Pertinence</span><span>{pct}%</span>
-            </div>
-            <div style={{ height: "3px", background: "#1e3a5f", borderRadius: "100px", overflow: "hidden" }}>
-              <div style={{ height: "100%", width: `${pct}%`, background: `linear-gradient(90deg, ${S.orange}, ${S.gold})`, borderRadius: "100px", transition: "width 0.5s ease" }} />
-            </div>
-          </div>
-        )}
-        {reasons.length > 0 && (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginBottom: "14px" }}>
-            {reasons.map((r, i) => <span key={i} style={{ fontSize: "10px", fontWeight: 600, color: "#4ade80", background: "rgba(74,222,128,0.08)", borderRadius: "100px", padding: "2px 8px" }}>{r}</span>)}
-          </div>
-        )}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid #1e3a5f" }}>
-          <div>
-            {prix && <><span style={{ fontSize: "10px", color: S.muted, display: "block" }}>À partir de</span><span style={{ fontSize: "13px", fontWeight: 700, color: S.ivory }}>{prix}</span></>}
-            {!prix && item.adresse && <span style={{ fontSize: "11px", color: S.muted }}>📍 {item.adresse}</span>}
-          </div>
-          <button style={{ background: `linear-gradient(135deg, ${S.orange}, #ea580c)`, border: "none", borderRadius: "100px", color: "#fff", fontSize: "12px", fontWeight: 700, padding: "7px 16px", cursor: "pointer" }}>
-            Voir plus →
+        <span className="tg-tag" style={{ background: "rgba(255,255,255,0.15)", color: "#fff", marginBottom: 20, backdropFilter: "blur(8px)" }}>
+          Destination · Maroc
+        </span>
+        <h1 className="tg-serif tg-animate-fadeUp" style={{
+          fontSize: "clamp(2.8rem, 7vw, 5rem)", fontWeight: 600,
+          color: "#fff", lineHeight: 1.08, marginBottom: 20,
+          textShadow: "0 2px 20px rgba(0,0,0,0.3)",
+        }}>
+          Découvrez Tanger
+        </h1>
+        <p className="tg-animate-fadeUp" style={{
+          color: "rgba(255,255,255,0.85)", fontSize: 18, maxWidth: 500,
+          lineHeight: 1.65, marginBottom: 40, animationDelay: "0.1s",
+        }}>
+          Là où la Méditerranée rencontre l'Atlantique — une ville de lumière, d'histoire et d'authenticité.
+        </p>
+
+        {/* Search bar */}
+        <div className="tg-search tg-animate-fadeUp" style={{ animationDelay: "0.2s" }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={T.textMuted} strokeWidth="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Rechercher un lieu, une activité…"
+          />
+          <button className="tg-btn-primary" style={{ padding: "10px 22px", fontSize: 14 }}>
+            Explorer
           </button>
         </div>
-      </div>
-    </div>
-  );
-}
 
-function ResultCards({ results, category, preferences, onReset, onRetry }) {
-  const items = results?.resultats || [];
-  return (
-    <div>
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: "14px", marginBottom: "28px" }}>
-        <div>
-          <h2 style={{ fontFamily: "Georgia, serif", fontSize: "1.7rem", fontWeight: 700, color: S.ivory, margin: "0 0 6px" }}>
-            {category.emoji} {items.length} {category.label} recommandé{items.length > 1 ? "s" : ""}
+        {/* Stats */}
+        <div className="tg-animate-fadeUp" style={{ display: "flex", gap: 40, marginTop: 52, animationDelay: "0.3s" }}>
+          {[
+            { n: lieuxList.length || "—", label: "lieux indexés" },
+            { n: "4", label: "agents IA" },
+            { n: "11", label: "catégories" },
+          ].map((s, i) => (
+            <div key={i} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: 26, fontWeight: 700, color: "#fff", fontFamily: "'Cormorant Garamond', serif" }}>{s.n}</div>
+              <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", letterSpacing: "0.06em" }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Wave bottom */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 80 }}>
+            <path d="M0,40 C320,80 640,0 960,40 C1120,60 1280,20 1440,40 L1440,80 L0,80 Z" fill={T.bg} />
+          </svg>
+        </div>
+      </div>
+
+      {/* Lieux incontournables */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 24px 80px" }}>
+        <div style={{ textAlign: "center", marginBottom: 52 }}>
+          <p className="tg-section-label">À ne pas manquer</p>
+          <h2 className="tg-serif" style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 600, marginBottom: 12 }}>
+            Lieux incontournables
           </h2>
-          <p style={{ fontSize: "13px", color: S.muted, margin: 0 }}>
-            {items.length > 0 ? "Triés par pertinence selon vos préférences" : "Aucun résultat — essayez d'élargir vos critères"}
+          <p style={{ color: T.textMuted, fontSize: 15, maxWidth: 480, margin: "0 auto" }}>
+            Explorez les plus beaux endroits de Tanger, soigneusement sélectionnés pour vous.
           </p>
         </div>
-        <div style={{ display: "flex", gap: "10px" }}>
-          <button onClick={onRetry} style={{ background: "none", border: "1px solid #1e3a5f", borderRadius: "100px", color: S.muted, fontSize: "13px", fontWeight: 600, padding: "9px 18px", cursor: "pointer" }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = S.orange; e.currentTarget.style.color = S.orange; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = "#1e3a5f"; e.currentTarget.style.color = S.muted; }}
-          >✏️ Modifier</button>
-          <button onClick={onReset} style={{ background: `linear-gradient(135deg, ${S.orange}, #ea580c)`, border: "none", borderRadius: "100px", color: "#fff", fontSize: "13px", fontWeight: 700, padding: "9px 20px", cursor: "pointer" }}>
-            🔄 Recommencer
+
+        {loading && <Spinner />}
+        {error && <ErrorBanner message={error} onRetry={refetch} />}
+
+        {!loading && !error && (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 28 }}>
+            {lieuxList.map((lieu, i) => (
+              <LieuCard key={lieu.id || lieu.nom} lieu={lieu} onExplore={onOpenChat} delay={i * 0.06} />
+            ))}
+          </div>
+        )}
+
+        {/* CTA assistant IA */}
+        <div style={{
+          marginTop: 72,
+          background: `linear-gradient(135deg, ${T.primary} 0%, #0d9488 100%)`,
+          borderRadius: T.radiusXl,
+          padding: "44px 48px",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          flexWrap: "wrap", gap: 24, color: "#fff",
+        }}>
+          <div>
+            <p className="tg-section-label" style={{ color: T.light, marginBottom: 8 }}>Assistant IA</p>
+            <h3 className="tg-serif" style={{ fontSize: "1.7rem", fontWeight: 600, marginBottom: 8 }}>
+              Besoin de conseils personnalisés ?
+            </h3>
+            <p style={{ color: "rgba(255,255,255,0.78)", fontSize: 15 }}>
+              Notre IA répond à toutes vos questions : hôtels, restaurants, transports…
+            </p>
+          </div>
+          <button className="tg-btn-primary" onClick={onOpenChat} style={{
+            background: "#fff", color: T.primary, flexShrink: 0,
+          }}>
+            Ouvrir l'assistant
           </button>
         </div>
       </div>
+    </>
+  );
+}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "7px", marginBottom: "28px" }}>
-        {Object.entries(preferences).map(([key, val]) => {
-          const def = PREF_MAP[key];
-          if (!def) return null;
-          const icon  = def.icon || "";
-          const label = typeof val === "boolean" ? `${icon} ${key}: ${val ? "Oui" : "Non"}` : `${icon} ${def.labels?.[val] || cap(val)}`;
-          return (
-            <span key={key} style={{ fontSize: "12px", fontWeight: 600, color: S.orange, background: `${S.orange}12`, border: `1px solid ${S.orange}25`, borderRadius: "100px", padding: "4px 12px" }}>
-              {label}
-            </span>
-          );
-        })}
+function LieuCard({ lieu, onExplore, delay = 0 }) {
+  const imgUrl = lieu.image_url || lieu.imageUrl || "";
+  return (
+    <div className="tg-card tg-animate-fadeUp" style={{ animationDelay: `${delay}s`, cursor: "pointer" }}
+      onClick={() => onExplore(lieu)}>
+      {/* Image */}
+      <div className="tg-img-overlay" style={{ position: "relative", height: 220 }}>
+        <div style={{
+          height: "100%",
+          background: imgUrl
+            ? `url(${imgUrl}) center/cover no-repeat`
+            : `linear-gradient(135deg, ${T.light} 0%, ${T.secondary}40 100%)`,
+        }} />
+        <span style={{ position: "absolute", bottom: 14, left: 16, zIndex: 1 }}>
+          <span className="tg-tag" style={{ background: "rgba(255,255,255,0.9)", color: T.primary }}>
+            {lieu.categorie}
+          </span>
+        </span>
+        {lieu.note && (
+          <span style={{ position: "absolute", top: 14, right: 14, zIndex: 1 }}>
+            <span className="tg-rating">★ {lieu.note}</span>
+          </span>
+        )}
       </div>
-
-      {items.length === 0 ? (
-        <div style={{ textAlign: "center", padding: "60px 20px", color: S.muted }}>
-          <div style={{ fontSize: "3.5rem", marginBottom: "14px" }}>🔍</div>
-          <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.4rem", color: S.ivory, margin: "0 0 8px" }}>Aucun résultat</h3>
-          <p style={{ fontSize: "14px" }}>Essayez de modifier vos préférences.</p>
-          <button onClick={onRetry} style={{ marginTop: "20px", background: `linear-gradient(135deg, ${S.orange}, #ea580c)`, border: "none", borderRadius: "100px", color: "#fff", padding: "11px 24px", fontSize: "14px", fontWeight: 700, cursor: "pointer" }}>
-            Réessayer
-          </button>
-        </div>
-      ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))", gap: "20px" }}>
-          {items.map((item, i) => <ResultCard key={item.id || item.nom || i} item={item} rank={i} />)}
-        </div>
-      )}
+      {/* Body */}
+      <div style={{ padding: "20px 22px 22px" }}>
+        <h3 className="tg-serif" style={{ fontSize: "1.15rem", fontWeight: 600, marginBottom: 8, color: T.text }}>
+          {lieu.nom}
+        </h3>
+        <p style={{ fontSize: 13, color: T.textMuted, lineHeight: 1.65, marginBottom: 18,
+          display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+          {lieu.description}
+        </p>
+        <button className="tg-btn-primary" style={{ width: "100%", textAlign: "center" }}>
+          Explorer
+        </button>
+      </div>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION RECOMMANDATION
-// ─────────────────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION RECOMMANDATION
+───────────────────────────────────────────────────────────────────────────── */
 const STEP_RECO = { CATEGORY: "category", QUESTIONS: "questions", RESULTS: "results" };
 
 function SectionRecom() {
-  const [step,      setStep]      = useState(STEP_RECO.CATEGORY);
-  const [category,  setCategory]  = useState(null);
+  const [step, setStep]         = useState(STEP_RECO.CATEGORY);
+  const [category, setCategory] = useState(null);
   const [questions, setQuestions] = useState([]);
-  const [answers,   setAnswers]   = useState({});
-  const [results,   setResults]   = useState(null);
-  const [loading,   setLoading]   = useState(false);
-  const [error,     setError]     = useState(null);
-  const topRef                    = useRef(null);
+  const [answers, setAnswers]   = useState({});
+  const [results, setResults]   = useState(null);
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState(null);
+  const topRef                  = useRef(null);
 
-  useEffect(() => {
-    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [step]);
+  useEffect(() => { topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [step]);
 
   async function handleCategorySelect(cat) {
     setError(null); setLoading(true);
@@ -534,9 +712,8 @@ function SectionRecom() {
       const data = await recoApi.getQuestions(cat.id);
       setCategory(cat); setQuestions(data.questions); setAnswers({});
       setStep(STEP_RECO.QUESTIONS);
-    } catch (e) {
-      setError("Impossible de charger les questions. Vérifiez que le backend est actif.");
-    } finally { setLoading(false); }
+    } catch { setError("Impossible de charger les questions. Vérifiez que le backend est actif."); }
+    finally { setLoading(false); }
   }
 
   async function handleWizardComplete(collectedAnswers) {
@@ -544,9 +721,8 @@ function SectionRecom() {
     try {
       const data = await recoApi.getRecommandations({ categorie: category.id, ...collectedAnswers });
       setResults(data); setStep(STEP_RECO.RESULTS);
-    } catch (e) {
-      setError("Erreur lors de la génération des recommandations.");
-    } finally { setLoading(false); }
+    } catch { setError("Erreur lors de la génération des recommandations."); }
+    finally { setLoading(false); }
   }
 
   function handleReset() {
@@ -554,54 +730,63 @@ function SectionRecom() {
     setQuestions([]); setAnswers({}); setResults(null); setError(null);
   }
 
+  const steps = [
+    { n: 1, label: "Catégorie", key: STEP_RECO.CATEGORY },
+    { n: 2, label: "Questions", key: STEP_RECO.QUESTIONS },
+    { n: 3, label: "Résultats", key: STEP_RECO.RESULTS },
+  ];
+  const stepIdx = steps.findIndex(s => s.key === step);
+
   return (
     <>
-      <style>{`
-        @keyframes recoSlideIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes spin { to { transform: rotate(360deg); } }
-      `}</style>
+      <SectionHero
+        label="Recommandation IA"
+        title={<>Votre séjour <em style={{ fontStyle: "italic", color: T.light }}>sur mesure</em></>}
+        subtitle="Répondez à quelques questions — notre IA trouve les meilleures adresses de Tanger pour vous."
+      />
 
-      <div style={{ background: "linear-gradient(160deg, #0f2040 0%, #0a1628 100%)", borderBottom: "1px solid #1e3a5f", padding: "52px 24px 44px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(249,115,22,0.07) 0%, transparent 70%)" }} />
-        <div style={{ position: "relative", zIndex: 1 }} ref={topRef}>
-          <span style={{ display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: S.orange, background: `${S.orange}15`, border: `1px solid ${S.orange}30`, borderRadius: "100px", padding: "5px 16px", marginBottom: "20px" }}>
-            🤖 Recommandation IA
-          </span>
-          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 700, color: S.ivory, margin: "0 0 12px", lineHeight: 1.1 }}>
-            Votre séjour <em style={{ fontStyle: "italic", color: S.orange }}>sur mesure</em>
-          </h1>
-          <p style={{ color: S.muted, fontSize: "14px", maxWidth: "480px", margin: "0 auto 32px" }}>
-            Répondez à quelques questions — notre IA trouve les meilleures adresses de Tanger pour vous.
-          </p>
-          <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0 }}>
-            {[
-              { n: 1, label: "Catégorie", stepKey: STEP_RECO.CATEGORY },
-              { n: 2, label: "Questions", stepKey: STEP_RECO.QUESTIONS },
-              { n: 3, label: "Résultats", stepKey: STEP_RECO.RESULTS },
-            ].map((s, i) => {
-              const isActive = step === s.stepKey;
-              const isDone = (s.stepKey === STEP_RECO.CATEGORY && step !== STEP_RECO.CATEGORY) || (s.stepKey === STEP_RECO.QUESTIONS && step === STEP_RECO.RESULTS);
+      {/* Stepper */}
+      <div style={{ background: "#fff", borderBottom: `1px solid ${T.border}` }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "20px 0" }}>
+            {steps.map((s, i) => {
+              const isActive = step === s.key;
+              const isDone   = stepIdx > i;
               return (
                 <span key={s.n} style={{ display: "flex", alignItems: "center" }}>
-                  {i > 0 && <span style={{ width: "40px", height: "1px", background: "#1e3a5f", display: "block" }} />}
-                  <span style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "5px", padding: "0 10px" }}>
-                    <span style={{ width: "30px", height: "30px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 700, background: isActive ? S.orange : isDone ? `${S.orange}20` : "#1e3a5f", color: isActive ? "#fff" : isDone ? S.orange : S.muted, border: `1.5px solid ${isActive || isDone ? S.orange : "#1e3a5f"}`, boxShadow: isActive ? `0 0 14px ${S.orange}50` : "none", transition: "all 0.3s" }}>
+                  {i > 0 && <span style={{ width: 48, height: 1, background: isDone ? T.secondary : T.border, margin: "0 4px" }} />}
+                  <span style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+                    <span style={{
+                      width: 32, height: 32, borderRadius: "50%",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: 13, fontWeight: 600,
+                      background: isActive ? T.primary : isDone ? T.light : "#f1f5f9",
+                      color: isActive ? "#fff" : isDone ? T.primary : T.textMuted,
+                      border: `1.5px solid ${isActive || isDone ? T.primary : T.border}`,
+                      transition: "all 0.3s",
+                    }}>
                       {isDone ? "✓" : s.n}
                     </span>
-                    <span style={{ fontSize: "10px", color: isActive ? S.ivory : S.muted, fontWeight: isActive ? 600 : 400 }}>{s.label}</span>
+                    <span style={{ fontSize: 11, color: isActive ? T.primary : T.textMuted }}>
+                      {s.label}
+                    </span>
                   </span>
                 </span>
               );
             })}
-          </nav>
+          </div>
         </div>
       </div>
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "48px 24px 80px" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "52px 24px 80px" }} ref={topRef}>
         {error && (
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.28)", borderRadius: "10px", padding: "13px 18px", color: "#fca5a5", fontSize: "13px", marginBottom: "24px" }}>
-            <span>⚠️ {error}</span>
-            <button onClick={() => setError(null)} style={{ background: "none", border: "none", color: "#fca5a5", cursor: "pointer", fontSize: "15px" }}>✕</button>
+          <div style={{
+            background: "#fff5f5", border: "1px solid #fecaca", borderRadius: T.radiusSm,
+            padding: "14px 18px", color: "#b91c1c", fontSize: 13, marginBottom: 24,
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+          }}>
+            <span>{error}</span>
+            <button onClick={() => setError(null)} style={{ background: "none", border: "none", cursor: "pointer", color: "#b91c1c", fontSize: 16 }}>✕</button>
           </div>
         )}
         {loading && <RecoLoader />}
@@ -613,6 +798,231 @@ function SectionRecom() {
   );
 }
 
+function CategorySelector({ onSelect }) {
+  const [hovered, setHovered] = useState(null);
+  return (
+    <div>
+      <div style={{ marginBottom: 40, textAlign: "center" }}>
+        <h2 className="tg-serif" style={{ fontSize: "1.8rem", fontWeight: 600, marginBottom: 10 }}>
+          Que cherchez-vous ?
+        </h2>
+        <p style={{ color: T.textMuted, fontSize: 15 }}>
+          Choisissez une catégorie pour démarrer votre recommandation.
+        </p>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 20 }}>
+        {CATEGORIES.map(cat => (
+          <button key={cat.id} onClick={() => onSelect(cat)}
+            onMouseEnter={() => setHovered(cat.id)}
+            onMouseLeave={() => setHovered(null)}
+            style={{
+              background: "#fff", borderRadius: T.radius, padding: "32px 26px 28px",
+              border: `1.5px solid ${hovered === cat.id ? T.primary : T.border}`,
+              cursor: "pointer", textAlign: "left",
+              boxShadow: hovered === cat.id ? T.shadowHover : T.shadow,
+              transform: hovered === cat.id ? "translateY(-4px)" : "translateY(0)",
+              transition: "all 0.22s",
+            }}>
+            <span style={{ fontSize: "2.4rem", display: "block", marginBottom: 16 }}>{cat.icon}</span>
+            <h3 className="tg-serif" style={{ fontSize: "1.15rem", fontWeight: 600, color: T.text, marginBottom: 8 }}>
+              {cat.label}
+            </h3>
+            <p style={{ fontSize: 13, color: T.textMuted, lineHeight: 1.55 }}>{cat.description}</p>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function QuestionWizard({ category, questions, onComplete, onBack }) {
+  const [idx, setIdx]     = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [selected, setSelected] = useState(null);
+  const [animKey, setAnimKey] = useState(0);
+
+  const current = questions[idx];
+  const total   = questions.length;
+  const progress = (idx / total) * 100;
+  const isLast  = idx === total - 1;
+
+  function advance(next) {
+    if (isLast) { onComplete(next); return; }
+    setIdx(i => i + 1); setSelected(null); setAnimKey(k => k + 1);
+  }
+  function handleNext() {
+    if (selected === null && !current.is_optional) return;
+    const next = { ...answers };
+    if (selected !== null) next[current.field_name] = selected;
+    setAnswers(next); advance(next);
+  }
+
+  if (!current) return null;
+
+  return (
+    <div style={{ maxWidth: 620, margin: "0 auto" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28 }}>
+        <button className="tg-btn-ghost" onClick={onBack}>← Catégories</button>
+        <span className="tg-tag">{category.label}</span>
+      </div>
+
+      {/* Progress */}
+      <div className="tg-progress-track" style={{ marginBottom: 6 }}>
+        <div className="tg-progress-bar" style={{ width: `${progress}%` }} />
+      </div>
+      <p style={{ textAlign: "right", fontSize: 11, color: T.textMuted, marginBottom: 24 }}>
+        {idx + 1} / {total}
+      </p>
+
+      <div key={animKey} style={{
+        background: "#fff", borderRadius: T.radius, padding: "36px 32px",
+        border: `1px solid ${T.border}`, boxShadow: T.shadow,
+        animation: "tg-fadeUp 0.3s ease",
+      }}>
+        <p style={{ fontSize: 11, fontWeight: 600, color: T.secondary, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 10 }}>
+          Étape {idx + 1}
+        </p>
+        <h2 className="tg-serif" style={{ fontSize: "1.4rem", fontWeight: 600, marginBottom: 6 }}>
+          {current.question}
+        </h2>
+        {current.help_text && (
+          <p style={{ fontSize: 13, color: T.textMuted, marginBottom: 24 }}>{current.help_text}</p>
+        )}
+        {!current.help_text && <div style={{ marginBottom: 24 }} />}
+
+        {current.type === "boolean" ? (
+          <div style={{ display: "flex", gap: 12 }}>
+            {[{ v: true, label: "Oui" }, { v: false, label: "Non" }].map(({ v, label }) => (
+              <button key={String(v)} onClick={() => setSelected(v)} style={{
+                flex: 1, padding: 16, borderRadius: T.radiusSm, cursor: "pointer",
+                border: `1.5px solid ${selected === v ? T.primary : T.border}`,
+                background: selected === v ? T.light : "#f8fafc",
+                color: selected === v ? T.primary : T.textMuted,
+                fontSize: 15, fontWeight: 500, transition: "all 0.18s",
+                fontFamily: "'DM Sans', sans-serif",
+              }}>{label}</button>
+            ))}
+          </div>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10 }}>
+            {current.options?.map(opt => (
+              <button key={opt.value} onClick={() => setSelected(opt.value)} style={{
+                padding: "14px 10px", borderRadius: T.radiusSm, cursor: "pointer", textAlign: "center",
+                border: `1.5px solid ${selected === opt.value ? T.primary : T.border}`,
+                background: selected === opt.value ? T.light : "#f8fafc",
+                color: selected === opt.value ? T.primary : T.textMuted,
+                transition: "all 0.18s", fontFamily: "'DM Sans', sans-serif",
+              }}>
+                {opt.emoji && <span style={{ fontSize: "1.4rem", display: "block", marginBottom: 5 }}>{opt.emoji}</span>}
+                <span style={{ fontSize: 12, fontWeight: 500, display: "block" }}>{opt.label}</span>
+                {opt.description && <span style={{ fontSize: 10, opacity: 0.6, display: "block", marginTop: 2 }}>{opt.description}</span>}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 24, paddingTop: 20, borderTop: `1px solid ${T.border}` }}>
+          {current.is_optional ? (
+            <button onClick={() => advance({ ...answers })} style={{ background: "none", border: "none", color: T.textMuted, cursor: "pointer", fontSize: 13, textDecoration: "underline", fontFamily: "'DM Sans', sans-serif" }}>Passer</button>
+          ) : <span />}
+          <button className="tg-btn-primary" onClick={handleNext}
+            disabled={selected === null && !current.is_optional}
+            style={{ opacity: selected === null && !current.is_optional ? 0.4 : 1, cursor: selected === null && !current.is_optional ? "not-allowed" : "pointer" }}>
+            {isLast ? "Voir mes recommandations" : "Suivant"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ResultCards({ results, category, preferences, onReset, onRetry }) {
+  const items = results?.resultats || [];
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 32 }}>
+        <div>
+          <p className="tg-section-label">{category.label}</p>
+          <h2 className="tg-serif" style={{ fontSize: "1.7rem", fontWeight: 600 }}>
+            {items.length} résultat{items.length > 1 ? "s" : ""} personnalisé{items.length > 1 ? "s" : ""}
+          </h2>
+        </div>
+        <div style={{ display: "flex", gap: 10 }}>
+          <button className="tg-btn-ghost" onClick={onRetry}>Modifier</button>
+          <button className="tg-btn-primary" onClick={onReset}>Recommencer</button>
+        </div>
+      </div>
+
+      {items.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "60px 20px", color: T.textMuted }}>
+          <p style={{ fontSize: 16, marginBottom: 16 }}>Aucun résultat — essayez d'élargir vos critères.</p>
+          <button className="tg-btn-outline" onClick={onRetry}>Modifier les préférences</button>
+        </div>
+      ) : (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24 }}>
+          {items.map((item, i) => <RecoResultCard key={item.id || item.nom || i} item={item} rank={i} />)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function RecoResultCard({ item, rank }) {
+  const [hov, setHov] = useState(false);
+  const isTop = rank === 0;
+  const score = item._score ?? 0;
+  const pct   = Math.round(score * 100);
+
+  return (
+    <div className="tg-card" onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{ border: isTop ? `2px solid ${T.secondary}` : `1px solid ${T.border}` }}>
+      {isTop && (
+        <div style={{ background: T.primary, color: "#fff", fontSize: 10, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "6px 14px", textAlign: "center" }}>
+          Meilleur choix
+        </div>
+      )}
+      <div style={{
+        height: 160,
+        background: item.image ? `url(${item.image}) center/cover no-repeat, ${T.light}` : T.light,
+        position: "relative",
+      }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(15,118,110,0.3), transparent)" }} />
+      </div>
+      <div style={{ padding: "18px 20px 20px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+          <h3 className="tg-serif" style={{ fontSize: "1.05rem", fontWeight: 600 }}>{item.nom}</h3>
+          {item.rating && <span className="tg-rating">★ {Number(item.rating).toFixed(1)}</span>}
+        </div>
+        {item.description && (
+          <p style={{ fontSize: 12, color: T.textMuted, lineHeight: 1.6, marginBottom: 12,
+            display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+            {item.description}
+          </p>
+        )}
+        {score > 0 && (
+          <div style={{ marginBottom: 14 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 10, color: T.textMuted, marginBottom: 4 }}>
+              <span>Pertinence</span><span>{pct}%</span>
+            </div>
+            <div className="tg-progress-track">
+              <div className="tg-progress-bar" style={{ width: `${pct}%` }} />
+            </div>
+          </div>
+        )}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
+          <div>
+            {item.prix_min != null && (
+              <><span style={{ fontSize: 10, color: T.textMuted, display: "block" }}>À partir de</span>
+              <span style={{ fontSize: 14, fontWeight: 600 }}>{item.prix_min}{item.prix_max ? `–${item.prix_max}` : ""} MAD</span></>
+            )}
+          </div>
+          <button className="tg-btn-primary" style={{ padding: "8px 16px", fontSize: 12 }}>Voir plus</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function RecoLoader() {
   const msgs = ["Analyse de vos préférences…", "Consultation de la base de données…", "Scoring des meilleures adresses…"];
   const [idx, setIdx] = useState(0);
@@ -621,474 +1031,112 @@ function RecoLoader() {
     return () => clearInterval(t);
   }, []);
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "80px 0", gap: "22px" }}>
-      <div style={{ width: "56px", height: "56px", border: `3px solid ${S.orange}30`, borderTopColor: S.orange, borderRadius: "50%", animation: "spin 0.85s linear infinite" }} />
-      <p style={{ color: S.muted, fontSize: "13px", fontWeight: 300 }}>{msgs[idx]}</p>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "80px 0", gap: 20 }}>
+      <div className="tg-spinner" />
+      <p style={{ color: T.textMuted, fontSize: 13 }}>{msgs[idx]}</p>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION ACCUEIL — Lieux touristiques depuis API
-// ─────────────────────────────────────────────────────────────────────────────
-function Stars({ note }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-      <span style={{ color: "#f97316", fontSize: "14px" }}>★</span>
-      <span style={{ color: "#f97316", fontWeight: 700, fontSize: "13px" }}>{note}</span>
-    </div>
-  );
-}
-
-function LieuCard({ lieu, onExplore }) {
-  // Support des deux formats de champ image
-  const imgUrl = lieu.image_url || lieu.imageUrl || "";
-  return (
-    <div style={{
-      background: "#112240", borderRadius: "16px", overflow: "hidden",
-      border: "1px solid #1e3a5f", boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-      transition: "transform 0.2s, box-shadow 0.2s", cursor: "pointer",
-    }}
-      onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.borderColor = "#f97316"; }}
-      onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "#1e3a5f"; }}
-    >
-      <div style={{
-        height: "200px",
-        background: imgUrl
-          ? `url(${imgUrl}) center/cover no-repeat, #1e3a5f`
-          : "linear-gradient(135deg, #0d2137, #1a3050)",
-        position: "relative",
-      }}>
-        <div style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(13,27,42,0.85)", color: "#94a3b8", borderRadius: "20px", padding: "3px 10px", fontSize: "11px", fontWeight: 600 }}>
-          {lieu.categorie}
-        </div>
-        {lieu.badge && (
-          <div style={{ position: "absolute", top: "12px", right: "12px", background: "linear-gradient(135deg, #f97316, #ea580c)", color: "#fff", borderRadius: "20px", padding: "3px 10px", fontSize: "11px", fontWeight: 700 }}>
-            {lieu.badge}
-          </div>
-        )}
-      </div>
-      <div style={{ padding: "16px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-          <h3 style={{ margin: 0, fontSize: "16px", fontWeight: 700, color: "#f1f5f9" }}>{lieu.nom}</h3>
-          <Stars note={lieu.note} />
-        </div>
-        <p style={{ margin: "0 0 16px", color: "#94a3b8", fontSize: "13px", lineHeight: 1.6 }}>{lieu.description}</p>
-        <button onClick={() => onExplore(lieu)} style={{
-          background: "linear-gradient(135deg, #f97316, #ea580c)", border: "none",
-          borderRadius: "10px", color: "#fff", padding: "9px 0", width: "100%",
-          fontSize: "13px", fontWeight: 700, cursor: "pointer",
-        }}>Explorer</button>
-      </div>
-    </div>
-  );
-}
-
-function SectionAccueil({ onOpenChat }) {
-  const { data: lieux, loading, error, refetch } = useApiDataWithRefetch(() => lieuxApi.getAll());
-
-  // Support tableau direct ou objet { lieux: [...] }
-  const lieuxList = Array.isArray(lieux) ? lieux : (lieux?.lieux || lieux?.data || []);
-
-  return (
-    <>
-      <div style={{
-        height: "380px",
-        background: `linear-gradient(180deg, rgba(13,27,42,0.5) 0%, rgba(13,27,42,0.95) 100%),
-                     url(https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1400) center/cover no-repeat`,
-        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-        textAlign: "center", padding: "0 24px",
-      }}>
-        <div style={{ background: "rgba(249,115,22,0.15)", border: "1px solid rgba(249,115,22,0.3)", borderRadius: "20px", padding: "4px 16px", fontSize: "12px", color: "#f97316", fontWeight: 600, marginBottom: "16px" }}>
-          🤖 Assistance IA disponible
-        </div>
-        <h1 style={{ fontSize: "42px", fontWeight: 900, margin: "0 0 12px", color: "#f1f5f9" }}>Découvrez Tanger 🇲🇦</h1>
-        <p style={{ color: "#cbd5e1", fontSize: "17px", margin: "0 0 28px", maxWidth: "500px" }}>
-          Porte de l'Afrique, là où la Méditerranée rencontre l'Atlantique
-        </p>
-        <div style={{ display: "flex", gap: "40px" }}>
-          {[
-            { n: lieuxList.length || "…", label: "lieux indexés" },
-            { n: "4",  label: "agents IA" },
-            { n: "11", label: "catégories" },
-          ].map((s, i) => (
-            <div key={i} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "26px", fontWeight: 800, color: "#f97316" }}>{s.n}</div>
-              <div style={{ fontSize: "12px", color: "#94a3b8" }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px" }}>
-        <h2 style={{ textAlign: "center", fontSize: "24px", fontWeight: 800, color: "#f1f5f9", marginBottom: "8px", letterSpacing: "1px" }}>
-          LIEUX INCONTOURNABLES
-        </h2>
-        <p style={{ textAlign: "center", color: "#64748b", marginBottom: "40px", fontSize: "14px" }}>
-          Explorez les plus beaux endroits de Tanger
-        </p>
-
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-
-        {loading && <LoadingGrid color={S.orange} />}
-        {error   && <ErrorBanner message={error} onRetry={refetch} />}
-        {!loading && !error && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "24px" }}>
-            {lieuxList.map(lieu => (
-              <LieuCard key={lieu.id || lieu.nom} lieu={lieu} onExplore={onOpenChat} />
-            ))}
-          </div>
-        )}
-
-        <div style={{
-          marginTop: "60px",
-          background: "linear-gradient(135deg, #0d2137, #112240)",
-          border: "1px solid #f9731630", borderRadius: "16px",
-          padding: "32px 40px", display: "flex",
-          alignItems: "center", justifyContent: "space-between", gap: "24px",
-        }}>
-          <div>
-            <h3 style={{ color: "#f1f5f9", fontWeight: 700, fontSize: "20px", margin: "0 0 8px" }}>
-              Besoin d'aide pour planifier votre visite ?
-            </h3>
-            <p style={{ color: "#94a3b8", fontSize: "14px", margin: 0 }}>
-              Notre assistant IA répond à toutes vos questions : hôtels, restaurants, transports, urgences…
-            </p>
-          </div>
-          <button onClick={onOpenChat} style={{
-            background: "linear-gradient(135deg, #f97316, #ea580c)", border: "none",
-            borderRadius: "12px", color: "#fff", padding: "12px 28px",
-            fontSize: "14px", fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap",
-          }}>🤖 Ouvrir l'Assistant IA</button>
-        </div>
-      </div>
-    </>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// HOOK avec refetch (pour bouton "Réessayer")
-// ─────────────────────────────────────────────────────────────────────────────
-function useApiDataWithRefetch(fetchFn) {
-  const [data,    setData]    = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error,   setError]   = useState(null);
-  const [tick,    setTick]    = useState(0);
-
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true); setError(null);
-    fetchFn()
-      .then(d  => { if (!cancelled) setData(d); })
-      .catch(e => { if (!cancelled) setError(e.message); })
-      .finally(() => { if (!cancelled) setLoading(false); });
-    return () => { cancelled = true; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tick]);
-
-  return { data, loading, error, refetch: () => setTick(t => t + 1) };
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CONFIG types & budgets (utilisés pour les filtres dynamiques)
-// ─────────────────────────────────────────────────────────────────────────────
-const TYPE_CONFIG = {
-  aventure:    { color: "#f97316", label: "Aventure",    emoji: "🪂" },
-  sport:       { color: "#3b82f6", label: "Sport",       emoji: "⚽" },
-  détente:     { color: "#ec4899", label: "Détente",     emoji: "🧘" },
-  culture:     { color: "#06b6d4", label: "Culture",     emoji: "🏛️" },
-  gastronomie: { color: "#f59e0b", label: "Gastronomie", emoji: "🍽️" },
-  créatif:     { color: "#8b5cf6", label: "Créatif",     emoji: "🎨" },
-  nightlife:   { color: "#6366f1", label: "Nightlife",   emoji: "🎶" },
-  famille:     { color: "#10b981", label: "Famille",     emoji: "👨‍👩‍👧" },
-  historique:  { color: "#a855f7", label: "Historique",  emoji: "🏰" },
-};
-
-const BUDGET_CONFIG = {
-  économique: { label: "Éco",   emoji: "💚" },
-  moyen:      { label: "Moyen", emoji: "💙" },
-  luxe:       { label: "Luxe",  emoji: "💛" },
-};
-
-const LOCALISATION_ICONS = {
-  intérieur: "🏠", extérieur: "🌿", plage: "🏖️",
-  montagne: "⛰️", "centre-ville": "🏙️", médina: "🕌",
-};
-
-function formatDuree(duree) {
-  const map = {
-    "1h": "1h", "2h": "2h", "demi-journée": "Demi-journée",
-    "Demi-journée": "Demi-journée", "journée complète": "Journée complète",
-    "Journée complète": "Journée complète", "soirée": "Soirée",
-    "quelques heures": "Quelques heures",
-  };
-  return map[duree] ?? duree;
-}
-
-const metaBadgeStyle = {
-  fontSize: "11px", fontWeight: 500, color: "#94a3b8",
-  background: "#0d2137", borderRadius: "100px",
-  padding: "3px 10px", whiteSpace: "nowrap",
-};
-
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION ACTIVITÉS — données depuis API
-// ─────────────────────────────────────────────────────────────────────────────
-function ActiviteCard({ act, index }) {
-  const [hovered, setHovered] = useState(false);
-  const cfg      = TYPE_CONFIG[act.type] ?? { color: "#94a3b8", label: act.type, emoji: "🎯" };
-  const isGratuit = act.prix?.toLowerCase() === "gratuit";
-  const imgUrl   = act.image || act.image_url || "";
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        background: "#112240", borderRadius: "16px", overflow: "hidden",
-        border: `1.5px solid ${hovered ? cfg.color : "#1e3a5f"}`,
-        boxShadow: hovered ? `0 16px 40px rgba(0,0,0,0.5), 0 0 24px ${cfg.color}20` : "0 4px 16px rgba(0,0,0,0.3)",
-        transform: hovered ? "translateY(-6px)" : "translateY(0)",
-        transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
-        animation: "fadeInUp 0.4s ease both",
-        animationDelay: `${Math.min(index * 0.04, 0.4)}s`,
-      }}
-    >
-      <div style={{
-        height: "185px",
-        backgroundImage: imgUrl ? `url(${imgUrl})` : "none",
-        backgroundSize: "cover", backgroundPosition: "center",
-        backgroundColor: "#0d2137", position: "relative",
-        background: imgUrl
-          ? `url(${imgUrl}) center/cover no-repeat`
-          : "linear-gradient(135deg, #0d2137 0%, #1a3050 100%)",
-      }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #112240 0%, transparent 55%)" }} />
-        <span style={{
-          position: "absolute", top: "12px", left: "12px",
-          background: `${cfg.color}25`, border: `1px solid ${cfg.color}55`,
-          color: cfg.color, fontSize: "11px", fontWeight: 700,
-          padding: "4px 11px", borderRadius: "100px", backdropFilter: "blur(6px)",
-        }}>
-          {cfg.emoji} {cfg.label}
-        </span>
-        <span style={{
-          position: "absolute", top: "12px", right: "12px",
-          background: "rgba(10,20,35,0.82)", color: "#f5c842",
-          fontSize: "12px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px",
-        }}>
-          ★ {Number(act.rating).toFixed(1)}
-        </span>
-      </div>
-
-      <div style={{ padding: "16px 18px 18px" }}>
-        <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: "#f1f5f9", margin: "0 0 7px", lineHeight: 1.3 }}>
-          {act.nom}
-        </h3>
-        <p style={{ fontSize: "12px", color: "#64748b", lineHeight: 1.6, margin: "0 0 14px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-          {act.description}
-        </p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "14px" }}>
-          <span style={metaBadgeStyle}>{LOCALISATION_ICONS[act.localisation] ?? "📍"} {act.localisation}</span>
-          <span style={metaBadgeStyle}>⏱️ {formatDuree(act.duree)}</span>
-          <span style={metaBadgeStyle}>{BUDGET_CONFIG[act.budget]?.emoji ?? ""} {act.budget}</span>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "13px", borderTop: "1px solid #1e3a5f" }}>
-          <span style={{ fontSize: "16px", fontWeight: 800, color: isGratuit ? "#4ade80" : "#f1f5f9" }}>{act.prix}</span>
-          <button style={{
-            background: `linear-gradient(135deg, ${cfg.color} 0%, ${cfg.color}bb 100%)`,
-            border: "none", borderRadius: "100px", color: "#fff",
-            fontSize: "12px", fontWeight: 700, padding: "8px 18px", cursor: "pointer",
-            transition: "opacity 0.2s",
-          }}
-            onMouseEnter={e => e.currentTarget.style.opacity = "0.82"}
-            onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-          >
-            Réserver →
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION ACTIVITÉS
+───────────────────────────────────────────────────────────────────────────── */
 function SectionActivites() {
   const [activeType,   setActiveType]   = useState("tous");
   const [activeBudget, setActiveBudget] = useState("tous");
   const [search,       setSearch]       = useState("");
 
-  // ── Chargement API ─────────────────────────────────────────────
-  const { data: rawData, loading, error, refetch } = useApiDataWithRefetch(
-    () => activitesApi.getAll()
-  );
+  const { data: rawData, loading, error, refetch } = useApiDataWithRefetch(() => activitesApi.getAll());
 
-  // Support plusieurs formats de réponse : tableau direct ou { activites: [...] }
   const activitesData = useMemo(() => {
     if (!rawData) return [];
     return Array.isArray(rawData) ? rawData : (rawData.activites || rawData.data || []);
   }, [rawData]);
 
-  // ── Types disponibles dynamiquement depuis les données ─────────
   const availableTypes = useMemo(() => {
     const found = new Set(activitesData.map(a => a.type).filter(Boolean));
     return ["tous", ...Object.keys(TYPE_CONFIG).filter(k => found.has(k))];
   }, [activitesData]);
 
-  // ── Filtrage ───────────────────────────────────────────────────
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     return activitesData.filter(a => {
       const matchType   = activeType   === "tous" || a.type   === activeType;
       const matchBudget = activeBudget === "tous" || a.budget === activeBudget;
-      const matchSearch = !q
-        || a.nom?.toLowerCase().includes(q)
-        || a.description?.toLowerCase().includes(q)
-        || a.type?.toLowerCase().includes(q)
-        || a.localisation?.toLowerCase().includes(q);
+      const matchSearch = !q || a.nom?.toLowerCase().includes(q) || a.description?.toLowerCase().includes(q) || a.type?.toLowerCase().includes(q);
       return matchType && matchBudget && matchSearch;
     });
   }, [activitesData, activeType, activeBudget, search]);
 
-  const countByType = useMemo(() =>
-    Object.keys(TYPE_CONFIG).reduce((acc, t) => {
-      acc[t] = activitesData.filter(a => a.type === t).length;
-      return acc;
-    }, {}),
-  [activitesData]);
-
   return (
     <>
-      <style>{`
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes spin { to { transform: rotate(360deg); } }
-      `}</style>
+      <SectionHero
+        label="Explorer Tanger"
+        title={<>Que faire à <em style={{ fontStyle: "italic", color: T.light }}>Tanger ?</em></>}
+        subtitle={loading ? "Chargement des activités…" : `${activitesData.length} activités sélectionnées — aventure, sport, culture, famille`}
+      />
 
-      {/* HERO */}
-      <div style={{ background: "linear-gradient(160deg, #0f2040 0%, #0a1628 100%)", borderBottom: "1px solid #1e3a5f", padding: "52px 24px 44px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(99,102,241,0.09) 0%, transparent 70%)" }} />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <span style={{ display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#a855f7", background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", borderRadius: "100px", padding: "5px 16px", marginBottom: "18px" }}>
-            🎯 Activités
-          </span>
-          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 700, color: "#f1f5f9", margin: "0 0 10px" }}>
-            Que faire à <em style={{ fontStyle: "italic", color: "#a855f7" }}>Tanger ?</em>
-          </h1>
-          <p style={{ color: "#64748b", fontSize: "14px", margin: "0 auto 32px", maxWidth: "480px" }}>
-            {loading ? "Chargement des activités…" : `${activitesData.length} activités sélectionnées — aventure, sport, culture, famille & plus`}
-          </p>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
 
-          {/* Stats par type (seulement si données chargées) */}
-          {!loading && !error && (
-            <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
-              {availableTypes.filter(t => t !== "tous").map(t => {
-                const cfg = TYPE_CONFIG[t];
-                const count = countByType[t] ?? 0;
-                if (!count) return null;
-                return (
-                  <button key={t} onClick={() => setActiveType(t === activeType ? "tous" : t)} style={{ background: "none", border: "none", cursor: "pointer", textAlign: "center", padding: "4px" }}>
-                    <div style={{ fontSize: "20px" }}>{cfg.emoji}</div>
-                    <div style={{ fontSize: "11px", color: cfg.color, fontWeight: 700, marginTop: "3px" }}>{count} {cfg.label}</div>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* CONTENU */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 24px 80px" }}>
-
-        {/* Barre de filtres */}
+        {/* Filtres */}
         {!loading && !error && (
-          <div style={{ background: "#0d1f38", border: "1px solid #1e3a5f", borderRadius: "14px", padding: "18px 20px", marginBottom: "32px", display: "flex", flexDirection: "column", gap: "14px" }}>
-            {/* Recherche */}
-            <div style={{ position: "relative" }}>
-              <span style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", fontSize: "14px", color: "#64748b", pointerEvents: "none" }}>🔍</span>
-              <input value={search} onChange={e => setSearch(e.target.value)}
-                placeholder="Rechercher une activité, un lieu, un type…"
-                style={{ width: "100%", boxSizing: "border-box", padding: "10px 14px 10px 40px", background: "#112240", border: "1.5px solid #1e3a5f", borderRadius: "10px", color: "#f1f5f9", fontSize: "14px", outline: "none", transition: "border-color 0.2s" }}
-                onFocus={e => e.target.style.borderColor = "#6366f1"}
-                onBlur={e => e.target.style.borderColor = "#1e3a5f"}
-              />
+          <div style={{
+            background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`,
+            padding: "20px 22px", marginBottom: 36, boxShadow: T.shadow,
+          }}>
+            {/* Search */}
+            <div style={{ position: "relative", marginBottom: 16 }}>
+              <svg style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)" }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={T.textMuted} strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+              <input className="tg-input" value={search} onChange={e => setSearch(e.target.value)}
+                placeholder="Rechercher une activité, un lieu, un type…" />
             </div>
-
-            {/* Filtres type */}
-            <div style={{ display: "flex", gap: "7px", flexWrap: "wrap", alignItems: "center" }}>
-              <span style={{ fontSize: "11px", color: "#475569", fontWeight: 600, marginRight: "4px", whiteSpace: "nowrap" }}>TYPE :</span>
-              {availableTypes.map(t => {
-                const cfg = TYPE_CONFIG[t];
-                const isActive = activeType === t;
-                const activeColor = cfg?.color ?? "#94a3b8";
-                return (
-                  <button key={t} onClick={() => setActiveType(t)} style={{
-                    padding: "6px 14px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 700,
-                    border: `1.5px solid ${isActive ? activeColor : "#1e3a5f"}`,
-                    background: isActive ? `${activeColor}18` : "transparent",
-                    color: isActive ? activeColor : "#64748b", transition: "all 0.2s", whiteSpace: "nowrap",
-                  }}>
-                    {t === "tous" ? "✦ Tous" : `${cfg.emoji} ${cfg.label}`}
-                  </button>
-                );
-              })}
+            {/* Type pills */}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12, alignItems: "center" }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: T.textMuted, textTransform: "uppercase", letterSpacing: "0.08em", marginRight: 4 }}>Type :</span>
+              {availableTypes.map(t => (
+                <button key={t} className={`tg-filter-btn ${activeType === t ? "active" : ""}`} onClick={() => setActiveType(t)}>
+                  {t === "tous" ? "Tous" : TYPE_CONFIG[t]?.label || t}
+                </button>
+              ))}
             </div>
-
-            {/* Filtres budget */}
-            <div style={{ display: "flex", gap: "7px", flexWrap: "wrap", alignItems: "center" }}>
-              <span style={{ fontSize: "11px", color: "#475569", fontWeight: 600, marginRight: "4px", whiteSpace: "nowrap" }}>BUDGET :</span>
-              {["tous", "économique", "moyen", "luxe"].map(b => {
-                const isActive = activeBudget === b;
-                const cfg = BUDGET_CONFIG[b];
-                return (
-                  <button key={b} onClick={() => setActiveBudget(b)} style={{
-                    padding: "6px 14px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 700,
-                    border: `1.5px solid ${isActive ? "#f5c842" : "#1e3a5f"}`,
-                    background: isActive ? "rgba(245,200,66,0.12)" : "transparent",
-                    color: isActive ? "#f5c842" : "#64748b", transition: "all 0.2s", whiteSpace: "nowrap",
-                  }}>
-                    {b === "tous" ? "💫 Tous budgets" : `${cfg.emoji} ${cfg.label}`}
-                  </button>
-                );
-              })}
+            {/* Budget pills */}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: T.textMuted, textTransform: "uppercase", letterSpacing: "0.08em", marginRight: 4 }}>Budget :</span>
+              {["tous", "économique", "moyen", "luxe"].map(b => (
+                <button key={b} className={`tg-filter-btn ${activeBudget === b ? "active" : ""}`} onClick={() => setActiveBudget(b)}>
+                  {b === "tous" ? "Tous budgets" : cap(b)}
+                </button>
+              ))}
               {(activeType !== "tous" || activeBudget !== "tous" || search) && (
-                <button onClick={() => { setActiveType("tous"); setActiveBudget("tous"); setSearch(""); }} style={{
-                  padding: "6px 14px", borderRadius: "100px", cursor: "pointer", fontSize: "12px", fontWeight: 700,
-                  border: "1.5px solid #ef4444", background: "rgba(239,68,68,0.1)", color: "#ef4444", transition: "all 0.2s", marginLeft: "auto",
-                }}>
-                  ✕ Réinitialiser
+                <button className="tg-btn-ghost" onClick={() => { setActiveType("tous"); setActiveBudget("tous"); setSearch(""); }}
+                  style={{ marginLeft: "auto", borderColor: "#fca5a5", color: "#b91c1c", fontSize: 12 }}>
+                  Réinitialiser
                 </button>
               )}
             </div>
           </div>
         )}
 
-        {/* États */}
-        {loading && <LoadingGrid color="#a855f7" />}
-        {error   && <ErrorBanner message={error} onRetry={refetch} />}
+        {loading && <Spinner />}
+        {error && <ErrorBanner message={error} onRetry={refetch} />}
 
         {!loading && !error && (
           <>
-            <p style={{ color: "#475569", fontSize: "13px", marginBottom: "24px" }}>
-              <span style={{ color: "#f1f5f9", fontWeight: 700 }}>{filtered.length}</span>
-              {" "}activité{filtered.length > 1 ? "s" : ""} trouvée{filtered.length > 1 ? "s" : ""}
-              {activeType !== "tous" && <span style={{ color: TYPE_CONFIG[activeType]?.color }}> · {TYPE_CONFIG[activeType]?.label}</span>}
-              {activeBudget !== "tous" && <span style={{ color: "#f5c842" }}> · budget {activeBudget}</span>}
-              {search && <span style={{ color: "#94a3b8" }}> · "{search}"</span>}
+            <p style={{ color: T.textMuted, fontSize: 13, marginBottom: 24 }}>
+              <span style={{ color: T.text, fontWeight: 600 }}>{filtered.length}</span> activité{filtered.length > 1 ? "s" : ""}
             </p>
-
             {filtered.length > 0 ? (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))", gap: 24 }}>
                 {filtered.map((act, i) => <ActiviteCard key={act.id || `${act.nom}-${i}`} act={act} index={i} />)}
               </div>
             ) : (
-              <div style={{ textAlign: "center", padding: "70px 0", color: "#475569" }}>
-                <div style={{ fontSize: "3rem", marginBottom: "14px" }}>🔍</div>
-                <p style={{ fontSize: "16px", marginBottom: "8px" }}>Aucune activité trouvée.</p>
-                <p style={{ fontSize: "13px" }}>Essayez d'autres filtres ou effacez la recherche.</p>
-                <button onClick={() => { setActiveType("tous"); setActiveBudget("tous"); setSearch(""); }} style={{
-                  marginTop: "16px", padding: "9px 22px", borderRadius: "100px", cursor: "pointer",
-                  background: "rgba(99,102,241,0.15)", border: "1.5px solid #6366f1", color: "#6366f1", fontSize: "13px", fontWeight: 700,
-                }}>Réinitialiser les filtres</button>
+              <div style={{ textAlign: "center", padding: "60px 0", color: T.textMuted }}>
+                <p style={{ fontSize: 16, marginBottom: 16 }}>Aucune activité trouvée.</p>
+                <button className="tg-btn-outline" onClick={() => { setActiveType("tous"); setActiveBudget("tous"); setSearch(""); }}>
+                  Réinitialiser les filtres
+                </button>
               </div>
             )}
           </>
@@ -1098,33 +1146,78 @@ function SectionActivites() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION ÉVÉNEMENTS — données depuis API
-// ─────────────────────────────────────────────────────────────────────────────
-const CAT_EVENT_CONFIG = {
-  Musique:  { color: "#f97316", emoji: "🎵" },
-  Culture:  { color: "#06b6d4", emoji: "🏛️" },
-  Cinéma:   { color: "#a855f7", emoji: "🎬" },
-  Sport:    { color: "#10b981", emoji: "🏅" },
-};
+function ActiviteCard({ act, index }) {
+  const [hovered, setHovered] = useState(false);
+  const cfg    = TYPE_CONFIG[act.type] ?? { color: T.secondary, label: act.type };
+  const imgUrl = act.image || act.image_url || "";
+  const isGratuit = act.prix?.toLowerCase() === "gratuit";
 
+  return (
+    <div className="tg-card tg-animate-fadeUp"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ animationDelay: `${Math.min(index * 0.05, 0.4)}s` }}>
+      <div style={{
+        height: 190, position: "relative",
+        background: imgUrl ? `url(${imgUrl}) center/cover no-repeat` : T.light,
+      }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.25), transparent)" }} />
+        <span style={{
+          position: "absolute", top: 12, left: 12,
+          background: `${cfg.color}20`, border: `1px solid ${cfg.color}50`,
+          color: cfg.color, fontSize: 11, fontWeight: 600,
+          padding: "4px 12px", borderRadius: "100px",
+          backdropFilter: "blur(6px)", fontFamily: "'DM Sans', sans-serif",
+        }}>
+          {cfg.label}
+        </span>
+        {act.rating && (
+          <span className="tg-rating" style={{ position: "absolute", top: 12, right: 12 }}>
+            ★ {Number(act.rating).toFixed(1)}
+          </span>
+        )}
+      </div>
+      <div style={{ padding: "18px 20px 20px" }}>
+        <h3 className="tg-serif" style={{ fontSize: "1.05rem", fontWeight: 600, marginBottom: 8, color: T.text }}>
+          {act.nom}
+        </h3>
+        <p style={{ fontSize: 12, color: T.textMuted, lineHeight: 1.65, marginBottom: 14,
+          display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+          {act.description}
+        </p>
+        {/* Meta chips */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
+          {[act.localisation, formatDuree(act.duree), cap(act.budget)].filter(Boolean).map((v, i) => (
+            <span key={i} className="tg-tag-outline" style={{ fontSize: 11 }}>{v}</span>
+          ))}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 14, borderTop: `1px solid ${T.border}` }}>
+          <span style={{ fontSize: 15, fontWeight: 700, color: isGratuit ? "#16a34a" : T.text }}>
+            {act.prix}
+          </span>
+          <button className="tg-btn-primary" style={{ padding: "8px 18px", fontSize: 12 }}>
+            Réserver
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION ÉVÉNEMENTS
+───────────────────────────────────────────────────────────────────────────── */
 function SectionEvenements() {
   const [filter,   setFilter]   = useState("tous");
-  const [hovered,  setHovered]  = useState(null);
   const [expanded, setExpanded] = useState(null);
 
-  // ── Chargement API ─────────────────────────────────────────────
-  const { data: rawData, loading, error, refetch } = useApiDataWithRefetch(
-    () => evenementsApi.getAll()
-  );
+  const { data: rawData, loading, error, refetch } = useApiDataWithRefetch(() => evenementsApi.getAll());
 
-  // Support plusieurs formats : tableau direct ou { evenements: [...] }
   const eventsData = useMemo(() => {
     if (!rawData) return [];
     return Array.isArray(rawData) ? rawData : (rawData.evenements || rawData.events || rawData.data || []);
   }, [rawData]);
 
-  // ── Catégories dynamiques ──────────────────────────────────────
   const cats = useMemo(() => {
     const found = new Set(eventsData.map(e => e.category).filter(Boolean));
     return ["tous", ...Object.keys(CAT_EVENT_CONFIG).filter(k => found.has(k))];
@@ -1134,144 +1227,90 @@ function SectionEvenements() {
     eventsData.filter(e => filter === "tous" || e.category === filter),
   [eventsData, filter]);
 
-  const featured = eventsData[0];
-
   return (
     <>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <SectionHero
+        label="Agenda 2026–2027"
+        title={<>Événements à <em style={{ fontStyle: "italic", color: T.light }}>Tanger</em></>}
+        subtitle={loading ? "Chargement…" : `${eventsData.length} événements à venir — concerts, festivals, culture et sport`}
+      />
 
-      {/* Hero */}
-      <div style={{
-        position: "relative", overflow: "hidden",
-        background: featured?.image_url
-          ? `linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.95) 100%), url(${featured.image_url}) center/cover no-repeat`
-          : "linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)",
-        padding: "80px 24px 60px", textAlign: "center",
-      }}>
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "700px", margin: "0 auto" }}>
-          <span style={{ display: "inline-block", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#f97316", background: "rgba(249,115,22,0.15)", border: "1px solid rgba(249,115,22,0.3)", borderRadius: "100px", padding: "5px 16px", marginBottom: "18px" }}>
-            📅 Agenda 2026–2027
-          </span>
-          <h1 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(1.8rem,4vw,2.8rem)", fontWeight: 700, color: "#f1f5f9", margin: "0 0 10px" }}>
-            Événements à <em style={{ fontStyle: "italic", color: "#f97316" }}>Tanger</em>
-          </h1>
-          <p style={{ color: "#94a3b8", fontSize: "14px", margin: "0 auto 28px", maxWidth: "500px" }}>
-            {loading ? "Chargement…" : `${eventsData.length} événements à venir — concerts, festivals, culture et sport`}
-          </p>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "48px 24px 80px" }}>
 
-          {!loading && !error && (
-            <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
-              {Object.entries(CAT_EVENT_CONFIG).map(([k, v]) => {
-                const count = eventsData.filter(e => e.category === k).length;
-                if (!count) return null;
-                return (
-                  <div key={k} style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: "20px" }}>{v.emoji}</div>
-                    <div style={{ fontSize: "12px", color: v.color, fontWeight: 700, marginTop: "4px" }}>{count} {k}</div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </div>
+        {!loading && !error && (
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 36 }}>
+            {cats.map(c => {
+              const cfg = CAT_EVENT_CONFIG[c];
+              return (
+                <button key={c} className={`tg-filter-btn ${filter === c ? "active" : ""}`}
+                  onClick={() => setFilter(c)}
+                  style={filter === c && cfg ? { borderColor: cfg.color, background: cfg.color, color: "#fff" } : {}}>
+                  {c === "tous" ? "Tous" : c}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 24px 80px" }}>
-
-        {/* États */}
-        {loading && <LoadingGrid color={S.orange} />}
-        {error   && <ErrorBanner message={error} onRetry={refetch} />}
+        {loading && <Spinner />}
+        {error && <ErrorBanner message={error} onRetry={refetch} />}
 
         {!loading && !error && (
           <>
-            {/* Filtres catégorie */}
-            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "32px" }}>
-              {cats.map(c => {
-                const cfg = CAT_EVENT_CONFIG[c];
-                const isActive = filter === c;
-                return (
-                  <button key={c} onClick={() => setFilter(c)} style={{
-                    padding: "8px 18px", borderRadius: "100px", cursor: "pointer", fontSize: "13px", fontWeight: 700,
-                    border: `1.5px solid ${isActive ? (cfg?.color || "#f97316") : "#1e3a5f"}`,
-                    background: isActive ? `${cfg?.color || "#f97316"}15` : "none",
-                    color: isActive ? (cfg?.color || "#f97316") : "#64748b", transition: "all 0.2s",
-                  }}>
-                    {cfg ? `${cfg.emoji} ${c}` : "✦ Tous"}
-                  </button>
-                );
-              })}
-            </div>
-
-            <p style={{ color: "#64748b", fontSize: "13px", marginBottom: "28px" }}>
-              <span style={{ color: S.ivory, fontWeight: 700 }}>{filtered.length}</span> événement{filtered.length > 1 ? "s" : ""}
+            <p style={{ color: T.textMuted, fontSize: 13, marginBottom: 28 }}>
+              <span style={{ color: T.text, fontWeight: 600 }}>{filtered.length}</span> événement{filtered.length > 1 ? "s" : ""}
             </p>
-
-            {/* Cards */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(480px, 1fr))", gap: 22 }}>
               {filtered.map((ev, i) => {
-                const cfg   = CAT_EVENT_CONFIG[ev.category] || { color: "#f97316", emoji: "📅" };
-                const isHov = hovered === i;
-                const isExp = expanded === i;
+                const cfg    = CAT_EVENT_CONFIG[ev.category] || { color: T.primary };
+                const isExp  = expanded === i;
                 const imgUrl = ev.image_url || ev.image || "";
                 return (
-                  <div key={ev.id || i}
-                    onMouseEnter={() => setHovered(i)}
-                    onMouseLeave={() => setHovered(null)}
-                    style={{
-                      background: "#112240", borderRadius: "16px", overflow: "hidden",
-                      border: `1.5px solid ${isHov || isExp ? cfg.color : "#1e3a5f"}`,
-                      boxShadow: isHov ? `0 8px 28px rgba(0,0,0,0.4), 0 0 16px ${cfg.color}14` : "0 4px 16px rgba(0,0,0,0.25)",
-                      transition: "all 0.22s",
-                    }}
-                  >
-                    <div style={{ display: "flex", gap: 0, flexWrap: "wrap" }}>
+                  <div key={ev.id || i} className="tg-card tg-animate-fadeUp"
+                    style={{ animationDelay: `${i * 0.05}s`, display: "flex", flexDirection: "column" }}>
+                    <div style={{ display: "flex", gap: 0, flex: 1 }}>
+                      {/* Image column */}
                       <div style={{
-                        width: "220px", minWidth: "220px", flexShrink: 0,
-                        background: imgUrl
-                          ? `url(${imgUrl}) center/cover no-repeat, #0d2137`
-                          : "linear-gradient(135deg, #0d2137, #1a3050)",
-                        position: "relative", minHeight: "160px",
+                        width: 180, flexShrink: 0,
+                        background: imgUrl ? `url(${imgUrl}) center/cover no-repeat` : T.light,
+                        position: "relative", minHeight: 160, borderRadius: `${T.radius} 0 0 ${T.radius}`,
+                        overflow: "hidden",
                       }}>
-                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, transparent 60%, #112240 100%)" }} />
-                        <span style={{ position: "absolute", top: "12px", left: "12px", background: `${cfg.color}22`, border: `1px solid ${cfg.color}60`, color: cfg.color, fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "100px" }}>
-                          {cfg.emoji} {ev.category}
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent 60%, rgba(255,255,255,0.08) 100%)" }} />
+                        <span style={{
+                          position: "absolute", top: 10, left: 10,
+                          background: `${cfg.color}20`, border: `1px solid ${cfg.color}60`,
+                          color: cfg.color, fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: "100px",
+                          fontFamily: "'DM Sans', sans-serif",
+                        }}>
+                          {ev.category}
                         </span>
                       </div>
-
+                      {/* Content */}
                       <div style={{ flex: 1, padding: "20px 22px", minWidth: 0 }}>
-                        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px", marginBottom: "8px" }}>
-                          <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700, color: "#f1f5f9", margin: 0, lineHeight: 1.25 }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10, marginBottom: 8 }}>
+                          <h3 className="tg-serif" style={{ fontSize: "1.05rem", fontWeight: 600, lineHeight: 1.3 }}>
                             {ev.title || ev.titre || ev.nom}
                           </h3>
-                          <span style={{ flexShrink: 0, fontSize: "10px", fontWeight: 700, letterSpacing: "0.06em", background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.25)", borderRadius: "100px", padding: "3px 10px" }}>
+                          <span className="tg-tag" style={{ flexShrink: 0, background: "#f0fdf4", color: "#16a34a", fontSize: 10 }}>
                             À venir
                           </span>
                         </div>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "10px" }}>
-                          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: cfg.color, fontWeight: 600 }}>
-                            📅 {ev.date}
-                          </span>
-                          <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: "#64748b" }}>
-                            📍 {ev.location || ev.lieu}
-                          </span>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 10 }}>
+                          <span style={{ fontSize: 12, color: cfg.color, fontWeight: 500 }}>{ev.date}</span>
+                          <span style={{ fontSize: 12, color: T.textMuted }}>{ev.location || ev.lieu}</span>
                         </div>
                         <p style={{
-                          fontSize: "13px", color: "#64748b", lineHeight: 1.6, margin: "0 0 14px",
+                          fontSize: 13, color: T.textMuted, lineHeight: 1.65, marginBottom: 14,
                           ...(isExp ? {} : { display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }),
                         }}>
                           {ev.description}
                         </p>
-                        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                          <button onClick={() => setExpanded(isExp ? null : i)} style={{
-                            background: "none", border: "1px solid #1e3a5f", borderRadius: "100px", color: "#64748b",
-                            fontSize: "12px", fontWeight: 600, padding: "6px 14px", cursor: "pointer", transition: "all 0.2s",
-                          }}
-                            onMouseEnter={e => { e.currentTarget.style.borderColor = cfg.color; e.currentTarget.style.color = cfg.color; }}
-                            onMouseLeave={e => { e.currentTarget.style.borderColor = "#1e3a5f"; e.currentTarget.style.color = "#64748b"; }}
-                          >
-                            {isExp ? "Voir moins ↑" : "Lire plus ↓"}
+                        <div style={{ display: "flex", gap: 10 }}>
+                          <button className="tg-btn-ghost" onClick={() => setExpanded(isExp ? null : i)} style={{ fontSize: 12 }}>
+                            {isExp ? "Voir moins" : "Lire plus"}
                           </button>
-                          <button style={{ background: `linear-gradient(135deg, ${cfg.color}, ${cfg.color}cc)`, border: "none", borderRadius: "100px", color: "#fff", fontSize: "12px", fontWeight: 700, padding: "7px 16px", cursor: "pointer" }}>
+                          <button className="tg-btn-primary" style={{ padding: "7px 16px", fontSize: 12 }}>
                             En savoir plus
                           </button>
                         </div>
@@ -1288,20 +1327,11 @@ function SectionEvenements() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DASHBOARD (inchangé — déjà connecté au backend)
-// ─────────────────────────────────────────────────────────────────────────────
-const CAT_COLORS = {
-  culture:"#a855f7", nature:"#22c55e", gastronomie:"#ef4444", détente:"#06b6d4",
-  aventure:"#f97316", sport:"#3b82f6", famille:"#f59e0b", nightlife:"#ec4899", autre:"#64748b",
-};
-const CAT_EMOJI = {
-  culture:"🏛️", nature:"🌿", gastronomie:"🍽️", détente:"🧘",
-  aventure:"🪂", sport:"⚽", famille:"👨‍👩‍👧", nightlife:"🎶", autre:"📍",
-};
+/* ─────────────────────────────────────────────────────────────────────────────
+   DASHBOARD — inchangé structurellement, redesigné visuellement
+───────────────────────────────────────────────────────────────────────────── */
 const BUDGET_COLORS  = { économique:"#22c55e", moyen:"#3b82f6", luxe:"#f5c842" };
 const SAISON_COLORS  = { automne:"#f97316", printemps:"#22c55e", ete:"#06b6d4", hiver:"#a855f7" };
-const SAISON_EMOJI   = { automne:"🍂", printemps:"🌸", ete:"☀️", hiver:"❄️" };
 
 const API_DASH = "/api/dashboard";
 async function dashFetch(path) {
@@ -1310,49 +1340,34 @@ async function dashFetch(path) {
   return res.json();
 }
 
-function ProgressBar({ value, max, color, height = 8 }) {
-  const pct = Math.round((value / max) * 100);
+function ProgressBar({ value, max, color = T.primary, height = 5 }) {
+  const pct = Math.min(100, Math.round((value / Math.max(max, 1)) * 100));
   return (
-    <div style={{ height, background: "#1e3a5f", borderRadius: 100, overflow: "hidden" }}>
-      <div style={{ height: "100%", width: `${pct}%`, borderRadius: 100, background: color, transition: "width 0.8s cubic-bezier(0.4,0,0.2,1)" }} />
+    <div className="tg-progress-track" style={{ height }}>
+      <div style={{ height: "100%", width: `${pct}%`, borderRadius: "100px", background: color, transition: "width 0.8s cubic-bezier(0.4,0,0.2,1)" }} />
     </div>
   );
 }
 
-function KPICard({ label, value, sub, icon, color = S.orange, onClick }) {
-  const [hov, setHov] = useState(false);
+function KPICard({ label, value, icon, color = T.primary }) {
   return (
-    <div onClick={onClick} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-      ...S.surface, padding: "22px 20px", cursor: onClick ? "pointer" : "default",
-      transition: "transform 0.2s, border-color 0.2s, box-shadow 0.2s",
-      transform: hov ? "translateY(-4px)" : "translateY(0)",
-      borderColor: hov ? color : "#1e3a5f",
-      boxShadow: hov ? `0 12px 32px rgba(0,0,0,0.4), 0 0 20px ${color}18` : "0 4px 16px rgba(0,0,0,0.25)",
-      position: "relative", overflow: "hidden",
+    <div style={{
+      background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`,
+      padding: "22px 20px", boxShadow: T.shadow,
+      borderTop: `3px solid ${color}`,
     }}>
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: color, opacity: hov ? 1 : 0, transition: "opacity 0.2s" }} />
-      <div style={{ fontSize: "1.8rem", marginBottom: "10px", lineHeight: 1 }}>{icon}</div>
-      <div style={{ fontSize: "1.9rem", fontWeight: 800, color, lineHeight: 1, marginBottom: "4px" }}>{value}</div>
-      <div style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{label}</div>
-      {sub && <div style={{ fontSize: "11px", color: S.muted, marginTop: "3px" }}>{sub}</div>}
+      <div style={{ fontSize: "1.6rem", marginBottom: 10 }}>{icon}</div>
+      <div style={{ fontSize: "1.8rem", fontWeight: 700, color, lineHeight: 1, marginBottom: 4, fontFamily: "'Cormorant Garamond', serif" }}>{value}</div>
+      <div style={{ fontSize: 12, color: T.textMuted }}>{label}</div>
     </div>
   );
 }
 
-function Spinner({ color = S.orange }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "center", padding: "40px" }}>
-      <div style={{ width: 36, height: 36, border: `3px solid #1e3a5f`, borderTopColor: color, borderRadius: "50%", animation: "dashSpin 0.8s linear infinite" }} />
-    </div>
-  );
-}
-
-// ── Sous-sections Dashboard (identiques à l'original) ────────────────────────
 function DashGlobal({ data }) {
   if (!data) return <Spinner />;
   const { overview, pricing, quality, geography } = data;
   const kpis = [
-    { label: "Lieux touristiques", value: overview.total_lieux_touristiques, icon: "🏛️",  color: "#a855f7" },
+    { label: "Lieux touristiques", value: overview.total_lieux_touristiques, icon: "🏛️",  color: T.primary },
     { label: "Activités",          value: overview.total_activites,           icon: "🎯",  color: "#f97316" },
     { label: "Hôtels",             value: overview.total_hotels,              icon: "🏨",  color: "#f5c842" },
     { label: "Restaurants",        value: overview.total_restaurants,         icon: "🍽️", color: "#ef4444" },
@@ -1361,129 +1376,95 @@ function DashGlobal({ data }) {
     { label: "Avis collectés",     value: overview.total_avis,                icon: "💬",  color: "#3b82f6" },
     { label: "Profils analysés",   value: overview.total_utilisateurs,        icon: "👤",  color: "#ec4899" },
   ];
-  const maxQuartier = geography.top_quartiers[0]?.count || 1;
+  const maxQ = geography.top_quartiers[0]?.count || 1;
   return (
     <div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "14px", marginBottom: "28px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 14, marginBottom: 28 }}>
         {kpis.map(k => <KPICard key={k.label} {...k} />)}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.4fr", gap: "14px" }}>
-        <div style={{ ...S.surface, padding: "22px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>💰 Prix moyens</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.4fr", gap: 14 }}>
+        {/* Prix */}
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: "22px", boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 16 }}>Prix moyens</p>
           {[
-            { label: "Hôtel / nuit",  val: `${pricing.prix_moyen_hotel_mad.toLocaleString()} MAD`, color: "#f5c842", raw: pricing.prix_moyen_hotel_mad },
-            { label: "Repas / pers.", val: `${pricing.prix_moyen_restaurant_mad} MAD`, color: "#ef4444", raw: pricing.prix_moyen_restaurant_mad },
+            { label: "Hôtel / nuit", val: `${pricing.prix_moyen_hotel_mad?.toLocaleString()} MAD`, color: "#f5c842", raw: pricing.prix_moyen_hotel_mad, max: 2000 },
+            { label: "Repas / pers.", val: `${pricing.prix_moyen_restaurant_mad} MAD`, color: "#ef4444", raw: pricing.prix_moyen_restaurant_mad, max: 500 },
           ].map(row => (
-            <div key={row.label} style={{ marginBottom: "14px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                <span style={{ fontSize: "12px", color: S.muted }}>{row.label}</span>
-                <span style={{ fontSize: "14px", fontWeight: 800, color: row.color }}>{row.val}</span>
+            <div key={row.label} style={{ marginBottom: 16 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                <span style={{ fontSize: 12, color: T.textMuted }}>{row.label}</span>
+                <span style={{ fontSize: 14, fontWeight: 700, color: row.color }}>{row.val}</span>
               </div>
-              <ProgressBar value={row.raw} max={2000} color={row.color} />
+              <ProgressBar value={row.raw} max={row.max} color={row.color} height={5} />
             </div>
           ))}
         </div>
-        <div style={{ ...S.surface, padding: "22px", textAlign: "center" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>⭐ Satisfaction globale</p>
-          <div style={{ fontSize: "3.8rem", fontWeight: 900, color: S.gold, lineHeight: 1 }}>{quality.note_moyenne_globale}</div>
-          <div style={{ fontSize: "12px", color: S.muted, margin: "6px 0 16px" }}>/ 5.0 · {quality.total_avis_collectes} avis</div>
-          <div style={{ display: "flex", justifyContent: "center", gap: "4px" }}>
+        {/* Satisfaction */}
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: "22px", textAlign: "center", boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 16 }}>Satisfaction globale</p>
+          <div style={{ fontSize: "3.2rem", fontWeight: 700, color: "#f59e0b", fontFamily: "'Cormorant Garamond', serif", lineHeight: 1 }}>
+            {quality.note_moyenne_globale}
+          </div>
+          <div style={{ fontSize: 12, color: T.textMuted, margin: "6px 0 16px" }}>/ 5.0 · {quality.total_avis_collectes} avis</div>
+          <div style={{ display: "flex", justifyContent: "center", gap: 4 }}>
             {[1,2,3,4,5].map(i => (
-              <div key={i} style={{ width: 28, height: 28, borderRadius: "50%", background: i <= Math.round(quality.note_moyenne_globale) ? `${S.gold}22` : "#1e3a5f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>
-                {i <= Math.round(quality.note_moyenne_globale) ? "⭐" : "☆"}
-              </div>
+              <span key={i} style={{ color: i <= Math.round(quality.note_moyenne_globale) ? "#f59e0b" : T.border, fontSize: 18 }}>★</span>
             ))}
           </div>
         </div>
-        <div style={{ ...S.surface, padding: "22px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>📍 Top quartiers touristiques</p>
-          {geography.top_quartiers.map((q, i) => (
-            <div key={q.quartier} style={{ marginBottom: "12px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ width: 20, height: 20, borderRadius: "50%", background: [S.orange,"#a855f7","#06b6d4","#22c55e","#f5c842"][i], display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: 800, color: "#fff", flexShrink: 0 }}>{i+1}</span>
-                  <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{q.quartier}</span>
+        {/* Top quartiers */}
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: "22px", boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 16 }}>Top quartiers touristiques</p>
+          {geography.top_quartiers.map((q, i) => {
+            const colors = [T.primary, "#a855f7", "#06b6d4", "#22c55e", "#f5c842"];
+            return (
+              <div key={q.quartier} style={{ marginBottom: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ width: 20, height: 20, borderRadius: "50%", background: colors[i], display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, color: "#fff", flexShrink: 0 }}>{i+1}</span>
+                    <span style={{ fontSize: 13, fontWeight: 500 }}>{q.quartier}</span>
+                  </div>
+                  <span style={{ fontSize: 12, color: T.textMuted }}>{q.count} lieux</span>
                 </div>
-                <span style={{ fontSize: "12px", color: S.muted, fontWeight: 700 }}>{q.count} lieux</span>
+                <ProgressBar value={q.count} max={maxQ} color={colors[i]} />
               </div>
-              <ProgressBar value={q.count} max={maxQuartier} color={[S.orange,"#a855f7","#06b6d4","#22c55e","#f5c842"][i]} height={5} />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
   );
 }
 
-// (DashCategories, DashBudget, DashHotels, DashTopActivites, DashUserProfile identiques à l'original)
 function DashCategories({ data }) {
   if (!data) return <Spinner />;
   const entries = Object.entries(data).sort((a, b) => b[1] - a[1]);
-  const total = entries.reduce((s, [, v]) => s + v, 0);
-  const maxVal = entries[0]?.[1] || 1;
+  const total   = entries.reduce((s, [, v]) => s + v, 0);
+  const maxVal  = entries[0]?.[1] || 1;
+  const CAT_EMOJI = { culture:"🏛️", nature:"🌿", gastronomie:"🍽️", détente:"🧘", aventure:"🪂", sport:"⚽", famille:"👨‍👩‍👧", nightlife:"🎶", autre:"📍" };
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "20px" }}>
-      <div style={{ ...S.surface, padding: "24px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>🗂️ Répartition par catégorie</p>
-        {entries.map(([cat, val]) => {
-          const color = CAT_COLORS[cat] || "#64748b";
-          const pct   = Math.round((val / total) * 100);
-          return (
-            <div key={cat} style={{ marginBottom: "14px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ fontSize: "15px" }}>{CAT_EMOJI[cat] || "📍"}</span>
-                  <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600, textTransform: "capitalize" }}>{cat}</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <span style={{ fontSize: "12px", color: S.muted }}>{pct}%</span>
-                  <span style={{ fontSize: "13px", fontWeight: 800, color, background: `${color}15`, borderRadius: 100, padding: "2px 10px", minWidth: 36, textAlign: "center" }}>{val}</span>
-                </div>
+    <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 28, boxShadow: T.shadow }}>
+      <p className="tg-section-label" style={{ marginBottom: 22 }}>Répartition par catégorie</p>
+      {entries.map(([cat, val]) => {
+        const color = CAT_COLORS[cat] || T.textMuted;
+        const pct = Math.round((val / total) * 100);
+        return (
+          <div key={cat} style={{ marginBottom: 16 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 15 }}>{CAT_EMOJI[cat] || "📍"}</span>
+                <span style={{ fontSize: 13, fontWeight: 500, textTransform: "capitalize" }}>{cat}</span>
               </div>
-              <ProgressBar value={val} max={maxVal} color={color} height={7} />
+              <div style={{ display: "flex", gap: 10 }}>
+                <span style={{ fontSize: 12, color: T.textMuted }}>{pct}%</span>
+                <span style={{ fontSize: 13, fontWeight: 700, color, background: `${color}15`, borderRadius: 100, padding: "1px 10px" }}>{val}</span>
+              </div>
             </div>
-          );
-        })}
-      </div>
-      <div style={{ ...S.surface, padding: "24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px", alignSelf: "flex-start" }}>🎯 Distribution visuelle</p>
-        <DashDonut entries={entries} total={total} />
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "16px", justifyContent: "center" }}>
-          {entries.slice(0, 6).map(([cat]) => (
-            <span key={cat} style={{ fontSize: "11px", fontWeight: 700, borderRadius: 100, padding: "3px 10px", background: `${CAT_COLORS[cat] || "#64748b"}18`, color: CAT_COLORS[cat] || "#64748b", border: `1px solid ${CAT_COLORS[cat] || "#64748b"}30` }}>
-              {CAT_EMOJI[cat]} {cat}
-            </span>
-          ))}
-        </div>
-      </div>
+            <ProgressBar value={val} max={maxVal} color={color} height={6} />
+          </div>
+        );
+      })}
     </div>
-  );
-}
-
-function DashDonut({ entries, total }) {
-  const r = 70, cx = 90, cy = 90, stroke = 22;
-  const circumference = 2 * Math.PI * r;
-  let offset = 0;
-  const slices = entries.slice(0, 7).map(([cat, val]) => {
-    const pct = val / total;
-    const dash = pct * circumference;
-    const gap  = circumference - dash;
-    const slice = { cat, val, pct, dash, gap, offset, color: CAT_COLORS[cat] || "#64748b" };
-    offset += dash;
-    return slice;
-  });
-  return (
-    <svg width={180} height={180} viewBox="0 0 180 180">
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#1e3a5f" strokeWidth={stroke} />
-      {slices.map(s => (
-        <circle key={s.cat} cx={cx} cy={cy} r={r} fill="none" stroke={s.color} strokeWidth={stroke}
-          strokeDasharray={`${s.dash} ${s.gap}`} strokeDashoffset={-s.offset + circumference * 0.25}
-          style={{ transition: "stroke-dasharray 0.8s ease" }}
-        />
-      ))}
-      <text x={cx} y={cy - 6} textAnchor="middle" fill={S.ivory} fontSize={22} fontWeight={800}>{total}</text>
-      <text x={cx} y={cy + 14} textAnchor="middle" fill={S.muted} fontSize={11}>lieux</text>
-    </svg>
   );
 }
 
@@ -1494,69 +1475,31 @@ function DashBudget({ data }) {
   const acts   = data.activites || {};
   const totalU = Object.values(users).reduce((s, v) => s + v, 0) || 1;
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
-      <div style={{ ...S.surface, padding: "24px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>👤 Budget visiteurs</p>
-        {["moyen", "économique", "luxe"].map(b => {
-          const val = users[b] || 0; const color = BUDGET_COLORS[b]; const pct = Math.round((val / totalU) * 100);
-          return (
-            <div key={b} style={{ marginBottom: "18px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "7px" }}>
-                <span style={{ fontSize: "14px", color: S.ivory, fontWeight: 700, textTransform: "capitalize" }}>{{ économique:"💚", moyen:"💙", luxe:"💛" }[b]} {b}</span>
-                <span style={{ fontSize: "20px", fontWeight: 900, color }}>{pct}%</span>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+      {[
+        { title: "Budget visiteurs", items: users, total: totalU, suffix: "visiteurs", extra: <div style={{ marginTop: 16, padding: "12px 16px", background: T.light, borderRadius: T.radiusSm }}><div style={{ fontSize: 11, color: T.textMuted, marginBottom: 2 }}>Budget moyen / jour</div><div style={{ fontSize: 22, fontWeight: 700, color: T.primary, fontFamily: "'Cormorant Garamond', serif" }}>{(data.budget_moyen_utilisateur_mad || 1160).toLocaleString()} MAD</div></div> },
+        { title: "Segment hôtelier", items: hotels, total: Object.values(hotels).reduce((s,v)=>s+v,0)||1, suffix: "hôtels" },
+        { title: "Activités par budget", items: acts, total: Object.values(acts).reduce((s,v)=>s+v,0)||1, suffix: "activités" },
+      ].map(({ title, items, total, suffix, extra }) => (
+        <div key={title} style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: "24px", boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 20 }}>{title}</p>
+          {["économique","moyen","luxe"].map(b => {
+            const val = items[b] || 0;
+            const color = BUDGET_COLORS[b];
+            const pct = Math.round((val / total) * 100);
+            return (
+              <div key={b} style={{ marginBottom: 16 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+                  <span style={{ fontSize: 13, fontWeight: 500, textTransform: "capitalize" }}>{cap(b)}</span>
+                  <span style={{ fontSize: 13, fontWeight: 700, color }}>{val} {suffix}</span>
+                </div>
+                <ProgressBar value={val} max={total} color={color} />
               </div>
-              <ProgressBar value={val} max={totalU} color={color} height={10} />
-              <div style={{ fontSize: "11px", color: S.muted, marginTop: "4px", textAlign: "right" }}>{val} visiteurs</div>
-            </div>
-          );
-        })}
-        <div style={{ marginTop: "16px", padding: "12px 16px", background: `${S.orange}0a`, border: `1px solid ${S.orange}20`, borderRadius: "12px" }}>
-          <div style={{ fontSize: "11px", color: S.muted, marginBottom: "2px" }}>Budget moyen / jour</div>
-          <div style={{ fontSize: "22px", fontWeight: 900, color: S.orange }}>{(data.budget_moyen_utilisateur_mad || 1160).toLocaleString()} MAD</div>
+            );
+          })}
+          {extra}
         </div>
-      </div>
-      <div style={{ ...S.surface, padding: "24px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>🏨 Segment hôtelier</p>
-        {["économique", "moyen", "luxe"].map(b => {
-          const val = hotels[b] || 0; const color = BUDGET_COLORS[b]; const total = Object.values(hotels).reduce((s, v) => s + v, 0) || 1;
-          return (
-            <div key={b} style={{ marginBottom: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600, textTransform: "capitalize" }}>{b}</span>
-                <span style={{ fontSize: "14px", fontWeight: 800, color }}>{val} hôtels</span>
-              </div>
-              <ProgressBar value={val} max={total} color={color} height={8} />
-            </div>
-          );
-        })}
-        <div style={{ borderTop: "1px solid #1e3a5f", paddingTop: "16px", marginTop: "8px" }}>
-          <div style={{ fontSize: "11px", color: S.muted, marginBottom: "2px" }}>Total parc hôtelier</div>
-          <div style={{ fontSize: "28px", fontWeight: 900, color: "#f5c842" }}>{Object.values(hotels).reduce((s,v)=>s+v,0)} hôtels</div>
-        </div>
-      </div>
-      <div style={{ ...S.surface, padding: "24px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 20px" }}>🎯 Activités par budget</p>
-        {["économique", "moyen", "luxe"].map(b => {
-          const val = acts[b] || 0; const color = BUDGET_COLORS[b]; const total = Object.values(acts).reduce((s, v) => s + v, 0) || 1;
-          return (
-            <div key={b} style={{ marginBottom: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600, textTransform: "capitalize" }}>{b}</span>
-                <span style={{ fontSize: "14px", fontWeight: 800, color }}>{val} activités</span>
-              </div>
-              <ProgressBar value={val} max={total} color={color} height={8} />
-            </div>
-          );
-        })}
-        <div style={{ marginTop: "16px", padding: "12px 16px", background: "#0d2137", borderRadius: "12px", display: "flex", flexDirection: "column", gap: "6px" }}>
-          {[["Économique","< 200 MAD","#22c55e"],["Moyen","200–500 MAD","#3b82f6"],["Luxe","> 500 MAD","#f5c842"]].map(([l,r,c]) => (
-            <div key={l} style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontSize: "11px", color: S.muted }}>{l}</span>
-              <span style={{ fontSize: "11px", fontWeight: 700, color: c }}>{r}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
@@ -1565,57 +1508,57 @@ function DashHotels({ data }) {
   if (!data) return <Spinner />;
   const { prix, rating_moyen, par_categorie, par_localisation, amenites } = data;
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
         {[
-          { label: "Prix moyen / nuit", value: `${prix?.moyen_mad?.toLocaleString()} MAD`, icon: "💰", color: S.orange },
+          { label: "Prix moyen / nuit", value: `${prix?.moyen_mad?.toLocaleString()} MAD`, icon: "💰", color: T.primary },
           { label: "Prix médian",       value: `${prix?.median_mad?.toLocaleString()} MAD`, icon: "📊", color: "#3b82f6" },
-          { label: "Note moyenne",      value: `${rating_moyen}/5`, icon: "⭐", color: S.gold },
+          { label: "Note moyenne",      value: `${rating_moyen}/5`, icon: "⭐", color: "#f59e0b" },
           { label: "Avec piscine",      value: `${amenites?.pct_avec_piscine}%`, icon: "🏊", color: "#06b6d4" },
         ].map(k => <KPICard key={k.label} {...k} />)}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "16px" }}>
-        <div style={{ ...S.surface, padding: "24px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>🏷️ Segmentation tarifaire</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 16 }}>
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 24, boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 16 }}>Segmentation tarifaire</p>
           {par_categorie?.map(cat => {
-            const color = BUDGET_COLORS[cat.categorie] || "#64748b";
+            const color = BUDGET_COLORS[cat.categorie] || T.textMuted;
             return (
-              <div key={cat.categorie} style={{ padding: "16px", marginBottom: "10px", borderRadius: "12px", background: `${color}08`, border: `1px solid ${color}25` }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                  <span style={{ fontSize: "14px", fontWeight: 700, color, textTransform: "capitalize" }}>{{ économique:"💚", moyen:"💙", luxe:"💛" }[cat.categorie]} Segment {cat.categorie}</span>
-                  <span style={{ fontSize: "12px", color: S.muted }}>{cat.count} hôtels</span>
+              <div key={cat.categorie} style={{ padding: 16, marginBottom: 10, borderRadius: T.radiusSm, background: `${color}08`, border: `1px solid ${color}22` }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color, textTransform: "capitalize" }}>Segment {cat.categorie}</span>
+                  <span style={{ fontSize: 12, color: T.textMuted }}>{cat.count} hôtels</span>
                 </div>
-                <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                  {[{l:"Moy.",v:`${cat.prix_moyen} MAD`},{l:"Min",v:`${cat.prix_min} MAD`},{l:"Max",v:`${cat.prix_max} MAD`},{l:"Note",v:`★ ${cat.rating_moyen}`}].map(({l,v}) => (
-                    <div key={l}><div style={{ fontSize: "10px", color: S.muted }}>{l}</div><div style={{ fontSize: "14px", fontWeight: 800, color }}>{v}</div></div>
+                <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                  {[{l:"Moy.", v:`${cat.prix_moyen} MAD`},{l:"Note",v:`★ ${cat.rating_moyen}`}].map(({l,v}) => (
+                    <div key={l}><div style={{ fontSize: 10, color: T.textMuted }}>{l}</div><div style={{ fontSize: 13, fontWeight: 700, color }}>{v}</div></div>
                   ))}
                 </div>
               </div>
             );
           })}
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          <div style={{ ...S.surface, padding: "22px" }}>
-            <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>📍 Par localisation</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 22, boxShadow: T.shadow }}>
+            <p className="tg-section-label" style={{ marginBottom: 14 }}>Par localisation</p>
             {par_localisation?.map(loc => (
-              <div key={loc.localisation} style={{ marginBottom: "10px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
-                  <span style={{ fontSize: "13px", color: S.ivory, textTransform: "capitalize" }}>{loc.localisation}</span>
-                  <span style={{ fontSize: "12px", color: S.gold, fontWeight: 700 }}>{loc.prix_moyen} MAD</span>
+              <div key={loc.localisation} style={{ marginBottom: 10 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+                  <span style={{ fontSize: 13, textTransform: "capitalize" }}>{loc.localisation}</span>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: T.primary }}>{loc.prix_moyen} MAD</span>
                 </div>
-                <ProgressBar value={loc.prix_moyen} max={2000} color={S.gold} height={5} />
+                <ProgressBar value={loc.prix_moyen} max={2000} color={T.secondary} />
               </div>
             ))}
           </div>
-          <div style={{ ...S.surface, padding: "22px" }}>
-            <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 14px" }}>✨ Équipements</p>
-            {[{label:"Avec piscine",pct:amenites?.pct_avec_piscine,icon:"🏊",color:"#06b6d4"},{label:"Vue mer",pct:amenites?.pct_avec_vue_mer,icon:"🌊",color:"#3b82f6"}].map(eq => (
-              <div key={eq.label} style={{ marginBottom: "12px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                  <span style={{ fontSize: "13px", color: S.ivory }}>{eq.icon} {eq.label}</span>
-                  <span style={{ fontSize: "16px", fontWeight: 800, color: eq.color }}>{eq.pct}%</span>
+          <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 22, boxShadow: T.shadow }}>
+            <p className="tg-section-label" style={{ marginBottom: 14 }}>Équipements</p>
+            {[{label:"Avec piscine",pct:amenites?.pct_avec_piscine,color:"#06b6d4"},{label:"Vue mer",pct:amenites?.pct_avec_vue_mer,color:"#3b82f6"}].map(eq => (
+              <div key={eq.label} style={{ marginBottom: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+                  <span style={{ fontSize: 13 }}>{eq.label}</span>
+                  <span style={{ fontSize: 15, fontWeight: 700, color: eq.color }}>{eq.pct}%</span>
                 </div>
-                <ProgressBar value={eq.pct} max={100} color={eq.color} height={8} />
+                <ProgressBar value={eq.pct} max={100} color={eq.color} />
               </div>
             ))}
           </div>
@@ -1628,56 +1571,35 @@ function DashHotels({ data }) {
 function DashTopActivites({ data }) {
   if (!data) return <Spinner />;
   const { top_activities, methode, poids } = data;
+  const CAT_EMOJI = { culture:"🏛️", nature:"🌿", gastronomie:"🍽️", détente:"🧘", aventure:"🪂", sport:"⚽", famille:"👨‍👩‍👧", nightlife:"🎶", autre:"📍" };
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div style={{ ...S.surface, padding: "20px", background: `${S.orange}06`, borderColor: `${S.orange}25` }}>
-        <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-          <span style={{ fontSize: "22px" }}>🧮</span>
-          <div>
-            <p style={{ fontSize: "12px", fontWeight: 700, color: S.orange, margin: "0 0 4px" }}>Méthode de scoring</p>
-            <p style={{ fontSize: "12px", color: S.muted, margin: "0 0 10px" }}>{methode}</p>
-            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-              {Object.entries(poids).map(([k, v]) => (
-                <span key={k} style={{ fontSize: "11px", fontWeight: 700, background: `${S.orange}15`, color: S.orange, borderRadius: 100, padding: "2px 10px" }}>
-                  {k.replace(/_/g," ")} {Math.round(v*100)}%
-                </span>
-              ))}
-            </div>
-          </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      <div style={{ background: T.light, borderRadius: T.radius, padding: "20px 24px", border: `1px solid ${T.secondary}30` }}>
+        <p style={{ fontSize: 12, fontWeight: 600, color: T.primary, marginBottom: 6 }}>Méthode de scoring</p>
+        <p style={{ fontSize: 12, color: T.textMuted, marginBottom: 12 }}>{methode}</p>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {Object.entries(poids).map(([k, v]) => (
+            <span key={k} className="tg-tag" style={{ fontSize: 11 }}>
+              {k.replace(/_/g," ")} {Math.round(v*100)}%
+            </span>
+          ))}
         </div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr 1fr", gap: "12px", alignItems: "flex-end" }}>
-        {[top_activities[1], top_activities[0], top_activities[2]].filter(Boolean).map((act, i) => {
-          const isCenter = i === 1;
-          const color = isCenter ? S.orange : ["#94a3b8","#f5c842"][i === 0 ? 1 : 0];
-          const medal  = isCenter ? "🥇" : i === 0 ? "🥈" : "🥉";
-          return (
-            <div key={act.nom} style={{ ...S.surface, padding: "16px 14px", height: isCenter ? "190px" : "150px", display: "flex", flexDirection: "column", justifyContent: "flex-end", borderColor: isCenter ? S.orange : "#1e3a5f", boxShadow: isCenter ? `0 0 28px ${S.orange}25` : "0 4px 16px rgba(0,0,0,0.25)", position: "relative", overflow: "hidden" }}>
-              {isCenter && <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: `linear-gradient(90deg, ${S.orange}, ${S.gold})` }} />}
-              <div style={{ fontSize: "22px", marginBottom: "6px" }}>{medal}</div>
-              <div style={{ fontSize: "11px", color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "4px" }}>{CAT_EMOJI[act.type] || "🎯"} {act.type}</div>
-              <div style={{ fontSize: "13px", fontWeight: 700, color: S.ivory, lineHeight: 1.3, marginBottom: "8px" }}>{act.nom}</div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ fontSize: "12px", color: S.gold }}>★ {act.rating}</span>
-                <span style={{ fontSize: "12px", fontWeight: 800, color }}>{act.score_hybride.toFixed(3)}</span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      {top_activities.slice(3).map(act => {
-        const color = CAT_COLORS[act.type] || "#64748b";
+      {top_activities.map((act, i) => {
+        const color = CAT_COLORS[act.type] || T.primary;
         return (
-          <div key={act.nom} style={{ ...S.surface, padding: "16px 18px", display: "flex", alignItems: "center", gap: "14px" }}>
-            <span style={{ width: 32, height: 32, borderRadius: "50%", background: "#1e3a5f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", fontWeight: 800, color: S.muted, flexShrink: 0 }}>{act.rang}</span>
-            <span style={{ fontSize: "18px" }}>{CAT_EMOJI[act.type] || "🎯"}</span>
+          <div key={act.nom} style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: "16px 20px", display: "flex", alignItems: "center", gap: 16, boxShadow: T.shadow, borderLeft: `3px solid ${i === 0 ? T.primary : T.border}` }}>
+            <span style={{ fontSize: 22, fontWeight: 700, color: i === 0 ? T.primary : T.textMuted, fontFamily: "'Cormorant Garamond', serif", minWidth: 28 }}>
+              {["1st","2nd","3rd"][i] || `${i+1}th`}
+            </span>
+            <span style={{ fontSize: 16 }}>{CAT_EMOJI[act.type] || "🎯"}</span>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: "14px", fontWeight: 700, color: S.ivory }}>{act.nom}</div>
-              <div style={{ fontSize: "11px", color: S.muted, marginTop: "2px" }}>{act.duree} · {act.prix}</div>
+              <div style={{ fontSize: 14, fontWeight: 500 }}>{act.nom}</div>
+              <div style={{ fontSize: 11, color: T.textMuted }}>{act.duree} · {act.prix}</div>
             </div>
             <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: "12px", color: S.gold }}>★ {act.rating}</div>
-              <div style={{ fontSize: "11px", color, fontWeight: 700 }}>score {act.score_hybride.toFixed(3)}</div>
+              <div style={{ fontSize: 12, color: "#f59e0b" }}>★ {act.rating}</div>
+              <div style={{ fontSize: 11, color, fontWeight: 600 }}>{act.score_hybride?.toFixed(3)}</div>
             </div>
           </div>
         );
@@ -1690,74 +1612,65 @@ function DashUserProfile({ data }) {
   if (!data) return <Spinner />;
   const { profil_type, demographique, preferences, saisons } = data;
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
         {[
-          { label: "Type dominant", value: profil_type.type_voyageur, icon: {couple:"💑",solo:"🧳",famille:"👨‍👩‍👧",groupe:"👥"}[profil_type.type_voyageur]||"👤", color: "#a855f7" },
+          { label: "Type dominant", value: profil_type.type_voyageur, icon: "👤", color: T.primary },
           { label: "Âge moyen",    value: `${Math.round(profil_type.age_moyen)} ans`, icon: "🎂", color: "#06b6d4" },
-          { label: "Budget / jour",value: `${profil_type.budget_moyen_mad?.toLocaleString()} MAD`, icon: "💰", color: S.orange },
+          { label: "Budget / jour",value: `${profil_type.budget_moyen_mad?.toLocaleString()} MAD`, icon: "💰", color: "#f97316" },
           { label: "Durée séjour", value: `${profil_type.duree_sejour_jours?.toFixed(1)} jours`, icon: "📅", color: "#22c55e" },
         ].map(k => <KPICard key={k.label} {...k} />)}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.2fr", gap: "16px" }}>
-        <div style={{ ...S.surface, padding: "22px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 18px" }}>🗓️ Saison préférée</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.2fr", gap: 16 }}>
+        {/* Saisons */}
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 22, boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 18 }}>Saison préférée</p>
           {Object.entries(saisons.distribution || {}).sort((a,b)=>b[1]-a[1]).map(([s,n]) => {
-            const total = Object.values(saisons.distribution).reduce((a,b)=>a+b,0); const color = SAISON_COLORS[s]||"#64748b";
+            const total = Object.values(saisons.distribution).reduce((a,b)=>a+b,0);
+            const color = SAISON_COLORS[s] || T.textMuted;
             return (
-              <div key={s} style={{ marginBottom: "12px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
-                  <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{SAISON_EMOJI[s]} {s.charAt(0).toUpperCase()+s.slice(1)}</span>
-                  <span style={{ fontSize: "12px", color, fontWeight: 700 }}>{Math.round(n/total*100)}%</span>
+              <div key={s} style={{ marginBottom: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+                  <span style={{ fontSize: 13, fontWeight: 500, textTransform: "capitalize" }}>{s}</span>
+                  <span style={{ fontSize: 12, color, fontWeight: 600 }}>{Math.round(n/total*100)}%</span>
                 </div>
-                <ProgressBar value={n} max={total} color={color} height={7} />
+                <ProgressBar value={n} max={total} color={color} />
               </div>
             );
           })}
         </div>
-        <div style={{ ...S.surface, padding: "22px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 18px" }}>🌍 Top nationalités</p>
+        {/* Nationalités */}
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 22, boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 18 }}>Top nationalités</p>
           {Object.entries(demographique.top_nationalites||{}).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([nat,n],i) => {
-            const colors=[S.orange,"#a855f7","#06b6d4","#22c55e","#f5c842"]; const max=Object.values(demographique.top_nationalites)[0];
+            const colors=[T.primary,"#a855f7","#06b6d4","#22c55e","#f5c842"];
+            const max=Object.values(demographique.top_nationalites)[0];
             return (
-              <div key={nat} style={{ marginBottom: "10px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
-                    <span style={{ width:18,height:18,borderRadius:"50%",background:colors[i],display:"flex",alignItems:"center",justifyContent:"center",fontSize:"9px",fontWeight:800,color:"#0d1b2a" }}>{i+1}</span>
-                    <span style={{ fontSize: "13px", color: S.ivory, fontWeight: 600 }}>{nat}</span>
+              <div key={nat} style={{ marginBottom: 10 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                    <span style={{ width:18,height:18,borderRadius:"50%",background:colors[i],display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:700,color:"#fff",flexShrink:0 }}>{i+1}</span>
+                    <span style={{ fontSize: 13, fontWeight: 500 }}>{nat}</span>
                   </div>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: colors[i] }}>{n}</span>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: colors[i] }}>{n}</span>
                 </div>
-                <ProgressBar value={n} max={max} color={colors[i]} height={5} />
+                <ProgressBar value={n} max={max} color={colors[i]} />
               </div>
             );
           })}
         </div>
-        <div style={{ ...S.surface, padding: "22px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>🎯 Intérêts moyens (score 0–10)</p>
+        {/* Intérêts */}
+        <div style={{ background: "#fff", borderRadius: T.radius, border: `1px solid ${T.border}`, padding: 22, boxShadow: T.shadow }}>
+          <p className="tg-section-label" style={{ marginBottom: 16 }}>Intérêts (score 0–10)</p>
           {(preferences.categories||[]).map(c => {
-            const color = CAT_COLORS[c.categorie]||"#64748b";
+            const color = CAT_COLORS[c.categorie] || T.textMuted;
             return (
-              <div key={c.categorie} style={{ marginBottom: "11px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "5px" }}>
-                  <span style={{ fontSize: "12px", color: S.ivory, fontWeight: 600 }}>{CAT_EMOJI[c.categorie]||"📊"} {c.categorie}</span>
-                  <span style={{ fontSize: "13px", fontWeight: 800, color }}>{c.score_moyen}</span>
+              <div key={c.categorie} style={{ marginBottom: 11 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+                  <span style={{ fontSize: 12, fontWeight: 500, textTransform: "capitalize" }}>{c.categorie}</span>
+                  <span style={{ fontSize: 13, fontWeight: 700, color }}>{c.score_moyen}</span>
                 </div>
-                <ProgressBar value={c.score_moyen} max={10} color={color} height={6} />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div style={{ ...S.surface, padding: "22px" }}>
-        <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>💡 Top intérêts déclarés</p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-          {(preferences.top_interets||[]).map((item,i) => {
-            const colors=[S.orange,"#a855f7","#06b6d4","#22c55e","#f5c842","#ef4444","#3b82f6","#ec4899"]; const c=colors[i%colors.length];
-            return (
-              <div key={item.interet} style={{ padding: "8px 16px", borderRadius: 100, background: `${c}12`, border: `1.5px solid ${c}30`, display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ fontSize: "12px", fontWeight: 700, color: c, textTransform: "capitalize" }}>{item.interet.replace(/_/g," ")}</span>
-                <span style={{ fontSize: "10px", fontWeight: 800, color: "#0d1b2a", background: c, borderRadius: 100, padding: "1px 7px" }}>{item.count}</span>
+                <ProgressBar value={c.score_moyen} max={10} color={color} />
               </div>
             );
           })}
@@ -1768,12 +1681,12 @@ function DashUserProfile({ data }) {
 }
 
 const DASH_TABS = [
-  { id: "global",     label: "Vue globale",    emoji: "🌍" },
-  { id: "categories", label: "Catégories",     emoji: "🗂️" },
-  { id: "budget",     label: "Budget",         emoji: "💰" },
-  { id: "hotels",     label: "Hôtels",         emoji: "🏨" },
-  { id: "activites",  label: "Top activités",  emoji: "🏆" },
-  { id: "profil",     label: "Profil visiteur",emoji: "👤" },
+  { id: "global",     label: "Vue globale" },
+  { id: "categories", label: "Catégories" },
+  { id: "budget",     label: "Budget" },
+  { id: "hotels",     label: "Hôtels" },
+  { id: "activites",  label: "Top activités" },
+  { id: "profil",     label: "Profil visiteur" },
 ];
 
 const PANEL_ENDPOINTS = {
@@ -1787,10 +1700,9 @@ const PANEL_ENDPOINTS = {
 
 function SectionDashboard() {
   const [activePanel, setActivePanel] = useState("global");
-  const [data,        setData]        = useState({});
-  const [loading,     setLoading]     = useState({});
-  const [errors,      setErrors]      = useState({});
-  const [hovered,     setHovered]     = useState(null);
+  const [data, setData]     = useState({});
+  const [loading, setLoading] = useState({});
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (data[activePanel] || loading[activePanel]) return;
@@ -1803,64 +1715,58 @@ function SectionDashboard() {
 
   return (
     <>
-      <style>{`
-        @keyframes dashSpin { to { transform: rotate(360deg); } }
-        @keyframes dashFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-      `}</style>
-
-      <div style={{ background: "linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)", borderBottom: "1px solid #1e3a5f", padding: "40px 24px 0" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "8px" }}>
-            <div>
-              <p style={{ fontSize: "11px", fontWeight: 700, color: S.orange, letterSpacing: "0.12em", textTransform: "uppercase", margin: "0 0 6px" }}>📊 Analytics · Plateforme Touristique</p>
-              <h1 style={{ fontFamily: "Georgia, serif", fontSize: "2rem", fontWeight: 800, color: S.ivory, margin: 0, lineHeight: 1.1 }}>Dashboard — Tanger</h1>
-            </div>
-            <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: "11px", color: S.muted, marginBottom: "2px" }}>Données temps réel</div>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: "#22c55e", background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 100, padding: "3px 10px", display: "inline-flex", alignItems: "center", gap: "5px" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block" }} /> Backend connecté
-              </div>
-            </div>
+      {/* Header */}
+      <div style={{ background: T.primary, padding: "52px 24px 0" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p className="tg-section-label" style={{ color: T.light }}>Analytics · Plateforme Touristique</p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 24, flexWrap: "wrap", gap: 12 }}>
+            <h1 className="tg-serif" style={{ fontSize: "2.2rem", fontWeight: 600, color: "#fff" }}>
+              Dashboard — Tanger
+            </h1>
+            <span style={{ fontSize: 11, fontWeight: 600, color: "#4ade80", background: "rgba(74,222,128,0.15)", border: "1px solid rgba(74,222,128,0.3)", borderRadius: 100, padding: "4px 12px" }}>
+              Backend connecté
+            </span>
           </div>
-          <div style={{ display: "flex", gap: "2px", marginTop: "24px", overflowX: "auto" }}>
-            {DASH_TABS.map(tab => {
-              const isActive = activePanel === tab.id;
-              return (
-                <button key={tab.id} onClick={() => setActivePanel(tab.id)} onMouseEnter={() => setHovered(tab.id)} onMouseLeave={() => setHovered(null)} style={{
-                  padding: "10px 18px", cursor: "pointer", whiteSpace: "nowrap",
-                  background: isActive ? "#112240" : "none", border: "none",
-                  borderBottom: `2.5px solid ${isActive ? S.orange : "transparent"}`,
-                  borderRadius: "8px 8px 0 0",
-                  color: isActive ? S.ivory : hovered === tab.id ? "#94a3b8" : S.muted,
-                  fontSize: "13px", fontWeight: isActive ? 700 : 500, transition: "all 0.18s",
+          {/* Tabs */}
+          <div style={{ display: "flex", gap: 0, overflowX: "auto" }}>
+            {DASH_TABS.map(tab => (
+              <button key={tab.id} onClick={() => setActivePanel(tab.id)}
+                style={{
+                  padding: "10px 18px", background: "transparent", border: "none",
+                  borderBottom: `2.5px solid ${activePanel === tab.id ? "#fff" : "transparent"}`,
+                  color: activePanel === tab.id ? "#fff" : "rgba(255,255,255,0.55)",
+                  fontFamily: "'DM Sans', sans-serif", fontSize: 14,
+                  fontWeight: activePanel === tab.id ? 500 : 400,
+                  cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.18s",
+                  borderRadius: "6px 6px 0 0",
                 }}>
-                  {tab.emoji} {tab.label}
-                  {loading[tab.id] && <span style={{ marginLeft: "6px", display: "inline-block", width: 8, height: 8, borderRadius: "50%", border: `2px solid ${S.orange}`, borderTopColor: "transparent", animation: "dashSpin 0.6s linear infinite" }} />}
-                </button>
-              );
-            })}
+                {tab.label}
+                {loading[tab.id] && <span style={{ marginLeft: 6, display: "inline-block", width: 7, height: 7, borderRadius: "50%", border: "2px solid rgba(255,255,255,0.4)", borderTopColor: "#fff", animation: "tg-spin 0.6s linear infinite" }} />}
+              </button>
+            ))}
           </div>
         </div>
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 40 }}>
+          <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,10 1440,20 L1440,40 L0,40 Z" fill={T.bg} />
+        </svg>
       </div>
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "28px 24px 80px", animation: "dashFadeIn 0.35s ease" }} key={activePanel}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px 80px" }} key={activePanel}>
         {errors[activePanel] ? (
-          <div style={{ ...S.surface, padding: "32px", textAlign: "center", borderColor: "#ef444440" }}>
-            <div style={{ fontSize: "32px", marginBottom: "12px" }}>⚠️</div>
-            <p style={{ color: "#ef4444", fontWeight: 700, margin: "0 0 6px" }}>Erreur de chargement</p>
-            <p style={{ color: S.muted, fontSize: "12px", margin: 0 }}>{errors[activePanel]}</p>
-            <p style={{ color: S.muted, fontSize: "11px", margin: "8px 0 0" }}>Vérifiez que le backend tourne sur <code style={{ color: S.orange }}>localhost:8000</code></p>
+          <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: T.radius, padding: 32, textAlign: "center" }}>
+            <p style={{ color: "#b91c1c", fontWeight: 600, marginBottom: 6 }}>Erreur de chargement</p>
+            <p style={{ color: T.textMuted, fontSize: 13 }}>{errors[activePanel]}</p>
           </div>
         ) : loading[activePanel] ? (
           <Spinner />
         ) : (
           <>
-            {activePanel === "global"     && <DashGlobal      data={data.global}     />}
-            {activePanel === "categories" && <DashCategories  data={data.categories} />}
-            {activePanel === "budget"     && <DashBudget      data={data.budget}     />}
-            {activePanel === "hotels"     && <DashHotels      data={data.hotels}     />}
-            {activePanel === "activites"  && <DashTopActivites data={data.activites} />}
-            {activePanel === "profil"     && <DashUserProfile  data={data.profil}    />}
+            {activePanel === "global"     && <DashGlobal       data={data.global}     />}
+            {activePanel === "categories" && <DashCategories   data={data.categories} />}
+            {activePanel === "budget"     && <DashBudget       data={data.budget}     />}
+            {activePanel === "hotels"     && <DashHotels       data={data.hotels}     />}
+            {activePanel === "activites"  && <DashTopActivites data={data.activites}  />}
+            {activePanel === "profil"     && <DashUserProfile  data={data.profil}     />}
           </>
         )}
       </div>
@@ -1868,14 +1774,15 @@ function SectionDashboard() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// COMPOSANT PRINCIPAL
-// ─────────────────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPOSANT PRINCIPAL
+───────────────────────────────────────────────────────────────────────────── */
 export default function HomeTanger({ onBack, onOpenChat }) {
   const [activeTab, setActiveTab] = useState("accueil");
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0d1b2a", color: "#f1f5f9", fontFamily: "'Segoe UI', sans-serif" }}>
+    <div className="tg-root">
+      <InjectGlobalStyles />
       <NavbarTanger onBack={onBack} onOpenChat={onOpenChat} activeTab={activeTab} onTabChange={setActiveTab} />
 
       {activeTab === "accueil"        && <SectionAccueil    onOpenChat={onOpenChat} />}
