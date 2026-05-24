@@ -16,16 +16,17 @@
  *   HomeTanger.jsx     → ce fichier (routeur principal)
  */
 import { useState } from "react";
-import NavbarTanger from "../components/Navbartanger";
-import Footer       from "../components/Footer";
+import NavbarTanger from "../../components/Navbartanger";
+import Footer from "../../components/Footer";
 
-import { InjectGlobalStyles } from "./shared";
-import Accueil        from "./Accueil";
+import { InjectGlobalStyles } from "./SharedTanger";
+import Accueil from "./Accueil";
 import Recommandation from "./Recommandation";
-import Activites      from "./Activites";
-import Evenements     from "./Evenements";
-import Dashboard      from "./Dashboard";
-import AssistantIA    from "./AssistantIA";
+import Activites from "./Activites";
+import Evenements from "./Evenements";
+import Dashboard from "./Dashboard";
+import AssistantIA from "./AssistantIA";
+import Favoris from "./Favoris";
 
 export default function HomeTanger({ onBack, onOpenChat }) {
   const [activeTab, setActiveTab] = useState("accueil");
@@ -44,12 +45,13 @@ export default function HomeTanger({ onBack, onOpenChat }) {
       />
 
       {/* Pages */}
-      {activeTab === "accueil"        && <Accueil        onOpenChat={onOpenChat} />}
+      {activeTab === "accueil" && <Accueil onOpenChat={onOpenChat} />}
       {activeTab === "recommandation" && <Recommandation />}
-      {activeTab === "activites"      && <Activites      />}
-      {activeTab === "evenements"     && <Evenements     />}
-      {activeTab === "dashboard"      && <Dashboard      />}
-      {activeTab === "assistant"      && <AssistantIA    onOpenChat={onOpenChat} />}
+      {activeTab === "activites" && <Activites />}
+      {activeTab === "evenements" && <Evenements />}
+      {activeTab === "dashboard" && <Dashboard />}
+      {activeTab === "assistant" && <AssistantIA onOpenChat={onOpenChat} />}
+      {activeTab === "favoris" && <Favoris />}
 
       <Footer />
     </div>

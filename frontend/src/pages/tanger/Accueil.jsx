@@ -3,7 +3,7 @@
  * Page d'accueil — Hero, lieux incontournables, CTA assistant IA.
  */
 import { useState } from "react";
-import { T, lieuxApi, useApiDataWithRefetch, Spinner, ErrorBanner } from "./shared";
+import { T, lieuxApi, useApiDataWithRefetch, Spinner, ErrorBanner } from "./SharedTanger";
 
 /* ─── Carte lieu ──────────────────────────────────────────────────────────── */
 function LieuCard({ lieu, onExplore, delay = 0 }) {
@@ -105,7 +105,7 @@ export default function Accueil({ onOpenChat }) {
         <div className="tg-animate-fadeUp" style={{ display: "flex", gap: 40, marginTop: 52, animationDelay: "0.3s" }}>
           {[
             { n: lieuxList.length || "—", label: "lieux indexés" },
-            { n: "4",  label: "agents IA" },
+            { n: "4", label: "agents IA" },
             { n: "11", label: "catégories" },
           ].map((s, i) => (
             <div key={i} style={{ textAlign: "center" }}>

@@ -6,11 +6,11 @@ import { useState, useMemo } from "react";
 import {
   T, evenementsApi, CAT_EVENT_CONFIG,
   useApiDataWithRefetch, SectionHero, Spinner, ErrorBanner,
-} from "./shared";
+} from "./SharedTanger";
 
 /* ─── Composant principal ─────────────────────────────────────────────────── */
 export default function Evenements() {
-  const [filter,   setFilter]   = useState("tous");
+  const [filter, setFilter] = useState("tous");
   const [expanded, setExpanded] = useState(null);
 
   const { data: rawData, loading, error, refetch } = useApiDataWithRefetch(
@@ -71,7 +71,7 @@ export default function Evenements() {
         )}
 
         {loading && <Spinner />}
-        {error   && <ErrorBanner message={error} onRetry={refetch} />}
+        {error && <ErrorBanner message={error} onRetry={refetch} />}
 
         {!loading && !error && (
           <>
@@ -83,8 +83,8 @@ export default function Evenements() {
             {/* ── Grille événements ── */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(480px, 1fr))", gap: 22 }}>
               {filtered.map((ev, i) => {
-                const cfg    = CAT_EVENT_CONFIG[ev.category] || { color: T.primary };
-                const isExp  = expanded === i;
+                const cfg = CAT_EVENT_CONFIG[ev.category] || { color: T.primary };
+                const isExp = expanded === i;
                 const imgUrl = ev.image_url || ev.image || "";
 
                 return (

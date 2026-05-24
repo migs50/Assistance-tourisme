@@ -6,79 +6,113 @@ import { useState, useMemo } from "react";
 import {
   T, activitesApi, TYPE_CONFIG,
   useApiDataWithRefetch, SectionHero, Spinner, ErrorBanner,
-  formatDuree, cap,
-} from "./shared";
+  formatDuree, cap, DetailModal
+} from "./SharedTanger";
+import { motion, AnimatePresence } from "framer-motion";
+import { Info, MapPin, Star, ChevronRight } from "lucide-react";
 
 /* ─── Carte activité ──────────────────────────────────────────────────────── */
-function ActiviteCard({ act, index }) {
+function ActiviteCard({ act, index, onOpen }) {
   const [hovered, setHovered] = useState(false);
-  const cfg      = TYPE_CONFIG[act.type] ?? { color: T.secondary, label: act.type };
-  const imgUrl   = act.image || act.image_url || "";
+  const cfg = TYPE_CONFIG[act.type] ?? { color: T.secondary, label: act.type };
+  const imgUrl = act.image || act.image_url || "";
   const isGratuit = act.prix?.toLowerCase() === "gratuit";
 
   return (
-    <div
-      className="tg-card tg-animate-fadeUp"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05 }}
+      whileHover={{ y: -6 }}
+      onClick={onOpen}
+      style={{
+        background: "#fff", borderRadius: 22, overflow: "hidden",
+        border: "1px solid #e2e8f0", boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+        cursor: "pointer", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ animationDelay: `${Math.min(index * 0.05, 0.4)}s` }}
     >
       {/* Image */}
-      <div style={{ height: 190, position: "relative", background: imgUrl ? `url(${imgUrl}) center/cover no-repeat` : T.light }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.25), transparent)" }} />
+      <div style={{ height: 200, position: "relative", overflow: "hidden" }}>
+        <div style={{
+          position: "absolute", inset: 0,
+          background: imgUrl ? `url(${imgUrl}) center/cover no-repeat` : T.light,
+          transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+          transform: hovered ? "scale(1.08)" : "scale(1)",
+        }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.3), transparent)" }} />
+
         <span style={{
-          position: "absolute", top: 12, left: 12,
-          background: `${cfg.color}20`, border: `1px solid ${cfg.color}50`,
-          color: cfg.color, fontSize: 11, fontWeight: 600,
-          padding: "4px 12px", borderRadius: "100px",
-          backdropFilter: "blur(6px)", fontFamily: "'DM Sans', sans-serif",
+          position: "absolute", top: 14, left: 14,
+          background: "rgba(255,255,255,0.9)", border: `1px solid rgba(255,255,255,0.4)`,
+          color: cfg.color, fontSize: 11, fontWeight: 700,
+          padding: "5px 14px", borderRadius: "100px",
+          backdropFilter: "blur(8px)", fontFamily: "'Inter', sans-serif",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
         }}>
           {cfg.label}
         </span>
+
         {act.rating && (
-          <span className="tg-rating" style={{ position: "absolute", top: 12, right: 12 }}>
-            ★ {Number(act.rating).toFixed(1)}
-          </span>
+          <div style={{
+            position: "absolute", top: 14, right: 14,
+            background: "rgba(15,122,110,0.9)", borderRadius: 99,
+            padding: "5px 12px", display: "flex", alignItems: "center", gap: 5,
+            color: "#fff", fontSize: 13, fontWeight: 700,
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+          }}>
+            <Star size={12} fill="#fbbf24" stroke="#fbbf24" />
+            {Number(act.rating).toFixed(1)}
+          </div>
         )}
       </div>
 
       {/* Corps */}
-      <div style={{ padding: "18px 20px 20px" }}>
-        <h3 className="tg-serif" style={{ fontSize: "1.05rem", fontWeight: 600, marginBottom: 8, color: T.text }}>
+      <div style={{ padding: "20px 24px 24px" }}>
+        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 8, color: T.text, fontFamily: "'Inter', sans-serif" }}>
           {act.nom}
         </h3>
         <p style={{
-          fontSize: 12, color: T.textMuted, lineHeight: 1.65, marginBottom: 14,
+          fontSize: 13, color: T.textMuted, lineHeight: 1.6, marginBottom: 18,
           display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
         }}>
           {act.description}
         </p>
 
         {/* Meta chips */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginBottom: 18 }}>
           {[act.localisation, formatDuree(act.duree), cap(act.budget)].filter(Boolean).map((v, i) => (
-            <span key={i} className="tg-tag-outline" style={{ fontSize: 11 }}>{v}</span>
+            <span key={i} style={{
+              fontSize: 11, fontWeight: 600, color: "#64748b",
+              padding: "4px 10px", background: "#f1f5f9", borderRadius: 8,
+            }}>{v}</span>
           ))}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 14, borderTop: `1px solid ${T.border}` }}>
-          <span style={{ fontSize: 15, fontWeight: 700, color: isGratuit ? "#16a34a" : T.text }}>
+        <div style={{
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          paddingTop: 18, borderTop: `1px solid #f1f5f9`
+        }}>
+          <span style={{ fontSize: 18, fontWeight: 800, color: isGratuit ? "#059669" : "#0f172a" }}>
             {act.prix}
           </span>
-          <button className="tg-btn-primary" style={{ padding: "8px 18px", fontSize: 12 }}>
-            Réserver
+          <button className="tg-btn-primary-new" style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
+            Lire plus
+            <ChevronRight size={14} />
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 /* ─── Composant principal ─────────────────────────────────────────────────── */
 export default function Activites() {
-  const [activeType,   setActiveType]   = useState("tous");
+  const [activeType, setActiveType] = useState("tous");
   const [activeBudget, setActiveBudget] = useState("tous");
-  const [search,       setSearch]       = useState("");
+  const [search, setSearch] = useState("");
+  const [selectedAct, setSelectedAct] = useState(null);
 
   const { data: rawData, loading, error, refetch } = useApiDataWithRefetch(() => activitesApi.getAll());
 
@@ -95,7 +129,7 @@ export default function Activites() {
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     return activitesData.filter(a => {
-      const matchType   = activeType   === "tous" || a.type   === activeType;
+      const matchType = activeType === "tous" || a.type === activeType;
       const matchBudget = activeBudget === "tous" || a.budget === activeBudget;
       const matchSearch = !q
         || a.nom?.toLowerCase().includes(q)
@@ -185,7 +219,7 @@ export default function Activites() {
         )}
 
         {loading && <Spinner />}
-        {error   && <ErrorBanner message={error} onRetry={refetch} />}
+        {error && <ErrorBanner message={error} onRetry={refetch} />}
 
         {!loading && !error && (
           <>
@@ -195,9 +229,14 @@ export default function Activites() {
             </p>
 
             {filtered.length > 0 ? (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))", gap: 24 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(310px, 1fr))", gap: 28 }}>
                 {filtered.map((act, i) => (
-                  <ActiviteCard key={act.id || `${act.nom}-${i}`} act={act} index={i} />
+                  <ActiviteCard
+                    key={act.id || `${act.nom}-${i}`}
+                    act={act}
+                    index={i}
+                    onOpen={() => setSelectedAct(act)}
+                  />
                 ))}
               </div>
             ) : (
@@ -211,6 +250,12 @@ export default function Activites() {
           </>
         )}
       </div>
+
+      <AnimatePresence>
+        {selectedAct && (
+          <DetailModal item={selectedAct} rank={-1} onClose={() => setSelectedAct(null)} />
+        )}
+      </AnimatePresence>
     </>
   );
 }

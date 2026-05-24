@@ -3,7 +3,7 @@
  * Page/section assistant IA — landing page dédiée avec CTA vers le chat.
  * Le chat lui-même est géré par le parent via onOpenChat().
  */
-import { T, SectionHero } from "./shared";
+import { T, SectionHero } from "./SharedTanger";
 
 /* ─── Carte fonctionnalité ───────────────────────────────────────────────── */
 function FeatureCard({ icon, title, description, delay = 0 }) {
@@ -21,9 +21,9 @@ function FeatureCard({ icon, title, description, delay = 0 }) {
 /* ─── Exemple de conversation ─────────────────────────────────────────────── */
 function ChatPreview() {
   const messages = [
-    { role: "user",      text: "Quels sont les meilleurs hôtels avec vue mer à Tanger ?" },
+    { role: "user", text: "Quels sont les meilleurs hôtels avec vue mer à Tanger ?" },
     { role: "assistant", text: "Je vous recommande l'El Minzah pour son charme historique et sa terrasse panoramique, ou le Hilton Tanger City Center pour un séjour moderne avec vue sur le détroit." },
-    { role: "user",      text: "Quel est le budget moyen pour 2 nuits ?" },
+    { role: "user", text: "Quel est le budget moyen pour 2 nuits ?" },
     { role: "assistant", text: "Comptez entre 800 et 1 800 MAD / nuit selon le standing. L'El Minzah tourne autour de 1 200 MAD et le Hilton vers 1 500 MAD en basse saison." },
   ];
 
@@ -58,7 +58,7 @@ function ChatPreview() {
               background: msg.role === "user" ? T.primary : "#f1f5f9",
               color: msg.role === "user" ? "#fff" : T.text,
               borderBottomRightRadius: msg.role === "user" ? 4 : 14,
-              borderBottomLeftRadius:  msg.role === "user" ? 14 : 4,
+              borderBottomLeftRadius: msg.role === "user" ? 14 : 4,
             }}>
               {msg.text}
             </div>

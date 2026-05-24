@@ -264,20 +264,20 @@ function injectNavCSS() {
 
 /* ── TABS ─────────────────────────────────────────────────────── */
 const TABS = [
-  { key: "accueil",        label: "Accueil" },
+  { key: "accueil", label: "Accueil" },
   { key: "recommandation", label: "Recommandation" },
-  { key: "activites",      label: "Activités" },
-  { key: "evenements",     label: "Événements" },
-  { key: "dashboard",      label: "Dashboard" },
-  { key: "assurance",        label: "Assurance" },
-  { key: "Favouris",        label: "🤍" }
+  { key: "activites", label: "Activités" },
+  { key: "evenements", label: "Événements" },
+  { key: "dashboard", label: "Dashboard" },
+  { key: "assurance", label: "Assurance" },
+  { key: "favoris", label: "Favoris" }
 ];
 
 
 /* ── COMPOSANT ────────────────────────────────────────────────── */
 export default function NavbarTanger({ onBack, onOpenChat, activeTab, onTabChange }) {
-  const [scrolled,    setScrolled]    = useState(false);
-  const [mobileOpen,  setMobileOpen]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
 
   /* Inject CSS */
@@ -313,16 +313,16 @@ export default function NavbarTanger({ onBack, onOpenChat, activeTab, onTabChang
               ← Maroc
             </button>
           )}
-         <span className="tt-logo-eyebrow">Discover Morocco</span>
-<span className="tt-logo-main">
-  MoroccoGuide <span className="tt-logo-accent">AI</span>
-</span>
+          <span className="tt-logo-eyebrow">Discover Morocco</span>
+          <span className="tt-logo-main">
+            MoroccoGuide <span className="tt-logo-accent">AI</span>
+          </span>
         </div>
 
         {/* Desktop links */}
         <div className="tt-nav-center" style={{ display: "flex", alignItems: "center", gap: "4px" }}>
           {TABS.map((tab) => {
-            const isActive  = activeTab === tab.key;
+            const isActive = activeTab === tab.key;
             const isHovered = hoveredLink === tab.key;
             return (
               <button
