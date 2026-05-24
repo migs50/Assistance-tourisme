@@ -887,7 +887,13 @@ export function DetailModal({ item, rank, onClose }) {
                 </div>
                 <div>
                   <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 2 }}>Horaires</div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>{item.horaires || "09h - 18h"}</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>
+                    {typeof item.horaires === "object" && item.horaires !== null
+                      ? Object.entries(item.horaires)
+                        .map(([jour, h]) => `${jour.charAt(0).toUpperCase() + jour.slice(1)} : ${h}`)
+                        .join(" · ")
+                      : (item.horaires || "09h - 18h")}
+                  </div>
                 </div>
               </div>
             </div>
@@ -924,29 +930,45 @@ export function DetailModal({ item, rank, onClose }) {
             {/* Action buttons */}
             <div style={{ display: "flex", gap: 12 }}>
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="tg-btn-primary-new"
-                style={{ flex: 2, padding: "16px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontSize: 15 }}
+                whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(15,118,110,0.35)" }}
+                whileTap={{ scale: 0.97 }}
+                style={{
+                  flex: 2, padding: "14px 20px", borderRadius: 16, border: "none", cursor: "pointer",
+                  background: "linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%)",
+                  color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Inter', sans-serif",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+                  boxShadow: "0 4px 18px rgba(15,118,110,0.3)",
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                }}
               >
-                <MapPin size={18} /> Voir sur la carte
+                <MapPin size={17} /> Voir sur la carte
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.02, background: "#f1f5f9" }}
-                whileTap={{ scale: 0.98 }}
-                className="tg-btn-ghost-new"
-                style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "16px", color: "#64748b" }}
+                whileHover={{ scale: 1.03, background: "rgba(15,118,110,0.08)", borderColor: "#0f766e" }}
+                whileTap={{ scale: 0.97 }}
+                style={{
+                  flex: 1, padding: "14px 16px", borderRadius: 16, cursor: "pointer",
+                  background: "rgba(15,118,110,0.04)", border: "1.5px solid rgba(15,118,110,0.2)",
+                  color: "#0f766e", fontSize: 13, fontWeight: 600, fontFamily: "'Inter', sans-serif",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                  transition: "all 0.25s",
+                }}
               >
-                <Share2 size={16} /> Partager
+                <Share2 size={15} /> Partager
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.02, background: "#fee2e2", color: "#ef4444" }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.03, background: "rgba(239,68,68,0.1)", borderColor: "#ef4444" }}
+                whileTap={{ scale: 0.97 }}
                 onClick={onClose}
-                className="tg-btn-ghost-new"
-                style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "16px", color: "#ef4444", background: "rgba(239,68,68,0.05)" }}
+                style={{
+                  flex: 1, padding: "14px 16px", borderRadius: 16, cursor: "pointer",
+                  background: "rgba(239,68,68,0.04)", border: "1.5px solid rgba(239,68,68,0.2)",
+                  color: "#ef4444", fontSize: 13, fontWeight: 600, fontFamily: "'Inter', sans-serif",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                  transition: "all 0.25s",
+                }}
               >
-                <X size={16} /> Fermer
+                <X size={15} /> Fermer
               </motion.button>
             </div>
           </div>

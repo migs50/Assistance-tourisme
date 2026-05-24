@@ -3,50 +3,97 @@
  * Page d'accueil — Hero, lieux incontournables, CTA assistant IA.
  */
 import { useState } from "react";
-import { T, lieuxApi, useApiDataWithRefetch, Spinner, ErrorBanner } from "./SharedTanger";
+import { T, lieuxApi, useApiDataWithRefetch, Spinner, ErrorBanner, DetailModal } from "./SharedTanger";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, Star } from "lucide-react";
 
 /* ─── Carte lieu ──────────────────────────────────────────────────────────── */
-function LieuCard({ lieu, onExplore, delay = 0 }) {
+function LieuCard({ lieu, onOpen, index }) {
+  const [hovered, setHovered] = useState(false);
   const imgUrl = lieu.image_url || lieu.imageUrl || "";
+
   return (
-    <div
-      className="tg-card tg-animate-fadeUp"
-      style={{ animationDelay: `${delay}s`, cursor: "pointer" }}
-      onClick={() => onExplore(lieu)}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05 }}
+      whileHover={{ y: -6 }}
+      onClick={onOpen}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: "#fff", borderRadius: 22, overflow: "hidden",
+        border: "1px solid #e2e8f0", boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+        cursor: "pointer", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
     >
-      <div className="tg-img-overlay" style={{ position: "relative", height: 220 }}>
+      {/* Image */}
+      <div style={{ height: 220, position: "relative", overflow: "hidden" }}>
         <div style={{
-          height: "100%",
-          background: imgUrl
-            ? `url(${imgUrl}) center/cover no-repeat`
-            : `linear-gradient(135deg, ${T.light} 0%, ${T.secondary}40 100%)`,
+          position: "absolute", inset: 0,
+          background: imgUrl ? `url(${imgUrl}) center/cover no-repeat` : `linear-gradient(135deg, ${T.light} 0%, ${T.secondary}40 100%)`,
+          transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+          transform: hovered ? "scale(1.08)" : "scale(1)",
         }} />
-        <span style={{ position: "absolute", bottom: 14, left: 16, zIndex: 1 }}>
-          <span className="tg-tag" style={{ background: "rgba(255,255,255,0.9)", color: T.primary }}>
-            {lieu.categorie}
-          </span>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.3), transparent)" }} />
+
+        {/* Catégorie badge */}
+        <span style={{
+          position: "absolute", bottom: 14, left: 16, zIndex: 1,
+          background: "rgba(255,255,255,0.9)", color: T.primary,
+          fontSize: 11, fontWeight: 700, padding: "5px 14px",
+          borderRadius: "100px", backdropFilter: "blur(8px)",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+        }}>
+          {lieu.categorie}
         </span>
+
+        {/* Note */}
         {lieu.note && (
-          <span style={{ position: "absolute", top: 14, right: 14, zIndex: 1 }}>
-            <span className="tg-rating">★ {lieu.note}</span>
-          </span>
+          <div style={{
+            position: "absolute", top: 14, right: 14, zIndex: 1,
+            background: "rgba(15,122,110,0.9)", borderRadius: 99,
+            padding: "5px 12px", display: "flex", alignItems: "center", gap: 5,
+            color: "#fff", fontSize: 13, fontWeight: 700,
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+          }}>
+            <Star size={12} fill="#fbbf24" stroke="#fbbf24" />
+            {Number(lieu.note).toFixed(1)}
+          </div>
         )}
       </div>
-      <div style={{ padding: "20px 22px 22px" }}>
-        <h3 className="tg-serif" style={{ fontSize: "1.15rem", fontWeight: 600, marginBottom: 8, color: T.text }}>
+
+      {/* Corps */}
+      <div style={{ padding: "20px 24px 24px" }}>
+        <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 8, color: T.text, fontFamily: "'Inter', sans-serif" }}>
           {lieu.nom}
         </h3>
         <p style={{
-          fontSize: 13, color: T.textMuted, lineHeight: 1.65, marginBottom: 18,
+          fontSize: 13, color: T.textMuted, lineHeight: 1.6, marginBottom: 18,
           display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
         }}>
           {lieu.description}
         </p>
-        <button className="tg-btn-primary" style={{ width: "100%", textAlign: "center" }}>
-          Explorer
-        </button>
+
+        <div style={{
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          paddingTop: 18, borderTop: "1px solid #f1f5f9",
+        }}>
+          {lieu.adresse && (
+            <span style={{ fontSize: 12, color: T.textMuted, fontStyle: "italic" }}>
+              📍 {lieu.adresse}
+            </span>
+          )}
+          <button
+            className="tg-btn-primary"
+            style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6, marginLeft: "auto" }}
+          >
+            Lire plus
+            <ChevronRight size={14} />
+          </button>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -55,6 +102,7 @@ export default function Accueil({ onOpenChat }) {
   const { data: lieux, loading, error, refetch } = useApiDataWithRefetch(() => lieuxApi.getAll());
   const lieuxList = Array.isArray(lieux) ? lieux : (lieux?.lieux || lieux?.data || []);
   const [search, setSearch] = useState("");
+  const [selectedLieu, setSelectedLieu] = useState(null);
 
   return (
     <>
@@ -141,7 +189,12 @@ export default function Accueil({ onOpenChat }) {
         {!loading && !error && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 28 }}>
             {lieuxList.map((lieu, i) => (
-              <LieuCard key={lieu.id || lieu.nom} lieu={lieu} onExplore={onOpenChat} delay={i * 0.06} />
+              <LieuCard
+                key={lieu.id || lieu.nom}
+                lieu={lieu}
+                index={i}
+                onOpen={() => setSelectedLieu(lieu)}
+              />
             ))}
           </div>
         )}
@@ -173,6 +226,22 @@ export default function Accueil({ onOpenChat }) {
           </button>
         </div>
       </div>
+
+      {/* ── Modal détail lieu ── */}
+      <AnimatePresence>
+        {selectedLieu && (
+          <DetailModal
+            item={{
+              ...selectedLieu,
+              image: selectedLieu.image_url || selectedLieu.imageUrl || selectedLieu.image || "",
+              adresse: selectedLieu.adresse || selectedLieu.localisation || "Tanger, Maroc",
+              prix: selectedLieu.prix || selectedLieu.tarif || "Entrée libre",
+            }}
+            rank={-1}
+            onClose={() => setSelectedLieu(null)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

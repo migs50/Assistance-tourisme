@@ -97,7 +97,7 @@ function ActiviteCard({ act, index, onOpen }) {
           <span style={{ fontSize: 18, fontWeight: 800, color: isGratuit ? "#059669" : "#0f172a" }}>
             {act.prix}
           </span>
-          <button className="tg-btn-primary-new" style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
+          <button className="tg-btn-primary" style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
             Lire plus
             <ChevronRight size={14} />
           </button>
