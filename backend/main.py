@@ -21,6 +21,7 @@ from routes.dashboard import router as dashboard_router
 from routes.activites      import router as activites_router
 from routes.evenements     import router as evenements_router
 from routes.lieux          import router as lieux_router
+from services.data_loader  import DataLoader
 
 
 # Chargement des variables d'environnement (.env)
@@ -41,6 +42,10 @@ async def lifespan(app: FastAPI):
     # Construction de l'index RAG (ne fait rien si déjà indexé)
     print("Vérification de l'index RAG...")
     build_index(force_rebuild=False)
+
+    # Chargement des données statistiques
+    print("Chargement des datasets en mémoire...")
+    DataLoader.preload_all()
 
     print(" API prête !\n")
     yield

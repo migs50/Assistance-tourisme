@@ -1,33 +1,36 @@
-/**
- * App.jsx — VERSION FINALE
- * 3 pages : HomeGlobal -> HomeTanger -> ChatPage (grande page complète)
- */
-import { useState } from "react";
+import React from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import HomeGlobal from "./pages/HomeGlobal";
 import HomeTanger from "./pages/tanger/HomeTanger";
 import ChatPage from "./pages/ChatPage";
+import InteractiveMapPage from "./pages/InteractiveMapPage";
 
 export default function App() {
-  const [page, setPage] = useState("global");
+  const navigate = useNavigate();
 
   return (
-    <>
-      {page === "global" && (
-        <HomeGlobal
-          onExploreTanger={() => setPage("tanger")}
-        />
-      )}
-      {page === "tanger" && (
-        <HomeTanger
-          onBack={() => setPage("global")}
-          onOpenChat={() => setPage("chat")}
-        />
-      )}
-      {page === "chat" && (
-        <ChatPage
-          onBack={() => setPage("tanger")}
-        />
-      )}
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={<HomeGlobal onExploreTanger={() => navigate("/tanger")} />}
+      />
+      <Route
+        path="/tanger"
+        element={
+          <HomeTanger
+            onBack={() => navigate("/")}
+            onOpenChat={() => navigate("/chat")}
+          />
+        }
+      />
+      <Route
+        path="/chat"
+        element={<ChatPage onBack={() => navigate("/tanger")} />}
+      />
+      <Route
+        path="/map"
+        element={<InteractiveMapPage />}
+      />
+    </Routes>
   );
 }

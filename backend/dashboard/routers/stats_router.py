@@ -235,12 +235,14 @@ async def get_lieux_stats():
         }
 
         # Lieux gratuits vs payants
+        nb_lieux = len(loader.lieux)
         nb_gratuits = sum(1 for l in loader.lieux if l.get("gratuit", True))
-        nb_payants = len(loader.lieux) - nb_gratuits
+        nb_payants = nb_lieux - nb_gratuits
+        pct_gratuit = round(nb_gratuits / nb_lieux * 100, 1) if nb_lieux > 0 else 0
 
         return JSONResponse(content={
-            "total": len(loader.lieux) + len(loader.musees),
-            "lieux_seuls": len(loader.lieux),
+            "total": nb_lieux + len(loader.musees),
+            "lieux_seuls": nb_lieux,
             "musees": len(loader.musees),
             "par_quartier": dict(by_quartier.most_common()),
             "par_categorie": dict(by_category.most_common()),
@@ -248,7 +250,7 @@ async def get_lieux_stats():
             "accessibilite": {
                 "gratuits": nb_gratuits,
                 "payants":  nb_payants,
-                "pct_gratuit": round(nb_gratuits / len(loader.lieux) * 100, 1),
+                "pct_gratuit": pct_gratuit,
             },
         })
     except Exception as e:
@@ -305,4 +307,20 @@ async def get_avis_stats():
         })
     except Exception as e:
         logger.error(f"Erreur /stats/avis: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+# ─── /api/stats/events-evolution ─────────────────────────────────────────────
+
+@router.get(
+    "/events-evolution",
+    summary="Évolution mensuelle des événements",
+    description="Distribution des événements par mois pour l'année en cours.",
+)
+async def get_events_evolution():
+    try:
+        data = get_stats_service().get_event_evolution()
+        return JSONResponse(content=data)
+    except Exception as e:
+        logger.error(f"Erreur /stats/events-evolution: {e}")
         return JSONResponse(status_code=500, content={"error": str(e)})

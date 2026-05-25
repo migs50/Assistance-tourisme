@@ -3,6 +3,7 @@
  * Page activités — filtres type/budget/recherche, grille de cartes.
  */
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   T, activitesApi, TYPE_CONFIG,
   useApiDataWithRefetch, SectionHero, Spinner, ErrorBanner,
@@ -13,6 +14,7 @@ import { Info, MapPin, Star, ChevronRight } from "lucide-react";
 
 /* ─── Carte activité ──────────────────────────────────────────────────────── */
 function ActiviteCard({ act, index, onOpen }) {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const cfg = TYPE_CONFIG[act.type] ?? { color: T.secondary, label: act.type };
   const imgUrl = act.image || act.image_url || "";
@@ -97,10 +99,16 @@ function ActiviteCard({ act, index, onOpen }) {
           <span style={{ fontSize: 18, fontWeight: 800, color: isGratuit ? "#059669" : "#0f172a" }}>
             {act.prix}
           </span>
-          <button className="tg-btn-primary" style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
-            Lire plus
-            <ChevronRight size={14} />
-          </button>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button
+              className="tg-btn-primary"
+              onClick={onOpen}
+              style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}
+            >
+              Lire plus
+              <ChevronRight size={14} />
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

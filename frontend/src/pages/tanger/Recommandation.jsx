@@ -18,6 +18,7 @@
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import {
   Sparkles, MapPin, Star, ChevronRight, ChevronLeft,
@@ -30,6 +31,7 @@ import {
 import {
   T, recoApi, CATEGORIES,
   SectionHero, Spinner, ErrorBanner,
+  isFavori, toggleFavori
 } from "./SharedTanger";
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -357,14 +359,15 @@ function CategorySelector({ onSelect }) {
 
               {/* Icon container */}
               <div style={{
-                width: 60, height: 60, borderRadius: 18,
-                background: "#fff",
+                width: 50, height: 50,
+                background: "transparent",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                marginBottom: 20,
-                boxShadow: `0 8px 24px ${col.accent}18`,
+                marginBottom: 22,
+                fontSize: "2rem",
                 position: "relative", zIndex: 2,
+                color: col.accent,
               }}>
-                <Sparkles size={28} color={col.accent} />
+                {cat.icon}
               </div>
 
               <h3 style={{
@@ -403,7 +406,6 @@ function CategorySelector({ onSelect }) {
 function QuestionWizard({ category, questions, onComplete, onBack }) {
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [selected, setSelected] = useState(null);
   const [animKey, setAnimKey] = useState(0);
   const [dir, setDir] = useState(1);
 
@@ -416,18 +418,7 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
     if (isLast) { onComplete(next); return; }
     setDir(1);
     setIdx(i => i + 1);
-    setSelected(null);
     setAnimKey(k => k + 1);
-  }
-
-  function handleSelection(val) {
-    setSelected(val);
-    const next = { ...answers, [current.field_name]: val };
-    setAnswers(next);
-    // Délai subtil pour l'animation visuelle de sélection avant de passer
-    setTimeout(() => {
-      advance(next);
-    }, 450);
   }
 
   if (!current) return null;
@@ -452,13 +443,13 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
           Catégories
         </motion.button>
         <div style={{
-          display: "flex", alignItems: "center", gap: 10,
+          display: "flex", alignItems: "center", gap: 8,
           background: "rgba(15,122,110,0.06)", borderRadius: 99,
-          padding: "8px 20px",
+          padding: "7px 16px",
           border: "1px solid rgba(15,122,110,0.1)",
         }}>
-          <Sparkles size={14} color="#0f7a6e" />
-          <span style={{ fontSize: 13, fontWeight: 700, color: "#0f7a6e", textTransform: "capitalize" }}>{category.label}</span>
+          <span style={{ fontSize: "1.1rem" }}>{category.icon}</span>
+          <span style={{ fontSize: 12, fontWeight: 600, color: "#0f7a6e" }}>{category.label}</span>
         </div>
       </motion.div>
 
@@ -570,27 +561,27 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
           {current.type === "boolean" ? (
             <div style={{ display: "flex", gap: 14 }}>
               {[
-                { v: true, label: "Oui", emoji: "✓" },
-                { v: false, label: "Non", emoji: "✕" },
-              ].map(({ v, label, emoji }) => (
+                { v: true, label: "Oui" },
+                { v: false, label: "Non" },
+              ].map(({ v, label }) => (
                 <motion.button
                   key={String(v)}
                   className="tg-opt-btn"
-                  onClick={() => handleSelection(v)}
+                  onClick={() => {
+                    const nextAnswers = { ...answers, [current.field_name]: v };
+                    setAnswers(nextAnswers);
+                    advance(nextAnswers);
+                  }}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   style={{
                     flex: 1, padding: "22px 18px",
                     borderRadius: 18, cursor: "pointer",
-                    border: `2px solid ${selected === v ? "#0f7a6e" : "#e2e8f0"}`,
-                    background: selected === v
-                      ? "linear-gradient(135deg, rgba(15,122,110,0.06), rgba(14,165,233,0.04))"
-                      : "#f8fafc",
-                    color: selected === v ? "#0f7a6e" : "#64748b",
+                    border: "2px solid #e2e8f0",
+                    background: "#f8fafc",
+                    color: "#64748b",
                     fontSize: 16, fontWeight: 600,
-                    boxShadow: selected === v
-                      ? "0 0 0 4px rgba(15,122,110,0.1), 0 8px 24px rgba(15,122,110,0.08)"
-                      : "none",
+                    boxShadow: "none",
                     transition: "all 0.25s",
                   }}
                 >
@@ -609,7 +600,11 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
                 <motion.button
                   key={opt.value}
                   className="tg-opt-btn"
-                  onClick={() => handleSelection(opt.value)}
+                  onClick={() => {
+                    const nextAnswers = { ...answers, [current.field_name]: opt.value };
+                    setAnswers(nextAnswers);
+                    advance(nextAnswers);
+                  }}
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
                   initial={{ opacity: 0, y: 12 }}
@@ -618,18 +613,14 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
                   style={{
                     padding: "18px 12px",
                     borderRadius: 16, cursor: "pointer", textAlign: "center",
-                    border: `2px solid ${selected === opt.value ? "#0f7a6e" : "#e2e8f0"}`,
-                    background: selected === opt.value
-                      ? "linear-gradient(135deg, rgba(15,122,110,0.06), rgba(14,165,233,0.04))"
-                      : "#f8fafc",
-                    color: selected === opt.value ? "#0f7a6e" : "#475569",
-                    boxShadow: selected === opt.value
-                      ? "0 0 0 4px rgba(15,122,110,0.1), 0 6px 20px rgba(15,122,110,0.06)"
-                      : "none",
+                    border: "2px solid #e2e8f0",
+                    background: "#f8fafc",
+                    color: "#475569",
+                    boxShadow: "none",
                     transition: "all 0.25s",
                   }}
                 >
-                  <span style={{ fontSize: 13, fontWeight: 700, display: "block" }}>{opt.label}</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, display: "block" }}>{opt.label}</span>
                   {opt.description && (
                     <span style={{ fontSize: 10, color: "#94a3b8", display: "block", marginTop: 4, lineHeight: 1.4 }}>
                       {opt.description}
@@ -771,7 +762,13 @@ function DetailModal({ item, rank, onClose }) {
   const score = item._score ?? 0;
   const pct = Math.round(score * 100);
   const isTop = rank === 0;
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(isFavori(item));
+
+  useEffect(() => {
+    const handleSync = () => setLiked(isFavori(item));
+    window.addEventListener("favoris-updated", handleSync);
+    return () => window.removeEventListener("favoris-updated", handleSync);
+  }, [item]);
 
   // Block body scroll
   useEffect(() => {
@@ -857,7 +854,10 @@ function DetailModal({ item, rank, onClose }) {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.35 }}
-              onClick={() => setLiked(!liked)}
+              onClick={() => {
+                const active = toggleFavori(item);
+                setLiked(active);
+              }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               style={{
@@ -1163,6 +1163,7 @@ function DetailModal({ item, rank, onClose }) {
             >
               <button
                 className="tg-btn-primary-new"
+                onClick={() => { onClose(); navigate("/map", { state: item }); }}
                 style={{
                   flex: 1, padding: "14px", display: "flex",
                   alignItems: "center", justifyContent: "center", gap: 8,
@@ -1210,10 +1211,16 @@ function DetailModal({ item, rank, onClose }) {
 ═══════════════════════════════════════════════════════════════════════════ */
 function RecoResultCard({ item, rank }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(isFavori(item));
   const isTop = rank === 0;
   const score = item._score ?? 0;
   const pct = Math.round(score * 100);
+
+  useEffect(() => {
+    const handleSync = () => setLiked(isFavori(item));
+    window.addEventListener("favoris-updated", handleSync);
+    return () => window.removeEventListener("favoris-updated", handleSync);
+  }, [item]);
 
   return (
     <>
@@ -1317,7 +1324,11 @@ function RecoResultCard({ item, rank }) {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              const active = toggleFavori(item);
+              setLiked(active);
+            }}
             style={{
               position: "absolute", bottom: 14, right: 14,
               width: 34, height: 34, borderRadius: "50%",
@@ -1780,7 +1791,7 @@ function StepperBar({ stepList, step }) {
    MAIN COMPONENT — BUSINESS LOGIC 100% PRESERVED
 ═══════════════════════════════════════════════════════════════════════════ */
 export default function Recommandation() {
-  console.log("[Recommandation] Initializing v4...");
+  const navigate = useNavigate();
   const [step, setStep] = useState(STEP.CATEGORY);
   const [category, setCategory] = useState(null);
   const [questions, setQuestions] = useState([]);

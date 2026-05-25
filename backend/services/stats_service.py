@@ -151,6 +151,8 @@ class StatsService:
             "marocaine":            "gastronomie",
             "internationale":       "gastronomie",
             "café":                 "gastronomie",
+            "plage":                "nature",
+            "shopping":             "autre",
         }
 
         # ── Lieux touristiques ───────────────────────────────────────────────
@@ -183,6 +185,30 @@ class StatsService:
 
         # Retour trié par nombre décroissant
         return {k: v for k, v in sorted(counts.items(), key=lambda x: -x[1])}
+
+    # ────────────────────────────────────────────────────────────────────────
+    # PARTIE 4.1 — ÉVOLUTION TEMPORELLE DES ÉVÉNEMENTS
+    # ────────────────────────────────────────────────────────────────────────
+
+    def get_event_evolution(self) -> list[dict]:
+        """
+        Analyse la distribution des événements par mois pour l'année 2026.
+        Parse les chaînes type 'Juin 2026' depuis le champ 'date'.
+        """
+        months_fr = [
+            "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+            "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+        ]
+        counts = {m: 0 for m in months_fr}
+
+        for ev in self.loader.events:
+            date_str = ev.get("date", "")
+            for m in months_fr:
+                if m.lower() in date_str.lower():
+                    counts[m] += 1
+                    break
+
+        return [{"name": m, "total": counts[m]} for m in months_fr]
 
     # ────────────────────────────────────────────────────────────────────────
     # PARTIE 5 — RÉPARTITION BUDGÉTAIRE

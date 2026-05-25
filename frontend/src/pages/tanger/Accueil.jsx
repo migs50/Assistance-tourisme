@@ -3,12 +3,14 @@
  * Page d'accueil — Hero, lieux incontournables, CTA assistant IA.
  */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { T, lieuxApi, useApiDataWithRefetch, Spinner, ErrorBanner, DetailModal } from "./SharedTanger";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Star } from "lucide-react";
 
 /* ─── Carte lieu ──────────────────────────────────────────────────────────── */
 function LieuCard({ lieu, onOpen, index }) {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const imgUrl = lieu.image_url || lieu.imageUrl || "";
 
@@ -84,13 +86,16 @@ function LieuCard({ lieu, onOpen, index }) {
               📍 {lieu.adresse}
             </span>
           )}
-          <button
-            className="tg-btn-primary"
-            style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6, marginLeft: "auto" }}
-          >
-            Lire plus
-            <ChevronRight size={14} />
-          </button>
+          <div style={{ display: "flex", gap: 8, marginLeft: "auto" }}>
+            <button
+              className="tg-btn-primary"
+              onClick={onOpen}
+              style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}
+            >
+              Lire plus
+              <ChevronRight size={14} />
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>

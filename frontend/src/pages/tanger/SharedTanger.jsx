@@ -5,13 +5,14 @@
  * DESIGN        : Refonte premium — glassmorphism, animations, moderne
  * LANGUE        : Français intégral
  */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles, Star, MapPin, X, Heart, Award,
   ArrowLeft, ArrowRight, Clock, Camera,
   Navigation, Share2, Zap, Info, ChevronLeft, ChevronRight,
-  DollarSign
+  DollarSign, Map as MapIcon
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -248,6 +249,45 @@ export function formatDuree(d) {
 export function cap(s) {
   if (!s) return "";
   return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, " ");
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FAVORIS — localStorage helpers
+───────────────────────────────────────────────────────────────────────────── */
+const FAV_KEY = "tg-favoris";
+
+export function getFavoris() {
+  try {
+    return JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+  } catch { return []; }
+}
+
+function _saveFavoris(list) {
+  localStorage.setItem(FAV_KEY, JSON.stringify(list));
+  /* dispatch a storage event so other tabs / components can react */
+  window.dispatchEvent(new Event("favoris-updated"));
+}
+
+export function isFavori(item) {
+  const key = item.id || item.nom;
+  return getFavoris().some(f => (f.id || f.nom) === key);
+}
+
+export function addFavori(item) {
+  if (isFavori(item)) return;
+  const list = getFavoris();
+  list.push({ ...item, _savedAt: Date.now() });
+  _saveFavoris(list);
+}
+
+export function removeFavori(item) {
+  const key = item.id || item.nom;
+  _saveFavoris(getFavoris().filter(f => (f.id || f.nom) !== key));
+}
+
+export function toggleFavori(item) {
+  if (isFavori(item)) { removeFavori(item); return false; }
+  addFavori(item); return true;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -795,8 +835,9 @@ export function ImageCarousel({ images = [], heroImage }) {
    DETAIL MODAL — PREMIUM GLASS + ANIMATED
 ═══════════════════════════════════════════════════════════════════════════ */
 export function DetailModal({ item, rank, onClose }) {
+  const navigate = useNavigate();
   const isTop = rank === 0;
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(() => isFavori(item));
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -808,6 +849,12 @@ export function DetailModal({ item, rank, onClose }) {
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [onClose]);
+
+  const handleToggleFav = (e) => {
+    e.stopPropagation();
+    const nowLiked = toggleFavori(item);
+    setLiked(nowLiked);
+  };
 
   const allPhotos = item.photos && item.photos.length > 0 ? item.photos : [];
 
@@ -849,23 +896,43 @@ export function DetailModal({ item, rank, onClose }) {
             <motion.button onClick={onClose} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} style={{ position: "absolute", top: 16, right: 16, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", pointerEvents: "auto" }}>
               <X size={18} />
             </motion.button>
-            <motion.button onClick={() => setLiked(!liked)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} style={{ position: "absolute", top: 16, right: 70, width: 44, height: 44, borderRadius: "50%", background: liked ? "rgba(239,68,68,0.2)" : "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: liked ? "1px solid rgba(239,68,68,0.3)" : "1px solid rgba(255,255,255,0.25)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: liked ? "#f87171" : "#fff", pointerEvents: "auto" }}>
+            <motion.button onClick={handleToggleFav} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} style={{ position: "absolute", top: 16, right: 70, width: 44, height: 44, borderRadius: "50%", background: liked ? "rgba(239,68,68,0.2)" : "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: liked ? "1px solid rgba(239,68,68,0.3)" : "1px solid rgba(255,255,255,0.25)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: liked ? "#f87171" : "#fff", pointerEvents: "auto" }}>
               <Heart size={18} fill={liked ? "#f87171" : "none"} />
             </motion.button>
-            <div style={{ position: "absolute", bottom: 20, left: 20, display: "flex", flexDirection: "column", gap: 8 }}>
-              {isTop && (
-                <motion.div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #ef4444)", color: "#fff", borderRadius: 99, padding: "6px 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", boxShadow: "0 4px 15px rgba(245,158,11,0.3)" }}>
-                  <Award size={12} /> MEILLEUR CHOIX
-                </motion.div>
+            <div style={{ position: "absolute", bottom: 20, left: 20, display: "flex", flexDirection: "column", gap: 8, pointerEvents: "auto" }}>
+              {(item.latitude && item.longitude) && (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    onClose();
+                    navigate("/map", { state: { ...item } });
+                  }}
+                  style={{
+                    background: "rgba(15,118,110,0.9)", backdropFilter: "blur(12px)",
+                    border: "1px solid rgba(255,255,255,0.2)", borderRadius: 12,
+                    padding: "8px 16px", color: "#fff", display: "flex", alignItems: "center", gap: 8,
+                    fontSize: 12, fontWeight: 600, cursor: "pointer",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.2)"
+                  }}
+                >
+                  <MapIcon size={14} /> Voir sur la carte
+                </motion.button>
               )}
-              <AIBadge small />
             </div>
-            {item.rating && (
-              <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(255,255,255,0.18)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 99, padding: "7px 14px", display: "flex", alignItems: "center", gap: 6, color: "#fff" }}>
-                <Star size={14} fill="#fbbf24" stroke="#fbbf24" /> <span style={{ fontSize: 14, fontWeight: 700 }}>{Number(item.rating).toFixed(1)}</span>
-              </div>
+
+            {isTop && (
+              <motion.div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #ef4444)", color: "#fff", borderRadius: 99, padding: "6px 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", boxShadow: "0 4px 15px rgba(245,158,11,0.3)" }}>
+                <Award size={12} /> MEILLEUR CHOIX
+              </motion.div>
             )}
+            <AIBadge small />
           </div>
+          {item.rating && (
+            <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(255,255,255,0.18)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 99, padding: "7px 14px", display: "flex", alignItems: "center", gap: 6, color: "#fff" }}>
+              <Star size={14} fill="#fbbf24" stroke="#fbbf24" /> <span style={{ fontSize: 14, fontWeight: 700 }}>{Number(item.rating).toFixed(1)}</span>
+            </div>
+          )}
 
           <div style={{ padding: "32px 36px 36px" }}>
             <h2 style={{ fontSize: "1.7rem", fontWeight: 800, color: "#0f172a", marginBottom: 8, fontFamily: "'Playfair Display', Georgia, serif", lineHeight: 1.3 }}>{item.nom}</h2>
@@ -974,6 +1041,6 @@ export function DetailModal({ item, rank, onClose }) {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence >
   );
 }

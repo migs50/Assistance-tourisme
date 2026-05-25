@@ -19,8 +19,8 @@ import pandas as pd
 
 logger = logging.getLogger("tanger.data_loader")
 
-# Chemin vers le dossier datasets (relatif au fichier courant)
-DATA_DIR = Path(__file__).parent.parent.parent/ "data"
+# Chemin vers le dossier datasets (backend/data)
+DATA_DIR = Path(__file__).parent.parent / "data"
 
 
 class DataLoader:
