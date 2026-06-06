@@ -10,6 +10,9 @@ import {
   useApiDataWithRefetch, SectionHero, Spinner, ErrorBanner, DetailModal,
 } from "./SharedTanger";
 import { ChevronRight, Calendar, MapPin } from "lucide-react";
+import InteractiveMapPage from "../InteractiveMapPage";
+
+
 
 /* ─── Carte événement ─────────────────────────────────────────────────────── */
 function EventCard({ ev, index, onOpen }) {

@@ -8,12 +8,29 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 import {
   Sparkles, Star, MapPin, X, Heart, Award,
   ArrowLeft, ArrowRight, Clock, Camera,
   Navigation, Share2, Zap, Info, ChevronLeft, ChevronRight,
   DollarSign, Map as MapIcon
 } from "lucide-react";
+import InteractiveMapPage from "../InteractiveMapPage";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   HELPER — Safe icon rendering
+───────────────────────────────────────────────────────────────────────────── */
+function renderIcon(icon, size = 24) {
+  if (!icon) return null;
+  if (React.isValidElement(icon)) {
+    return icon;
+  }
+  // lucide-react icons may be forwardRef objects (typeof === 'object')
+  if (typeof icon === "function" || (typeof icon === "object" && (icon.$$typeof || icon.render))) {
+    return React.createElement(icon, { size, strokeWidth: 2 });
+  }
+  return icon;
+}
 
 /* ─────────────────────────────────────────────────────────────────────────────
    SERVICE API — INTACT
@@ -697,7 +714,7 @@ export function KPICard({ label, value, icon, color = T.primary }) {
         background: `radial-gradient(circle at top right, ${color}08, transparent 70%)`,
         pointerEvents: "none",
       }} />
-      <div style={{ fontSize: "1.6rem", marginBottom: 10 }}>{icon}</div>
+      <div style={{ fontSize: "1.6rem", marginBottom: 10 }}>{renderIcon(icon, 26)}</div>
       <div style={{
         fontSize: "1.8rem", fontWeight: 800, color, lineHeight: 1,
         marginBottom: 4, fontFamily: "'Inter', sans-serif",
@@ -974,25 +991,39 @@ export function DetailModal({ item, rank, onClose }) {
             )}
 
             {/* Interactive Map Section */}
-            <div style={{
-              background: "linear-gradient(135deg, #f0fdfa, #ecfeff)",
-              borderRadius: 24, padding: "40px 20px",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: 12, border: "1px solid #ccfbf1", marginBottom: 32,
-              position: "relative", overflow: "hidden"
-            }}>
-              <motion.div
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                style={{ width: 56, height: 56, borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 25px rgba(15,122,110,0.12)", color: "#0f7a6e" }}
-              >
-                <Navigation size={24} />
-              </motion.div>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>Carte interactive</div>
-                <div style={{ fontSize: 13, color: "#64748b" }}>{item.adresse || "Tanger, Maroc"}</div>
+            {(item.latitude && item.longitude) ? (
+              <div style={{ marginBottom: 32, borderRadius: 24, overflow: "hidden", border: "1px solid #ccfbf1" }}>
+                <InteractiveMapPage
+                  latitude={item.latitude}
+                  longitude={item.longitude}
+                  name={item.nom}
+                  category={item.categorie || item.category || item.type}
+                  address={item.adresse}
+                  image={item.image}
+                  height={240}
+                />
               </div>
-            </div>
+            ) : (
+              <div style={{
+                background: "linear-gradient(135deg, #f0fdfa, #ecfeff)",
+                borderRadius: 24, padding: "40px 20px",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                gap: 12, border: "1px solid #ccfbf1", marginBottom: 32,
+                position: "relative", overflow: "hidden"
+              }}>
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ width: 56, height: 56, borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 25px rgba(15,122,110,0.12)", color: "#0f7a6e" }}
+                >
+                  <Navigation size={24} />
+                </motion.div>
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>Carte interactive</div>
+                  <div style={{ fontSize: 13, color: "#64748b" }}>{item.adresse || "Tanger, Maroc"}</div>
+                </div>
+              </div>
+            )}
 
             {/* Action buttons */}
             <div style={{ display: "flex", gap: 12 }}>
@@ -1043,4 +1074,26 @@ export function DetailModal({ item, rank, onClose }) {
       </motion.div>
     </AnimatePresence >
   );
+}
+
+export function SectionHead({ Icon, title, subtitle, right }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ width: 44, height: 44, borderRadius: 10, background: "rgba(15,118,110,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {renderIcon(Icon, 18)}
+        </div>
+        <div>
+          <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: T.text }}>{title}</h3>
+          {subtitle && <div style={{ fontSize: 12, color: T.textMuted, marginTop: 4 }}>{subtitle}</div>}
+        </div>
+      </div>
+      {right && <div>{right}</div>}
+    </div>
+  );
+}
+
+export function ApiError({ path, message, onRetry }) {
+  const msg = message || (path ? `Erreur API : ${path}` : "Erreur de chargement");
+  return <ErrorBanner message={msg} onRetry={onRetry} />;
 }

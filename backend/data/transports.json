@@ -108,22 +108,24 @@
       {"port": "Tarifa", "compagnies": ["FRS", "Inter Shipping"], "duree_min": 60}
     ]
   },
-  {
-    "id": "TR007",
-    "type": "ferry",
-    "nom": "Ferry Port de Tanger Med",
-    "description_fr": "Grand port passager à 40km de Tanger. Dessert Algésiras (Espagne), Sète (France) et Gênes (Italie).",
-    "description_en": "Major passenger port 40km from Tangier. Connects to Algeciras (Spain), Sete (France) and Genoa (Italy).",
-    "tarif_base_mad": 350,
-    "tarif_km_mad": 0,
-    "tarif_nuit_supplement": 1,
-    "disponibilite": "24h/24",
-    "zone_couverture": "international",
-    "application_mobile": true,
-    "langues_chauffeur": ["espagnol", "arabe", "français"],
-    "accessibilite_pmr": true,
-    "conseils": "Idéal si vous voyagez avec un véhicule. Prévoyez un grand taxi (200 MAD) ou un bus (ALSA Ligne 16) pour rejoindre Tanger Med depuis le centre."
-  },
+   {
+  "id": "TR007",
+  "type": "train",
+  "nom": "Train Conventionnel",
+  "operateur": "ONCF",
+  "description_fr": "Trains ONCF reliant Tanger aux principales villes du Maroc (Rabat, Casablanca, Marrakech).",
+  "description_en": "ONCF trains connecting Tangier to Morocco's main cities.",
+  "tarif_base_mad": 20,
+  "tarif_max_mad": 150,
+  "tarif_note": "Selon la destination",
+  "tarif_nuit_supplement": 1,
+  "disponibilite": "05:00-23:00",
+  "zone_couverture": "national",
+  "application_mobile": true,
+  "langues_chauffeur": ["arabe", "français"],
+  "accessibilite_pmr": true,
+  "conseils": "Achetez vos billets à l'avance sur le site de l'ONCF."
+},
   {
     "id": "TR008",
     "type": "vtc",

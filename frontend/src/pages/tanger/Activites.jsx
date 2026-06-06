@@ -11,6 +11,7 @@ import {
 } from "./SharedTanger";
 import { motion, AnimatePresence } from "framer-motion";
 import { Info, MapPin, Star, ChevronRight } from "lucide-react";
+import InteractiveMapPage from "../InteractiveMapPage";
 
 /* ─── Carte activité ──────────────────────────────────────────────────────── */
 function ActiviteCard({ act, index, onOpen }) {
@@ -114,6 +115,8 @@ function ActiviteCard({ act, index, onOpen }) {
     </motion.div>
   );
 }
+
+
 
 /* ─── Composant principal ─────────────────────────────────────────────────── */
 export default function Activites() {

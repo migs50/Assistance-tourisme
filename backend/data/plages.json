@@ -7,37 +7,45 @@
     "preference": "coucher de soleil",
     "compagnie": "Entre amis",
     "localisation": "est",
-    "description": "Point de vue spectaculaire sur la baie de Tanger et les côtes espagnoles au loin, dominé par un phare emblématique. Coucher de soleil incontournable et ambiance sauvage préservée loin des circuits touristiques classiques."
+    "description": "Point de vue spectaculaire sur la baie de Tanger et les côtes espagnoles au loin, dominé par un phare emblématique. Coucher de soleil incontournable et ambiance sauvage préservée loin des circuits touristiques classiques.",
+    "latitude": 35.8018,
+    "longitude": -5.7512
   },
   {
     "nom": "Plage Dalia",
     "prix": "Gratuit",
     "rating": 4.5,
-    "image":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRgvoIKrPNxxHWdRKmcIUImrka0WrkNPYMw&s",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRgvoIKrPNxxHWdRKmcIUImrka0WrkNPYMw&s",
     "preference": "plage animée",
     "compagnie": "Entre amis",
     "localisation": "ouest",
-    "description": "Plage populaire de la corniche ouest de Tanger, fréquentée par les surfeurs et les amateurs de sports nautiques. Ambiance jeune et dynamique, avec plusieurs beach clubs et cafés en bord de plage."
+    "description": "Plage populaire de la corniche ouest de Tanger, fréquentée par les surfeurs et les amateurs de sports nautiques. Ambiance jeune et dynamique, avec plusieurs beach clubs et cafés en bord de plage.",
+    "latitude": 35.805,
+    "longitude": -5.872
   },
   {
-    "nom": "Lac Sidi Bourhaba",
+    "nom": "Lac Mharhar (Barrage Ibn Battouta)",
     "prix": "Gratuit",
     "rating": 4.3,
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8sNHgo2bESsX88KA4B0XwGvjN44ZScKybg&s",
     "preference": "randonnée",
     "compagnie": "En famille",
     "localisation": "périphérie",
-    "description": "Lac paisible entouré de collines boisées situé à une trentaine de kilomètres au sud de Tanger. Paradis des ornithologues avec plus de 150 espèces d'oiseaux, sentiers de promenade et aires de pique-nique aménagées."
+    "description": "Lac de barrage naturel situé à une trentaine de kilomètres au sud de Tanger, entouré de collines boisées et de végétation méditerranéenne. Paradis des ornithologues avec de nombreuses espèces d'oiseaux migrateurs, sentiers de promenade et aires de pique-nique aménagées.",
+    "latitude": 35.648,
+    "longitude": -5.852
   },
   {
     "nom": "Jardin Sultan",
     "prix": "Gratuit",
     "rating": 4.2,
-    "image":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j9PDJ_udFryDkGHC3H5er3UX5FT97-aZYA&s",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j9PDJ_udFryDkGHC3H5er3UX5FT97-aZYA&s",
     "preference": "randonnée",
     "compagnie": "Solo",
     "localisation": "centre-ville",
-    "description": "Petit jardin romantique du centre-ville de Tanger, garni de bougainvilliers, palmiers et fontaines. Lieu de détente idéal pour lire ou se reposer à l'ombre, proche du quartier des diplomates."
+    "description": "Petit jardin romantique du centre-ville de Tanger, garni de bougainvilliers, palmiers et fontaines. Lieu de détente idéal pour lire ou se reposer à l'ombre, proche du quartier des diplomates.",
+    "latitude": 35.7888,
+    "longitude": -5.813
   },
   {
     "nom": "Plage Rmilate",
@@ -47,7 +55,9 @@
     "preference": "plage calme",
     "compagnie": "Solo",
     "localisation": "est",
-    "description": "Plage tranquille située à l'est de Tanger, loin de l'agitation touristique, bordée de rochers et de végétation naturelle. Eaux calmes et limpides idéales pour la baignade et la snorkeling en toute sérénité."
+    "description": "Plage tranquille située à l'est de Tanger, loin de l'agitation touristique, bordée de rochers et de végétation naturelle. Eaux calmes et limpides idéales pour la baignade et la snorkeling en toute sérénité.",
+    "latitude": 35.792,
+    "longitude": -5.854
   },
   {
     "nom": "Source de Ras El Ma",
@@ -57,7 +67,9 @@
     "preference": "randonnée",
     "compagnie": "En famille",
     "localisation": "ouest",
-    "description": "Source naturelle d'eau douce se déversant dans la mer à proximité du Cap Spartel, formant une petite cascade pittoresque. Site préservé où se mêlent eaux douces et eaux salées, entouré de végétation luxuriante."
+    "description": "Source naturelle d'eau douce se déversant dans la mer à proximité du Cap Spartel, formant une petite cascade pittoresque. Site préservé où se mêlent eaux douces et eaux salées, entouré de végétation luxuriante.",
+    "latitude": 35.7918,
+    "longitude": -5.9248
   },
   {
     "nom": "Baie de Tanger",
@@ -67,7 +79,9 @@
     "preference": "coucher de soleil",
     "compagnie": "Entre amis",
     "localisation": "nord",
-    "description": "Baie majestueuse s'étendant de la Kasbah au port moderne, offrant l'une des plus belles vues panoramiques de la ville. Promenade aménagée le long du front de mer avec bancs et points d'observation."
+    "description": "Baie majestueuse s'étendant de la Kasbah au port moderne, offrant l'une des plus belles vues panoramiques de la ville. Promenade aménagée le long du front de mer avec bancs et points d'observation.",
+    "latitude": 35.787,
+    "longitude": -5.79
   },
   {
     "nom": "plage Mrisat",
@@ -77,7 +91,9 @@
     "preference": "plage calme",
     "compagnie": "Solo",
     "localisation": "ouest",
-    "description": "Petite plage isolée entre falaises sur la route du Cap Spartel, accessible par un sentier pédestre. Cadre préservé et sauvage, parfait pour ceux qui recherchent la tranquillité absolue loin des foules."
+    "description": "Petite plage isolée entre falaises sur la route du Cap Spartel, accessible par un sentier pédestre. Cadre préservé et sauvage, parfait pour ceux qui recherchent la tranquillité absolue loin des foules.",
+    "latitude": 35.7951,
+    "longitude": -5.89
   },
   {
     "nom": "Parc Rmilat",
@@ -87,7 +103,9 @@
     "preference": "randonnée",
     "compagnie": "En famille",
     "localisation": "périphérie",
-    "description": "Parc forestier en périphérie est de Tanger avec des sentiers ombragés sous les pins et les eucalyptus. Aire de jeux pour enfants, kiosques à musique et vue sur la campagne environnante."
+    "description": "Parc forestier en périphérie est de Tanger avec des sentiers ombragés sous les pins et les eucalyptus. Aire de jeux pour enfants, kiosques à musique et vue sur la campagne environnante.",
+    "latitude": 35.79,
+    "longitude": -5.85
   },
   {
     "nom": "Charf hill",
@@ -97,7 +115,9 @@
     "preference": "coucher de soleil",
     "compagnie": "Entre amis",
     "localisation": "nord",
-    "description": "Falaises vertigineuses surplombant la mer au nord de Tanger, offrant un point de vue dramatique sur le détroit. Sentier pédestre en corniche reliant le phare à la Kasbah avec panorama à couper le souffle."
+    "description": "Falaises vertigineuses surplombant la mer au nord de Tanger, offrant un point de vue dramatique sur le détroit. Sentier pédestre en corniche reliant le phare à la Kasbah avec panorama à couper le souffle.",
+    "latitude": 35.782,
+    "longitude": -5.805
   },
   {
     "nom": "Jardin Exotique de Tanger",
@@ -107,7 +127,9 @@
     "preference": "randonnée",
     "compagnie": "En famille",
     "localisation": "centre-ville",
-    "description": "Jardin botanique abritant une collection de plantes exotiques et subtropicales venues du monde entier. Cascades, ponts japonais et volières en font un lieu de promenade privilégié pour les amateurs de botanique."
+    "description": "Jardin botanique abritant une collection de plantes exotiques et subtropicales venues du monde entier. Cascades, ponts japonais et volières en font un lieu de promenade privilégié pour les amateurs de botanique.",
+    "latitude": 35.7921,
+    "longitude": -5.9258
   },
   {
     "nom": "Pointe de Malabata",
@@ -117,7 +139,9 @@
     "preference": "coucher de soleil",
     "compagnie": "En famille",
     "localisation": "est",
-    "description": "Presqu'île rocheuse à l'est de Tanger offrant un panorama exceptionnel sur la baie, le port et les côtes espagnoles. Phare historique et vestiges militaires ajoutent une dimension culturelle au paysage grandiose."
+    "description": "Presqu'île rocheuse à l'est de Tanger offrant un panorama exceptionnel sur la baie, le port et les côtes espagnoles. Phare historique et vestiges militaires ajoutent une dimension culturelle au paysage grandiose.",
+    "latitude": 35.8018,
+    "longitude": -5.7512
   },
   {
     "nom": "Plage de Ghandouri",
@@ -127,6 +151,8 @@
     "preference": "plage animée",
     "compagnie": "Entre amis",
     "localisation": "nord",
-    "description": "Plage urbaine fréquentée par les jeunes Tangérois, avec des installations sportives et des zones de beach volley. Ambiance estivale trépidante et nombreux snacks le long de la promenade maritime."
+    "description": "Plage urbaine fréquentée par les jeunes Tangérois, avec des installations sportives et des zones de beach volley. Ambiance estivale trépidante et nombreux snacks le long de la promenade maritime.",
+    "latitude": 35.7868,
+    "longitude": -5.7634
   }
 ]

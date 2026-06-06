@@ -1,16 +1,18 @@
 /**
  * Accueil.jsx
  * Page d'accueil — Hero, lieux incontournables, CTA assistant IA.
+ * Barre de recherche dynamique : filtre les lieux en temps réel.
  */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { T, lieuxApi, useApiDataWithRefetch, Spinner, ErrorBanner, DetailModal } from "./SharedTanger";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Star } from "lucide-react";
+import { ChevronRight, Star, Search, X } from "lucide-react";
 
+import InteractiveMapPage from "../InteractiveMapPage";
+import heroTangier from "../../assets/hero-Tangier.jpg";
 /* ─── Carte lieu ──────────────────────────────────────────────────────────── */
 function LieuCard({ lieu, onOpen, index }) {
-  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const imgUrl = lieu.image_url || lieu.imageUrl || "";
 
@@ -33,7 +35,9 @@ function LieuCard({ lieu, onOpen, index }) {
       <div style={{ height: 220, position: "relative", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
-          background: imgUrl ? `url(${imgUrl}) center/cover no-repeat` : `linear-gradient(135deg, ${T.light} 0%, ${T.secondary}40 100%)`,
+          background: imgUrl
+            ? `url(${imgUrl}) center/cover no-repeat`
+            : `linear-gradient(135deg, ${T.light} 0%, ${T.secondary}40 100%)`,
           transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
           transform: hovered ? "scale(1.08)" : "scale(1)",
         }} />
@@ -102,12 +106,57 @@ function LieuCard({ lieu, onOpen, index }) {
   );
 }
 
+/* ─── État vide recherche ─────────────────────────────────────────────────── */
+function EmptySearch({ query, onReset }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      style={{
+        textAlign: "center", padding: "72px 24px",
+        background: "#f8fafc", borderRadius: 20,
+        border: "1.5px dashed #e2e8f0",
+      }}
+    >
+      <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
+      <p style={{ fontWeight: 700, fontSize: 17, color: T.text, marginBottom: 8 }}>
+        Aucun lieu trouvé
+      </p>
+      <p style={{ color: T.textMuted, fontSize: 14, lineHeight: 1.6 }}>
+        Aucun résultat pour &laquo;&nbsp;<strong style={{ color: T.primary }}>{query}</strong>&nbsp;&raquo;.<br />
+        Essayez un autre mot-clé (nom, catégorie, quartier…)
+      </p>
+      <button
+        onClick={onReset}
+        className="tg-btn-primary"
+        style={{ marginTop: 24, padding: "10px 28px", fontSize: 13, display: "inline-flex", alignItems: "center", gap: 8 }}
+      >
+        <X size={14} />
+        Réinitialiser la recherche
+      </button>
+    </motion.div>
+  );
+}
+
 /* ─── Composant principal ─────────────────────────────────────────────────── */
 export default function Accueil({ onOpenChat }) {
   const { data: lieux, loading, error, refetch } = useApiDataWithRefetch(() => lieuxApi.getAll());
   const lieuxList = Array.isArray(lieux) ? lieux : (lieux?.lieux || lieux?.data || []);
+
   const [search, setSearch] = useState("");
   const [selectedLieu, setSelectedLieu] = useState(null);
+
+  /* Filtre dynamique */
+  const query = search.trim().toLowerCase();
+  const filteredLieux = query
+    ? lieuxList.filter(l =>
+        (l.nom         || "").toLowerCase().includes(query) ||
+        (l.categorie   || "").toLowerCase().includes(query) ||
+        (l.description || "").toLowerCase().includes(query) ||
+        (l.adresse     || "").toLowerCase().includes(query)
+      )
+    : lieuxList;
 
   return (
     <>
@@ -115,7 +164,7 @@ export default function Accueil({ onOpenChat }) {
       <div style={{
         position: "relative", minHeight: 620,
         background: `linear-gradient(to bottom, rgba(15,23,42,0.55) 0%, rgba(15,118,110,0.45) 100%),
-          url(https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1600&q=80) center/cover no-repeat`,
+  url(${heroTangier}) center/cover no-repeat`,
         display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
         padding: "80px 24px 120px", textAlign: "center",
@@ -139,33 +188,35 @@ export default function Accueil({ onOpenChat }) {
           Là où la Méditerranée rencontre l'Atlantique — une ville de lumière, d'histoire et d'authenticité.
         </p>
 
-        {/* Barre de recherche */}
-        <div className="tg-search tg-animate-fadeUp" style={{ animationDelay: "0.2s" }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={T.textMuted} strokeWidth="2">
-            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-          </svg>
+        {/* ── Barre de recherche dynamique ── */}
+        <div className="tg-search tg-animate-fadeUp" style={{ animationDelay: "0.2s", position: "relative" }}>
+          <Search size={18} color={T.textMuted} />
           <input
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder="Rechercher un lieu, une activité…"
+            placeholder="Rechercher un lieu, une catégorie…"
           />
-          <button className="tg-btn-primary" style={{ padding: "10px 22px", fontSize: 14 }}>
+          {/* Bouton effacer si texte présent */}
+          {search && (
+            <button
+              onClick={() => setSearch("")}
+              style={{
+                background: "none", border: "none", cursor: "pointer",
+                display: "flex", alignItems: "center", padding: "0 4px",
+                color: T.textMuted, flexShrink: 0,
+              }}
+              title="Effacer"
+            >
+              <X size={16} />
+            </button>
+          )}
+          <button
+            className="tg-btn-primary"
+            style={{ padding: "10px 22px", fontSize: 14 }}
+            onClick={() => {}} /* recherche déjà live */
+          >
             Explorer
           </button>
-        </div>
-
-        {/* Stats */}
-        <div className="tg-animate-fadeUp" style={{ display: "flex", gap: 40, marginTop: 52, animationDelay: "0.3s" }}>
-          {[
-            { n: lieuxList.length || "—", label: "lieux indexés" },
-            { n: "4", label: "agents IA" },
-            { n: "11", label: "catégories" },
-          ].map((s, i) => (
-            <div key={i} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 26, fontWeight: 700, color: "#fff", fontFamily: "'Cormorant Garamond', serif" }}>{s.n}</div>
-              <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", letterSpacing: "0.06em" }}>{s.label}</div>
-            </div>
-          ))}
         </div>
 
         {/* Vague bas */}
@@ -178,13 +229,19 @@ export default function Accueil({ onOpenChat }) {
 
       {/* ── Lieux incontournables ── */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 24px 80px" }}>
+
         <div style={{ textAlign: "center", marginBottom: 52 }}>
           <p className="tg-section-label">À ne pas manquer</p>
           <h2 className="tg-serif" style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)", fontWeight: 600, marginBottom: 12 }}>
-            Lieux incontournables
+            {query ? "Résultats de recherche" : "Lieux incontournables"}
           </h2>
           <p style={{ color: T.textMuted, fontSize: 15, maxWidth: 480, margin: "0 auto" }}>
-            Explorez les plus beaux endroits de Tanger, soigneusement sélectionnés pour vous.
+            {query
+              ? <>
+                  <strong style={{ color: T.primary }}>{filteredLieux.length}</strong> lieu{filteredLieux.length !== 1 ? "x" : ""} trouvé{filteredLieux.length !== 1 ? "s" : ""} pour &laquo;&nbsp;<em>{search}</em>&nbsp;&raquo;
+                </>
+              : "Explorez les plus beaux endroits de Tanger, soigneusement sélectionnés pour vous."
+            }
           </p>
         </div>
 
@@ -192,16 +249,28 @@ export default function Accueil({ onOpenChat }) {
         {error && <ErrorBanner message={error} onRetry={refetch} />}
 
         {!loading && !error && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 28 }}>
-            {lieuxList.map((lieu, i) => (
-              <LieuCard
-                key={lieu.id || lieu.nom}
-                lieu={lieu}
-                index={i}
-                onOpen={() => setSelectedLieu(lieu)}
-              />
-            ))}
-          </div>
+          filteredLieux.length > 0 ? (
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={query} /* re-anime à chaque nouveau filtre */
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}
+                style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 28 }}
+              >
+                {filteredLieux.map((lieu, i) => (
+                  <LieuCard
+                    key={lieu.id || lieu.nom}
+                    lieu={lieu}
+                    index={i}
+                    onOpen={() => setSelectedLieu(lieu)}
+                  />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          ) : (
+            <EmptySearch query={search} onReset={() => setSearch("")} />
+          )
         )}
 
         {/* CTA Assistant IA */}

@@ -28,6 +28,7 @@ import {
   Heart, Share2, Navigation, MessageCircle, ExternalLink,
   ThumbsUp, Eye, Compass, TrendingUp
 } from "lucide-react";
+import InteractiveMapPage from "../InteractiveMapPage";
 import {
   T, recoApi, CATEGORIES,
   SectionHero, Spinner, ErrorBanner,
@@ -1129,30 +1130,48 @@ function DetailModal({ item, rank, onClose }) {
               </motion.div>
             )}
 
-            {/* Map placeholder */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.55 }}
-              style={{
-                marginBottom: 24, borderRadius: 18, overflow: "hidden",
-                border: "1px solid #e2e8f0",
-                background: "linear-gradient(135deg, #f0fdfa, #ecfeff)",
-                height: 160,
-                display: "flex", flexDirection: "column",
-                alignItems: "center", justifyContent: "center", gap: 8,
-              }}
-            >
-              <Navigation size={28} color="#0f7a6e" style={{ opacity: 0.6 }} />
-              <span style={{ fontSize: 13, color: "#64748b", fontWeight: 500 }}>
-                Carte interactive
-              </span>
-              {item.adresse && (
-                <span style={{ fontSize: 11, color: "#94a3b8" }}>
-                  {item.adresse}
+            {item.latitude && item.longitude ? (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.55 }}
+                style={{ marginBottom: 24, borderRadius: 18, overflow: "hidden", border: "1px solid #e2e8f0" }}
+              >
+                <InteractiveMapPage
+                  latitude={item.latitude}
+                  longitude={item.longitude}
+                  name={item.nom}
+                  category={item.categorie || item.category || item.type}
+                  address={item.adresse}
+                  image={item.image}
+                  height={240}
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.55 }}
+                style={{
+                  marginBottom: 24, borderRadius: 18, overflow: "hidden",
+                  border: "1px solid #e2e8f0",
+                  background: "linear-gradient(135deg, #f0fdfa, #ecfeff)",
+                  height: 160,
+                  display: "flex", flexDirection: "column",
+                  alignItems: "center", justifyContent: "center", gap: 8,
+                }}
+              >
+                <Navigation size={28} color="#0f7a6e" style={{ opacity: 0.6 }} />
+                <span style={{ fontSize: 13, color: "#64748b", fontWeight: 500 }}>
+                  Carte interactive
                 </span>
-              )}
-            </motion.div>
+                {item.adresse && (
+                  <span style={{ fontSize: 11, color: "#94a3b8" }}>
+                    {item.adresse}
+                  </span>
+                )}
+              </motion.div>
+            )}
 
             {/* Action buttons */}
             <motion.div

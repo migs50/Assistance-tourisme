@@ -3,13 +3,26 @@
  * Page/section assistant IA — landing page dédiée avec CTA vers le chat.
  * Le chat lui-même est géré par le parent via onOpenChat().
  */
+import React from "react";
 import { T, SectionHero } from "./SharedTanger";
+
+/* ─── Helper — Safe icon rendering ───────────────────────────────────────── */
+function renderIcon(icon, size = 24) {
+  if (!icon) return null;
+  if (React.isValidElement(icon)) {
+    return icon;
+  }
+  if (typeof icon === "function") {
+    return React.createElement(icon, { size, strokeWidth: 2 });
+  }
+  return icon;
+}
 
 /* ─── Carte fonctionnalité ───────────────────────────────────────────────── */
 function FeatureCard({ icon, title, description, delay = 0 }) {
   return (
     <div className="tg-card tg-animate-fadeUp" style={{ padding: "28px 24px", animationDelay: `${delay}s` }}>
-      <div style={{ fontSize: "2rem", marginBottom: 14 }}>{icon}</div>
+      <div style={{ fontSize: "2rem", marginBottom: 14 }}>{renderIcon(icon, 28)}</div>
       <h3 className="tg-serif" style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: 8, color: T.text }}>
         {title}
       </h3>

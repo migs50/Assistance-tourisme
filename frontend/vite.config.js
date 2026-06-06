@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  assetsInclude: ['**/*.geojson'],
   resolve: {
     alias: {
       'react': path.resolve(__dirname, './node_modules/react'),

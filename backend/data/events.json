@@ -3,16 +3,20 @@
     "id": "fete_de_la_musique_tanger_2026",
     "title": "Fête de la Musique - Tanger 2026",
     "date": "Du 21 au 26 Juin 2026",
-    "location": "Palais des Arts, Tanger",
+    "location": "Palais des Arts et de la Culture, Tanger",
+    "latitude": 35.7930,
+    "longitude": -5.7840,
     "category": "Musique",
     "description": "Le Palais des Arts de Tanger se transforme en une grande scène ouverte pour célébrer la Fête de la Musique. Concerts gratuits, jams sessions et performances live animeront la ville du Détroit dans une ambiance festive et conviviale, rassemblant musiciens amateurs et professionnels autour de tous les genres musicaux.",
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzpRohWqWEe2ROYauhIlf7RvJi4pV4BIJTrw&s"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzpRohWqWEe2ROYauhIlf7RvJi4pV4BIJTrw&s"
   },
   {
     "id": "exposition_back_to_morocco_tanger_2026",
     "title": "Exposition « Back to Morocco » - Le Maroc aux premiers temps de la photographie",
     "date": "Du 17 Juin au 31 Août 2026",
     "location": "Musée de la Kasbah, Tanger",
+    "latitude": 35.78861,
+    "longitude": -5.81278,
     "category": "Culture",
     "description": "Une exposition photographique exceptionnelle retraçant les premiers temps de la photographie au Maroc, installée dans le cadre majestueux de la Kasbah de Tanger. À travers des tirages d'époque et des clichés inédits, les visiteurs pourront redécouvrir le Maroc des XIXe et XXe siècles, entre tradition et modernité, sous l'objectif des pionniers de la photographie.",
     "image_url": "https://images.unsplash.com/photo-1778339098347-d2c013164b3a?w=1200&q=80&fit=crop"
@@ -22,24 +26,30 @@
     "title": "Festival des Plages Maroc Telecom - Escale Tanger",
     "date": "Du 15 Juillet au 21 Août 2026",
     "location": "Plages de Tanger (Corniche de Tanger)",
+    "latitude": 35.7830,
+    "longitude": -5.7950,
     "category": "Musique",
     "description": "Le plus grand festival gratuit du Maroc investit les plages de Tanger pour plusieurs semaines de concerts live en plein air. Chaque soir, les plus grands noms de la scène artistique marocaine se produisent sur la corniche, offrant spectacles, musique et divertissement dans une ambiance estivale et familiale au bord du détroit de Gibraltar.",
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfuhw4s14JHWd101G9uiYK2EY2vOoPt4fG7A&s"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfuhw4s14JHWd101G9uiYK2EY2vOoPt4fG7A&s"
   },
   {
     "id": "salon_regional_du_livre_tanger_2026",
     "title": "Salon Régional du Livre de la Région Tanger-Tétouan-Al Hoceima",
     "date": "Juillet 2026 (dates exactes à confirmer)",
-    "location": "Centre Culturel de Tanger",
+    "location": "Palais des Institutions Italiennes, Tanger",
+    "latitude": 35.7820,
+    "longitude": -5.8150,
     "category": "Culture",
     "description": "Le Salon Régional du Livre fait escale à Tanger pour célébrer la littérature et l'édition de la région Nord. Éditeurs, auteurs et lecteurs se retrouvent pour des rencontres littéraires, des dédicaces, des tables rondes et des ateliers de lecture, dans un événement qui met en lumière la vitalité intellectuelle et culturelle du Nord du Maroc.",
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJyhaTnidCIhVJhOxjxM75OB-NCp8vdO2tQ&s"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJyhaTnidCIhVJhOxjxM75OB-NCp8vdO2tQ&s"
   },
   {
     "id": "tanjazz_2026",
     "title": "Tanjazz - 23e Festival International de Jazz de Tanger",
     "date": "Du 18 au 20 Septembre 2026",
-    "location": "Palais des Institutions Italiennes et autres lieux emblématiques de Tanger",
+    "location": "Palais des Arts et de la Culture et autres lieux emblématiques de Tanger",
+    "latitude": 35.7930,
+    "longitude": -5.7840,
     "category": "Musique",
     "description": "Tanjazz revient pour sa 23e édition et fera battre le cœur de Tanger au rythme du jazz sous toutes ses formes. Là où l'Afrique rencontre l'Europe, une note à la fois, le festival propose trois jours de concerts, de jam sessions et de rencontres musicales dans les lieux les plus emblématiques de la ville du Détroit, avec des artistes venus du monde entier.",
     "image_url": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=1200&q=80&fit=crop"
@@ -48,25 +58,31 @@
     "id": "tiff_tanger_2026",
     "title": "Tangier International Film Festival (TIFF) - 15e édition",
     "date": "Du 7 au 10 Octobre 2026",
-    "location": "Cinémas et centres culturels de Tanger",
+    "location": "Cinémathèque de Tanger et centres culturels de Tanger",
+    "latitude": 35.7835,
+    "longitude": -5.8093,
     "category": "Cinéma",
     "description": "Le Tangier International Film Festival célèbre sa 15e édition avec une compétition internationale de courts et longs métrages, de fiction, d'animation et de documentaires. Le festival rend hommage aux talents locaux et internationaux du 7e art, tout en proposant des projections en plein air, des masterclasses et des rencontres entre cinéastes dans la ville carrefour des cultures.",
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1rROrYnYH60cNXIvz45vkY6AWsj5sNX1ZRQ&s"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1rROrYnYH60cNXIvz45vkY6AWsj5sNX1ZRQ&s"
   },
   {
     "id": "festival_national_du_film_tanger_2026",
     "title": "26e Festival National du Film (FNF) - Tanger",
     "date": "Du 23 au 31 Octobre 2026",
-    "location": "Palais des Congrès et salles de cinéma de Tanger",
+    "location": "Palais des Arts et de la Culture, Malabata, Tanger",
+    "latitude": 35.7930,
+    "longitude": -5.7840,
     "category": "Cinéma",
     "description": "La 26e édition du Festival National du Film, organisée par le Centre Cinématographique Marocain sous le Haut Patronage de Sa Majesté le Roi, se tiendra à Tanger. Neuf jours de compétition, de projections, d'hommages et de débats professionnels qui célèbrent la production cinématographique marocaine et récompensent les meilleurs talents du pays.",
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFxvFyApBa7vLcRVik1zajbycgAOkaUc5MxQ&s"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFxvFyApBa7vLcRVik1zajbycgAOkaUc5MxQ&s"
   },
   {
     "id": "marathon_international_tanger_2026",
     "title": "Marathon International de Tanger - Édition 2026",
     "date": "Dimanche 15 Novembre 2026",
     "location": "Tanja Marina Bay, Tanger",
+    "latitude": 35.7883,
+    "longitude": -5.7993,
     "category": "Sport",
     "description": "Le Marathon International de Tanger prend son départ depuis la Marina Bay pour un parcours exceptionnel le long du détroit de Gibraltar. Au programme : marathon 42K, semi-marathon 21K et course 10K, réunissant coureurs locaux et internationaux dans un cadre maritime spectaculaire, avec vue sur les côtes espagnoles et l'effervescence du port de Tanger.",
     "image_url": "https://images.unsplash.com/photo-1771166446975-2e9e9a9cd3d0?w=1200&q=80&fit=crop"
@@ -75,16 +91,20 @@
     "id": "festival_bachikh_tanger_2027",
     "title": "12e Festival Bachikh - Nouvel An Amazigh à Tanger",
     "date": "Du 12 au 13 Janvier 2027",
-    "location": "Tanger (lieux culturels de la ville)",
+    "location": "Palais des Institutions Italiennes, Tanger",
+    "latitude": 35.7820,
+    "longitude": -5.8150,
     "category": "Culture",
     "description": "Le Festival Bachikh célèbre le Nouvel An Amazigh (Yennayer) dans une édition festive qui honore le patrimoine et les traditions amazighes du Nord du Maroc. Au programme : concerts de musique amazighe, spectacles de danse, défilés traditionnels, exposition artisanale et gastronomie berbère, dans une ambiance chaleureuse qui célèbre la diversité culturelle du Royaume.",
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQImijsiB3jjjL-xm1fRytF4waxr565i4eHJw&s"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQImijsiB3jjjL-xm1fRytF4waxr565i4eHJw&s"
   },
   {
     "id": "tangier_latin_festival_2027",
     "title": "9e Tangier International Latin Festival",
     "date": "Janvier 2027 (dates exactes à confirmer)",
     "location": "Hôtel Kenzi Solazur, Tanger",
+    "latitude": 35.7779,
+    "longitude": -5.7989,
     "category": "Culture",
     "description": "Le Tangier International Latin Festival revient pour sa 9e édition avec cinq jours de danse latine effrénée. Plus de 1500 danseurs internationaux sont attendus pour vibrer au rythme de la Salsa, de la Bachata et de la Kizomba, avec des workshops, des soirées à thème, des spectacles et des compétitions dans le cadre prestigieux du Kenzi Solazur face à la Méditerranée.",
     "image_url": "https://images.unsplash.com/photo-1568805647632-69f6deec1547?w=1200&q=80&fit=crop"

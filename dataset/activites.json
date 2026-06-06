@@ -8,18 +8,26 @@
     "budget": "moyen",
     "duree": "2h",
     "localisation": "extérieur",
-    "description": "Explorez les dunes et les pistes sauvages autour du Cap Spartel à bord de quads puissants. Une expérience de conduite tout-terrain inoubliable avec vue sur l'Atlantique et le détroit de Gibraltar, encadrée par des guides professionnels."
+    "horaires": "09h - 19h",
+    "adresse": "Route du Cap Spartel, Tanger",
+    "description": "Explorez les dunes et les pistes sauvages autour du Cap Spartel à bord de quads puissants. Une expérience de conduite tout-terrain inoubliable avec vue sur l'Atlantique et le détroit de Gibraltar, encadrée par des guides professionnels.",
+    "latitude": 35.8001,
+    "longitude": -5.9061
   },
   {
     "nom": "Karting Tanger Indoor",
     "prix": "120 MAD",
     "rating": 4.2,
-    "image":  "https://serpapi.com/searches/6a0e880cb13aa787a908a0b2/images/YEtrqTvRA2JvMKw2KEqtPErlRWioxf9hF2rEAAziDlE.jpeg",
+    "image": "https://serpapi.com/searches/6a0e880cb13aa787a908a0b2/images/YEtrqTvRA2JvMKw2KEqtPErlRWioxf9hF2rEAAziDlE.jpeg",
     "type": "sport",
     "budget": "économique",
     "duree": "1h",
     "localisation": "intérieur",
-    "description": "Un circuit de karting couvert moderne au cœur de Tanger. Idéal pour les familles et groupes d'amis, avec des karts adaptés aux adultes et aux enfants. Sensations de vitesse garanties dans un environnement sécurisé."
+    "horaires": "10h - 22h",
+    "adresse": "Zone Industrielle Gzenaya, Tanger",
+    "description": "Un circuit de karting couvert moderne au cœur de Tanger. Idéal pour les familles et groupes d'amis, avec des karts adaptés aux adultes et aux enfants. Sensations de vitesse garanties dans un environnement sécurisé.",
+    "latitude": 35.705,
+    "longitude": -5.895
   },
   {
     "nom": "Paintball Tanger Zone de Combat",
@@ -30,40 +38,52 @@
     "budget": "moyen",
     "duree": "2h",
     "localisation": "extérieur",
-    "description": "Affrontez vos amis dans des parties de paintball épiques sur un terrain aménagé en plein air près de la zone industrielle de Tanger. Équipements fournis, casques et combinaisons inclus. Parfait pour les team buildings et anniversaires."
+    "horaires": "09h - 18h",
+    "adresse": "Forêt de Perdicaris (Rmilat), Tanger",
+    "description": "Affrontez vos amis dans des parties de paintball épiques sur un terrain aménagé en plein air près de la zone industrielle de Tanger. Équipements fournis, casques et combinaisons inclus. Parfait pour les team buildings et anniversaires.",
+    "latitude": 35.788,
+    "longitude": -5.883
   },
   {
     "nom": "Escape Room Tanger Mystery",
     "prix": "150 MAD",
     "rating": 4.6,
-    "image":  "https://serpapi.com/searches/6a0e8879895d9027f877fbc2/images/ZaHlLDtcA9y65v_ytWk60onUpY_HdBAw3Y0FHL_knFM.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8879895d9027f877fbc2/images/ZaHlLDtcA9y65v_ytWk60onUpY_HdBAw3Y0FHL_knFM.jpeg",
     "type": "aventure",
     "budget": "moyen",
     "duree": "1h",
     "localisation": "intérieur",
-    "description": "Plongez dans une expérience de jeu d'évasion immersive avec plusieurs scénarios thématiques inspirés de la ville de Tanger et de son histoire. Résolvez les énigmes en équipe avant que le temps ne s'écoule. Disponible en arabe, français et espagnol."
+    "horaires": "14h - 23h",
+    "adresse": "23 Quai de la Marine, Tanger",
+    "description": "Plongez dans une expérience de jeu d'évasion immersive avec plusieurs scénarios thématiques inspirés de la ville de Tanger et de son histoire. Résolvez les énigmes en équipe avant que le temps ne s'écoule. Disponible en arabe, français et espagnol.",
+    "latitude": 35.785,
+    "longitude": -5.808
   },
   {
     "nom": "Bowling Tanger Méditerranée",
     "prix": "80 MAD",
-    "rating": 4.0, 
+    "rating": 4.0,
     "image": "https://serpapi.com/searches/6a0e88e1a89e02cdb2793790/images/vhQhDdivC6qDJaFfoVqwcUe9z9skZRHviAuZ2jVDLnk.jpeg",
     "type": "famille",
     "budget": "économique",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Une salle de bowling moderne avec des pistes bien entretenues, idéale pour les sorties en famille ou entre amis. Lumières néon, musique animée et snack-bar sur place. Ouvert en soirée jusqu'à minuit les weekends."
+    "description": "Une salle de bowling moderne avec des pistes bien entretenues, idéale pour les sorties en famille ou entre amis. Lumières néon, musique animée et snack-bar sur place. Ouvert en soirée jusqu'à minuit les weekends.",
+    "latitude": 35.775,
+    "longitude": -5.793
   },
   {
     "nom": "Cinéma Dawliz Méga",
     "prix": "60 MAD",
     "rating": 4.1,
-    "image":  "https://serpapi.com/searches/6a0e89c9fdfbabca73d097ad/images/F7BBg4BOhcHYcsQwfgy3bBoH7z6sL9nvltvkcRUbnCY.jpeg",
+    "image": "https://serpapi.com/searches/6a0e89c9fdfbabca73d097ad/images/F7BBg4BOhcHYcsQwfgy3bBoH7z6sL9nvltvkcRUbnCY.jpeg",
     "type": "culture",
     "budget": "économique",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Le complexe cinématographique Dawliz propose les dernières sorties internationales et arabes dans des salles climatisées dotées de systèmes son Dolby. Popcorn, boissons et confiseries disponibles au comptoir. Programmation hebdomadaire variée."
+    "description": "Le complexe cinématographique Dawliz propose les dernières sorties internationales et arabes dans des salles climatisées dotées de systèmes son Dolby. Popcorn, boissons et confiseries disponibles au comptoir. Programmation hebdomadaire variée.",
+    "latitude": 35.776,
+    "longitude": -5.788
   },
   {
     "nom": "Gaming Zone Tanger City Mall",
@@ -74,7 +94,9 @@
     "budget": "économique",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Un espace de jeux vidéo et d'arcade moderne situé dans le Tanger City Mall. Consoles dernière génération, simulateurs de conduite, jeux de tir laser et attractions pour enfants. Formules à l'heure ou à la partie disponibles."
+    "description": "Un espace de jeux vidéo et d'arcade moderne situé dans le Tanger City Mall. Consoles dernière génération, simulateurs de conduite, jeux de tir laser et attractions pour enfants. Formules à l'heure ou à la partie disponibles.",
+    "latitude": 35.775,
+    "longitude": -5.785
   },
   {
     "nom": "VR Experience Tanger",
@@ -85,62 +107,74 @@
     "budget": "moyen",
     "duree": "1h",
     "localisation": "intérieur",
-    "description": "Immergez-vous dans des mondes virtuels époustouflants grâce aux casques VR de dernière génération. Jeux multijoueurs, simulations de vol, plongée sous-marine virtuelle et aventures fantastiques. Une expérience futuriste unique à Tanger."
+    "description": "Immergez-vous dans des mondes virtuels époustouflants grâce aux casques VR de dernière génération. Jeux multijoueurs, simulations de vol, plongée sous-marine virtuelle et aventures fantastiques. Une expérience futuriste unique à Tanger.",
+    "latitude": 35.775,
+    "longitude": -5.784
   },
   {
     "nom": "Paint & Sip Workshop Tanger Art Studio",
     "prix": "200 MAD",
     "rating": 4.7,
-    "image":  "https://serpapi.com/searches/6a0e8a741290d9825f286586/images/zOSyWZ_a-1h8hHs2Yejmyn4NJAatPbBDh8YCC92vHkg.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8a741290d9825f286586/images/zOSyWZ_a-1h8hHs2Yejmyn4NJAatPbBDh8YCC92vHkg.jpeg",
     "type": "créatif",
     "budget": "moyen",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Un atelier de peinture convivial où vous créez votre chef-d'œuvre guidé par un artiste local, verre de jus ou boisson à la main. Ambiance décontractée, toiles et pinceaux fournis. Idéal pour les anniversaires et les soirées entre amis."
+    "description": "Un atelier de peinture convivial où vous créez votre chef-d'œuvre guidé par un artiste local, verre de jus ou boisson à la main. Ambiance décontractée, toiles et pinceaux fournis. Idéal pour les anniversaires et les soirées entre amis.",
+    "latitude": 35.77,
+    "longitude": -5.825
   },
   {
     "nom": "Atelier Poterie Médina de Tanger",
     "prix": "160 MAD",
     "rating": 4.6,
-    "image":  "https://serpapi.com/searches/6a0e8aac18dc9314fcca36f6/images/i_QhSWOrUHwTieJ8eYf-9ioGqTPb9IQ7IVaSqbXZPpI.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8aac18dc9314fcca36f6/images/i_QhSWOrUHwTieJ8eYf-9ioGqTPb9IQ7IVaSqbXZPpI.jpeg",
     "type": "créatif",
     "budget": "moyen",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Découvrez l'art ancestral de la poterie marocaine dans un atelier authentique au cœur de la médina. Un maître artisan vous initie au tour de potier, aux techniques de modelage et aux motifs berbères traditionnels. Repartez avec votre création."
+    "description": "Découvrez l'art ancestral de la poterie marocaine dans un atelier authentique au cœur de la médina. Un maître artisan vous initie au tour de potier, aux techniques de modelage et aux motifs berbères traditionnels. Repartez avec votre création.",
+    "latitude": 35.7835,
+    "longitude": -5.812
   },
   {
     "nom": "Cake Design Workshop Tanger",
     "prix": "220 MAD",
     "rating": 4.5,
-    "image":  "https://serpapi.com/searches/6a0e8b1e217ade7a39b85620/images/eRVUwJa-8ZT9Ep9eZ7L51cKWbE4NlbomJcAuv60zop8.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8b1e217ade7a39b85620/images/eRVUwJa-8ZT9Ep9eZ7L51cKWbE4NlbomJcAuv60zop8.jpeg",
     "type": "créatif",
     "budget": "moyen",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Apprenez à décorer des gâteaux comme un professionnel dans cet atelier de cake design animé par une pâtissière diplômée. Fondant, ganache, fleurs en sucre et techniques modernes sont au programme. Repartez avec votre création à déguster."
+    "description": "Apprenez à décorer des gâteaux comme un professionnel dans cet atelier de cake design animé par une pâtissière diplômée. Fondant, ganache, fleurs en sucre et techniques modernes sont au programme. Repartez avec votre création à déguster.",
+    "latitude": 35.775,
+    "longitude": -5.814
   },
   {
     "nom": "Padel Club Tanger",
     "prix": "100 MAD",
     "rating": 4.3,
-    "image":  "https://serpapi.com/searches/6a0e8b87079a2bb87f37aad7/images/uQH_NlWr8pd9x6kv-npOgklmZorIzRGTALQWfOtd6CU.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8b87079a2bb87f37aad7/images/uQH_NlWr8pd9x6kv-npOgklmZorIzRGTAOfOtd6CU.jpeg",
     "type": "sport",
     "budget": "économique",
     "duree": "1h",
     "localisation": "extérieur",
-    "description": "Profitez de courts de padel bien entretenus dans un club moderne à Tanger. Location de raquettes disponible, cours pour débutants et créneaux compétitifs pour les joueurs confirmés. Ambiance sportive et conviviale dans un cadre agréable."
+    "description": "Profitez de courts de padel bien entretenus dans un club moderne à Tanger. Location de raquettes disponible, cours pour débutants et créneaux compétitifs pour les joueurs confirmés. Ambiance sportive et conviviale dans un cadre agréable.",
+    "latitude": 35.77,
+    "longitude": -5.78
   },
   {
     "nom": "Tyrolienne Cap Malabata",
     "prix": "280 MAD",
     "rating": 4.8,
-    "image":  "https://serpapi.com/searches/6a0e8bb571a41d8ed767af8c/images/hyP8oXnPwIrwtOe-kVK-FLg6opHzhlyOsV4G1cSNgpk.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8bb571a41d8ed767af8c/images/hyP8oXnPwIrwtOe-kVK-FLg6opHzhlyOsV4G1cSNgpk.jpeg",
     "type": "aventure",
     "budget": "moyen",
     "duree": "1h",
     "localisation": "extérieur",
-    "description": "Glissez en tyrolienne au-dessus des falaises et de la forêt de Cap Malabata avec une vue imprenable sur le détroit de Gibraltar. Une aventure aérienne encadrée par des moniteurs certifiés. Accessible dès 12 ans. Sensation d'adrénaline assurée."
+    "description": "Glissez en tyrolienne au-dessus des falaises et de la forêt de Cap Malabata avec une vue imprenable sur le détroit de Gibraltar. Une aventure aérienne encadrée par des moniteurs certifiés. Accessible dès 12 ans. Sensation d'adrénaline assurée.",
+    "latitude": 35.795,
+    "longitude": -5.749
   },
   {
     "nom": "Plongée Sous-Marine Détroit de Gibraltar",
@@ -151,95 +185,113 @@
     "budget": "luxe",
     "duree": "demi-journée",
     "localisation": "plage",
-    "description": "Explorez les fonds marins exceptionnels du détroit de Gibraltar avec un club de plongée certifié PADI basé à Tanger. Découvrez une faune marine remarquable : dauphins, thons, murènes et pieuvres. Baptêmes pour débutants et plongées pour certifiés."
+    "description": "Explorez les fonds marins exceptionnels du détroit de Gibraltar avec un club de plongée certifié PADI basé à Tanger. Découvrez une faune marine remarquable : dauphins, thons, murènes et pieuvres. Baptêmes pour débutants et plongées pour certifiés.",
+    "latitude": 35.788,
+    "longitude": -5.799
   },
   {
     "nom": "Équitation Ranch Tanger",
     "prix": "300 MAD",
     "rating": 4.5,
-    "image":  "https://serpapi.com/searches/6a0e8c3c80f30e1a5a1376d0/images/5gnPirjT7NRNXzWvblRSFjCG3hswn-fr2a3PPtNkeZ4.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8c3c80f30e1a5a1376d0/images/5gnPirjT7NRNXzWvblRSFjCG3hswn-fr2a3PPtNkeZ4.jpeg",
     "type": "sport",
     "budget": "moyen",
     "duree": "2h",
     "localisation": "extérieur",
-    "description": "Partez en balade équestre dans les paysages verdoyants autour de Tanger. Des chevaux barbes et arabes-barbes bien dressés vous emmènent le long de sentiers avec vue sur la mer. Encadrement par des cavaliers expérimentés."
+    "description": "Partez en balade équestre dans les paysages verdoyants autour de Tanger. Des chevaux barbes et arabes-barbes bien dressés vous emmènent le long de sentiers avec vue sur la mer. Encadrement par des cavaliers expérimentés.",
+    "latitude": 35.75,
+    "longitude": -5.9
   },
   {
     "nom": "Piscine & Espace Bien-être Hôtel Ibis Tanger",
     "prix": "150 MAD",
     "rating": 4.1,
-    "image":  "https://serpapi.com/searches/6a0e8c83018c48c410eded66/images/mb6x_xGxbAZEDFbALhZ_qxT26245QoOJxmDRz75yvQI.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8c83018c48c410eded66/images/mb6x_xGxbAZEDFbALhZ_qxT26245QoOJxmDRz75yvQI.jpeg",
     "type": "détente",
     "budget": "moyen",
     "duree": "demi-journée",
     "localisation": "intérieur",
-    "description": "Profitez d'un accès journée à la piscine chauffée et aux installations de bien-être de l'hôtel Ibis. Transats, pool-bar, serviettes fournies. Une parenthèse de détente en plein cœur de Tanger, idéale pour les résidents comme pour les touristes."
+    "description": "Profitez d'un accès journée à la piscine chauffée et aux installations de bien-être de l'hôtel Ibis. Transats, pool-bar, serviettes fournies. Une parenthèse de détente en plein cœur de Tanger, idéale pour les résidents comme pour les touristes.",
+    "latitude": 35.776,
+    "longitude": -5.787
   },
   {
     "nom": "Aqua Fun Park Asilah",
     "prix": "200 MAD",
     "rating": 4.4,
-    "image":  "https://serpapi.com/searches/6a0e8cab3d34ddc1a57b8ff4/images/d0rpeK3ERw6HCEzlcP0__HkNcZJoGaDNwh2jIsclbI8.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8cab3d34ddc1a57b8ff4/images/d0rpeK3ERw6HCEzlcP0__HkNcZJoGaDNwh2jIsclbI8.jpeg",
     "type": "famille",
     "budget": "moyen",
     "duree": "journée complète",
     "localisation": "extérieur",
-    "description": "À seulement 40 km de Tanger, le parc aquatique d'Asilah offre toboggans géants, piscines à vagues, lazy river et espaces aquatiques pour enfants. Restauration sur place et transats disponibles. La destination idéale pour les familles en été."
+    "description": "À seulement 40 km de Tanger, le parc aquatique d'Asilah offre toboggans géants, piscines à vagues, lazy river et espaces aquatiques pour enfants. Restauration sur place et transats disponibles. La destination idéale pour les familles en été.",
+    "latitude": 35.465,
+    "longitude": -6.036
   },
   {
     "nom": "Jet Ski Plage Malabata",
     "prix": "350 MAD",
     "rating": 4.6,
-    "image":  "https://serpapi.com/searches/6a0e8ce9b8b4a5fe980c8896/images/Qpq3zqdKipY4n8QHpcVsYd18KlU63-7aPVVCUDyeobo.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8ce9b8b4a5fe980c8896/images/Qpq3zqdKipY4n8QHpcVsYd18KlU63-7aPVVCUDyeobo.jpeg",
     "type": "sport",
     "budget": "luxe",
     "duree": "1h",
     "localisation": "plage",
-    "description": "Sillonnez les eaux turquoise du détroit de Gibraltar à bord d'un jet ski puissant depuis la plage de Malabata. Location avec gilet de sauvetage et briefing sécurité inclus. Formules 30 minutes ou 1 heure disponibles. Sensations fortes garanties."
+    "description": "Sillonnez les eaux turquoise du détroit de Gibraltar à bord d'un jet ski puissant depuis la plage de Malabata. Location avec gilet de sauvetage et briefing sécurité inclus. Formules 30 minutes ou 1 heure disponibles. Sensations fortes garanties.",
+    "latitude": 35.793,
+    "longitude": -5.77
   },
   {
     "nom": "Surf Plage Merkala",
     "prix": "200 MAD",
     "rating": 4.5,
-    "image":  "https://serpapi.com/searches/6a0e8e42c2bb999bd4fba57a/images/P99PgVHFb5-A02xPPQjeSN3tNG1wDbyuCczG79B-tds.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8e42c2bb999bd4fba57a/images/P99PgVHFb5-A02xPPQjeSN3tNG1wDbyuCczG79B-tds.jpeg",
     "type": "sport",
     "budget": "moyen",
     "duree": "2h",
     "localisation": "plage",
-    "description": "Prenez vos premières vagues ou perfectionnez votre technique à la plage de Merkala, l'un des spots de surf les plus appréciés de la région de Tanger. Cours pour tous niveaux avec instructeurs certifiés, planches et combinaisons disponibles à la location."
+    "description": "Prenez vos premières vagues ou perfectionnez votre technique à la plage de Merkala, l'un des spots de surf les plus appréciés de la région de Tanger. Cours pour tous niveaux avec instructeurs certifiés, planches et combinaisons disponibles à la location.",
+    "latitude": 35.797,
+    "longitude": -5.836
   },
   {
     "nom": "Kayak de Mer Grottes d'Hercule",
     "prix": "250 MAD",
     "rating": 4.7,
-    "image":  "https://serpapi.com/searches/6a0e8ecb65f7018409615d86/images/kKF1Wjo9y_kSO1yXl5jLd2uYw2DZY9lEjc5sH9d62OU.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8ecb65f7018409615d86/images/kKF1Wjo9y_kSO1yXl5jLd2uYw2DZY9lEjc5sH9d62OU.jpeg",
     "type": "aventure",
     "budget": "moyen",
     "duree": "demi-journée",
     "localisation": "plage",
-    "description": "Pagayez le long du littoral atlantique jusqu'aux célèbres Grottes d'Hercule à Cap Spartel. Une expérience de kayak de mer encadrée qui combine nature sauvage, falaises spectaculaires et histoire mythologique. Départ depuis la plage de Sidi Qanqouch."
+    "description": "Pagayez le long du littoral atlantique jusqu'aux célèbres Grottes d'Hercule à Cap Spartel. Une expérience de kayak de mer encadrée qui combine nature sauvage, falaises spectaculaires et histoire mythologique. Départ depuis la plage de Sidi Qanqouch.",
+    "latitude": 35.7598,
+    "longitude": -5.9392
   },
   {
     "nom": "Randonnée Jbel Moussa",
     "prix": "120 MAD",
     "rating": 4.8,
-    "image":  "https://serpapi.com/searches/6a0e8f179df9ddfc51af458e/images/FWLYkBurfIe3SaSPxVp7PW3C3YGYAKtaedKZjkfFR50.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8f179df9ddfc51af458e/images/FWLYkBurfIe3SaSPxVp7PW3C3YGYAKtaedKZjkfFR50.jpeg",
     "type": "aventure",
     "budget": "économique",
     "duree": "journée complète",
     "localisation": "montagne",
-    "description": "Ascension guidée du Jbel Moussa (882 m), l'un des deux Piliers d'Hercule, avec vue panoramique sur Tanger, Gibraltar et l'Espagne. Départ de Ksar Sghir, sentiers bien balisés. Guide local inclus, pique-nique en option. Randonnée de niveau modéré."
+    "description": "Ascension guidée du Jbel Moussa (842 m), l'un des deux Piliers d'Hercule, avec vue panoramique sur Tanger, Gibraltar et l'Espagne. Départ de Ksar Sghir, sentiers bien balisés. Guide local inclus, pique-nique en option. Randonnée de niveau modéré.",
+    "latitude": 35.9,
+    "longitude": -5.417
   },
   {
     "nom": "Rooftop Café El Morocco Club",
     "prix": "80 MAD",
     "rating": 4.6,
-    "image":  "https://serpapi.com/searches/6a0e8f5980c9639205142361/images/sWoKMiU9fMCvYAs-pt-xZbk5m3MZOKJtRq-ztjuSHl0.jpeg",
+    "image": "https://serpapi.com/searches/6a0e8f5980c9639205142361/images/sWoKMiU9fMCvYAs-pt-xZbk5m3MZOKJtRq-ztjuSHl0.jpeg",
     "type": "nightlife",
     "budget": "moyen",
     "duree": "soirée",
     "localisation": "centre-ville",
-    "description": "Savourez cocktails, thé à la menthe et tapas marocaines sur le rooftop iconique du Morocco Club en plein cœur de Tanger. Vue imprenable sur la médina et la baie. Ambiance lounge avec DJ les weekends. L'adresse incontournable pour les couchers de soleil."
+    "description": "Savourez cocktails, thé à la menthe et tapas marocaines sur le rooftop iconique du Morocco Club en plein cœur de Tanger. Vue imprenable sur la médina et la baie. Ambiance lounge avec DJ les weekends. L'adresse incontournable pour les couchers de soleil.",
+    "latitude": 35.787,
+    "longitude": -5.813
   },
   {
     "nom": "Beach Club La Tangerina",
@@ -250,62 +302,74 @@
     "budget": "moyen",
     "duree": "journée complète",
     "localisation": "plage",
-    "description": "Profitez d'une journée de détente au beach club La Tangerina sur la côte atlantique. Transats premium, bar à cocktails, cuisine de mer fraîche et piscine à débordement face à l'océan. Musique lounge, ambiance internationale et service impeccable."
+    "description": "Profitez d'une journée de détente au beach club La Tangerina sur la côte atlantique. Transats premium, bar à cocktails, cuisine de mer fraîche et piscine à débordement face à l'océan. Musique lounge, ambiance internationale et service impeccable.",
+    "latitude": 35.793,
+    "longitude": -5.865
   },
   {
     "nom": "Hammam & Spa Riad Dar Jameel",
     "prix": "380 MAD",
     "rating": 4.8,
-    "image":  "https://serpapi.com/searches/6a0e902bc986af0a50793e31/images/DgWph6RS1crqSRsPp9vwxDwm95ZmfrGgJ8odUBdhVEs.jpeg",
+    "image": "https://serpapi.com/searches/6a0e902bc986af0a50793e31/images/DgWph6RS1crqSRsPp9vwxDwm95ZmfrGgJ8odUBdhVEs.jpeg",
     "type": "détente",
     "budget": "luxe",
     "duree": "2h",
     "localisation": "intérieur",
-    "description": "Ressourcez-vous dans le hammam traditionnel et le spa du Riad Dar Jameel dans la médina de Tanger. Gommage au savon beldi, massage à l'huile d'argan, enveloppement au ghassoul. Un rituel de beauté ancestral marocain dans un cadre de rêve."
+    "description": "Ressourcez-vous dans le hammam traditionnel et le spa du Riad Dar Jameel dans la médina de Tanger. Gommage au savon beldi, massage à l'huile d'argan, enveloppement au ghassoul. Un rituel de beauté ancestral marocain dans un cadre de rêve.",
+    "latitude": 35.783,
+    "longitude": -5.811
   },
   {
     "nom": "Yoga au Lever du Soleil Cap Spartel",
     "prix": "100 MAD",
     "rating": 4.7,
-    "image":  "https://serpapi.com/searches/6a0e909288de92eebe8b3476/images/-0l7lfTIIm3E5CvRBtvsZJAE3twnHW9gkqfAnccXiwI.jpeg",
+    "image": "https://serpapi.com/searches/6a0e909288de92eebe8b3476/images/-0l7lfTIIm3E5CvRBtvsZJAE3twnHW9gkqfAnccXiwI.jpeg",
     "type": "détente",
     "budget": "économique",
     "duree": "1h",
     "localisation": "extérieur",
-    "description": "Séance de yoga en plein air au lever du soleil sur les hauteurs du Cap Spartel, à la jonction de l'Atlantique et de la Méditerranée. Instructrice certifiée, tapis fournis. Une expérience zen et spirituelle dans l'un des plus beaux sites naturels de Tanger."
+    "description": "Séance de yoga en plein air au lever du soleil sur les hauteurs du Cap Spartel, à la jonction de l'Atlantique et de la Méditerranée. Instructrice certifiée, tapis fournis. Une expérience zen et spirituelle dans l'un des plus beaux sites naturels de Tanger.",
+    "latitude": 35.8001,
+    "longitude": -5.9061
   },
   {
     "nom": "Atelier Cuisine Marocaine Dar Tanger",
     "prix": "350 MAD",
     "rating": 4.9,
-    "image":  "https://serpapi.com/searches/6a0e90ddcf887094bcd34bb4/images/zMy_Hx1wD9UoBL_H5TDuw_2If9TV-CVKVm1icFZAzno.jpeg",
+    "image": "https://serpapi.com/searches/6a0e90ddcf887094bcd34bb4/images/zMy_Hx1wD9UoBL_If9TV-CVKVm1icFZAzno.jpeg",
     "type": "gastronomie",
     "budget": "luxe",
     "duree": "demi-journée",
     "localisation": "intérieur",
-    "description": "Initiez-vous aux secrets de la gastronomie marocaine dans un riad de charme en médina. Visite du souk pour les épices, puis préparation du tajine, couscous et pastilla guidée par un chef local. Dégustation conviviale incluse. Cours en petits groupes."
+    "description": "Initiez-vous aux secrets de la gastronomie marocaine dans un riad de charme en médina. Visite du souk pour les épices, puis préparation du tajine, couscous et pastilla guidée par un chef local. Dégustation conviviale incluse. Cours en petits groupes.",
+    "latitude": 35.7845,
+    "longitude": -5.813
   },
   {
     "nom": "Tour en Bateau Détroit de Gibraltar",
     "prix": "400 MAD",
     "rating": 4.8,
-    "image":  "https://serpapi.com/searches/6a0e9284badf0b20de095c3b/images/6JKpPHRPuCQXMQUgDVewxsvCHjzVZBElE4qsaisKpZk.jpeg",
+    "image": "https://serpapi.com/searches/6a0e9284badf0b20de095c3b/images/6JKpPHRPuCQXMQUgDVewxsvCHjzVZBElE4qsaisKpZk.jpeg",
     "type": "culture",
     "budget": "luxe",
     "duree": "demi-journée",
     "localisation": "plage",
-    "description": "Embarquez pour une croisière dans le légendaire détroit de Gibraltar depuis le port de Tanger. Observation des dauphins, vue simultanée sur l'Europe et l'Afrique, passage devant le Cap Spartel. Guide bilingue à bord, boissons fraîches incluses. Départs matin et après-midi."
+    "description": "Embarquez pour une croisière dans le légendaire détroit de Gibraltar depuis le port de Tanger. Observation des dauphins, vue simultanée sur l'Europe et l'Afrique, passage devant le Cap Spartel. Guide bilingue à bord, boissons fraîches incluses. Départs matin et après-midi.",
+    "latitude": 35.788,
+    "longitude": -5.799
   },
   {
     "nom": "Visite Guidée Médina & Kasbah de Tanger",
     "prix": "130 MAD",
     "rating": 4.6,
-    "image":  "https://serpapi.com/searches/6a0e93b6c4f20f665d3af62e/images/eB52K-QZw9D7L_GDeM0GL8lufx0tJnnQlOVC9PXFKPc.jpeg",
+    "image": "https://serpapi.com/searches/6a0e93b6c4f20f665d3af62e/images/eB52K-QZw9D7L_GDeM0GL8lufx0tJnnQlOVC9PXFKPc.jpeg",
     "type": "culture",
     "budget": "économique",
     "duree": "demi-journée",
     "localisation": "centre-ville",
-    "description": "Explorez les ruelles labyrinthiques de la médina millénaire et la majestueuse Kasbah de Tanger avec un guide certifié. Découvrez le Palais du Mendoub, la Grande Mosquée, les souks d'épices et de cuivre, et les points de vue panoramiques sur le détroit."
+    "description": "Explorez les ruelles labyrinthiques de la médina millénaire et la majestueuse Kasbah de Tanger avec un guide certifié. Découvrez le Palais du Mendoub, la Grande Mosquée, les souks d'épices et de cuivre, et les points de vue panoramiques sur le détroit.",
+    "latitude": 35.7867,
+    "longitude": -5.8136
   },
   {
     "nom": "Dégustation de Thé & Pâtisseries Marocaines",
@@ -316,6 +380,8 @@
     "budget": "économique",
     "duree": "1h",
     "localisation": "centre-ville",
-    "description": "Découvrez le rituel du thé à la menthe marocain dans un salon de thé traditionnel de la médina de Tanger. Accompagné de cornes de gazelle, briwat et chebakia préparés maison. Une expérience gustative authentique et conviviale au cœur de la culture tangéroise."
+    "description": "Découvrez le rituel du thé à la menthe marocain dans un salon de thé traditionnel de la médina de Tanger. Accompagné de cornes de gazelle, briwat et chebakia préparés maison. Une expérience gustative authentique et conviviale au cœur de la culture tangéroise.",
+    "latitude": 35.7855,
+    "longitude": -5.8123
   }
 ]
