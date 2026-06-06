@@ -5,6 +5,7 @@
  */
 import { useState, useEffect, useRef } from "react";
 import Footer from "../components/Footer";
+import LogoIcon from "../assets/LogoIcon.jsx";
 
 /* ── Import images hero ────────────────────────── */
 import hero1 from "../assets/hero1.png";
@@ -388,32 +389,73 @@ export default function HomeGlobal({ onExploreTanger }) {
   return (
     <div style={{ background: C.bg, fontFamily: "'DM Sans','Segoe UI',sans-serif", color: C.text, minHeight: "100vh", overflowX: "hidden" }}>
 
-      {/* NAVBAR */}
-      <nav style={{
-        position: "fixed", top: 0, zIndex: 100, width: "100%",
-        background: scrolled ? "rgba(255,255,255,0.97)" : "transparent",
-        boxShadow:  scrolled ? "0 2px 20px rgba(15,23,42,0.09)" : "none",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        transition: "background .4s, box-shadow .4s",
-        padding: "0 32px", height: "64px",
-        display: "flex", alignItems: "center",
-      }}>
-        <div>
-          <span className="hg-nav-discover" style={{
-            color: scrolled ? C.secondary : C.light,
-            transition: "color .4s",
-          }}>Discover Morocco</span>
-          <span className="hg-nav-logo-main" style={{
-            color: scrolled ? C.text : "#ffffff",
-            transition: "color .4s",
-          }}>MoroccoGuide</span>
-          <span className="hg-nav-logo-ai" style={{
-            color: scrolled ? C.secondary : C.light,
-            transition: "color .4s",
-          }}>AI</span>
-        </div>
-      </nav>
+{/* NAVBAR */}
+<nav style={{
+  position:       "fixed",
+  top:            0,
+  zIndex:         100,
+  width:          "100%",
+  background:     scrolled ? "rgba(255,255,255,0.97)" : "transparent",
+  backdropFilter: scrolled ? "blur(10px)" : "none",
+  boxShadow:      scrolled ? "0 2px 20px rgba(15,23,42,0.09)" : "none",
+  transition:     "background .4s, box-shadow .4s, backdrop-filter .4s",
+  padding:        "0 32px",
+  height:         "72px",
+  display:        "flex",
+  alignItems:     "center",
+}}>
+  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
 
+    {/* Logo */}
+    <LogoIcon
+      width={52}
+      style={{
+        flexShrink: 0,
+        filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.35))",
+      }}
+    />
+
+    {/* Texte */}
+    <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+      <span style={{
+        fontSize:      "10px",
+        fontWeight:    600,
+        letterSpacing: "3px",
+        textTransform: "uppercase",
+        color:         scrolled ? C.secondary : "#ffffff",
+        textShadow:    scrolled ? "none" : "0 1px 6px rgba(0,0,0,0.5)",
+        fontFamily:    "'DM Sans', sans-serif",
+        transition:    "color .4s",
+      }}>
+        Discover Morocco
+      </span>
+      <div style={{ display: "flex", alignItems: "baseline", gap: "3px" }}>
+        <span style={{
+          fontSize:      "20px",
+          fontWeight:    800,
+          color:         scrolled ? C.text : "#ffffff",
+          textShadow:    scrolled ? "none" : "0 2px 10px rgba(0,0,0,0.45)",
+          fontFamily:    "'Playfair Display', Georgia, serif",
+          letterSpacing: "-0.3px",
+          transition:    "color .4s",
+        }}>
+          MoroccoGuide
+        </span>
+        <span style={{
+          fontSize:   "18px",
+          fontWeight: 600,
+          color:      scrolled ? C.secondary : "#ccfbf1",
+          textShadow: scrolled ? "none" : "0 2px 10px rgba(0,0,0,0.45)",
+          fontFamily: "'DM Sans', sans-serif",
+          transition: "color .4s",
+        }}>
+          AI
+        </span>
+      </div>
+    </div>
+
+  </div>
+</nav>
       {/* HERO SLIDER */}
       <section style={{
         position: "relative", minHeight: "92vh",

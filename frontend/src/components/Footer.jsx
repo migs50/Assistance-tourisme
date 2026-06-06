@@ -1,3 +1,5 @@
+import LogoIcon from "../assets/LogoIcon.jsx";
+
 /**
  * Footer.jsx — Layout aligné sur la photo de référence
  * Logo | Organiser | Légal | Contact | Carte
@@ -64,53 +66,34 @@ export default function Footer() {
         {/* ── COL 1 : Logo + Description ── */}
         <div style={{ paddingRight: "36px" }}>
           <div>
-            {/* Logo avec MoroccoGuide AI en arc */}
-            <div style={{ marginBottom: "20px", width: "110px" }}>
-              <svg viewBox="0 0 220 220" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
-                {/* Fond cercle blanc */}
-                <circle cx="110" cy="110" r="108" fill="white" />
+            {/* Logo SVG inline — aucun import de fichier */}
+            <div style={{ marginBottom: "12px" }}>
+              <LogoIcon
+                width={130}
+                style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.25))" }}
+              />
+            </div>
 
-                {/* Logo ecosystème centré (viewBox recadré sur le cercle) */}
-                <image
-                  href="/src/assets/logo.svg"
-                  x="5" y="5"
-                  width="210" height="210"
-                  clipPath="url(#logoClip)"
-                />
-                <defs>
-                  <clipPath id="logoClip">
-                    <circle cx="110" cy="110" r="104" />
-                  </clipPath>
-                </defs>
-
-                {/* Cercle bordure */}
-                <circle cx="110" cy="110" r="108" fill="none"
-                  stroke="rgba(255,255,255,0.60)" strokeWidth="2" />
-
-                {/* Texte "MoroccoGuide AI" en arc bas */}
-                <path id="arcBottom"
-                  d="M 18,110 A 92,92 0 0,0 202,110"
-                  fill="none" />
-                <text fontSize="13" fontWeight="700" fill="white"
-                  fontFamily="'DM Sans', 'Segoe UI', sans-serif"
-                  letterSpacing="3">
-                  <textPath href="#arcBottom" startOffset="50%" textAnchor="middle">
-                    MoroccoGuide AI
-                  </textPath>
-                </text>
-
-                {/* Texte en arc haut (optionnel — points décoratifs) */}
-                <path id="arcTop"
-                  d="M 20,110 A 90,90 0 0,1 200,110"
-                  fill="none" />
-                <text fontSize="11" fill="rgba(255,255,255,0.45)"
-                  fontFamily="'DM Sans', 'Segoe UI', sans-serif"
-                  letterSpacing="6">
-                  <textPath href="#arcTop" startOffset="50%" textAnchor="middle">
-                    · · · · · · · · · ·
-                  </textPath>
-                </text>
-              </svg>
+            {/* Nom plateforme — même style que la photo */}
+            <div style={{ marginBottom: "20px", lineHeight: 1.15 }}>
+              <span style={{
+                display:     "block",
+                fontSize:    "22px",
+                fontWeight:  800,
+                color:       T.white,
+                letterSpacing: "0.01em",
+              }}>
+                MoroccoGuide
+              </span>
+              <span style={{
+                display:     "block",
+                fontSize:    "22px",
+                fontWeight:  800,
+                color:       "rgba(255,255,255,0.32)",
+                letterSpacing: "0.01em",
+              }}>
+                AI
+              </span>
             </div>
 
             <p style={{ color: T.muted, fontSize: "12.5px", lineHeight: 1.75, margin: "0 0 20px" }}>
