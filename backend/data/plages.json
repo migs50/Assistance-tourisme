@@ -8,8 +8,8 @@
     "compagnie": "Entre amis",
     "localisation": "est",
     "description": "Point de vue spectaculaire sur la baie de Tanger et les côtes espagnoles au loin, dominé par un phare emblématique. Coucher de soleil incontournable et ambiance sauvage préservée loin des circuits touristiques classiques.",
-    "latitude": 35.8018,
-    "longitude": -5.7512
+    "latitude": 35.794,
+    "longitude": -5.806
   },
   {
     "nom": "Plage Dalia",
@@ -20,8 +20,8 @@
     "compagnie": "Entre amis",
     "localisation": "ouest",
     "description": "Plage populaire de la corniche ouest de Tanger, fréquentée par les surfeurs et les amateurs de sports nautiques. Ambiance jeune et dynamique, avec plusieurs beach clubs et cafés en bord de plage.",
-    "latitude": 35.805,
-    "longitude": -5.872
+     "latitude": 35.90543,
+     "longitude": -5.47695
   },
   {
     "nom": "Lac Mharhar (Barrage Ibn Battouta)",
@@ -44,7 +44,7 @@
     "compagnie": "Solo",
     "localisation": "centre-ville",
     "description": "Petit jardin romantique du centre-ville de Tanger, garni de bougainvilliers, palmiers et fontaines. Lieu de détente idéal pour lire ou se reposer à l'ombre, proche du quartier des diplomates.",
-    "latitude": 35.7888,
+    "latitude": 35.778,
     "longitude": -5.813
   },
   {
@@ -80,8 +80,8 @@
     "compagnie": "Entre amis",
     "localisation": "nord",
     "description": "Baie majestueuse s'étendant de la Kasbah au port moderne, offrant l'une des plus belles vues panoramiques de la ville. Promenade aménagée le long du front de mer avec bancs et points d'observation.",
-    "latitude": 35.787,
-    "longitude": -5.79
+   "latitude": 35.785511, 
+   "longitude":  -5.795747
   },
   {
     "nom": "plage Mrisat",
@@ -140,8 +140,8 @@
     "compagnie": "En famille",
     "localisation": "est",
     "description": "Presqu'île rocheuse à l'est de Tanger offrant un panorama exceptionnel sur la baie, le port et les côtes espagnoles. Phare historique et vestiges militaires ajoutent une dimension culturelle au paysage grandiose.",
-    "latitude": 35.8018,
-    "longitude": -5.7512
+    "latitude": 35.794,
+    "longitude": -5.809
   },
   {
     "nom": "Plage de Ghandouri",

@@ -10,7 +10,6 @@ Modules  : recommendation.decision_tree | filter_engine | data_loader
                        prefix="/api/recommandation",
                        tags=["Recommandation"])
 
-NE PAS MODIFIER chat.py ni recommend.py (binôme).
 """
 
 from __future__ import annotations

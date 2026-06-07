@@ -173,8 +173,8 @@
     "duree": "1h",
     "localisation": "extérieur",
     "description": "Glissez en tyrolienne au-dessus des falaises et de la forêt de Cap Malabata avec une vue imprenable sur le détroit de Gibraltar. Une aventure aérienne encadrée par des moniteurs certifiés. Accessible dès 12 ans. Sensation d'adrénaline assurée.",
-    "latitude": 35.795,
-    "longitude": -5.749
+    "latitude": 35.7952,
+    "longitude": -5.7488
   },
   {
     "nom": "Plongée Sous-Marine Détroit de Gibraltar",
@@ -186,8 +186,8 @@
     "duree": "demi-journée",
     "localisation": "plage",
     "description": "Explorez les fonds marins exceptionnels du détroit de Gibraltar avec un club de plongée certifié PADI basé à Tanger. Découvrez une faune marine remarquable : dauphins, thons, murènes et pieuvres. Baptêmes pour débutants et plongées pour certifiés.",
-    "latitude": 35.788,
-    "longitude": -5.799
+    "latitude": 35.7882,
+    "longitude": -5.7988
   },
   {
     "nom": "Équitation Ranch Tanger",
@@ -238,8 +238,8 @@
     "duree": "1h",
     "localisation": "plage",
     "description": "Sillonnez les eaux turquoise du détroit de Gibraltar à bord d'un jet ski puissant depuis la plage de Malabata. Location avec gilet de sauvetage et briefing sécurité inclus. Formules 30 minutes ou 1 heure disponibles. Sensations fortes garanties.",
-    "latitude": 35.793,
-    "longitude": -5.77
+     "latitude":35.778051, 
+    "longitude": -5.777746
   },
   {
     "nom": "Surf Plage Merkala",
@@ -251,8 +251,8 @@
     "duree": "2h",
     "localisation": "plage",
     "description": "Prenez vos premières vagues ou perfectionnez votre technique à la plage de Merkala, l'un des spots de surf les plus appréciés de la région de Tanger. Cours pour tous niveaux avec instructeurs certifiés, planches et combinaisons disponibles à la location.",
-    "latitude": 35.797,
-    "longitude": -5.836
+    "latitude": 35.7972,
+    "longitude": -5.8358
   },
   {
     "nom": "Kayak de Mer Grottes d'Hercule",
@@ -303,8 +303,8 @@
     "duree": "journée complète",
     "localisation": "plage",
     "description": "Profitez d'une journée de détente au beach club La Tangerina sur la côte atlantique. Transats premium, bar à cocktails, cuisine de mer fraîche et piscine à débordement face à l'océan. Musique lounge, ambiance internationale et service impeccable.",
-    "latitude": 35.793,
-    "longitude": -5.865
+    "latitude": 35.7932,
+    "longitude": -5.8648
   },
   {
     "nom": "Hammam & Spa Riad Dar Jameel",
@@ -355,8 +355,8 @@
     "duree": "demi-journée",
     "localisation": "plage",
     "description": "Embarquez pour une croisière dans le légendaire détroit de Gibraltar depuis le port de Tanger. Observation des dauphins, vue simultanée sur l'Europe et l'Afrique, passage devant le Cap Spartel. Guide bilingue à bord, boissons fraîches incluses. Départs matin et après-midi.",
-    "latitude": 35.788,
-    "longitude": -5.799
+    "latitude": 35.7882,
+    "longitude": -5.7992
   },
   {
     "nom": "Visite Guidée Médina & Kasbah de Tanger",
