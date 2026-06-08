@@ -100,11 +100,35 @@ FIELD_DEFAULTS: dict[str, Any] = {
 
 # Renommage de champs
 FIELD_ALIASES: dict[str, dict[str, str]] = {
-    "hotels":      {"categorie": "budget", "type": "type_sejour", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
+    "hotels":      {"budget_type": "budget", "type": "type_sejour", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
     "plages":      {"preference": "type_plage", "compagnie": "type_sejour", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
     "activites":   {"type": "type_activite", "note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation"},
-    "restaurants": {"note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation", "type_cuisine": "cuisine"},
+    "restaurants": {"note_moyenne": "rating", "image_url": "image", "description_fr": "description", "quartier": "localisation", "type_cuisine": "cuisine", "fourchette_prix": "budget"},
     "evenement":   {"image_url": "image", "description_fr": "description", "quartier": "localisation", "categorie": "type_evenement"},
+}
+
+# Mapping des budgets pour correspondre à (economique | moyen | luxe)
+BUDGET_MAP: dict[str, str] = {
+    "bas":        "economique",
+    "moyen":      "moyen",
+    "mid":        "moyen",
+    "premium":    "luxe",
+    "eleve":      "luxe",
+    "economique": "economique",
+    "luxe":       "luxe",
+}
+
+# Mapping des cuisines pour correspondre aux choix de l'arbre (marocaine | internationale | cafe)
+CUISINE_MAP: dict[str, str] = {
+    "marocaine":       "marocaine",
+    "cafe":            "cafe",
+    "patisserie":      "cafe",
+    "internationale":  "internationale",
+    "italienne":       "internationale",
+    "espagnole":       "internationale",
+    "asiatique":       "internationale",
+    "mediterraneenne": "internationale",
+    "poissons":        "internationale",
 }
 
 # Mapping valeurs type_plage (après remove_accents + lower)
@@ -321,6 +345,14 @@ class DataLoader:
                 if f in item and isinstance(item[f], str):
                     item[f] = _strip_accents(item[f]).lower().strip()
 
+            # Mapping du budget normalisé
+            if "budget" in item and isinstance(item["budget"], str):
+                item["budget"] = BUDGET_MAP.get(item["budget"], item["budget"])
+
+            # Mapping de la cuisine pour les restaurants
+            if cat == "restaurants" and "cuisine" in item and isinstance(item["cuisine"], str):
+                item["cuisine"] = CUISINE_MAP.get(item["cuisine"], item["cuisine"])
+
             # ⑤ Mappings spéciaux type_plage
             if cat == "plages" and "type_plage" in item:
                 tp = item["type_plage"]
@@ -329,7 +361,14 @@ class DataLoader:
             # ⑥ Mappings spéciaux type_sejour
             if "type_sejour" in item:
                 ts = item["type_sejour"]
-                item["type_sejour"] = TYPE_SEJOUR_MAP.get(ts, ts)
+                if ts == "hotel":
+                    item["type_sejour"] = "famille"
+                elif ts == "riad":
+                    item["type_sejour"] = "couple"
+                elif ts == "auberge_jeunesse":
+                    item["type_sejour"] = "solo"
+                else:
+                    item["type_sejour"] = TYPE_SEJOUR_MAP.get(ts, ts)
 
             # ⑦ distance_km : estimé depuis localisation (absent dans plages.json)
             if cat == "plages" and not item.get("distance_km"):

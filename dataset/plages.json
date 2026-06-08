@@ -20,8 +20,8 @@
     "compagnie": "Entre amis",
     "localisation": "ouest",
     "description": "Plage populaire de la corniche ouest de Tanger, fréquentée par les surfeurs et les amateurs de sports nautiques. Ambiance jeune et dynamique, avec plusieurs beach clubs et cafés en bord de plage.",
-     "latitude": 35.905580,
-     "longitude":  -5.476808
+     "latitude": 35.90543,
+     "longitude": -5.47695
   },
   {
     "nom": "Lac Mharhar (Barrage Ibn Battouta)",
@@ -51,7 +51,7 @@
     "nom": "Plage Rmilate",
     "prix": "Gratuit",
     "rating": 4.4,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmRz7aqQqfYUn0t6nYWxDiXXq8N3_-yFRLIg&s",
+    "image":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgm_05-KP71s8Nw7QNsss-oIEJD0FUGHpb7pPqIYunQ&s=10",
     "preference": "plage calme",
     "compagnie": "Solo",
     "localisation": "est",
@@ -80,8 +80,8 @@
     "compagnie": "Entre amis",
     "localisation": "nord",
     "description": "Baie majestueuse s'étendant de la Kasbah au port moderne, offrant l'une des plus belles vues panoramiques de la ville. Promenade aménagée le long du front de mer avec bancs et points d'observation.",
-    "latitude": 35.785511, 
-    "longitude":  -5.795747
+   "latitude": 35.785511, 
+   "longitude":  -5.795747
   },
   {
     "nom": "plage Mrisat",
@@ -111,7 +111,7 @@
     "nom": "Charf hill",
     "prix": "Gratuit",
     "rating": 4.5,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZQpkG7SUOO7RPUiimN5p2mP5pec35PJ0bLQ&s",
+    "image":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFqdWdDz3CQMCeJZPRANlDeiXc9dIXySeJNA&s",
     "preference": "coucher de soleil",
     "compagnie": "Entre amis",
     "localisation": "nord",
@@ -123,7 +123,7 @@
     "nom": "Jardin Exotique de Tanger",
     "prix": "25 DH",
     "rating": 4.3,
-    "image": "https://serpapi.com/searches/fxsLTAoP4CxT8-y-2Bj1Jw/6a0ec18c9f8abc9fc3758911.json",
+    "image":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC_kcMhbBU2ssohNbdetWF4RvRE26XMpVAcw&s",
     "preference": "randonnée",
     "compagnie": "En famille",
     "localisation": "centre-ville",

@@ -82,7 +82,7 @@
       "hiver"
     ],
     "accessibilite_pmr": false,
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFULSM863hSUWqiu51bny6jAzNZtDiugcUw&s",
+    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzmDNuQyO1YOVnvcUHfKPBehDxnYZXiX3mOg&s",
     "site_web": null,
     "telephone": null,
     "source_donnee": "Google Places + OpenStreetMap"
@@ -260,41 +260,6 @@
     "telephone": null,
     "source_donnee": "Google Places + OpenStreetMap"
   },
-   {
-      "id": "lieu_016",
-      "nom": "Palais des Institutions Italiennes",
-      "categorie": "monument historique",
-      "adresse": "Rue de Belgique",
-      "latitude": 35.7755,
-      "longitude": -5.8095,
-      "prix_entree": 20,
-      "rating": 4,
-      "description": "Palais architecture italienne historique",
-      "horaires": "10:00-17:00",
-      "type_lieu": "palace",
-      "decouvrir": [
-        "architecture",
-        "histoire diplomatique"
-      ]
-    },
-   {
-      "id": "lieu_017",
-      "nom": "Poste de Douane Frontière",
-      "categorie": "site intérêt",
-      "adresse": "Frontera Maroc Espagne",
-      "latitude": 35.83,
-      "longitude": -5.365,
-      "prix_entree": 0,
-      "rating": 3.9,
-      "description": "Poste frontiérer vue Espagne détroit",
-      "horaires": "24h/24",
-      "type_lieu": "frontière",
-      "decouvrir": [
-        "Espagne",
-        "détroit proche",
-        "géopolitique"
-      ]
-    },
   {
     "id": "lieu_007",
     "nom": "Bab Al Fahs",
@@ -784,6 +749,7 @@
       "nom": "Galerie d'Art Tanger",
       "categorie": "musée",
       "adresse": "Rue de Belgique",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIpva7od4QiI1atjDde__cDeTX21ZGXIyrRg&s",
       "lat": 35.7755,
       "lng": -5.8085,
       "prix_entree": 40,

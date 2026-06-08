@@ -1813,67 +1813,6 @@
     "source_donnee": "Google Places + OpenStreetMap"
   },
   {
-    "id": "cafe_004",
-    "nom": "Cinémathèque de Tanger",
-    "categorie": "café",
-    "type_cuisine": "café",
-    "sous_type": "culturel",
-    "latitude": 35.7835,
-    "longitude": -5.809,
-    "adresse": "Rue de Fès, Cinema Rif",
-    "quartier": "Centre-ville",
-    "description_fr": "Café culturel niché dans le hall du Cinéma Rif, point de rencontre des artistes et cinéphiles, offrant un cadre rétro et des boissons abordables sous les projecteurs.",
-    "description_en": "Cultural cafe nestled in the lobby of Cinema Rif, a meeting point for artists and cinephiles, offering a retro setting and affordable drinks under the spotlights.",
-    "description_ar": "مقهى ثقافي يتمركز في بهو سينما الريف، نقطة التقاء الفنانين وعشاق السينما، يوفر إطاراً ريترو ومشروبات بأسعار معقولة تحت الأضواء.",
-    "fourchette_prix": "bas",
-    "prix_moyen_mad": 25,
-    "prix_min_mad": 10,
-    "prix_max_mad": 45,
-    "note_moyenne": 4.5,
-    "nb_avis": 680,
-    "halal": true,
-    "vegetarien": true,
-    "vegan": true,
-    "sans_gluten": true,
-    "terrasse": true,
-    "vue_mer": false,
-    "rooftop": false,
-    "reservation_requise": false,
-    "livraison": false,
-    "horaires_ouverture": "10:00-22:00",
-    "jours_fermeture": [
-      "lundi"
-    ],
-    "capacite_personnes": 60,
-    "plats_signature": [
-      "Café noir",
-      "Thé à la menthe",
-      "Jus naturel"
-    ],
-    "langues_menu": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "culturel",
-      "cinéma",
-      "coworking",
-      "wifi"
-    ],
-    "saison_recommandee": [
-      "printemps",
-      "ete",
-      "automne",
-      "hiver"
-    ],
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSCUwCr92qZH-e6XFeImFbG1jOlIreKkpzA&s",
-    "telephone": "+212539336677",
-    "instagram": "@cinemathquetanger",
-    "site_web": "https://www.cinemathequedetanger.com",
-    "source_donnee": "Google Places + Wikipedia"
-  },
-  {
     "id": "cafe_005",
     "nom": "Miga Coffee",
     "categorie": "café",

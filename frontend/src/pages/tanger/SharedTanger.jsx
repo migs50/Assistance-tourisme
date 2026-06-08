@@ -204,9 +204,9 @@ export const T = {
    DONNÉES LOCALES PARTAGÉES — INTACTES
 ───────────────────────────────────────────────────────────────────────────── */
 export const CATEGORIES = [
-  { id: "hotels", label: "Hôtels", description: "Hébergement selon votre budget et vos envies." },
-  { id: "restaurants", label: "Restaurants", description: "Cuisine marocaine, internationale, terrasses." },
-  { id: "plages", label: "Plages", description: "Calme, animée, coucher de soleil." },
+  { id: "hotels", label: "Hôtels & Riads", description: "Hébergement selon votre budget et vos envies." },
+  { id: "restaurants", label: "Restaurants & Cafés", description: "Cuisine marocaine, internationale, terrasses." },
+  { id: "plages", label: "Plages & Nature", description: "Calme, animée, coucher de soleil." },
   { id: "activites", label: "Activités", description: "Aventure, culture, histoire, famille." },
 ];
 
