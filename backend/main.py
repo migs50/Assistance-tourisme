@@ -5,19 +5,10 @@ Lance avec : uvicorn main:app --reload
 """
 
 import os
-import sys
 from contextlib import asynccontextmanager
 from dotenv import load_dotenv
-
-# Configure stdout/stderr to use UTF-8 to prevent UnicodeEncodeError on Windows terminals
-if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(encoding='utf-8')
-if hasattr(sys.stderr, 'reconfigure'):
-    sys.stderr.reconfigure(encoding='utf-8')
-
 load_dotenv()
-if "HF_TOKEN" not in os.environ:
-    os.environ["HF_TOKEN"] = "HF1BitLLM/Llama3-8B-1.58-100B-tokens"
+
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,7 +21,6 @@ from routes.dashboard import router as dashboard_router
 from routes.activites      import router as activites_router
 from routes.evenements     import router as evenements_router
 from routes.lieux          import router as lieux_router
-from services.data_loader  import DataLoader
 
 
 # Chargement des variables d'environnement (.env)
@@ -51,10 +41,6 @@ async def lifespan(app: FastAPI):
     # Construction de l'index RAG (ne fait rien si déjà indexé)
     print("Vérification de l'index RAG...")
     build_index(force_rebuild=False)
-
-    # Chargement des données statistiques
-    print("Chargement des datasets en mémoire...")
-    DataLoader.preload_all()
 
     print(" API prête !\n")
     yield
@@ -80,8 +66,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
 
 # Enregistrement des routes
 app.include_router(chat_router)

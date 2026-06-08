@@ -5,13 +5,6 @@ Génère les embeddings de tous les documents et les indexe dans ChromaDB.
 """
 import sys
 import os
-
-# Configure stdout/stderr to use UTF-8 to prevent UnicodeEncodeError on Windows terminals
-if hasattr(sys.stdout, 'reconfigure'):
-    sys.stdout.reconfigure(encoding='utf-8')
-if hasattr(sys.stderr, 'reconfigure'):
-    sys.stderr.reconfigure(encoding='utf-8')
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import chromadb
 from chromadb.utils import embedding_functions

@@ -48,14 +48,15 @@
       "piscine",
       "spa",
       "vue_mer",
-      "premium"
+      "premium",
+      "vue_mer"
     ],
     "saison_haute": [
       "juillet",
       "août",
       "septembre"
     ],
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgKyNe103WBIzM5H0c8yP9eQZy8AwRLlW5HQ&s",
+    "image_url": "https://serpapi.com/searches/6a0d9fdfb13aa7ee97ebc8cb/images/8OjF_AxZ8lhw5-tuW18VzybBiD8jGlv3Wu-9djwSTws.jpeg",
     "site_web": "https://www.elminzah.com",
     "telephone": "+212539935885",
     "email_contact": "reservation@elminzah.com",
@@ -66,10 +67,10 @@
     "nom": "Fairmont Tazi Palace",
     "categorie": "5_etoiles",
     "type": "hotel",
-    "latitude": 35.782122, 
-    "longitude":-5.850670,
-    "adresse": "Montagne, Tanger 90000, Maroc",
-    "quartier": "Montagne",
+    "latitude": 35.782,
+    "longitude": -5.805,
+    "adresse": "Fairmont Tazi Palace, Centre-ville, Tanger 90000, Maroc",
+    "quartier": "Centre-ville",
     "description_fr": "Établissement de grand luxe offrant une expérience hôtelière d'exception à Tanger. Ses chambres spacieuses et raffinées disposent de tout le confort moderne avec décoration soignée. Le restaurant gastronomique propose une cuisine marocaine et internationale de haute qualité. Le spa et la piscine intérieure permettent de se ressourcer après une journée de visite. Le personnel multilingue et disponible 24h/24 assure un service irréprochable. Idéalement situé, il permet d'accéder facilement aux attractions touristiques de la ville.",
     "description_en": "A luxury establishment offering an exceptional hotel experience in Tangier. Its spacious and refined rooms feature all modern comforts with careful decoration. The gourmet restaurant offers high-quality Moroccan and international cuisine. The spa and indoor pool allow guests to recharge after a day of sightseeing. The multilingual staff available 24/7 ensures impeccable service. Ideally located, it provides easy access to the city's tourist attractions.",
     "description_ar": "منشأة فاخرة تقدم تجربة فندقية استثنائية في طنجة. تتميز غرفها الفسيحة والراقية بجميع وسائل الراحة الحديثة مع ديكور أنيق. يقدم المطعم الفاخر مأكولات مغربية ودولية عالية الجودة. يتيح السبا والمسبح الداخلي الاسترخاء والتجدد بعد يوم حافل بالجولات. يضمن الطاقم متعدد اللغات المتاح على مدار الساعة خدمة لا تشوبها شائبة.",
@@ -110,7 +111,8 @@
       "piscine",
       "spa",
       "vue_mer",
-      "premium"
+      "premium",
+      "vue_mer"
     ],
     "saison_haute": [
       "juillet",
@@ -172,14 +174,15 @@
       "piscine",
       "spa",
       "vue_mer",
-      "premium"
+      "premium",
+      "vue_mer"
     ],
     "saison_haute": [
       "juillet",
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da0a33882c57eda00a212/images/rhjUeB_rF1L29u5XlEwA7uUBnlsa_Df100kYDkVbEkc.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da0a33882c57eda00a212/images/rhjUeB_rF1L29u5XlEwA7uUBnlsa_Df100kYDkVbEkc.jpeg",
     "site_web": "https://www.hilton.com",
     "telephone": "+212539906060",
     "email_contact": "tanger@hilton.com",
@@ -190,8 +193,8 @@
     "nom": "Barcelo Tanger",
     "categorie": "5_etoiles",
     "type": "hotel",
-    "latitude": 35.777832,
-    "longitude": -5.800142,
+    "latitude": 35.796,
+    "longitude": -5.787,
     "adresse": "Barcelo Tanger, Malabata, Tanger 90000, Maroc",
     "quartier": "Malabata",
     "description_fr": "Établissement de grand luxe offrant une expérience hôtelière d'exception à Tanger. Ses chambres spacieuses et raffinées disposent de tout le confort moderne avec décoration soignée. Le restaurant gastronomique propose une cuisine marocaine et internationale de haute qualité. Le spa et la piscine intérieure permettent de se ressourcer après une journée de visite. Le personnel multilingue et disponible 24h/24 assure un service irréprochable. Idéalement situé, il permet d'accéder facilement aux attractions touristiques de la ville.",
@@ -234,14 +237,15 @@
       "piscine",
       "spa",
       "vue_mer",
-      "premium"
+      "premium",
+      "vue_mer"
     ],
     "saison_haute": [
       "juillet",
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da1308da5eac630394257/images/JiwtGLnCELqRN--rtwzJ3J7acjgW1oMK9IwmY5YPQrc.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da1308da5eac630394257/images/JiwtGLnCELqRN--rtwzJ3J7acjgW1oMK9IwmY5YPQrc.jpeg",
     "email_contact": "tanger@barcelo.com",
     "source_donnee": "Google Places + TripAdvisor"
   },
@@ -358,8 +362,8 @@
     "nom": "Hotel El Oumnia Puerto",
     "categorie": "4_etoiles",
     "type": "hotel",
-    "latitude": 35.78987,
-    "longitude": -5.80124,
+    "latitude": 35.792,
+    "longitude": -5.81,
     "adresse": "Hotel El Oumnia Puerto, Corniche, Tanger 90000, Maroc",
     "quartier": "Corniche",
     "description_fr": "Hôtel 4 étoiles bien équipé proposant un excellent rapport qualité-prix en plein cœur de Tanger. Les chambres confortables et climatisées offrent tout le confort nécessaire pour un séjour agréable. Le restaurant de l'hôtel propose une carte variée de plats marocains et internationaux. La situation centrale facilite les déplacements vers les principaux sites touristiques. Le personnel accueillant et professionnel est à votre disposition pour vous guider.",
@@ -402,7 +406,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da265d45a38d5a0378291/images/_QTbLz3bufAVDRDA3--jWFNHXEQR7ru9G6tXC06XgiU.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da265d45a38d5a0378291/images/_QTbLz3bufAVDRDA3--jWFNHXEQR7ru9G6tXC06XgiU.jpeg",
     "site_web": "https://www.eloumniapuerto.com",
     "telephone": "+212539947410",
     "email_contact": "reservation@eloumniapuerto.com",
@@ -510,7 +514,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da2fe8ffd7bb3e88485e2/images/VohNB8rd_-KolBq-mXqOw0lTLY14xEbh3wSqV7XiFXw.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da2fe8ffd7bb3e88485e2/images/VohNB8rd_-KolBq-mXqOw0lTLY14xEbh3wSqV7XiFXw.jpeg",
     "site_web": null,
     "telephone": "+212539938279",
     "email_contact": "info@tanflandria.ma",
@@ -559,7 +563,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da35473bf59849d853e47/images/mDQ0A03UjAJDN-teTk3KiZ9FerzDhmRrTW_M3GdyYvA.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da35473bf59849d853e47/images/mDQ0A03UjAJDN-teTk3KiZ9FerzDhmRrTW_M3GdyYvA.jpeg",
     "site_web": "https://www.ibis.com",
     "telephone": "+212539300200",
     "email_contact": "tanger@ibis.com",
@@ -570,9 +574,9 @@
     "nom": "Hotel Ibn Batouta",
     "categorie": "3_etoiles",
     "type": "hotel",
-    "latitude": 35.7287,
-    "longitude": -5.9176,
-    "adresse": "Route de l'Aéroport Ibn Battouta, Tanger",
+    "latitude": 35.766,
+    "longitude": -5.905,
+    "adresse": "Hotel Ibn Batouta, Aéroport, Tanger 90000, Maroc",
     "quartier": "Aéroport",
     "description_fr": "Hôtel 3 étoiles confortable et bien situé à Tanger, idéal pour les voyageurs recherchant confort et praticité sans sacrifier leur budget. Les chambres propres et fonctionnelles sont équipées du wifi gratuit et de la climatisation. La réception est disponible pour vous aider à planifier vos visites dans la ville. Un petit-déjeuner marocain authentique peut être servi sur demande. Excellent point de départ pour explorer la médina, la Kasbah et les nombreux sites historiques de la ville.",
     "description_en": "A comfortable and well-located 3-star hotel in Tangier, ideal for travelers seeking comfort and practicality without breaking the budget. Clean and functional rooms are equipped with free wifi and air conditioning. The reception is available to help you plan your city visits. An authentic Moroccan breakfast can be served on request. An excellent base to explore the medina, Kasbah, and the city's many historic sites.",
@@ -608,7 +612,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da3b8e22fed84383d16b8/images/-1PaqD8wK7slQiiQ1od3V4oBgiZqf1XodMzjAK87IQM.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da3b8e22fed84383d16b8/images/-1PaqD8wK7slQiiQ1od3V4oBgiZqf1XodMzjAK87IQM.jpeg",
     "site_web": null,
     "telephone": "+212539393400",
     "email_contact": "ibnbatouta@gmail.com",
@@ -657,7 +661,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da43a3b93e3c500747311/images/qAP5S8B8Hm_iE23mEQ2XMlUy4KNz87hSw5eaMx3lEuw.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da43a3b93e3c500747311/images/qAP5S8B8Hm_iE23mEQ2XMlUy4KNz87hSw5eaMx3lEuw.jpeg",
     "site_web": null,
     "telephone": "+212539942244",
     "email_contact": "info@eldjenina.ma",
@@ -706,7 +710,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da483ae678cfea6e3dbd6/images/rELdqJOU8pb_gFulALBVmBO4VXJF3-HdYKZLqwL0hpI.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da483ae678cfea6e3dbd6/images/rELdqJOU8pb_gFulALBVmBO4VXJF3-HdYKZLqwL0hpI.jpeg",
     "site_web": null,
     "telephone": "+212539941124",
     "email_contact": "info@marcopolo.ma",
@@ -717,9 +721,9 @@
     "nom": "Hotel Solazur",
     "categorie": "3_etoiles",
     "type": "hotel",
-    "latitude": 35.7785,
-    "longitude": -5.7992,
-    "adresse": "Avenue Mohammed VI, Corniche, Tanger",
+    "latitude": 35.79,
+    "longitude": -5.802,
+    "adresse": "Hotel Solazur, Corniche, Tanger 90000, Maroc",
     "quartier": "Corniche",
     "description_fr": "Hôtel 3 étoiles confortable et bien situé à Tanger, idéal pour les voyageurs recherchant confort et praticité sans sacrifier leur budget. Les chambres propres et fonctionnelles sont équipées du wifi gratuit et de la climatisation. La réception est disponible pour vous aider à planifier vos visites dans la ville. Un petit-déjeuner marocain authentique peut être servi sur demande. Excellent point de départ pour explorer la médina, la Kasbah et les nombreux sites historiques de la ville.",
     "description_en": "A comfortable and well-located 3-star hotel in Tangier, ideal for travelers seeking comfort and practicality without breaking the budget. Clean and functional rooms are equipped with free wifi and air conditioning. The reception is available to help you plan your city visits. An authentic Moroccan breakfast can be served on request. An excellent base to explore the medina, Kasbah, and the city's many historic sites.",
@@ -767,8 +771,8 @@
     "nom": "Hotel Dawliz",
     "categorie": "3_etoiles",
     "type": "hotel",
-      "latitude": 35.78645,
-      "longitude": -5.80198,
+    "latitude": 35.792,
+    "longitude": -5.801,
     "adresse": "Hotel Dawliz, Corniche, Tanger 90000, Maroc",
     "quartier": "Corniche",
     "description_fr": "Hôtel 3 étoiles confortable et bien situé à Tanger, idéal pour les voyageurs recherchant confort et praticité sans sacrifier leur budget. Les chambres propres et fonctionnelles sont équipées du wifi gratuit et de la climatisation. La réception est disponible pour vous aider à planifier vos visites dans la ville. Un petit-déjeuner marocain authentique peut être servi sur demande. Excellent point de départ pour explorer la médina, la Kasbah et les nombreux sites historiques de la ville.",
@@ -855,7 +859,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da51c3d870102d325eb46/images/XvacZFxN2VtCSjG0_ce3v22oJUxNFMHKxYXCnwFm-14.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da51c3d870102d325eb46/images/XvacZFxN2VtCSjG0_ce3v22oJUxNFMHKxYXCnwFm-14.jpeg",
     "site_web": null,
     "telephone": "+212539946610",
     "email_contact": "info@hotelrif.ma",
@@ -904,7 +908,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da5542ddc43318dacafc7/images/Z8n2i3jJZGHQ1ycLReYJDWwOEWoj-aAZFiklFzPSPgs.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da5542ddc43318dacafc7/images/Z8n2i3jJZGHQ1ycLReYJDWwOEWoj-aAZFiklFzPSPgs.jpeg",
     "site_web": null,
     "telephone": "+212539941817",
     "email_contact": "info@hotelvalencia.ma",
@@ -998,7 +1002,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da5acf5c2f81fe6c85f2a/images/3Ik_I5CAkSMDZTcnPzuzu_Jj1gSsP3GC4POacSrr6MA.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da5acf5c2f81fe6c85f2a/images/3Ik_I5CAkSMDZTcnPzuzu_Jj1gSsP3GC4POacSrr6MA.jpeg",
     "site_web": null,
     "telephone": "+212539938420",
     "email_contact": "info@andaluz.ma",
@@ -1092,7 +1096,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da6433882c53dca3d24c8/images/n7nLsDwKxkZ9FpHv55lzriBolDCk0LKGVS7dbc5K48k.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da6433882c53dca3d24c8/images/n7nLsDwKxkZ9FpHv55lzriBolDCk0LKGVS7dbc5K48k.jpeg",
     "site_web": null,
     "telephone": "+212539935801",
     "email_contact": "info@mauritania.ma",
@@ -1148,7 +1152,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da731302394e5f83195be/images/v0RIedleEmLzyEA8vAHrrh0My1N25ihE2yiSqI3hu4Q.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da731302394e5f83195be/images/v0RIedleEmLzyEA8vAHrrh0My1N25ihE2yiSqI3hu4Q.jpeg",
     "site_web": "https://www.darsultan.com",
     "telephone": "+212539336362",
     "email_contact": "info@darsultan.com",
@@ -1204,7 +1208,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da760f607a9e8844e6609/images/TPxIZZmUrVGm2YfRJ0AIF3ihJfO_sfKGCvKBGlvkQZU.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da760f607a9e8844e6609/images/TPxIZZmUrVGm2YfRJ0AIF3ihJfO_sfKGCvKBGlvkQZU.jpeg",
     "site_web": "https://www.latangerina.com",
     "telephone": "+212539947731",
     "email_contact": "info@latangerina.com",
@@ -1260,7 +1264,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da78e822c5f64ce8ad769/images/C4ix0kXH5ISmL7CsFdbUjZV_wfXMd4M5SzS2IFkCqr8.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da78e822c5f64ce8ad769/images/C4ix0kXH5ISmL7CsFdbUjZV_wfXMd4M5SzS2IFkCqr8.jpeg",
     "site_web": "https://www.darchams.com",
     "telephone": "+212539332323",
     "email_contact": "info@darchams.com",
@@ -1316,7 +1320,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0da865e82707f320c81b2d/images/ANs-fC7EID9jGZJ5TcvJDG8PB6j-R-149tmhC2zgaUM.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0da865e82707f320c81b2d/images/ANs-fC7EID9jGZJ5TcvJDG8PB6j-R-149tmhC2zgaUM.jpeg",
     "site_web": "https://www.darnour.com",
     "telephone": "+212539930339",
     "email_contact": "reservation@darnour.com",
@@ -1420,7 +1424,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0daad455ba658cded35a78/images/5PZW9yBT6FgnTN8NmtveBE6e7p9D58wdEffyUaE9w1Y.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0daad455ba658cded35a78/images/5PZW9yBT6FgnTN8NmtveBE6e7p9D58wdEffyUaE9w1Y.jpeg",
     "site_web": null,
     "telephone": "+212661567890",
     "email_contact": "info@tangerinn.ma",
@@ -1525,7 +1529,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0dabe050d43e7199fe05ac/images/X-FXQ1r-yjid-38mfVURQObogF71ntJjd6cQ4OQmWVw.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0dabe050d43e7199fe05ac/images/X-FXQ1r-yjid-38mfVURQObogF71ntJjd6cQ4OQmWVw.jpeg",
     "site_web": null,
     "telephone": "+212661789012",
     "email_contact": "info@surfstay.ma",
@@ -1574,7 +1578,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxkM_HO4jIRf5HiXF4IJMsE5iTQ0AOquiJA&s",
+    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxkM_HO4jIRf5HiXF4IJMsE5iTQ0AOquiJA&s",
     "site_web": null,
     "telephone": "+212539938028",
     "email_contact": "info@hotelbiarritz.ma",
@@ -1621,7 +1625,7 @@
       "août",
       "septembre"
     ],
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIzicThbLgD6MXGhExSfRhhkgM0CVe3Qcgcw&s",
+    "image_url": "https://source.unsplash.com/600x400/?hotel,morocco,2",
     "site_web": null,
     "telephone": "+212539937202",
     "email_contact": "info@astoria.ma",
@@ -1670,7 +1674,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3GpJQCBw-jCzYLrvyXkBblrf05fFCGtL0gw&s",
+    "image_url": "https://serpapi.com/searches/6a0dedff0a91564f6be6b99c/images/vHwmXmcbQKMBZpRnk-BCmqnZq6B_aeV-NcSFq82bd7c.jpeg",
     "site_web": null,
     "telephone": "+212539936026",
     "email_contact": "info@lutecia.ma",
@@ -1717,7 +1721,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0deca270e9d086e980198f/images/ZpMWB2ApgZgytXAy0p_Ikrz556GvNTSvYQcedIL2YnQ.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0deca270e9d086e980198f/images/ZpMWB2ApgZgytXAy0p_Ikrz556GvNTSvYQcedIL2YnQ.jpeg",
     "site_web": null,
     "telephone": "+212539933271",
     "email_contact": "info@hotelparis-tanger.ma",
@@ -1822,10 +1826,65 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0dea42ae678c0980a66ea5/images/9FJr5k5uzZ6e7TBBGTXELKoCQLbeljpXL8rg9OSh2qg.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0dea42ae678c0980a66ea5/images/9FJr5k5uzZ6e7TBBGTXELKoCQLbeljpXL8rg9OSh2qg.jpeg",
     "site_web": null,
     "telephone": "+212661902345",
     "email_contact": "info@riad-albaraka.ma",
+    "source_donnee": "Google Places + TripAdvisor"
+  },
+  {
+    "id": "hotel_061",
+    "nom": "Hotel Dawliz Suites",
+    "categorie": "4_etoiles",
+    "type": "hotel",
+    "latitude": 35.791,
+    "longitude": -5.8015,
+    "adresse": "Hotel Dawliz Suites, Corniche, Tanger 90000, Maroc",
+    "quartier": "Corniche",
+    "description_fr": "Hôtel 4 étoiles confortable et bien situé à Tanger. Restaurant, parking et climatisation inclus. Excellent rapport qualité-prix pour un séjour agréable.",
+    "description_en": "A comfortable 4-star hotel well located in Tangier. Restaurant, parking and air conditioning included. Excellent value for money for a pleasant stay.",
+    "description_ar": "فندق 4 نجوم مريح وموقعه جيد في طنجة. مطعم وموقف سيارات وتكييف هواء. قيمة ممتازة لإقامة ممتعة.",
+    "prix_nuit_min_mad": 850,
+    "prix_nuit_max_mad": 1600,
+    "budget_type": "moyen",
+    "note_moyenne": 4.2,
+    "nb_avis": 175,
+    "equipements": [
+      "wifi",
+      "restaurant",
+      "bar",
+      "parking",
+      "climatisation",
+      "room_service",
+      "fitness",
+      "piscine"
+    ],
+    "vue_mer": true,
+    "petit_dejeuner_inclus": true,
+    "animaux_acceptes": false,
+    "nombre_chambres": 45,
+    "check_in": "14:00",
+    "check_out": "12:00",
+    "langues_personnel": [
+      "français",
+      "anglais",
+      "arabe"
+    ],
+    "tags": [
+      "confort",
+      "restaurant",
+      "centre_ville",
+      "vue_mer"
+    ],
+    "saison_haute": [
+      "juillet",
+      "août",
+      "septembre"
+    ],
+    "image_url":  "https://serpapi.com/searches/6a0de9be2328e17d3b125597/images/yCxRY2hooKU-sol9BJJv5GDwaPb31fHFDRuBgK5S1x8.jpeg",
+    "site_web": null,
+    "telephone": "+212539937788",
+    "email_contact": "suites@dawliz.ma",
     "source_donnee": "Google Places + TripAdvisor"
   },
   {
@@ -1932,7 +1991,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0de7bb2ddc43405c228254/images/dAuLHoD8qCdbUQ5a5IYcThkzKqyf68_SXjkWiTIuvhY.jpeg",
+    "image_url":   "https://serpapi.com/searches/6a0de7bb2ddc43405c228254/images/dAuLHoD8qCdbUQ5a5IYcThkzKqyf68_SXjkWiTIuvhY.jpeg",
     "site_web": null,
     "telephone": "+212539335885",
     "email_contact": "palace@elminzah.com",
@@ -1986,7 +2045,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0de184b2c613006ed2b412/images/ngkiAjocPwSVv6Oxjqct2-YwZg7uLz1VEs_tGObGcgs.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0de184b2c613006ed2b412/images/ngkiAjocPwSVv6Oxjqct2-YwZg7uLz1VEs_tGObGcgs.jpeg",
     "site_web": "https://www.ryadmogador.com",
     "telephone": "+212539370900",
     "email_contact": "tanger@ryadmogador.com",
@@ -2035,7 +2094,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0de14355ba65813b4bb10c/images/4ipAqQbP2AXKwv5IbqHCWdXfzjbVyykh5NgHE_r84ow.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0de14355ba65813b4bb10c/images/4ipAqQbP2AXKwv5IbqHCWdXfzjbVyykh5NgHE_r84ow.jpeg",
     "site_web": null,
     "telephone": "+212539900100",
     "email_contact": "info@tangerparadise.ma",
@@ -2046,8 +2105,8 @@
     "nom": "Hotel Riviera Tanger",
     "categorie": "4_etoiles",
     "type": "hotel",
-    "latitude": 35.832223, 
-    "longitude": -5.688712,
+    "latitude": 35.7945,
+    "longitude": -5.788,
     "adresse": "Hotel Riviera Tanger, Malabata, Tanger 90000, Maroc",
     "quartier": "Malabata",
     "description_fr": "Hôtel 4 étoiles confortable et bien situé à Tanger. Restaurant, parking et climatisation inclus. Excellent rapport qualité-prix pour un séjour agréable.",
@@ -2139,7 +2198,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0de065d0a88f62a9b28f5e/images/oy_mUkjIuipsHAO8Rj9hJUY2aNEoyvbX94jvfs69vnQ.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0de065d0a88f62a9b28f5e/images/oy_mUkjIuipsHAO8Rj9hJUY2aNEoyvbX94jvfs69vnQ.jpeg",
     "site_web": null,
     "telephone": "+212539932730",
     "email_contact": "info@andalusia.ma",
@@ -2186,7 +2245,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0de029f0114a9585ebe453/images/xiFzO7PVmQOkvgLkNm5ALWPH4WafO7jez1YnbegZLUU.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0de029f0114a9585ebe453/images/xiFzO7PVmQOkvgLkNm5ALWPH4WafO7jez1YnbegZLUU.jpeg",
     "site_web": null,
     "telephone": "+212539937330",
     "email_contact": "info@oasis-tanger.ma",
@@ -2242,7 +2301,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0ddfa5cbcccfb762173c5a/images/p-06zN7NB9xnol3PvBk5W-3Qel3vAop1VTNjaaNXz4U.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0ddfa5cbcccfb762173c5a/images/p-06zN7NB9xnol3PvBk5W-3Qel3vAop1VTNjaaNXz4U.jpeg",
     "site_web": null,
     "telephone": "+212661567980",
     "email_contact": "info@laicha-riad.ma",
@@ -2297,7 +2356,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0ddf422088af252fb46e74/images/OBV_VBH-0B9EqP8oD0giaR56RbRLoXz0bAM9orEu3DE.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0ddf422088af252fb46e74/images/OBV_VBH-0B9EqP8oD0giaR56RbRLoXz0bAM9orEu3DE.jpeg",
     "site_web": null,
     "telephone": "+212539933490",
     "email_contact": "info@bab-elbahr.ma",
@@ -2352,7 +2411,7 @@
       "août",
       "septembre"
     ],
-    "image_url": "https://serpapi.com/searches/6a0ddf06ccb1e9bc1d3b83c1/images/_a6Ybt7EHqREgHo8WRT8GEjm3ZsGsmN7HZAGsUhb0t0.jpeg",
+    "image_url":  "https://serpapi.com/searches/6a0ddf06ccb1e9bc1d3b83c1/images/_a6Ybt7EHqREgHo8WRT8GEjm3ZsGsmN7HZAGsUhb0t0.jpeg",
     "site_web": null,
     "telephone": "+212661678980",
     "email_contact": "info@darfatima-riad.ma",
@@ -2375,35 +2434,17 @@
     "budget_type": "mid",
     "note_moyenne": 4.7,
     "nb_avis": 180,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "piscine",
-      "parking",
-      "terrasse"
-    ],
+    "equipements": ["wifi", "climatisation", "piscine", "parking", "terrasse"],
     "vue_mer": false,
     "petit_dejeuner_inclus": true,
     "animaux_acceptes": false,
     "nombre_chambres": 14,
     "check_in": "14:00",
     "check_out": "11:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "riad",
-      "médina",
-      "luxueux"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://serpapi.com/searches/6a0ddead02706ad2e3649032/images/TyQ_u8c7ZT6N_odEReadayJJPy3EuYDZccmK1LHZXm0.jpeg",
+    "langues_personnel": ["français", "anglais", "arabe"],
+    "tags": ["riad", "médina", "luxueux"],
+    "saison_haute": ["juillet", "août", "septembre"],
+    "image_url":  "https://serpapi.com/searches/6a0ddead02706ad2e3649032/images/TyQ_u8c7ZT6N_odEReadayJJPy3EuYDZccmK1LHZXm0.jpeg",
     "site_web": "https://www.riad-al-bahia.ma",
     "telephone": "+212539234567",
     "email_contact": "info@riad-al-bahia.ma",
@@ -2426,36 +2467,17 @@
     "budget_type": "premium",
     "note_moyenne": 4.9,
     "nb_avis": 80,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "spa",
-      "parking",
-      "terrasse",
-      "conciergerie"
-    ],
+    "equipements": ["wifi", "climatisation", "spa", "parking", "terrasse", "conciergerie"],
     "vue_mer": false,
     "petit_dejeuner_inclus": true,
     "animaux_acceptes": false,
     "nombre_chambres": 15,
     "check_in": "15:00",
     "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "riad",
-      "luxueux",
-      "palais"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url":  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwG49RmfSPY9AdQVJ79g45-uY9U9VvOPGEA&s",
+    "langues_personnel": ["français", "anglais", "arabe"],
+    "tags": ["riad", "luxueux", "palais"],
+    "saison_haute": ["juillet", "août", "septembre"],
+    "image_url":  "https://serpapi.com/searches/6a0dde6a16a5a86373ba0733/images/6AYBu0Lcs6mXe8KPyPE5FV9-4UNxGPR4JzTVWbNc40M.jpeg",
     "site_web": "https://www.riad-le-sultan.ma",
     "telephone": "+212539567890",
     "email_contact": "info@riad-le-sultan.ma",
@@ -2478,34 +2500,17 @@
     "budget_type": "mid",
     "note_moyenne": 4.4,
     "nb_avis": 164,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "terrasse",
-      "parking"
-    ],
+    "equipements": ["wifi", "climatisation", "terrasse", "parking"],
     "vue_mer": true,
     "petit_dejeuner_inclus": true,
     "animaux_acceptes": false,
     "nombre_chambres": 6,
     "check_in": "14:00",
     "check_out": "11:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "riad",
-      "vue_mer",
-      "kasbah"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://serpapi.com/searches/6a0dde1471577f39774bc609/images/XTzmn02tI5fiTO1VdEQ3Tlpy9XmQqBOhP22SXFO0ycY.jpeg",
+    "langues_personnel": ["français", "anglais", "arabe"],
+    "tags": ["riad", "vue_mer", "kasbah"],
+    "saison_haute": ["juillet", "août", "septembre"],
+    "image_url":  "https://serpapi.com/searches/6a0dde1471577f39774bc609/images/XTzmn02tI5fiTO1VdEQ3Tlpy9XmQqBOhP22SXFO0ycY.jpeg",
     "site_web": "https://www.riad-casa-blanca.ma",
     "telephone": "+212539678901",
     "email_contact": "contact@riad-casa-blanca.ma",
@@ -2528,35 +2533,17 @@
     "budget_type": "mid",
     "note_moyenne": 4.6,
     "nb_avis": 138,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "terrasse",
-      "parking",
-      "spa"
-    ],
+    "equipements": ["wifi", "climatisation", "terrasse", "parking", "spa"],
     "vue_mer": true,
     "petit_dejeuner_inclus": true,
     "animaux_acceptes": false,
     "nombre_chambres": 9,
     "check_in": "15:00",
     "check_out": "12:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "riad",
-      "rooftop",
-      "vue_mer"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://serpapi.com/searches/6a0ddde9fd9b90f53593163b/images/a225EKFMf9j8S_rgaU0eOOArGErjUBoHlmyZrPiirxw.jpeg",
+    "langues_personnel": ["français", "anglais", "arabe"],
+    "tags": ["riad", "rooftop", "vue_mer"],
+    "saison_haute": ["juillet", "août", "septembre"],
+    "image_url":  "https://serpapi.com/searches/6a0ddde9fd9b90f53593163b/images/a225EKFMf9j8S_rgaU0eOOArGErjUBoHlmyZrPiirxw.jpeg",
     "site_web": "https://www.riad-al-mouja.ma",
     "telephone": "+212539789012",
     "email_contact": "info@riad-al-mouja.ma",
@@ -2579,34 +2566,17 @@
     "budget_type": "mid",
     "note_moyenne": 4.5,
     "nb_avis": 146,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "terrasse",
-      "parking"
-    ],
+    "equipements": ["wifi", "climatisation", "terrasse", "parking"],
     "vue_mer": false,
     "petit_dejeuner_inclus": true,
     "animaux_acceptes": false,
     "nombre_chambres": 6,
     "check_in": "14:00",
     "check_out": "11:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "riad",
-      "oasis",
-      "méditerranée"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://serpapi.com/searches/6a0dddbe6c4c0c9960840d2f/images/k3hZT2w6kk2DjpZNXQMAWGp0b2IA-c5yGeoHfwmbD5A.jpeg",
+    "langues_personnel": ["français", "anglais", "arabe"],
+    "tags": ["riad", "oasis", "méditerranée"],
+    "saison_haute": ["juillet", "août", "septembre"],
+    "image_url":  "https://serpapi.com/searches/6a0dddbe6c4c0c9960840d2f/images/k3hZT2w6kk2DjpZNXQMAWGp0b2IA-c5yGeoHfwmbD5A.jpeg",
     "site_web": "https://www.riad-dar-loasis.ma",
     "telephone": "+212539234567",
     "email_contact": "contact@riad-dar-loasis.ma",
@@ -2617,9 +2587,9 @@
     "nom": "Riad Le Pêcheur",
     "categorie": "riad",
     "type": "riad",
-    "latitude":35.808014,
-    "longitude": -5.717639,
-    "adresse": "Boulevard Mohammed VI, Malabata, Tanger",
+    "latitude": 35.8001,
+    "longitude": -5.7960,
+    "adresse": "Rue du Port, Malabata, Tanger 90000, Maroc",
     "quartier": "Malabata",
     "description_fr": "Riad cosy de 7 chambres, décor inspiré de la mer, terrasse sur le toit avec barbecue et service de pêche sur demande.",
     "description_en": "Cozy riad of 7 rooms, sea‑inspired décor, rooftop terrace with BBQ and on‑demand fishing service.",
@@ -2629,35 +2599,17 @@
     "budget_type": "mid",
     "note_moyenne": 4.5,
     "nb_avis": 124,
-    "equipements": [
-      "wifi",
-      "climatisation",
-      "terrasse",
-      "parking",
-      "bbq"
-    ],
+    "equipements": ["wifi", "climatisation", "terrasse", "parking", "bbq"],
     "vue_mer": true,
     "petit_dejeuner_inclus": true,
     "animaux_acceptes": false,
     "nombre_chambres": 7,
     "check_in": "14:00",
     "check_out": "11:00",
-    "langues_personnel": [
-      "français",
-      "anglais",
-      "arabe"
-    ],
-    "tags": [
-      "riad",
-      "seafood",
-      "rooftop"
-    ],
-    "saison_haute": [
-      "juillet",
-      "août",
-      "septembre"
-    ],
-    "image_url": "https://serpapi.com/searches/6a0ddd4db4ab72deb8ef454d/images/KTgWCDUmuWOwVpFwWj4xKJc1xxJI63JHq4TGn7MQUmI.jpeg",
+    "langues_personnel": ["français", "anglais", "arabe"],
+    "tags": ["riad", "seafood", "rooftop"],
+    "saison_haute": ["juillet", "août", "septembre"],
+    "image_url":  "https://serpapi.com/searches/6a0ddd4db4ab72deb8ef454d/images/KTgWCDUmuWOwVpFwWj4xKJc1xxJI63JHq4TGn7MQUmI.jpeg",
     "site_web": "https://www.riad-le-pecheur.ma",
     "telephone": "+212539678901",
     "email_contact": "contact@riad-le-pecheur.ma",

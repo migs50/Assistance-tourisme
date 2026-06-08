@@ -1,6 +1,5 @@
 """
 agents/base_agent.py
-Classe de base abstraite partagée par tous les agents.
 """
 import os
 from abc import ABC, abstractmethod
@@ -32,15 +31,14 @@ class BaseAgent(ABC):
         pass
 
     def _get_active_categories(self) -> list[str]:
-      val = getattr(self, "_override_categories", None)
-      return val if val else self.categories
+        val = getattr(self, "_override_categories", None)
+        return val if val else self.categories
 
     def _get_active_prompt(self) -> str:
-      val = getattr(self, "_override_prompt", None)
-      return val if val else self.system_prompt
+        val = getattr(self, "_override_prompt", None)
+        return val if val else self.system_prompt
 
     def run(self, user_message: str, language: str = "fr") -> dict:
-        # Utilise les catégories et prompt actifs (surchargés ou par défaut)
         active_categories = self._get_active_categories()
         active_prompt     = self._get_active_prompt()
 
@@ -65,20 +63,17 @@ class BaseAgent(ABC):
 
         context = format_context(unique_docs[:5])
 
+        # ✅ Instruction de langue claire dans toutes les langues
         lang_instruction = {
-            "fr": "Réponds toujours en français.",
-            "en": "Always answer in English.",
-            "ar": "أجب دائماً باللغة العربية.",
-        }.get(language, "Réponds toujours en français.")
+            "fr": "You MUST reply in French. Ne réponds qu'en français.",
+            "en": "You MUST reply in English only.",
+            "ar": "يجب أن تجيب باللغة العربية فقط. Do NOT use French or English.",
+        }.get(language, "Reply in the same language as the question.")
 
-        full_system = f"{active_prompt}\n\n{lang_instruction}"
+        full_system = f"{active_prompt}\n\nLANGUAGE (mandatory): {lang_instruction}"
 
-        user_content = f"""Question du touriste : {user_message}
-
-{context}
-
-En te basant UNIQUEMENT sur les informations ci-dessus, donne une réponse précise et directe.
-Si l'information n'est pas disponible dans les données, dis-le clairement."""
+        # ✅ user_content 100% neutre — zéro mot français
+        user_content = f"{user_message}\n\n---\n{context}\n---"
 
         completion = self.client.chat.completions.create(
             model=self.MODEL,
@@ -102,13 +97,12 @@ Si l'information n'est pas disponible dans les données, dis-le clairement."""
             for d in unique_docs[:3]
         ]
 
-        # Nettoyage des overrides après exécution
-        self._override_categories = None
-        self._override_prompt     = None
-        if hasattr(self, "_override_categories"):
-          del self._override_categories
-        if hasattr(self, "_override_prompt"):
-          del self._override_prompt
+        # Nettoyage overrides
+        for attr in ("_override_categories", "_override_prompt"):
+            try:
+                delattr(self, attr)
+            except AttributeError:
+                pass
 
         return {
             "agent":    self.agent_type,

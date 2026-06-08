@@ -25,6 +25,9 @@ LOGISTICS_KEYWORDS = [
     "assurance", "couverture", "sinistre", "remboursement",
     "how to get", "directions", "schedule",
     "سيارة", "حافلة", "قطار", "مواصلات",
+     "insurance",
+    "rapatriement", "garantie", "indemnisation", "déclaration", "assistance",
+    "تأمين",
 ]
 
 LEISURE_KEYWORDS = [
@@ -36,6 +39,8 @@ LEISURE_KEYWORDS = [
     "recommande", "conseil", "suggestion", "meilleur", "top",
     "food", "eat", "visit", "see", "do", "activity",
     "فندق", "مطعم", "شاطئ", "متحف",
+     "cinéma", "cinema", "film", "séance", "movie",
+    "سينما", "فيلم",
 ]
 
 

@@ -1,13 +1,9 @@
 {
-  "name": "assistance-tourisme",
-  "version": "1.0.0",
-  "description": "Portail Touristique Tanger AI",
-  "private": true,
-  "scripts": {
-    "install-all": "npm install && cd frontend && npm install",
-    "dev": "cd frontend && npm run dev"
-  },
   "dependencies": {
-    "lucide-react": "^1.17.0"
+    "framer-motion": "^12.40.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.16.0",
+    "react-leaflet": "^5.0.0",
+    "recharts": "^3.8.1"
   }
 }

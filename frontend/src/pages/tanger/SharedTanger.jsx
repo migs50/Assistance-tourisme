@@ -5,32 +5,14 @@
  * DESIGN        : Refonte premium — glassmorphism, animations, moderne
  * LANGUE        : Français intégral
  */
-import { useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import React from "react";
 import {
   Sparkles, Star, MapPin, X, Heart, Award,
   ArrowLeft, ArrowRight, Clock, Camera,
   Navigation, Share2, Zap, Info, ChevronLeft, ChevronRight,
-  DollarSign, Map as MapIcon
+  DollarSign
 } from "lucide-react";
-import InteractiveMapPage from "../InteractiveMapPage";
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   HELPER — Safe icon rendering
-───────────────────────────────────────────────────────────────────────────── */
-function renderIcon(icon, size = 24) {
-  if (!icon) return null;
-  if (React.isValidElement(icon)) {
-    return icon;
-  }
-  // lucide-react icons may be forwardRef objects (typeof === 'object')
-  if (typeof icon === "function" || (typeof icon === "object" && (icon.$$typeof || icon.render))) {
-    return React.createElement(icon, { size, strokeWidth: 2 });
-  }
-  return icon;
-}
 
 /* ─────────────────────────────────────────────────────────────────────────────
    SERVICE API — INTACT
@@ -204,9 +186,9 @@ export const T = {
    DONNÉES LOCALES PARTAGÉES — INTACTES
 ───────────────────────────────────────────────────────────────────────────── */
 export const CATEGORIES = [
-  { id: "hotels", label: "Hôtels & Riads", description: "Hébergement selon votre budget et vos envies." },
-  { id: "restaurants", label: "Restaurants & Cafés", description: "Cuisine marocaine, internationale, terrasses." },
-  { id: "plages", label: "Plages & Nature", description: "Calme, animée, coucher de soleil." },
+  { id: "hotels", label: "Hôtels", description: "Hébergement selon votre budget et vos envies." },
+  { id: "restaurants", label: "Restaurants", description: "Cuisine marocaine, internationale, terrasses." },
+  { id: "plages", label: "Plages", description: "Calme, animée, coucher de soleil." },
   { id: "activites", label: "Activités", description: "Aventure, culture, histoire, famille." },
 ];
 
@@ -266,45 +248,6 @@ export function formatDuree(d) {
 export function cap(s) {
   if (!s) return "";
   return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, " ");
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   FAVORIS — localStorage helpers
-───────────────────────────────────────────────────────────────────────────── */
-const FAV_KEY = "tg-favoris";
-
-export function getFavoris() {
-  try {
-    return JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
-  } catch { return []; }
-}
-
-function _saveFavoris(list) {
-  localStorage.setItem(FAV_KEY, JSON.stringify(list));
-  /* dispatch a storage event so other tabs / components can react */
-  window.dispatchEvent(new Event("favoris-updated"));
-}
-
-export function isFavori(item) {
-  const key = item.id || item.nom;
-  return getFavoris().some(f => (f.id || f.nom) === key);
-}
-
-export function addFavori(item) {
-  if (isFavori(item)) return;
-  const list = getFavoris();
-  list.push({ ...item, _savedAt: Date.now() });
-  _saveFavoris(list);
-}
-
-export function removeFavori(item) {
-  const key = item.id || item.nom;
-  _saveFavoris(getFavoris().filter(f => (f.id || f.nom) !== key));
-}
-
-export function toggleFavori(item) {
-  if (isFavori(item)) { removeFavori(item); return false; }
-  addFavori(item); return true;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -714,7 +657,7 @@ export function KPICard({ label, value, icon, color = T.primary }) {
         background: `radial-gradient(circle at top right, ${color}08, transparent 70%)`,
         pointerEvents: "none",
       }} />
-      <div style={{ fontSize: "1.6rem", marginBottom: 10 }}>{renderIcon(icon, 26)}</div>
+      <div style={{ fontSize: "1.6rem", marginBottom: 10 }}>{icon}</div>
       <div style={{
         fontSize: "1.8rem", fontWeight: 800, color, lineHeight: 1,
         marginBottom: 4, fontFamily: "'Inter', sans-serif",
@@ -852,9 +795,8 @@ export function ImageCarousel({ images = [], heroImage }) {
    DETAIL MODAL — PREMIUM GLASS + ANIMATED
 ═══════════════════════════════════════════════════════════════════════════ */
 export function DetailModal({ item, rank, onClose }) {
-  const navigate = useNavigate();
   const isTop = rank === 0;
-  const [liked, setLiked] = useState(() => isFavori(item));
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -866,12 +808,6 @@ export function DetailModal({ item, rank, onClose }) {
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [onClose]);
-
-  const handleToggleFav = (e) => {
-    e.stopPropagation();
-    const nowLiked = toggleFavori(item);
-    setLiked(nowLiked);
-  };
 
   const allPhotos = item.photos && item.photos.length > 0 ? item.photos : [];
 
@@ -913,43 +849,23 @@ export function DetailModal({ item, rank, onClose }) {
             <motion.button onClick={onClose} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} style={{ position: "absolute", top: 16, right: 16, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", pointerEvents: "auto" }}>
               <X size={18} />
             </motion.button>
-            <motion.button onClick={handleToggleFav} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} style={{ position: "absolute", top: 16, right: 70, width: 44, height: 44, borderRadius: "50%", background: liked ? "rgba(239,68,68,0.2)" : "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: liked ? "1px solid rgba(239,68,68,0.3)" : "1px solid rgba(255,255,255,0.25)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: liked ? "#f87171" : "#fff", pointerEvents: "auto" }}>
+            <motion.button onClick={() => setLiked(!liked)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} style={{ position: "absolute", top: 16, right: 70, width: 44, height: 44, borderRadius: "50%", background: liked ? "rgba(239,68,68,0.2)" : "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: liked ? "1px solid rgba(239,68,68,0.3)" : "1px solid rgba(255,255,255,0.25)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: liked ? "#f87171" : "#fff", pointerEvents: "auto" }}>
               <Heart size={18} fill={liked ? "#f87171" : "none"} />
             </motion.button>
-            <div style={{ position: "absolute", bottom: 20, left: 20, display: "flex", flexDirection: "column", gap: 8, pointerEvents: "auto" }}>
-              {(item.latitude && item.longitude) && (
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    onClose();
-                    navigate("/map", { state: { ...item } });
-                  }}
-                  style={{
-                    background: "rgba(15,118,110,0.9)", backdropFilter: "blur(12px)",
-                    border: "1px solid rgba(255,255,255,0.2)", borderRadius: 12,
-                    padding: "8px 16px", color: "#fff", display: "flex", alignItems: "center", gap: 8,
-                    fontSize: 12, fontWeight: 600, cursor: "pointer",
-                    boxShadow: "0 8px 24px rgba(0,0,0,0.2)"
-                  }}
-                >
-                  <MapIcon size={14} /> Voir sur la carte
-                </motion.button>
+            <div style={{ position: "absolute", bottom: 20, left: 20, display: "flex", flexDirection: "column", gap: 8 }}>
+              {isTop && (
+                <motion.div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #ef4444)", color: "#fff", borderRadius: 99, padding: "6px 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", boxShadow: "0 4px 15px rgba(245,158,11,0.3)" }}>
+                  <Award size={12} /> MEILLEUR CHOIX
+                </motion.div>
               )}
+              <AIBadge small />
             </div>
-
-            {isTop && (
-              <motion.div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #ef4444)", color: "#fff", borderRadius: 99, padding: "6px 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", boxShadow: "0 4px 15px rgba(245,158,11,0.3)" }}>
-                <Award size={12} /> MEILLEUR CHOIX
-              </motion.div>
+            {item.rating && (
+              <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(255,255,255,0.18)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 99, padding: "7px 14px", display: "flex", alignItems: "center", gap: 6, color: "#fff" }}>
+                <Star size={14} fill="#fbbf24" stroke="#fbbf24" /> <span style={{ fontSize: 14, fontWeight: 700 }}>{Number(item.rating).toFixed(1)}</span>
+              </div>
             )}
-            <AIBadge small />
           </div>
-          {item.rating && (
-            <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(255,255,255,0.18)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 99, padding: "7px 14px", display: "flex", alignItems: "center", gap: 6, color: "#fff" }}>
-              <Star size={14} fill="#fbbf24" stroke="#fbbf24" /> <span style={{ fontSize: 14, fontWeight: 700 }}>{Number(item.rating).toFixed(1)}</span>
-            </div>
-          )}
 
           <div style={{ padding: "32px 36px 36px" }}>
             <h2 style={{ fontSize: "1.7rem", fontWeight: 800, color: "#0f172a", marginBottom: 8, fontFamily: "'Playfair Display', Georgia, serif", lineHeight: 1.3 }}>{item.nom}</h2>
@@ -991,39 +907,25 @@ export function DetailModal({ item, rank, onClose }) {
             )}
 
             {/* Interactive Map Section */}
-            {(item.latitude && item.longitude) ? (
-              <div style={{ marginBottom: 32, borderRadius: 24, overflow: "hidden", border: "1px solid #ccfbf1" }}>
-                <InteractiveMapPage
-                  latitude={item.latitude}
-                  longitude={item.longitude}
-                  name={item.nom}
-                  category={item.categorie || item.category || item.type}
-                  address={item.adresse}
-                  image={item.image}
-                  height={240}
-                />
+            <div style={{
+              background: "linear-gradient(135deg, #f0fdfa, #ecfeff)",
+              borderRadius: 24, padding: "40px 20px",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              gap: 12, border: "1px solid #ccfbf1", marginBottom: 32,
+              position: "relative", overflow: "hidden"
+            }}>
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                style={{ width: 56, height: 56, borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 25px rgba(15,122,110,0.12)", color: "#0f7a6e" }}
+              >
+                <Navigation size={24} />
+              </motion.div>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>Carte interactive</div>
+                <div style={{ fontSize: 13, color: "#64748b" }}>{item.adresse || "Tanger, Maroc"}</div>
               </div>
-            ) : (
-              <div style={{
-                background: "linear-gradient(135deg, #f0fdfa, #ecfeff)",
-                borderRadius: 24, padding: "40px 20px",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                gap: 12, border: "1px solid #ccfbf1", marginBottom: 32,
-                position: "relative", overflow: "hidden"
-              }}>
-                <motion.div
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ width: 56, height: 56, borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 25px rgba(15,122,110,0.12)", color: "#0f7a6e" }}
-                >
-                  <Navigation size={24} />
-                </motion.div>
-                <div style={{ textAlign: "center" }}>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>Carte interactive</div>
-                  <div style={{ fontSize: 13, color: "#64748b" }}>{item.adresse || "Tanger, Maroc"}</div>
-                </div>
-              </div>
-            )}
+            </div>
 
             {/* Action buttons */}
             <div style={{ display: "flex", gap: 12 }}>
@@ -1072,28 +974,6 @@ export function DetailModal({ item, rank, onClose }) {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence >
+    </AnimatePresence>
   );
-}
-
-export function SectionHead({ Icon, title, subtitle, right }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <div style={{ width: 44, height: 44, borderRadius: 10, background: "rgba(15,118,110,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          {renderIcon(Icon, 18)}
-        </div>
-        <div>
-          <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: T.text }}>{title}</h3>
-          {subtitle && <div style={{ fontSize: 12, color: T.textMuted, marginTop: 4 }}>{subtitle}</div>}
-        </div>
-      </div>
-      {right && <div>{right}</div>}
-    </div>
-  );
-}
-
-export function ApiError({ path, message, onRetry }) {
-  const msg = message || (path ? `Erreur API : ${path}` : "Erreur de chargement");
-  return <ErrorBanner message={msg} onRetry={onRetry} />;
 }

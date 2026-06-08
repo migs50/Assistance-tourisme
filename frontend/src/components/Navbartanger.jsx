@@ -275,7 +275,7 @@ const TABS = [
 
 
 /* ── COMPOSANT ────────────────────────────────────────────────── */
-export default function NavbarTanger({ onBack, onOpenChat,activeTab, onTabChange }) {
+export default function NavbarTanger({ onBack, onOpenChat, activeTab, onTabChange }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);

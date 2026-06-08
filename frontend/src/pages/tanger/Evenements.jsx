@@ -3,20 +3,15 @@
  * Page événements — filtres par catégorie, cartes avec DetailModal zoom.
  */
 import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   T, evenementsApi, CAT_EVENT_CONFIG,
   useApiDataWithRefetch, SectionHero, Spinner, ErrorBanner, DetailModal,
 } from "./SharedTanger";
 import { ChevronRight, Calendar, MapPin } from "lucide-react";
-import InteractiveMapPage from "../InteractiveMapPage";
-
-
 
 /* ─── Carte événement ─────────────────────────────────────────────────────── */
 function EventCard({ ev, index, onOpen }) {
-  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const cfg = CAT_EVENT_CONFIG[ev.category] || { color: T.primary };
   const imgUrl = ev.image_url || ev.image || "";
@@ -104,16 +99,13 @@ function EventCard({ ev, index, onOpen }) {
           display: "flex", alignItems: "center", justifyContent: "flex-end",
           paddingTop: 16, borderTop: "1px solid #f1f5f9",
         }}>
-          <div style={{ display: "flex", gap: 8 }}>
-            <button
-              className="tg-btn-primary"
-              onClick={onOpen}
-              style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}
-            >
-              Lire plus
-              <ChevronRight size={14} />
-            </button>
-          </div>
+          <button
+            className="tg-btn-primary"
+            style={{ padding: "10px 20px", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}
+          >
+            Lire plus
+            <ChevronRight size={14} />
+          </button>
         </div>
       </div>
     </motion.div>

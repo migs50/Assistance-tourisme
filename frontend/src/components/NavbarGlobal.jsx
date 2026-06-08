@@ -1,5 +1,4 @@
-
- /**
+/**
  * NavbarGlobal.jsx
  * Navbar pour la PAGE 1 — Maroc Tourisme
  * Style clair avec logo et liens de navigation
@@ -21,11 +20,12 @@ export default function NavbarGlobal() {
     }}>
       {/* Logo */}
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        <span style={{ fontSize: "24px" }}></span>
+        <span style={{ fontSize: "24px" }}>🕌</span>
         <span style={{ fontWeight: 800, fontSize: "18px", color: "#1e293b" }}>
           Maroc <span style={{ color: "#6366f1" }}>Tourisme</span>
         </span>
       </div>
+
       {/* Liens */}
       <div style={{ display: "flex", gap: "32px" }}>
         {["Accueil", "Destinations", "Culture", "Découvrir", "À Propos"].map(link => (
@@ -43,6 +43,7 @@ export default function NavbarGlobal() {
           </a>
         ))}
       </div>
+
       {/* Bouton connexion */}
       <button style={{
         background:   "linear-gradient(135deg, #6366f1, #8b5cf6)",
