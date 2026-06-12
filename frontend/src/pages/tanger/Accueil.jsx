@@ -185,9 +185,8 @@ export default function Accueil({ onOpenChat }) {
           color: "rgba(255,255,255,0.85)", fontSize: 18, maxWidth: 500,
           lineHeight: 1.65, marginBottom: 40, animationDelay: "0.1s",
         }}>
-          Là où la Méditerranée rencontre l'Atlantique — une ville de lumière, d'histoire et d'authenticité.
+            une destination unique entre tradition, innovation et horizons infinis
         </p>
-
         {/* ── Barre de recherche dynamique ── */}
         <div className="tg-search tg-animate-fadeUp" style={{ animationDelay: "0.2s", position: "relative" }}>
           <Search size={18} color={T.textMuted} />

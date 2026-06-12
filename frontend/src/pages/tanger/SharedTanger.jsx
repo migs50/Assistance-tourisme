@@ -686,6 +686,46 @@ export function SectionHero({ label, title, subtitle }) {
   );
 }
 
+export function StatCard({ icon, label, value, color = T.primary }) {
+  return (
+    <div
+      style={{
+        background: T.bgCard,
+        border: `1px solid ${T.border}`,
+        borderRadius: T.radiusMd,
+        padding: "16px 20px",
+        display: "flex",
+        alignItems: "center",
+        gap: 14,
+        flex: 1,
+        minWidth: 140,
+        boxShadow: "0 2px 12px rgba(0,0,0,0.02)",
+      }}
+    >
+      <div
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 10,
+          background: `${color}18`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        {icon}
+      </div>
+      <div>
+        <div style={{ fontSize: 11, color: T.textMuted, fontWeight: 500, marginBottom: 2 }}>
+          {label}
+        </div>
+        <div style={{ fontSize: 22, fontWeight: 700, color }}>{value}</div>
+      </div>
+    </div>
+  );
+}
+
 export function ProgressBar({ value, max, color = T.primary, height = 5 }) {
   const pct = Math.min(100, Math.round((value / Math.max(max, 1)) * 100));
   return (

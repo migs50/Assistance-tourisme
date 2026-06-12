@@ -439,7 +439,7 @@ export default function HomeGlobal({ onExploreTanger }) {
           letterSpacing: "-0.3px",
           transition:    "color .4s",
         }}>
-          MoroccoGuide
+         Explore
         </span>
         <span style={{
           fontSize:   "18px",
@@ -449,7 +449,7 @@ export default function HomeGlobal({ onExploreTanger }) {
           fontFamily: "'DM Sans', sans-serif",
           transition: "color .4s",
         }}>
-          AI
+          212
         </span>
       </div>
     </div>

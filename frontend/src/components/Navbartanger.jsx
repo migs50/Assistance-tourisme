@@ -315,7 +315,7 @@ export default function NavbarTanger({ onBack, onOpenChat,activeTab, onTabChange
           )}
           <span className="tt-logo-eyebrow">Discover Morocco</span>
           <span className="tt-logo-main">
-            MoroccoGuide <span className="tt-logo-accent">AI</span>
+            Explore<span className="tt-logo-accent">212</span>
           </span>
         </div>
 

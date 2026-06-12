@@ -1,25 +1,15 @@
 /**
- * Recommandation.jsx — Premium UI/UX Redesign v4
+ * Recommandation.jsx — Premium UI/UX Redesign v6
  * ─────────────────────────────────────────────────
- * LOGIQUE MÉTIER : 100 % préservée (API, state, hooks, routing)
- * DESIGN        : Refonte complète — premium, glassmorphism, animations
- * LANGUE        : Français intégral
- * DÉPENDANCES   : framer-motion, lucide-react
- *
- * CHANGEMENTS UI :
- *  - Glassmorphism effects on modals, badges, overlays
- *  - Premium card hover with scale + elevation + glow
- *  - Animated modal with zoom + slide sections
- *  - Image carousel in detail modal
- *  - Enhanced skeleton loading with shimmer overlay
- *  - Interactive option cards with glow selection
- *  - Premium stepper with gradient active states
- *  - Responsive mobile-first grid system
+ * CHANGEMENTS v6 :
+ *  - Emojis supprimés des tags intelligents
+ *  - Bordure du bouton "Commencer" supprimée
+ *  - Nouvelles photos de fond pour les catégories (Tanger / Maroc)
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles, MapPin, Star, ChevronRight, ChevronLeft,
   X, ArrowLeft, RotateCcw, SlidersHorizontal,
@@ -45,20 +35,6 @@ const fadeInUp = {
   transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
 };
 
-const scaleIn = {
-  initial: { opacity: 0, scale: 0.92 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0.95 },
-  transition: { duration: 0.35, ease: [0.34, 1.56, 0.64, 1] },
-};
-
-const slideInRight = (dir = 1) => ({
-  initial: { opacity: 0, x: dir * 80 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -dir * 80 },
-  transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
-});
-
 const staggerContainer = {
   animate: { transition: { staggerChildren: 0.06 } },
 };
@@ -73,7 +49,6 @@ const staggerItem = {
    GLOBAL STYLES — PREMIUM (injectées une seule fois)
 ═══════════════════════════════════════════════════════════════════════════ */
 const GLOBAL_STYLES = `
-  /* ── Keyframes ── */
   @keyframes tg-fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -93,16 +68,7 @@ const GLOBAL_STYLES = `
     0%, 100% { transform: translateY(0px); }
     50%       { transform: translateY(-8px); }
   }
-  @keyframes tg-pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(15,118,110,0.15); }
-    50%       { box-shadow: 0 0 40px rgba(14,165,233,0.25); }
-  }
-  @keyframes tg-progress-fill {
-    from { width: 0%; }
-    to   { width: var(--prog-w); }
-  }
 
-  /* ── Skeleton shimmer ── */
   .tg-shimmer-card {
     background: linear-gradient(90deg, #f0f4f8 25%, #e8eef4 50%, #f0f4f8 75%);
     background-size: 800px 100%;
@@ -122,16 +88,10 @@ const GLOBAL_STYLES = `
     transition: all 0.35s cubic-bezier(.34,1.56,.64,1);
     position: relative;
   }
-  .tg-cat-card::before {
-    content: ''; position: absolute; inset: 0; border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 50%);
-    opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1;
-  }
   .tg-cat-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(15,118,110,0.12);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
   }
-  .tg-cat-card:hover::before { opacity: 1; }
 
   /* ── Result card hover ── */
   .tg-result-card {
@@ -196,14 +156,6 @@ const GLOBAL_STYLES = `
   }
   .tg-opt-btn:hover { transform: scale(1.03); }
 
-  /* ── Score bar ── */
-  .tg-score-bar {
-    height: 4px; border-radius: 99px;
-    background: linear-gradient(90deg, #0f7a6e, #0ea5e9);
-    transition: width 1s ease;
-    box-shadow: 0 0 8px rgba(14,165,233,0.2);
-  }
-
   /* ── Custom scrollbar for modals ── */
   .tg-modal-scroll::-webkit-scrollbar { width: 6px; }
   .tg-modal-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -212,6 +164,20 @@ const GLOBAL_STYLES = `
   }
   .tg-modal-scroll::-webkit-scrollbar-thumb:hover {
     background: rgba(15,118,110,0.3);
+  }
+
+  /* ── Tag préférence ── */
+  .tg-pref-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 99px;
+    background: rgba(249,115,22,0.08); color: #ea580c;
+    border: 1px solid rgba(249,115,22,0.2);
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tg-pref-tag:hover {
+    background: rgba(249,115,22,0.14);
+    border-color: rgba(249,115,22,0.35);
   }
 `;
 
@@ -228,7 +194,35 @@ function injectStyles() {
 const STEP = { CATEGORY: "category", QUESTIONS: "questions", RESULTS: "results" };
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   BADGE IA — PREMIUM GLASS
+   NOUVELLES PHOTOS DE FOND POUR LES CATÉGORIES — Tanger / Maroc
+═══════════════════════════════════════════════════════════════════════════ */
+const CATEGORY_PHOTOS = [
+  // Hôtels & Riads — riad marocain authentique
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf3jRLeyD6clnG0ua-wKleexXoj2sMHSUj-w&s", 
+  // Restaurants & Cafés — cuisine marocaine / tagine
+   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_1GCpYv3cJ5FoomuAi0OqgKSf4mIDPHpfw&s",
+  // Plages & Nature — plage de Tanger / détroit
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj_PxxybxYOtwgGQo-ObxgmFnr7bRGSZaIKg&s",  // Activités — médina / ruelles marocaines
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScgNKx0ZHlwyaql2v-cwRzhgz--RlscS_YHg&s",];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITAIRE — Formatage des valeurs de préférences pour affichage
+═══════════════════════════════════════════════════════════════════════════ */
+function formatPrefValue(value) {
+  if (value === null || value === undefined) return null;
+  if (typeof value === "boolean") return value ? "Oui" : "Non";
+  if (typeof value === "string") {
+    return value
+      .replace(/_/g, " ")
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+  if (typeof value === "number") return String(value);
+  return String(value);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE IA — PREMIUM GLASS (utilisé dans le modal détail seulement)
 ═══════════════════════════════════════════════════════════════════════════ */
 function AIBadge({ small }) {
   return (
@@ -255,17 +249,10 @@ function AIBadge({ small }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   CATEGORY SELECTOR — PREMIUM
+   CATEGORY SELECTOR — PHOTOS DE FOND + BOUTON SANS BORDURE
 ═══════════════════════════════════════════════════════════════════════════ */
 function CategorySelector({ onSelect }) {
   injectStyles();
-
-  const cardColors = [
-    { bg: "linear-gradient(135deg, #e0fdf4, #ccfbf1)", accent: "#0f7a6e", iconBg: "#0f7a6e", glow: "rgba(15,122,110,0.08)" },
-    { bg: "linear-gradient(135deg, #eff6ff, #dbeafe)", accent: "#1d4ed8", iconBg: "#2563eb", glow: "rgba(37,99,235,0.08)" },
-    { bg: "linear-gradient(135deg, #fdf4ff, #f3e8ff)", accent: "#7c3aed", iconBg: "#7c3aed", glow: "rgba(124,58,237,0.08)" },
-    { bg: "linear-gradient(135deg, #fff7ed, #ffedd5)", accent: "#c2410c", iconBg: "#ea580c", glow: "rgba(234,88,12,0.08)" },
-  ];
 
   return (
     <div>
@@ -293,7 +280,7 @@ function CategorySelector({ onSelect }) {
             fontSize: 12, fontWeight: 700, color: "#0f7a6e",
             letterSpacing: "0.08em", textTransform: "uppercase",
           }}>
-            Moteur de recommandation IA
+            Moteur de recommandation Explore212
           </span>
         </motion.div>
 
@@ -304,13 +291,7 @@ function CategorySelector({ onSelect }) {
         }}>
           Que recherchez-vous à Tanger ?
         </h2>
-        <p style={{
-          color: "#64748b", fontSize: 15, lineHeight: 1.75,
-          maxWidth: 520, margin: "0 auto",
-        }}>
-          Choisissez une catégorie — notre IA analysera vos préférences pour vous
-          proposer les meilleures adresses.
-        </p>
+       
       </motion.div>
 
       {/* Grille catégories */}
@@ -324,78 +305,68 @@ function CategorySelector({ onSelect }) {
           gap: 20,
         }}
       >
-        {CATEGORIES.map((cat, i) => {
-          const col = cardColors[i % cardColors.length];
-          return (
-            <motion.button
-              key={cat.id}
-              className="tg-cat-card"
-              variants={staggerItem}
-              onClick={() => onSelect(cat)}
-              whileHover={{ y: -8, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              style={{
-                background: col.bg,
-                borderRadius: 24,
-                padding: "36px 28px 28px",
-                border: "1.5px solid rgba(255,255,255,0.6)",
-                cursor: "pointer", textAlign: "left",
-                boxShadow: `0 4px 24px ${col.glow}`,
-                position: "relative", overflow: "hidden",
-              }}
-            >
-              {/* Decorative circle */}
-              <div style={{
-                position: "absolute", top: -24, right: -24,
-                width: 120, height: 120, borderRadius: "50%",
-                background: "rgba(255,255,255,0.25)",
-                pointerEvents: "none",
-              }} />
-              <div style={{
-                position: "absolute", bottom: -30, left: -30,
-                width: 80, height: 80, borderRadius: "50%",
-                background: "rgba(255,255,255,0.15)",
-                pointerEvents: "none",
-              }} />
+        {CATEGORIES.map((cat, i) => (
+          <motion.button
+            key={cat.id}
+            className="tg-cat-card"
+            variants={staggerItem}
+            onClick={() => onSelect(cat)}
+            whileHover={{ y: -10, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            style={{
+              backgroundImage: `url(${CATEGORY_PHOTOS[i % CATEGORY_PHOTOS.length]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              borderRadius: 24,
+              padding: "0",
+              border: "none",
+              cursor: "pointer", textAlign: "left",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+              position: "relative", overflow: "hidden",
+              minHeight: 220,
+            }}
+          >
+            {/* Overlay gradient sombre */}
+            <div style={{
+              position: "absolute", inset: 0, borderRadius: "inherit",
+              background: "linear-gradient(to top, rgba(8,15,25,0.82) 0%, rgba(8,15,25,0.45) 55%, rgba(8,15,25,0.15) 100%)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }} />
 
-              {/* Icon container */}
+            {/* Contenu de la carte */}
+            <div style={{
+              position: "relative", zIndex: 2,
+              padding: "28px 24px 24px",
+              display: "flex", flexDirection: "column",
+              height: "100%", minHeight: 220,
+              justifyContent: "flex-end",
+            }}>
+              {/* Icon en haut */}
               <div style={{
-                width: 50, height: 50,
-                background: "transparent",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                marginBottom: 22,
-                fontSize: "2rem",
-                position: "relative", zIndex: 2,
-                color: col.accent,
+                position: "absolute", top: 20, left: 24,
+                fontSize: "1.8rem",
               }}>
                 {cat.icon}
               </div>
 
               <h3 style={{
-                fontSize: "1.15rem", fontWeight: 700, color: "#0f172a",
-                marginBottom: 8, fontFamily: "'Inter', sans-serif",
-                position: "relative", zIndex: 2,
+                fontSize: "1.15rem", fontWeight: 700, color: "#fff",
+                marginBottom: 6, fontFamily: "'Inter', sans-serif",
               }}>
                 {cat.label}
               </h3>
               <p style={{
-                fontSize: 13, color: "#64748b", lineHeight: 1.65, marginBottom: 22,
-                position: "relative", zIndex: 2,
+                fontSize: 12, color: "rgba(255,255,255,0.72)", lineHeight: 1.6, marginBottom: 16,
               }}>
                 {cat.description}
               </p>
 
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                color: col.accent, fontSize: 13, fontWeight: 600,
-                position: "relative", zIndex: 2,
-              }}>
-                Commencer
-                <ChevronRight size={14} style={{ transition: "transform 0.2s" }} />
-              </div>
-            </motion.button>
-          );
-        })}
+              {/* Bouton Commencer — sans bordure */}
+              
+            </div>
+          </motion.button>
+        ))}
       </motion.div>
     </div>
   );
@@ -582,7 +553,6 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
                     background: "#f8fafc",
                     color: "#64748b",
                     fontSize: 16, fontWeight: 600,
-                    boxShadow: "none",
                     transition: "all 0.25s",
                   }}
                 >
@@ -617,7 +587,6 @@ function QuestionWizard({ category, questions, onComplete, onBack }) {
                     border: "2px solid #e2e8f0",
                     background: "#f8fafc",
                     color: "#475569",
-                    boxShadow: "none",
                     transition: "all 0.25s",
                   }}
                 >
@@ -690,7 +659,6 @@ function ImageCarousel({ images = [], heroImage }) {
         </motion.div>
       </AnimatePresence>
 
-      {/* Carousel dots */}
       {allImages.length > 1 && (
         <div style={{
           position: "absolute", bottom: 16, left: "50%",
@@ -717,7 +685,6 @@ function ImageCarousel({ images = [], heroImage }) {
         </div>
       )}
 
-      {/* Navigation arrows */}
       {allImages.length > 1 && (
         <>
           <button
@@ -760,6 +727,7 @@ function ImageCarousel({ images = [], heroImage }) {
    DETAIL MODAL — PREMIUM GLASS + ANIMATED
 ═══════════════════════════════════════════════════════════════════════════ */
 function DetailModal({ item, rank, onClose }) {
+  const navigate = useNavigate();
   const score = item._score ?? 0;
   const pct = Math.round(score * 100);
   const isTop = rank === 0;
@@ -771,13 +739,11 @@ function DetailModal({ item, rank, onClose }) {
     return () => window.removeEventListener("favoris-updated", handleSync);
   }, [item]);
 
-  // Block body scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  // Close on Escape
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handler);
@@ -788,7 +754,6 @@ function DetailModal({ item, rank, onClose }) {
 
   return (
     <AnimatePresence>
-      {/* Glassmorphism overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -804,7 +769,6 @@ function DetailModal({ item, rank, onClose }) {
           padding: "20px",
         }}
       >
-        {/* Modal card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -875,28 +839,11 @@ function DetailModal({ item, rank, onClose }) {
               <Heart size={18} fill={liked ? "#f87171" : "none"} />
             </motion.button>
 
-            {/* Badges at bottom */}
+            {/* Badge IA dans le modal */}
             <div style={{
               position: "absolute", bottom: 20, left: 20,
               display: "flex", flexDirection: "column", gap: 8,
             }}>
-              {isTop && (
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
-                  style={{
-                    display: "inline-flex", alignItems: "center", gap: 6,
-                    background: "linear-gradient(135deg, #f59e0b, #ef4444)",
-                    color: "#fff", borderRadius: 99, padding: "6px 16px",
-                    fontSize: 11, fontWeight: 700, letterSpacing: "0.06em",
-                    boxShadow: "0 4px 15px rgba(245,158,11,0.3)",
-                  }}
-                >
-                  <Award size={12} />
-                  MEILLEUR CHOIX
-                </motion.div>
-              )}
               <AIBadge small />
             </div>
 
@@ -925,9 +872,8 @@ function DetailModal({ item, rank, onClose }) {
             )}
           </div>
 
-          {/* Detail content — animated sections */}
+          {/* Detail content */}
           <div style={{ padding: "32px 36px 36px" }}>
-            {/* Title section */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -953,7 +899,6 @@ function DetailModal({ item, rank, onClose }) {
               )}
             </motion.div>
 
-            {/* Separator */}
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -961,7 +906,6 @@ function DetailModal({ item, rank, onClose }) {
               style={{ height: 1, background: "#f1f5f9", margin: "16px 0", transformOrigin: "left" }}
             />
 
-            {/* Description */}
             {item.description && (
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -983,63 +927,6 @@ function DetailModal({ item, rank, onClose }) {
               </motion.div>
             )}
 
-            {/* AI Relevance Score */}
-            {score > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                style={{
-                  background: "linear-gradient(135deg, rgba(15,122,110,0.05), rgba(14,165,233,0.05))",
-                  border: "1px solid rgba(15,122,110,0.12)",
-                  borderRadius: 18, padding: "20px 22px", marginBottom: 22,
-                  position: "relative", overflow: "hidden",
-                }}
-              >
-                <div style={{
-                  position: "absolute", top: -20, right: -20,
-                  width: 80, height: 80, borderRadius: "50%",
-                  background: "rgba(14,165,233,0.04)",
-                  pointerEvents: "none",
-                }} />
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{
-                      width: 32, height: 32, borderRadius: 10,
-                      background: "rgba(15,122,110,0.08)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                    }}>
-                      <Zap size={15} color="#0f7a6e" />
-                    </div>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: "#0f7a6e" }}>
-                      Score de pertinence IA
-                    </span>
-                  </div>
-                  <span style={{
-                    fontSize: 22, fontWeight: 800, color: "#0f7a6e",
-                    fontFamily: "'Inter', sans-serif",
-                  }}>
-                    {pct}%
-                  </span>
-                </div>
-                <div style={{
-                  height: 8, background: "rgba(15,122,110,0.08)",
-                  borderRadius: 99, overflow: "hidden",
-                }}>
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${pct}%` }}
-                    transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-                    style={{
-                      height: "100%", borderRadius: 99,
-                      background: T.gradientPrimary,
-                      boxShadow: "0 0 12px rgba(14,165,233,0.2)",
-                    }}
-                  />
-                </div>
-              </motion.div>
-            )}
-
             {/* Practical info grid */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -1052,7 +939,6 @@ function DetailModal({ item, rank, onClose }) {
                   background: "#f8fafc", borderRadius: 16,
                   padding: "16px 18px", display: "flex", alignItems: "center", gap: 12,
                   border: "1px solid #f1f5f9",
-                  transition: "all 0.2s",
                 }}>
                   <div style={{
                     width: 40, height: 40, borderRadius: 12,
@@ -1076,7 +962,6 @@ function DetailModal({ item, rank, onClose }) {
                   background: "#f8fafc", borderRadius: 16,
                   padding: "16px 18px", display: "flex", alignItems: "center", gap: 12,
                   border: "1px solid #f1f5f9",
-                  transition: "all 0.2s",
                 }}>
                   <div style={{
                     width: 40, height: 40, borderRadius: 12,
@@ -1090,7 +975,11 @@ function DetailModal({ item, rank, onClose }) {
                       Horaires
                     </div>
                     <div style={{ fontSize: 13, fontWeight: 600, color: "#0f172a" }}>
-                      {item.horaires}
+                      {typeof item.horaires === "object" && item.horaires !== null
+                        ? Object.entries(item.horaires)
+                          .map(([jour, h]) => `${jour.charAt(0).toUpperCase() + jour.slice(1)} : ${h}`)
+                          .join(" · ")
+                        : item.horaires}
                     </div>
                   </div>
                 </div>
@@ -1130,6 +1019,7 @@ function DetailModal({ item, rank, onClose }) {
               </motion.div>
             )}
 
+            {/* Map */}
             {item.latitude && item.longitude ? (
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -1226,20 +1116,108 @@ function DetailModal({ item, rank, onClose }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   RECO RESULT CARD — PREMIUM
+   GÉNÉRATION DES TAGS INTELLIGENTS — SANS EMOJIS
 ═══════════════════════════════════════════════════════════════════════════ */
-function RecoResultCard({ item, rank }) {
+
+// Normalise une valeur de réponse en label lisible
+function normalizePref(key, value) {
+  if (value === null || value === undefined || value === false) return null;
+  if (typeof value === "boolean") return null;
+  if (typeof value === "string") {
+    return value.replace(/_/g, " ").replace(/-/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+  if (typeof value === "number") return String(value);
+  return String(value);
+}
+
+// Extrait les caractéristiques de l'item depuis ses champs
+function extractItemFeatures(item) {
+  const features = [];
+
+  if (item.prix_min != null) {
+    if (item.prix_min < 300) features.push("Économique");
+    else if (item.prix_min < 800) features.push("Prix abordable");
+    else features.push("Haut de gamme");
+  }
+  if (item.type_activite) features.push(item.type_activite.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase()));
+  if (item.categorie) features.push(item.categorie.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase()));
+  if (item.N_etoiles) features.push(`${item.N_etoiles} étoiles`);
+
+  const desc = (item.description || "").toLowerCase();
+  if (desc.includes("piscine")) features.push("Piscine");
+  if (desc.includes("spa")) features.push("Spa");
+  if (desc.includes("wifi")) features.push("Wi-Fi");
+  if (desc.includes("parking")) features.push("Parking");
+  if (desc.includes("restaurant")) features.push("Restaurant sur place");
+  if (desc.includes("famil")) features.push("Familial");
+  if (desc.includes("histori") || desc.includes("médina") || desc.includes("medina")) features.push("Médina historique");
+  if (desc.includes("architectur")) features.push("Architecture marocaine");
+  if (desc.includes("vue mer") || desc.includes("bord de mer")) features.push("Vue mer");
+  if (desc.includes("calme") || desc.includes("tranquil")) features.push("Calme");
+  if (desc.includes("animé") || desc.includes("central")) features.push("Centre-ville");
+  if (desc.includes("proximit") || desc.includes("attraction")) features.push("Proche des attractions");
+  if (desc.includes("authentiq")) features.push("Ambiance authentique");
+
+  const addr = (item.adresse || "").toLowerCase();
+  if (addr.includes("centre") || addr.includes("médina") || addr.includes("medina")) {
+    if (!features.includes("Centre-ville")) features.push("Centre-ville");
+  }
+
+  return [...new Set(features)];
+}
+
+// Construit la liste finale des tags avec flag "match"
+function buildSmartTags(item, answers) {
+  const userPrefs = Object.entries(answers)
+    .filter(([, v]) => v !== null && v !== undefined && v !== false)
+    .map(([k, v]) => normalizePref(k, v))
+    .filter(Boolean)
+    .map(p => p.toLowerCase());
+
+  const itemFeatures = extractItemFeatures(item);
+  const tags = [];
+
+  userPrefs.forEach(pref => {
+    const matchingFeature = itemFeatures.find(f =>
+      f.toLowerCase().includes(pref) || pref.includes(f.toLowerCase())
+    );
+    if (matchingFeature) {
+      tags.push({ label: matchingFeature, match: true });
+    } else {
+      tags.push({ label: pref.replace(/\b\w/g, c => c.toUpperCase()), match: true });
+    }
+  });
+
+  itemFeatures.forEach(f => {
+    const alreadyIn = tags.some(t => t.label.toLowerCase() === f.toLowerCase());
+    if (!alreadyIn) tags.push({ label: f, match: false });
+  });
+
+  const seen = new Set();
+  return tags.filter(t => {
+    const k = t.label.toLowerCase();
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  }).slice(0, 4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RECO RESULT CARD — PREMIUM v6 (sans emojis dans les tags)
+═══════════════════════════════════════════════════════════════════════════ */
+function RecoResultCard({ item, rank, answers = {} }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [liked, setLiked] = useState(isFavori(item));
   const isTop = rank === 0;
-  const score = item._score ?? 0;
-  const pct = Math.round(score * 100);
 
   useEffect(() => {
     const handleSync = () => setLiked(isFavori(item));
     window.addEventListener("favoris-updated", handleSync);
     return () => window.removeEventListener("favoris-updated", handleSync);
   }, [item]);
+
+  const smartTags = buildSmartTags(item, answers);
 
   return (
     <>
@@ -1253,36 +1231,15 @@ function RecoResultCard({ item, rank }) {
           background: "#fff",
           borderRadius: 22,
           overflow: "hidden",
-          border: isTop ? "2px solid rgba(15,122,110,0.3)" : "1px solid #e2e8f0",
+          border: "1px solid #e2e8f0",
           boxShadow: isTop
-            ? "0 8px 32px rgba(15,122,110,0.12)"
+            ? "0 8px 32px rgba(15,118,110,0.12)"
             : "0 4px 16px rgba(0,0,0,0.04)",
           position: "relative",
           cursor: "pointer",
         }}
         onClick={() => setModalOpen(true)}
       >
-        {/* Best choice badge */}
-        {isTop && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{
-              background: T.gradientPrimary,
-              padding: "8px 18px",
-              display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-            }}
-          >
-            <Award size={12} color="#fff" />
-            <span style={{
-              color: "#fff", fontSize: 10, fontWeight: 800,
-              letterSpacing: "0.1em", textTransform: "uppercase",
-            }}>
-              Meilleur choix
-            </span>
-          </motion.div>
-        )}
-
         {/* Image section */}
         <div style={{ height: 220, overflow: "hidden", position: "relative" }}>
           <div
@@ -1294,7 +1251,6 @@ function RecoResultCard({ item, rank }) {
                 : "linear-gradient(135deg, rgba(15,122,110,0.1), rgba(14,165,233,0.1))",
             }}
           />
-          {/* Gradient overlay */}
           <div style={{
             position: "absolute", inset: 0,
             background: "linear-gradient(to top, rgba(15,23,42,0.55) 0%, transparent 55%)",
@@ -1323,21 +1279,44 @@ function RecoResultCard({ item, rank }) {
             position: "absolute", top: 14, left: 14,
             width: 30, height: 30, borderRadius: "50%",
             background: isTop
-              ? "linear-gradient(135deg, #f59e0b, #ef4444)"
+              ? "linear-gradient(135deg, #f97316, #ea580c)"
               : "rgba(255,255,255,0.18)",
             backdropFilter: "blur(10px)",
             border: "1.5px solid rgba(255,255,255,0.4)",
             display: "flex", alignItems: "center", justifyContent: "center",
             color: "#fff", fontSize: 11, fontWeight: 800,
-            boxShadow: isTop ? "0 4px 12px rgba(245,158,11,0.3)" : "none",
+            boxShadow: isTop ? "0 4px 12px rgba(249,115,22,0.4)" : "none",
           }}>
             #{rank + 1}
           </div>
 
-          {/* AI badge bottom left */}
-          <div style={{ position: "absolute", bottom: 14, left: 14 }}>
-            <AIBadge small />
-          </div>
+          {/* Badge MEILLEUR CHOIX — carte #1 uniquement */}
+          {isTop && (
+            <motion.div
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.15 }}
+              style={{
+                position: "absolute", bottom: 14, left: 14,
+                display: "inline-flex", alignItems: "center", gap: 5,
+                background: "rgba(15,23,42,0.55)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1.5px solid rgba(249,115,22,0.75)",
+                borderRadius: 99,
+                padding: "5px 12px",
+                boxShadow: "0 2px 10px rgba(249,115,22,0.2)",
+              }}
+            >
+              <Award size={11} color="#f97316" />
+              <span style={{
+                fontSize: 9, fontWeight: 800, color: "#fff",
+                letterSpacing: "0.1em", textTransform: "uppercase",
+              }}>
+                Meilleur choix
+              </span>
+            </motion.div>
+          )}
 
           {/* Like button */}
           <motion.button
@@ -1391,22 +1370,38 @@ function RecoResultCard({ item, rank }) {
             </p>
           )}
 
-          {/* AI relevance score */}
-          {score > 0 && (
+          {/* Tags intelligents — sans emojis */}
+          {smartTags.length > 0 && (
             <div style={{ marginBottom: 14 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-                <span style={{
-                  fontSize: 10, color: "#94a3b8", fontWeight: 600,
-                  textTransform: "uppercase", letterSpacing: "0.06em",
-                  display: "flex", alignItems: "center", gap: 4,
-                }}>
-                  <Zap size={10} />
-                  Pertinence IA
-                </span>
-                <span style={{ fontSize: 10, fontWeight: 700, color: "#0f7a6e" }}>{pct}%</span>
+              <div style={{
+                fontSize: 10, color: "#94a3b8", fontWeight: 600,
+                textTransform: "uppercase", letterSpacing: "0.06em",
+                display: "flex", alignItems: "center", gap: 4,
+                marginBottom: 8,
+              }}>
+                <Sparkles size={10} color="#94a3b8" />
+                Pourquoi ce choix
               </div>
-              <div style={{ height: 4, background: "#f1f5f9", borderRadius: 99, overflow: "hidden" }}>
-                <div className="tg-score-bar" style={{ width: `${pct}%` }} />
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                {smartTags.map((tag, i) => (
+                  <span key={i} style={{
+                    display: "inline-flex", alignItems: "center",
+                    fontSize: 11, fontWeight: tag.match ? 700 : 500,
+                    padding: "4px 11px",
+                    borderRadius: 99,
+                    background: tag.match
+                      ? "rgba(249,115,22,0.08)"
+                      : "rgba(100,116,139,0.06)",
+                    color: tag.match ? "#ea580c" : "#64748b",
+                    border: tag.match
+                      ? "1.5px solid #f97316"
+                      : "1.5px solid #e2e8f0",
+                    whiteSpace: "nowrap",
+                    transition: "all 0.2s",
+                  }}>
+                    {tag.label}
+                  </span>
+                ))}
               </div>
             </div>
           )}
@@ -1457,14 +1452,13 @@ function RecoResultCard({ item, rank }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   RESULT CARDS GRID — PREMIUM
+   RESULT CARDS GRID
 ═══════════════════════════════════════════════════════════════════════════ */
-function ResultCards({ results, category, onReset, onRetry }) {
+function ResultCards({ results, category, preferences = {}, onReset, onRetry }) {
   const items = results?.resultats || [];
 
   return (
     <div>
-      {/* Results header */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -1492,9 +1486,7 @@ function ResultCards({ results, category, onReset, onRetry }) {
           }}>
             {items.length} résultat{items.length > 1 ? "s" : ""} personnalisé{items.length > 1 ? "s" : ""}
           </h2>
-          <p style={{ fontSize: 13, color: "#64748b", marginTop: 6, lineHeight: 1.5 }}>
-            Sélectionnés par notre IA selon vos préférences
-          </p>
+        
         </div>
 
         <div style={{ display: "flex", gap: 10 }}>
@@ -1521,7 +1513,6 @@ function ResultCards({ results, category, onReset, onRetry }) {
         </div>
       </motion.div>
 
-      {/* Empty state */}
       {items.length === 0 ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -1566,7 +1557,12 @@ function ResultCards({ results, category, onReset, onRetry }) {
           gap: 24,
         }}>
           {items.map((item, i) => (
-            <RecoResultCard key={item.id || item.nom || i} item={item} rank={i} />
+            <RecoResultCard
+              key={item.id || item.nom || i}
+              item={item}
+              rank={i}
+              answers={preferences}
+            />
           ))}
         </div>
       )}
@@ -1600,7 +1596,6 @@ function RecoLoader() {
         alignItems: "center", padding: "100px 20px", gap: 28,
       }}
     >
-      {/* Premium spinner */}
       <div style={{ position: "relative", width: 80, height: 80 }}>
         <div style={{
           position: "absolute", inset: 0, borderRadius: "50%",
@@ -1623,7 +1618,6 @@ function RecoLoader() {
         </div>
       </div>
 
-      {/* Skeleton cards */}
       <div style={{ width: "100%", maxWidth: 900 }}>
         <div style={{
           display: "grid",
@@ -1642,7 +1636,11 @@ function RecoLoader() {
               <div style={{ padding: "18px 20px" }}>
                 <div className="tg-shimmer-card" style={{ height: 18, borderRadius: 10, marginBottom: 10 }} />
                 <div className="tg-shimmer-card" style={{ height: 12, borderRadius: 8, width: "70%", marginBottom: 18 }} />
-                <div className="tg-shimmer-card" style={{ height: 8, borderRadius: 99, marginBottom: 18 }} />
+                <div style={{ display: "flex", gap: 8, marginBottom: 18 }}>
+                  <div className="tg-shimmer-card" style={{ height: 22, width: 70, borderRadius: 99 }} />
+                  <div className="tg-shimmer-card" style={{ height: 22, width: 80, borderRadius: 99 }} />
+                  <div className="tg-shimmer-card" style={{ height: 22, width: 60, borderRadius: 99 }} />
+                </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <div className="tg-shimmer-card" style={{ height: 32, width: 80, borderRadius: 10 }} />
                   <div className="tg-shimmer-card" style={{ height: 32, width: 90, borderRadius: 12 }} />
@@ -1653,7 +1651,6 @@ function RecoLoader() {
         </div>
       </div>
 
-      {/* Rotating message */}
       <AnimatePresence mode="wait">
         <motion.p
           key={idx}
@@ -1761,9 +1758,7 @@ function StepperBar({ stepList, step }) {
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     style={{
                       width: 60, height: 2, borderRadius: 99, margin: "0 8px",
-                      background: isDone
-                        ? T.gradientPrimary
-                        : "#e2e8f0",
+                      background: isDone ? T.gradientPrimary : "#e2e8f0",
                       transformOrigin: "left",
                     }}
                   />
@@ -1826,20 +1821,14 @@ export default function Recommandation() {
     topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [step]);
 
-  /* ── Load questions (PRESERVED) ── */
   async function handleCategorySelect(cat) {
     setError(null);
     setLoading(true);
     try {
       const data = await recoApi.getQuestions(cat.id);
       console.log("[Reco] getQuestions response:", data);
-
-      const qs = Array.isArray(data)
-        ? data
-        : (data.questions || data.data || []);
-
+      const qs = Array.isArray(data) ? data : (data.questions || data.data || []);
       if (!qs.length) throw new Error("Aucune question retournée par l'API.");
-
       setCategory(cat);
       setQuestions(qs);
       setAnswers({});
@@ -1852,7 +1841,6 @@ export default function Recommandation() {
     }
   }
 
-  /* ── Generate recommendations (PRESERVED) ── */
   async function handleWizardComplete(collectedAnswers) {
     setError(null);
     setLoading(true);
@@ -1860,17 +1848,11 @@ export default function Recommandation() {
     try {
       const payload = { categorie: category.id, ...collectedAnswers };
       console.log("[Reco] getRecommandations payload:", payload);
-
       const data = await recoApi.getRecommandations(payload);
       console.log("[Reco] getRecommandations response:", data);
-
       const normalized = {
-        resultats:
-          data?.resultats ??
-          data?.results ??
-          (Array.isArray(data) ? data : []),
+        resultats: data?.resultats ?? data?.results ?? (Array.isArray(data) ? data : []),
       };
-
       setResults(normalized);
       setStep(STEP.RESULTS);
     } catch (e) {
@@ -1898,32 +1880,25 @@ export default function Recommandation() {
 
   return (
     <>
-      {/* Hero section (from shared) */}
       <SectionHero
-        label="Recommandation IA"
+        label="Explorer Tanger"
         title={<>Votre séjour <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.85)" }}>sur mesure</em></>}
-        subtitle="Répondez à quelques questions — notre IA trouve les meilleures adresses de Tanger pour vous."
+        subtitle="Répondez à quelques questions ,
+        Explore212 trouve les meilleures adresses de Tanger pour vous."
       />
 
-      {/* Stepper */}
       <StepperBar stepList={stepList} step={step} />
 
-      {/* Main content */}
       <div
         ref={topRef}
         style={{ maxWidth: 1100, margin: "0 auto", padding: "52px 24px 100px" }}
       >
-        {/* Error banner */}
         <AnimatePresence>
-          {error && (
-            <ErrorAlert error={error} onClose={() => setError(null)} />
-          )}
+          {error && <ErrorAlert error={error} onClose={() => setError(null)} />}
         </AnimatePresence>
 
-        {/* Loader */}
         {loading && <RecoLoader />}
 
-        {/* Steps */}
         <AnimatePresence mode="wait">
           {!loading && step === STEP.CATEGORY && (
             <motion.div

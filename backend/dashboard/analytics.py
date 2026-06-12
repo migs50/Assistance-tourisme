@@ -349,62 +349,59 @@ def get_charts_lieux_par_categorie() -> list[dict]:
         counts[cat] = counts.get(cat, 0) + 1
     return [{"name": k, "value": v} for k, v in sorted(counts.items(), key=lambda x: -x[1])]
 
+
+"""
+PATCH analytics.py — remplacer uniquement la fonction get_charts_hotels_par_etoiles()
+Copiez ce bloc à la place de l'ancienne fonction (les deux versions fusionnées).
+"""
+
 def get_charts_hotels_par_etoiles() -> list[dict]:
-    """Retourne les hôtels groupés par étoiles avec count ET avgPrice.
-    Gère le format "5_etoiles", "4_etoiles", etc. du champ 'categorie'.
+    """
+    Retourne la distribution des hôtels par catégorie d'étoiles.
+    Seules les catégories avec au moins 1 établissement sont retournées.
+    Le prix moyen est calculé depuis prix_nuit_min_mad / prix_nuit_max_mad,
+    avec filtre sur les valeurs aberrantes (0 < prix < 15000 MAD).
     """
     hotels = _load("hotels.json")
 
-    star_map: dict[int, dict] = {
-        s: {"count": 0, "total_price": 0.0} for s in range(1, 6)
-    }
-
-    def _extract_stars(h: dict) -> int:
-        # Format principal : categorie = "5_etoiles", "4_etoiles", etc.
-        cat = str(h.get("categorie") or "").lower().strip()
-        if "_etoiles" in cat:
-            try:
-                return int(cat.replace("_etoiles", "").replace("etoiles", "").strip())
-            except ValueError:
-                pass
-        # Fallback : autres champs numériques
-        for field in ("etoiles", "stars", "nb_etoiles", "classement"):
-            val = h.get(field)
-            if val is not None:
-                try:
-                    return int(float(str(val).replace("★", "").strip()))
-                except (ValueError, TypeError):
-                    pass
-        return 0
-
-    for h in hotels:
-        stars_int = _extract_stars(h)
-        if stars_int < 1 or stars_int > 5:
-            continue
-
-        star_map[stars_int]["count"] += 1
-
-        prix = _parse_price(
-            h.get("prix_nuit_min_mad") or h.get("prix_nuit_max_mad") or
-            h.get("prix_min") or h.get("prix") or h.get("price") or
-            h.get("tarif") or 0
-        )
-        if prix > 0:
-            star_map[stars_int]["total_price"] += prix
+    categories = [
+        ("0_etoiles", "0★",   0),
+        ("1_etoiles", "1★",   1),
+        ("2_etoiles", "2★",   2),
+        ("3_etoiles", "3★",   3),
+        ("4_etoiles", "4★",   4),
+        ("5_etoiles", "5★",   5),
+        ("riad",      "Riad", None),
+        ("auberge",   "Auberge", None), 
+    ]
 
     result = []
-    for s in range(1, 6):
-        entry = star_map[s]
-        count = entry["count"]
-        avg_price = round(entry["total_price"] / count) if count > 0 else 0
+    for cat_key, label, stars in categories:
+        items = [h for h in hotels if h.get("categorie") == cat_key]
+
+        # Prix moyen : moyenne de (min+max)/2, en filtrant les valeurs aberrantes
+        raw_prices = []
+        for h in items:
+            p_min = h.get("prix_nuit_min_mad")
+            p_max = h.get("prix_nuit_max_mad")
+            if p_min is not None and p_min > 0:
+                p_max_val = p_max if (p_max and p_max > 0) else p_min
+                avg = (float(p_min) + float(p_max_val)) / 2
+                if 0 < avg < 15000:          # filtre aberrants
+                    raw_prices.append(avg)
+
+        avg_price = round(sum(raw_prices) / len(raw_prices)) if raw_prices else 0
+
         result.append({
-            "name":     f"{s}★",
-            "stars":    s,
-            "count":    count,
-            "avgPrice": avg_price,
-            "value":    count,
+            "name":      label,
+            "stars":     stars,
+            "categorie": cat_key,
+            "count":     len(items),
+            "avgPrice":  avg_price,
         })
-    return result
+
+    # Ne retourner que les catégories non vides
+    return [r for r in result if r["count"] > 0]
 
 def get_charts_visiteurs_par_lieu() -> list[dict]:
     result = []

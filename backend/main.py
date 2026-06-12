@@ -31,6 +31,7 @@ from routes.activites      import router as activites_router
 from routes.evenements     import router as evenements_router
 from routes.lieux          import router as lieux_router
 from services.data_loader  import DataLoader
+from routes.assurance import router as assurance_router
 
 
 # Chargement des variables d'environnement (.env)
@@ -91,6 +92,8 @@ app.include_router(dashboard_router, prefix="/api/dashboard", tags=["Dashboard"]
 app.include_router(activites_router,  prefix="/api", tags=["Activités"])
 app.include_router(evenements_router, prefix="/api", tags=["Événements"])
 app.include_router(lieux_router,      prefix="/api", tags=["Lieux"])
+app.include_router(assurance_router, tags=["Assurance"])
+
 # ─── Endpoints de base ────────────────────────────────────────────────────────
 
 @app.get("/", tags=["Général"])

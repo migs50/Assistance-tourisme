@@ -83,7 +83,7 @@ export default function Footer() {
                 color:       T.white,
                 letterSpacing: "0.01em",
               }}>
-                MoroccoGuide
+                Explore
               </span>
               <span style={{
                 display:     "block",
@@ -92,7 +92,7 @@ export default function Footer() {
                 color:       "rgba(255,255,255,0.32)",
                 letterSpacing: "0.01em",
               }}>
-                AI
+                212
               </span>
             </div>
 
@@ -130,7 +130,7 @@ export default function Footer() {
               margin:     "20px 0 0",
               lineHeight: 1.5,
             }}>
-              © 2026 MoroccoGuide AI — Tous droits réservés.
+              © 2026  Explore212 — Tous droits réservés.
             </p>
           </div>
         </div>
@@ -373,7 +373,7 @@ export default function Footer() {
             letterSpacing: "0.08em",
             lineHeight:    1.4,
           }}>
-            MoroccoGuide AI · Plateforme touristique intelligente
+            Explore212 · Plateforme touristique intelligente
           </p>
 
           </div>{/* fin sous-colonne carte */}

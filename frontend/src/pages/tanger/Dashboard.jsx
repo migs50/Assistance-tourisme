@@ -1,7 +1,10 @@
 /**
  * Dashboard.jsx — Tableau de bord d'analyse du tourisme à Tanger
- * PATCH : Card "Catégories touristiques par nombre" remplacée par
- *         "Hôtels par nombre d'étoiles" (endpoint /api/dashboard/charts/hotels-par-etoiles)
+ * CORRECTIONS :
+ *  - Graphique "Hôtels & Riads par catégorie" : couleurs fixes, tooltip prix moyen
+ *  - buildStarData() supprimé (le backend agrège déjà)
+ *  - Gradient IDs sans caractères spéciaux (sg0, sg1…)
+ *  - Catégories vides filtrées côté backend
  */
 
 import L from "leaflet";
@@ -16,12 +19,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
 import {
   Hotel, UtensilsCrossed, Waves, Sparkles, Zap, CalendarDays,
-  MapPin, Bus, TrendingUp, BarChart3, Map, Bot, Globe, Phone,
+  MapPin, Bus, TrendingUp, BarChart3, Map, Globe, Phone, Star, Bot,
   Shield, ChevronDown, ChevronRight, AlertTriangle, ArrowUpRight,
-  ArrowDownRight, Clock, Accessibility, Star, Navigation, Layers,
+  ArrowDownRight, Clock, Accessibility, Navigation, Layers,
   HelpCircle, Loader2, Building2, Users, Compass, Menu, X,
 } from "lucide-react";
-import { SectionHero, SectionHead, KPICard, ProgressBar, Spinner as Spin, ErrorBanner as ApiError } from "./SharedTanger";
+import {
+  SectionHero, SectionHead, KPICard, ProgressBar,
+  Spinner as Spin, ErrorBanner as ApiError,
+} from "./SharedTanger";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const API  = import.meta.env.VITE_API_URL || "http://localhost:8000";
@@ -30,6 +36,18 @@ const BLUE = "#3b82f6";
 const MINT = "#2dd4bf";
 const NAVY = "#1d4ed8";
 const PIE_COLORS = [TEAL, BLUE, MINT, "#6366f1", "#22d3ee"];
+
+// Couleurs par catégorie d'hôtel — index numérique, pas de ★ dans les IDs
+const STAR_COLORS_EXT = [
+  "#94a3b8", // 0★ gris ardoise
+  "#cbd5e1", // 1★ gris clair
+  "#34d399", // 2★ vert menthe
+  "#60a5fa", // 3★ bleu ciel
+  "#f59e0b", // 4★ ambre
+  "#0d9488", // 5★ teal
+  "#a78bfa", // Riad violet
+  "#f97316", // Auberge orange (si jamais ajoutée)
+];
 
 // ─── LEAFLET FIX ─────────────────────────────────────────────────────────────
 delete L.Icon.Default.prototype._getIconUrl;
@@ -102,7 +120,7 @@ function Empty({ Icon: I = HelpCircle, label = "Aucune donnée disponible" }) {
 function HeroHeader() {
   return (
     <SectionHero
-      label={"Tanger"}
+      label={"Explorer Tanger"}
       title={"Tableau de bord d'analyse du tourisme"}
       subtitle={"Aperçus touristiques intelligents pour Tanger, Maroc"}
     />
@@ -156,14 +174,77 @@ function KpiSection() {
   );
 }
 
+// ─── TOOLTIP HOTELS ──────────────────────────────────────────────────────────
+// ─── TOOLTIP HOTELS ──────────────────────────────────────────────────────────
+function StarTooltip({ active, payload }) {
+  if (!active || !payload?.length) return null;
+  const d        = payload[0].payload;
+  const color    = STAR_COLORS_EXT[d.colorIdx] || TEAL;
+  const isRiad    = d.categorie === "riad";
+  const isAuberge = d.categorie === "auberge";
+  const isSpecial = isRiad || isAuberge;
+
+  return (
+    <div style={{
+      background: "#fff",
+      border: "1px solid #e5e7eb",
+      borderRadius: 14,
+      padding: "12px 16px",
+      boxShadow: "0 8px 28px rgba(0,0,0,0.12)",
+      fontFamily: "'Outfit',sans-serif",
+      minWidth: 190,
+    }}>
+      {/* Titre */}
+      <div style={{ fontSize: 15, fontWeight: 600, color: "#111827", marginBottom: 8 }}>
+        {isRiad
+          ? "🏡 Riad"
+          : isAuberge
+          ? "🏕️ Auberge"
+          : `${"★".repeat(Number(d.stars))}${"☆".repeat(5 - Number(d.stars))}`}
+        {!isSpecial && (
+          <span style={{ color: "#6b7280", fontWeight: 400, fontSize: 12, marginLeft: 6 }}>
+            {d.stars} étoile{d.stars !== 1 ? "s" : ""}
+          </span>
+        )}
+      </div>
+
+      {/* Nombre d'établissements */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: 8,
+        fontSize: 13, color: "#4b5563",
+        marginBottom: d.avgPrice > 0 ? 6 : 0,
+      }}>
+        <div style={{ width: 10, height: 10, borderRadius: 3, background: color, flexShrink: 0 }} />
+        <span>
+          <b style={{ color: "#111827" }}>{d.count}</b>
+          {" "}
+          {isRiad ? "riad" : isAuberge ? "auberge" : "hôtel"}
+          {d.count !== 1 ? "s" : ""}
+        </span>
+      </div>
+
+      {/* Prix moyen */}
+      {d.avgPrice > 0 && (
+        <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#4b5563" }}>
+          <Star size={13} color="#f59e0b" fill="#f59e0b" strokeWidth={1.8} />
+          <span>
+            Prix moyen :{" "}
+            <b style={{ color }}>{d.avgPrice} MAD/nuit</b>
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── ANALYTICS ───────────────────────────────────────────────────────────────
 function AnalyticsSection() {
-  const { data: stats,      loading:l1 } = useApi("/api/dashboard/statistics", {});
-  const { data: budgetActivites, loading:l2 } = useApi("/api/dashboard/charts/budget-activites", []);
-  const { data: evenements, loading:l3 } = useApi("/api/dashboard/evenements",  []);
-  // ── NOUVEAU : données agrégées par étoiles depuis le backend ──────────────
-  const { data: hotelsStars, loading:l4 } = useApi("/api/dashboard/charts/hotels-par-etoiles", []);
+  const { data: stats,          loading: l1 } = useApi("/api/dashboard/statistics",                  {});
+  const { data: budgetActivites, loading: l2 } = useApi("/api/dashboard/charts/budget-activites",    []);
+  const { data: evenements,     loading: l3 } = useApi("/api/dashboard/evenements",                  []);
+  const { data: hotelsStars,    loading: l4 } = useApi("/api/dashboard/charts/hotels-par-etoiles",   []);
 
+  // ── Pie data ──────────────────────────────────────────────────────────────
   const s = (stats && !Array.isArray(stats)) ? stats : {};
   const pieData = [
     { name:"Hôtels",      value:Number(s.hotels      ?? 0) },
@@ -173,6 +254,7 @@ function AnalyticsSection() {
     { name:"Activités",   value:Number(s.activites   ?? 0) },
   ].filter(d => d.value > 0);
 
+  // ── Area chart événements ─────────────────────────────────────────────────
   const months = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Aoû","Sep","Oct","Nov","Déc"];
   const evMap  = Object.fromEntries(months.map(m => [m, 0]));
   if (Array.isArray(evenements)) {
@@ -182,37 +264,41 @@ function AnalyticsSection() {
       if (!isNaN(idx)) evMap[months[idx]]++;
     });
   }
-  const lineData = months.map(m => ({ month:m, events:evMap[m] }));
+  const lineData = months.map(m => ({ month: m, events: evMap[m] }));
 
+  // ── Budget activités ──────────────────────────────────────────────────────
+  const budgetData = Array.isArray(budgetActivites)
+    ? [...budgetActivites]
+        .sort((a, b) => b.prix - a.prix)
+        .slice(0, 15)
+        .map(a => ({
+          name:     (a.name || a.nom || "—").slice(0, 26),
+          fullName: a.name || a.nom || "—",
+          prix:     Math.round(a.prix || 0),
+        }))
+    : [];
 
-// AJOUTER
-const budgetData = Array.isArray(budgetActivites)
-  ? [...budgetActivites]
-      .sort((a, b) => b.prix - a.prix)
-      .slice(0, 15)
-      .map(a => ({
-        name: (a.name || a.nom || "—").slice(0, 26),
-        fullName: a.name || a.nom || "—",
-        prix: Math.round(a.prix || 0),
+  const budgetMax = budgetData.length > 0
+    ? Math.max(...budgetData.map(d => d.prix))
+    : 500;
+
+  const budgetColors = [
+    "#0d9488","#0f766e","#14b8a6","#2dd4bf","#5eead4",
+    "#0891b2","#0e7490","#06b6d4","#22d3ee","#67e8f9",
+    "#3b82f6","#2563eb","#1d4ed8","#6366f1","#4f46e5",
+  ];
+
+  // ── Hotels par étoiles — le backend retourne déjà les agrégats ────────────
+  // On ajoute juste colorIdx + gradId (IDs sans caractères spéciaux)
+  const starData = Array.isArray(hotelsStars)
+    ? hotelsStars.map((d, i) => ({
+        ...d,
+        colorIdx: i,
+        gradId:   `sg${i}`,   // safe: pas de ★ dans l'ID SVG/CSS
       }))
-  : [];
+    : [];
 
-const budgetMax = budgetData.length > 0
-  ? Math.max(...budgetData.map(d => d.prix))
-  : 500;
-
-const budgetColors = [
-  "#0d9488","#0f766e","#14b8a6","#2dd4bf","#5eead4",
-  "#0891b2","#0e7490","#06b6d4","#22d3ee","#67e8f9",
-  "#3b82f6","#2563eb","#1d4ed8","#6366f1","#4f46e5",
-];
-
-  // ── Données étoiles déjà agrégées par le backend ─────────────────────────
-  const starData = Array.isArray(hotelsStars) ? hotelsStars : [];
-
-  // Couleurs par rang d'étoiles : 1★ gris, 2★ vert, 3★ bleu, 4★ or, 5★ teal
-  const STAR_COLORS = ["#94a3b8", "#34d399", "#3b82f6", "#f59e0b", "#0d9488"];
-
+  // ── Card helper ───────────────────────────────────────────────────────────
   const card = (title, children) => (
     <div style={{ background:"#fff", borderRadius:16, border:"1px solid #f1f5f9",
       boxShadow:"0 2px 8px rgba(0,0,0,0.05)", padding:"24px" }}>
@@ -240,7 +326,7 @@ const budgetColors = [
               <PieChart>
                 <Pie data={pieData} cx="50%" cy="50%" innerRadius={70} outerRadius={115}
                   paddingAngle={3} dataKey="value" stroke="none">
-                  {pieData.map((_,i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
+                  {pieData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
                 <Tooltip />
                 <Legend iconType="circle" iconSize={10}
@@ -250,83 +336,63 @@ const budgetColors = [
           ) : <Empty label="Aucune statistique disponible" />
         )}
 
-        {/* ── Graphique 2 : Hôtels par nombre d'étoiles (NOUVEAU) ── */}
-        {card("Hôtels par nombre d'étoiles",
-          starData.some(d => d.count > 0) ? (
+        {/* ── Graphique 2 : Hôtels & Riads par catégorie ── */}
+        {card("Hôtels & Riads par catégorie",
+          starData.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={starData} barSize={42}
-                margin={{ top:10, right:16, left:0, bottom:0 }}>
+              <BarChart
+                data={starData}
+                barSize={42}
+                margin={{ top: 24, right: 16, left: 0, bottom: 0 }}
+              >
+                {/* Gradients — IDs numériques propres, aucun caractère spécial */}
                 <defs>
-                  {[1,2,3,4,5].map((s, i) => (
-                    <linearGradient key={s} id={`starGrad${s}`} x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%"   stopColor={STAR_COLORS[i]} stopOpacity={1} />
-                      <stop offset="100%" stopColor={STAR_COLORS[i]} stopOpacity={0.55} />
+                  {starData.map((d) => (
+                    <linearGradient key={d.gradId} id={d.gradId} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%"   stopColor={STAR_COLORS_EXT[d.colorIdx]} stopOpacity={1} />
+                      <stop offset="100%" stopColor={STAR_COLORS_EXT[d.colorIdx]} stopOpacity={0.45} />
                     </linearGradient>
                   ))}
                 </defs>
+
                 <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" vertical={false} />
                 <XAxis
                   dataKey="name"
-                  tick={{ fontSize:14, fill:"#374151", fontWeight:700,
-                    fontFamily:"'Outfit',sans-serif" }}
-                  axisLine={false} tickLine={false}
+                  tick={{ fontSize: 13, fill: "#374151", fontWeight: 600,
+                    fontFamily: "'Outfit',sans-serif" }}
+                  axisLine={false}
+                  tickLine={false}
                 />
                 <YAxis
-                  tick={{ fontSize:11, fill:"#9ca3af" }}
-                  axisLine={false} tickLine={false}
+                  tick={{ fontSize: 11, fill: "#9ca3af" }}
+                  axisLine={false}
+                  tickLine={false}
                   allowDecimals={false}
                 />
                 <Tooltip
-                  cursor={{ fill:"rgba(249,250,251,0.8)" }}
-                  content={({ active, payload }) => {
-                    if (!active || !payload?.length) return null;
-                    const d = payload[0].payload;
-                    return (
-                      <div style={{
-                        background:"#fff",
-                        border:"1px solid #e5e7eb",
-                        borderRadius:14,
-                        padding:"12px 16px",
-                        boxShadow:"0 8px 28px rgba(0,0,0,0.11)",
-                        fontFamily:"'Outfit',sans-serif",
-                        minWidth:190,
-                      }}>
-                        <div style={{ fontSize:15, fontWeight:700, color:"#111827", marginBottom:8 }}>
-                          {"★".repeat(d.stars)}
-                          <span style={{ color:"#6b7280", fontWeight:500, fontSize:12, marginLeft:6 }}>
-                            {d.stars} étoile{d.stars > 1 ? "s" : ""}
-                          </span>
-                        </div>
-                        <div style={{ display:"flex", alignItems:"center", gap:7,
-                          fontSize:13, color:"#4b5563", marginBottom:5 }}>
-                          <Hotel size={13} color={STAR_COLORS[d.stars - 1]} strokeWidth={1.8} />
-                          <span>
-                            <b style={{ color:"#111827" }}>{d.count}</b>
-                            {" "}hôtel{d.count !== 1 ? "s" : ""}
-                          </span>
-                        </div>
-                        <div style={{ display:"flex", alignItems:"center", gap:7,
-                          fontSize:13, color:"#4b5563" }}>
-                          <Star size={13} color="#f59e0b" fill="#f59e0b" strokeWidth={1.8} />
-                          <span>
-                            Prix moyen :{" "}
-                            <b style={{ color: TEAL }}>
-                              {d.avgPrice > 0 ? `${d.avgPrice} MAD/nuit` : "N/A"}
-                            </b>
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  }}
+                  cursor={{ fill: "rgba(249,250,251,0.8)" }}
+                  content={<StarTooltip />}
                 />
-                <Bar dataKey="count" name="Hôtels" radius={[8,8,0,0]}>
+                <Bar dataKey="count" name="Établissements" radius={[8, 8, 0, 0]}>
                   {starData.map((d) => (
-                    <Cell key={d.stars ?? d.name} fill={`url(#starGrad${d.stars})`} />
+                    <Cell key={d.gradId} fill={`url(#${d.gradId})`} />
                   ))}
+                  <LabelList
+                    dataKey="count"
+                    position="top"
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 700,
+                      fill: "#6b7280",
+                      fontFamily: "'Outfit',sans-serif",
+                    }}
+                  />
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-          ) : <Empty Icon={Hotel} label="Aucune donnée hôtelière disponible" />
+          ) : (
+            <Empty Icon={Hotel} label="Aucune donnée hôtelière disponible" />
+          )
         )}
 
         {/* ── Graphique 3 : Évolution des événements ── */}
@@ -350,107 +416,93 @@ const budgetColors = [
           </ResponsiveContainer>
         )}
 
-        {/* ── Graphique 4 : Popularité transport ── */}
+        {/* ── Graphique 4 : Budget activités ── */}
         {card("Budget activités — Toutes les activités",
-  budgetData.length > 0 ? (
-    <ResponsiveContainer width="100%" height={Math.max(300, budgetData.length * 38)}>
-      <BarChart
-        data={budgetData}
-        layout="vertical"
-        barSize={22}
-        margin={{ top: 0, right: 72, left: 0, bottom: 0 }}
-      >
-        <defs>
-          {budgetColors.map((color, i) => (
-            <linearGradient key={i} id={`budgetGrad${i}`} x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stopColor={color} stopOpacity={1} />
-              <stop offset="100%" stopColor={color} stopOpacity={0.55} />
-            </linearGradient>
-          ))}
-        </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" horizontal={false} />
-        <XAxis
-          type="number"
-          domain={[0, budgetMax * 1.1]}
-          tick={{ fontSize: 11, fill: "#9ca3af" }}
-          axisLine={false}
-          tickLine={false}
-          tickFormatter={v => `${Math.round(v)} MAD`}
-          tickCount={5}
-        />
-        <YAxis
-          dataKey="name"
-          type="category"
-          width={168}
-          tick={{ fontSize: 11, fill: "#374151", fontFamily: "'Outfit',sans-serif" }}
-          axisLine={false}
-          tickLine={false}
-        />
-        <Tooltip
-          cursor={{ fill: "rgba(249,250,251,0.8)" }}
-          content={({ active, payload }) => {
-            if (!active || !payload?.length) return null;
-            const d = payload[0].payload;
-            const i = budgetData.findIndex(b => b.name === d.name);
-            const color = budgetColors[i % budgetColors.length];
-            return (
-              <div style={{
-                background: "#fff",
-                border: "1px solid #e5e7eb",
-                borderRadius: 14,
-                padding: "12px 16px",
-                boxShadow: "0 8px 28px rgba(0,0,0,0.11)",
-                fontFamily: "'Outfit',sans-serif",
-                minWidth: 210,
-              }}>
-                <div style={{
-                  fontSize: 13, fontWeight: 700, color: "#111827",
-                  marginBottom: 4, lineHeight: 1.35
-                }}>
-                  {d.fullName}
-                </div>
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 8, marginTop: 6
-                }}>
-                  <div style={{
-                    width: 10, height: 10, borderRadius: 3,
-                    background: color, flexShrink: 0
-                  }} />
-                  <span style={{ fontSize: 13, color: "#374151" }}>
-                    Prix :{" "}
-                    <b style={{ color, fontSize: 15 }}>
-                      {d.prix > 0 ? `${d.prix} MAD` : "Gratuit"}
-                    </b>
-                  </span>
-                </div>
-              </div>
-            );
-          }}
-        />
-        <Bar dataKey="prix" name="Prix (MAD)" radius={[0, 8, 8, 0]}>
-          {budgetData.map((_, i) => (
-            <Cell key={i} fill={`url(#budgetGrad${i % budgetColors.length})`} />
-          ))}
-          <LabelList
-            dataKey="prix"
-            position="right"
-            formatter={v => v > 0 ? `${v} MAD` : "Gratuit"}
-            style={{
-              fontSize: 11,
-              fontWeight: 700,
-              fill: TEAL,
-              fontFamily: "'Outfit',sans-serif",
-            }}
-          />
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  ) : <Empty Icon={Zap} label="Aucune donnée d'activités disponible" />
-)}
+          budgetData.length > 0 ? (
+            <ResponsiveContainer width="100%" height={Math.max(300, budgetData.length * 38)}>
+              <BarChart
+                data={budgetData}
+                layout="vertical"
+                barSize={22}
+                margin={{ top: 0, right: 72, left: 0, bottom: 0 }}
+              >
+                <defs>
+                  {budgetColors.map((color, i) => (
+                    <linearGradient key={i} id={`budgetGrad${i}`} x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%"   stopColor={color} stopOpacity={1} />
+                      <stop offset="100%" stopColor={color} stopOpacity={0.55} />
+                    </linearGradient>
+                  ))}
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" horizontal={false} />
+                <XAxis
+                  type="number"
+                  domain={[0, budgetMax * 1.1]}
+                  tick={{ fontSize: 11, fill: "#9ca3af" }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={v => `${Math.round(v)} MAD`}
+                  tickCount={5}
+                />
+                <YAxis
+                  dataKey="name"
+                  type="category"
+                  width={168}
+                  tick={{ fontSize: 11, fill: "#374151", fontFamily: "'Outfit',sans-serif" }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <Tooltip
+                  cursor={{ fill: "rgba(249,250,251,0.8)" }}
+                  content={({ active, payload }) => {
+                    if (!active || !payload?.length) return null;
+                    const d = payload[0].payload;
+                    const i = budgetData.findIndex(b => b.name === d.name);
+                    const color = budgetColors[i % budgetColors.length];
+                    return (
+                      <div style={{
+                        background: "#fff", border: "1px solid #e5e7eb",
+                        borderRadius: 14, padding: "12px 16px",
+                        boxShadow: "0 8px 28px rgba(0,0,0,0.11)",
+                        fontFamily: "'Outfit',sans-serif", minWidth: 210,
+                      }}>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "#111827",
+                          marginBottom: 4, lineHeight: 1.35 }}>{d.fullName}</div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 6 }}>
+                          <div style={{ width: 10, height: 10, borderRadius: 3,
+                            background: color, flexShrink: 0 }} />
+                          <span style={{ fontSize: 13, color: "#374151" }}>
+                            Prix :{" "}
+                            <b style={{ color, fontSize: 15 }}>
+                              {d.prix > 0 ? `${d.prix} MAD` : "Gratuit"}
+                            </b>
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  }}
+                />
+                <Bar dataKey="prix" name="Prix (MAD)" radius={[0, 8, 8, 0]}>
+                  {budgetData.map((_, i) => (
+                    <Cell key={i} fill={`url(#budgetGrad${i % budgetColors.length})`} />
+                  ))}
+                  <LabelList
+                    dataKey="prix"
+                    position="right"
+                    formatter={v => v > 0 ? `${v} MAD` : "Gratuit"}
+                    style={{ fontSize: 11, fontWeight: 700, fill: TEAL,
+                      fontFamily: "'Outfit',sans-serif" }}
+                  />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          ) : <Empty Icon={Zap} label="Aucune donnée d'activités disponible" />
+        )}
       </div>
     </section>
   );
 }
+
 // ─── MAP ─────────────────────────────────────────────────────────────────────
 function MapSection() {
   const { data: hotelsApi }  = useApi("/api/dashboard/hotels",      []);
@@ -466,8 +518,8 @@ function MapSection() {
     musees:true, activites:true, lieux:true, bus:false,
   });
   const [busLineFilter, setBusLineFilter] = useState('');
-  const mapRef          = useRef(null);
-  const layerGroupsRef  = useRef({});
+  const mapRef         = useRef(null);
+  const layerGroupsRef = useRef({});
 
   const CATS = {
     hotels:      { label:"Hôtels",             Icon:Hotel,           color:"#3b82f6" },
@@ -549,95 +601,55 @@ function MapSection() {
       <circle cx="16" cy="17" r="1.3" fill="white"/>`,
   };
 
-const mkIcon = (color, catKey) => {
-  const rawPath = ICON_SVG_PATHS[catKey] || ICON_SVG_PATHS.lieux;
-  const svgPath = rawPath.replace(/__COLOR__/g, color);
-  const isBus   = catKey === 'bus';
-
-  // Bus stops: tiny grey dot
-  if (isBus) {
-    return new L.DivIcon({
-      html: `<div style="
-        width:10px;height:10px;border-radius:50%;
-        background:#9ca3af;border:1.5px solid #fff;
-        box-shadow:0 1px 3px rgba(0,0,0,0.25);
-      "></div>`,
-      className:   '',
-      iconSize:    [10, 10],
-      iconAnchor:  [5, 5],
-      popupAnchor: [0, -8],
-    });
-  }
-
-  // Category markers: small Google Maps style circle (20px)
-  const SIZE = 20;
-  const ICON = 11;
-  const OFF  = Math.floor((SIZE - ICON) / 2);
-
-  return new L.DivIcon({
-    html: `
-      <div style="
-        position:relative;width:${SIZE}px;height:${SIZE}px;
-        filter:drop-shadow(0 2px 4px ${color}88);cursor:pointer;
-      ">
-        <div style="
-          width:${SIZE}px;height:${SIZE}px;border-radius:50%;
-          background:${color};
-          border:2px solid rgba(255,255,255,0.95);
-          box-shadow:0 2px 6px ${color}44;
-        "></div>
-        <svg viewBox="0 0 24 24" width="${ICON}" height="${ICON}"
-          style="position:absolute;top:${OFF}px;left:${OFF}px;z-index:2;pointer-events:none;"
-          xmlns="http://www.w3.org/2000/svg"
-        >${svgPath}</svg>
-      </div>`,
-    className:   '',
-    iconSize:    [SIZE, SIZE],
-    iconAnchor:  [SIZE / 2, SIZE / 2],
-    popupAnchor: [0, -(SIZE / 2 + 4)],
-  });
-};
-
-  const mkCluster = (color) => (cluster) => {
-    const n  = cluster.getChildCount();
-    const sz = n < 10 ? 36 : n < 30 ? 44 : n < 100 ? 52 : 60;
+  const mkIcon = (color, catKey) => {
+    const rawPath = ICON_SVG_PATHS[catKey] || ICON_SVG_PATHS.lieux;
+    const svgPath = rawPath.replace(/__COLOR__/g, color);
+    const isBus   = catKey === 'bus';
+    if (isBus) {
+      return new L.DivIcon({
+        html: `<div style="width:10px;height:10px;border-radius:50%;background:#9ca3af;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.25);"></div>`,
+        className: '', iconSize: [10,10], iconAnchor: [5,5], popupAnchor: [0,-8],
+      });
+    }
+    const SIZE = 20, ICON = 11, OFF = Math.floor((SIZE - ICON) / 2);
     return new L.DivIcon({
       html: `
-        <div style="
-          width:${sz}px;height:${sz}px;border-radius:50%;
-          background:${color};color:#fff;
-          border:3px solid rgba(255,255,255,0.95);
-          display:flex;align-items:center;justify-content:center;
-          font-weight:800;font-size:${Math.round(sz*0.3)}px;
-          box-shadow:0 4px 18px ${color}66,0 0 0 6px ${color}22;
-          font-family:'Outfit',sans-serif;
-        ">${n}</div>`,
-      className: '', iconSize:[sz,sz], iconAnchor:[sz/2,sz/2],
+        <div style="position:relative;width:${SIZE}px;height:${SIZE}px;filter:drop-shadow(0 2px 4px ${color}88);cursor:pointer;">
+          <div style="width:${SIZE}px;height:${SIZE}px;border-radius:50%;background:${color};border:2px solid rgba(255,255,255,0.95);box-shadow:0 2px 6px ${color}44;"></div>
+          <svg viewBox="0 0 24 24" width="${ICON}" height="${ICON}" style="position:absolute;top:${OFF}px;left:${OFF}px;z-index:2;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">${svgPath}</svg>
+        </div>`,
+      className: '', iconSize: [SIZE,SIZE], iconAnchor: [SIZE/2,SIZE/2], popupAnchor: [0,-(SIZE/2+4)],
+    });
+  };
+
+  const mkCluster = (color) => (cluster) => {
+    const n = cluster.getChildCount();
+    const sz = n < 10 ? 36 : n < 30 ? 44 : n < 100 ? 52 : 60;
+    return new L.DivIcon({
+      html: `<div style="width:${sz}px;height:${sz}px;border-radius:50%;background:${color};color:#fff;border:3px solid rgba(255,255,255,0.95);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:${Math.round(sz*0.3)}px;box-shadow:0 4px 18px ${color}66,0 0 0 6px ${color}22;font-family:'Outfit',sans-serif;">${n}</div>`,
+      className: '', iconSize: [sz,sz], iconAnchor: [sz/2,sz/2],
     });
   };
 
   const mkPopup = (item, catKey) => {
     const conf   = CATS[catKey];
-    const color  = conf?.color  || '#0d9488';
-    const label  = conf?.label  || catKey;
-    const name   = item.nom  || item.name || '—';
+    const color  = conf?.color || '#0d9488';
+    const label  = conf?.label || catKey;
+    const name   = item.nom || item.name || '—';
     const desc   = (item.description_fr || item.description || '').slice(0, 120);
     const addr   = item.adresse || item.quartier || item.localisation || item.lieu || '';
     const img    = item.image_url || item.image || item.photo || '';
     const rating = parseFloat(item.note_moyenne || item.rating || item.note || 0);
-    const lat    = item.latitude  || item.lat || '';
+    const lat    = item.latitude || item.lat || '';
     const lng    = item.longitude || item.lng || '';
-    const gmaps  = lat && lng
-      ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}` : '';
-
-    const catSvgPath  = (ICON_SVG_PATHS[catKey] || ICON_SVG_PATHS.lieux).replace(/__COLOR__/g, color);
+    const gmaps  = lat && lng ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}` : '';
+    const catSvgPath   = (ICON_SVG_PATHS[catKey] || ICON_SVG_PATHS.lieux).replace(/__COLOR__/g, color);
     const iconSVGbadge = `<svg viewBox="0 0 24 24" width="13" height="13" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">${catSvgPath}</svg>`;
 
     const extraHTML = (() => {
       switch (catKey) {
         case 'hotels':
-          return (item.etoiles
-            ? `<div class="pp-row"><svg viewBox="0 0 24 24" width="13" height="13" class="pp-svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/></svg><span>${'★'.repeat(Number(item.etoiles))} <b style="color:#374151">${item.etoiles} étoiles</b></span></div>` : '')
+          return (item.etoiles ? `<div class="pp-row"><svg viewBox="0 0 24 24" width="13" height="13" class="pp-svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"/></svg><span>${'★'.repeat(Number(item.etoiles))} <b style="color:#374151">${item.etoiles} étoiles</b></span></div>` : '')
             + (item.prix_min ? `<div class="pp-row"><svg viewBox="0 0 24 24" width="13" height="13" class="pp-svg"><line x1="12" y1="1" x2="12" y2="23" stroke="${color}" stroke-width="1.9" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="${color}" stroke-width="1.9" fill="none" stroke-linecap="round"/></svg><span>À partir de <b style="color:${color}">${item.prix_min} MAD</b>/nuit</span></div>` : '');
         case 'restaurants':
           return (item.cuisine ? `<div class="pp-row"><svg viewBox="0 0 24 24" width="13" height="13" class="pp-svg"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="${color}" stroke-width="1.8" fill="none"/><line x1="7" y1="7" x2="7.01" y2="7" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/></svg><span>${item.cuisine}</span></div>` : '')
@@ -709,42 +721,34 @@ const mkIcon = (color, catKey) => {
       try { if (map.hasLayer(g)) map.removeLayer(g); } catch {}
     });
     layerGroupsRef.current = {};
-
     Object.entries(CATS).forEach(([catKey, conf]) => {
       if (!activeCats[catKey]) return;
       const items = datasets[catKey] || [];
       if (!items.length) return;
-
       let group;
       try {
         group = L.markerClusterGroup({
-          maxClusterRadius:50, spiderfyOnMaxZoom:true,
-          showCoverageOnHover:false,
+          maxClusterRadius: 50, spiderfyOnMaxZoom: true,
+          showCoverageOnHover: false,
           iconCreateFunction: mkCluster(conf.color),
         });
       } catch { group = L.layerGroup(); }
-
       const itemsToShow = catKey === 'bus' && busLineFilter
         ? items.filter(item => {
             const lines = item.lignes || item.lines || item.numero_lignes;
             if (Array.isArray(lines)) return lines.includes(busLineFilter);
-            if (typeof lines === 'string')
-              return lines.split(/[;,]/).map(s=>s.trim()).includes(busLineFilter);
+            if (typeof lines === 'string') return lines.split(/[;,]/).map(s=>s.trim()).includes(busLineFilter);
             return false;
           })
         : items;
-
       itemsToShow.forEach(item => {
         const lat = parseFloat(item.latitude ?? item.lat ?? 0);
         const lng = parseFloat(item.longitude ?? item.lng ?? item.lon ?? 0);
         if (!lat || !lng || isNaN(lat) || isNaN(lng)) return;
         const marker = L.marker([lat, lng], { icon: mkIcon(conf.color, catKey) });
-        marker.bindPopup(mkPopup(item, catKey), {
-          maxWidth:280, minWidth:260, className:"dash-popup",
-        });
+        marker.bindPopup(mkPopup(item, catKey), { maxWidth:280, minWidth:260, className:"dash-popup" });
         group.addLayer(marker);
       });
-
       group.addTo(map);
       layerGroupsRef.current[catKey] = group;
     });
@@ -756,15 +760,10 @@ const mkIcon = (color, catKey) => {
     const s = document.createElement("style");
     s.id = id;
     s.textContent = `
-      .dash-popup .leaflet-popup-content-wrapper{
-        border-radius:16px!important;padding:0!important;
-        box-shadow:0 12px 40px rgba(0,0,0,0.18)!important;
-        overflow:hidden!important;border:none!important;}
+      .dash-popup .leaflet-popup-content-wrapper{border-radius:16px!important;padding:0!important;box-shadow:0 12px 40px rgba(0,0,0,0.18)!important;overflow:hidden!important;border:none!important;}
       .dash-popup .leaflet-popup-content{margin:0!important;width:auto!important;}
       .dash-popup .leaflet-popup-tip-container{display:none!important;}
-      .dash-popup .leaflet-popup-close-button{
-        color:#fff!important;font-size:18px!important;
-        top:6px!important;right:8px!important;z-index:10!important;}
+      .dash-popup .leaflet-popup-close-button{color:#fff!important;font-size:18px!important;top:6px!important;right:8px!important;z-index:10!important;}
     `;
     document.head.appendChild(s);
   }, []);
@@ -782,7 +781,6 @@ const mkIcon = (color, catKey) => {
       <SectionHead Icon={Map} title="Carte touristique interactive" />
       <div style={{ background:"#fff", borderRadius:20, border:"1px solid #f1f5f9",
         boxShadow:"0 4px 24px rgba(0,0,0,0.07)", overflow:"hidden" }}>
-
         <div style={{ padding:"12px 18px", display:"flex", gap:8, flexWrap:"wrap",
           borderBottom:"1px solid #f3f4f6", alignItems:"center",
           background:"linear-gradient(180deg,#fafbfc,#fff)" }}>
@@ -808,7 +806,8 @@ const mkIcon = (color, catKey) => {
                 {cnt > 0 && (
                   <span style={{ background: on ? v.color : "#e5e7eb",
                     color: on ? "#fff" : "#9ca3af",
-                    fontSize:10, fontWeight:700, padding:"1px 6px", borderRadius:10, marginLeft:2 }}>
+                    fontSize:10, fontWeight:700, padding:"1px 6px",
+                    borderRadius:10, marginLeft:2 }}>
                     {cnt}
                   </span>
                 )}
@@ -833,7 +832,6 @@ const mkIcon = (color, catKey) => {
             <Layers size={12} /> {totalVisible} lieux
           </span>
         </div>
-
         <MapContainer center={[35.78,-5.81]} zoom={13}
           style={{ height:520, width:"100%" }}
           scrollWheelZoom zoomControl
@@ -891,13 +889,13 @@ function AIInsightsSection() {
 
   if (l1||l2||l3||l4) return (
     <section style={{ marginBottom:56 }}>
-      <SectionHead Icon={Bot} title="Informations touristiques IA" /><Spin />
+      <SectionHead Icon={Star} title="Informations Top 5" /><Spin />
     </section>
   );
 
   return (
     <section style={{ marginBottom:56 }}>
-      <SectionHead Icon={Bot} title="Informations touristiques IA" />
+      <SectionHead Icon={Star} title="Informations Top 5" />
       <div style={{ background:"linear-gradient(135deg,rgba(13,148,136,0.06),rgba(59,130,246,0.04))",
         borderRadius:20, padding:20, border:"1px solid rgba(13,148,136,0.15)" }}>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16 }}>
@@ -941,9 +939,7 @@ function AIInsightsSection() {
                               {item.name}
                             </div>
                             {item.sub && (
-                              <div style={{ fontSize:11, color:"#9ca3af", marginTop:2 }}>
-                                {item.sub}
-                              </div>
+                              <div style={{ fontSize:11, color:"#9ca3af", marginTop:2 }}>{item.sub}</div>
                             )}
                             <div style={{ display:"flex", alignItems:"center", gap:10, marginTop:5 }}>
                               {item.rating && (
@@ -997,15 +993,14 @@ function TransportSection() {
   const fmtPrice = t => {
     const id   = (t.id||"").toUpperCase();
     const type = (t.type||"").toLowerCase();
-    if (id==="TR001"||type==="bus")              return { main:"4 ou 5 MAD",              sub:null };
-    if (id==="TR002"||type==="petit_taxi")        return { main:"~10 à 50 MAD",            sub:"Selon la distance" };
-    if (id==="TR003"||type==="grand_taxi")        return { main:"5 à 10 MAD / place",      sub:"Selon la destination" };
-    if (id==="TR004"||type==="navette_aeroport")  return { main:"40 MAD",                  sub:null };
-    if (id==="TR005")                             return { main:"À partir de 49 MAD",      sub:"Selon la destination" };
-    if (id==="TR007"||(type==="train"&&id!=="TR005")) return { main:"~20 à 150 MAD",       sub:"Selon la destination" };
-    if (id==="TR006"||type==="ferry")             return { main:"À partir de 300 MAD",     sub:"Selon la compagnie" };
-    if (id==="TR008"||type==="vtc")               return { main:"~15 à 80 MAD",            sub:"Selon la distance" };
-    if (id==="TR009"||type==="location_voiture")  return { main:"250 à 500 MAD / jour",    sub:"Selon le véhicule" };
+    if (id==="TR001"||type==="bus")             return { main:"4 ou 5 MAD",           sub:null };
+    if (id==="TR002"||type==="petit_taxi")       return { main:"~10 à 50 MAD",         sub:"Selon la distance" };
+    if (id==="TR003"||type==="grand_taxi")       return { main:"5 à 10 MAD / place",   sub:"Selon la destination" };
+    if (id==="TR004"||type==="navette_aeroport") return { main:"40 MAD",               sub:null };
+    if (id==="TR005")                            return { main:"À partir de 93 MAD",   sub:"Selon la destination" };    
+    if (id==="TR007"||(type==="train"&&id!=="TR005")) return { main:"~35 à 150 MAD",   sub:"Selon la destination" };    if (id==="TR006"||type==="ferry")            return { main:"À partir de 300 MAD",  sub:"Selon la compagnie" };
+    if (id==="TR008"||type==="vtc")              return { main:"~15 à 80 MAD",         sub:"Selon la distance" };
+    if (id==="TR009"||type==="location_voiture") return { main:"250 à 500 MAD / jour", sub:"Selon le véhicule" };
     const base = t.tarif_base_mad, max = t.tarif_max_mad;
     if (base!==undefined&&base!==null) {
       const b=Number(base), m=max!==undefined&&max!==null?Number(max):null;
@@ -1016,9 +1011,8 @@ function TransportSection() {
     return { main:t.tarif_note?String(t.tarif_note):null, sub:null };
   };
 
-  const fmtHours = t => t.disponibilite||t.horaires||t.hours||t.schedule||"";
-
-  const fmtFreq = t => {
+  const fmtHours  = t => t.disponibilite||t.horaires||t.hours||t.schedule||"";
+  const fmtFreq   = t => {
     const id=(t.id||"").toUpperCase(), type=(t.type||"").toLowerCase();
     if (Array.isArray(t.lignes_principales)&&t.lignes_principales.length) {
       const freqs=t.lignes_principales.map(l=>l.frequence_min).filter(Boolean);
@@ -1029,18 +1023,17 @@ function TransportSection() {
       const d=t.destinations[0]; if (d?.duree_min) return `Traversée ~${d.duree_min} min`;
     }
     if (id==="TR002"||type==="petit_taxi")       return "À la demande";
-    if (id==="TR003"||type==="grand_taxi")        return "Au remplissage";
-    if (id==="TR004"||type==="navette_aeroport")  return "Selon les vols";
-    if (id==="TR008"||type==="vtc")               return "À la demande";
-    if (id==="TR009"||type==="location_voiture")  return "Disponible";
+    if (id==="TR003"||type==="grand_taxi")       return "Au remplissage";
+    if (id==="TR004"||type==="navette_aeroport") return "Selon les vols";
+    if (id==="TR008"||type==="vtc")              return "À la demande";
+    if (id==="TR009"||type==="location_voiture") return "Disponible";
     if (id==="TR005") return "8 départs/jour";
     if (id==="TR007"||(type==="train"&&id!=="TR005")) return "Toutes les 2h";
     if (id==="TR006"||type==="ferry") return "1 départ/heure";
     const raw=t.frequence||t.frequency||t.frequence_min||"";
     return raw ? String(raw) : "";
   };
-
-  const fmtAcc = t => {
+  const fmtAcc    = t => {
     const v=t.accessibilite_pmr??t.accessibilite??t.accessible??t.pmr;
     if (v===null||v===undefined) return null;
     if (typeof v==="boolean") return v;
@@ -1049,10 +1042,17 @@ function TransportSection() {
     if (["false","no","non","0"].includes(s)) return false;
     return null;
   };
-
-  const fmtSubtitle = t => {
-    const op=t.operateur||t.compagnie||t.operator||"";
+ const fmtSubtitle = t => {
+    const op = t.operateur||t.compagnie||t.operator||"";
     if (op) return op;
+    
+    const id   = (t.id||"").toUpperCase();
+    const type = (t.type||"").toLowerCase();
+
+    if (id==="TR001"||type==="bus")              return "issal";                // ✏️ L01 · L04 · L13 → issal
+    if (id==="TR003"||type==="grand_taxi")       return "grand_taxi";           // ✏️ Aéroport Ibn Battuta · Cap Spartel... → grand_taxi
+    if (id==="TR004"||type==="navette_aeroport") return "bus issal";            // ✏️ navette_aeroport → bus issal
+
     if (Array.isArray(t.lignes_principales)&&t.lignes_principales.length)
       return t.lignes_principales.map(l=>l.numero).join(" · ");
     if (Array.isArray(t.destinations)&&t.destinations.length)
@@ -1060,7 +1060,7 @@ function TransportSection() {
     if (Array.isArray(t.destinations_principales)&&t.destinations_principales.length)
       return t.destinations_principales.map(d=>d.destination).join(" · ");
     return t.type||"";
-  };
+};
 
   return (
     <section style={{ marginBottom:56 }}>
@@ -1082,8 +1082,7 @@ function TransportSection() {
                 <div style={{ flex:1, minWidth:0 }}>
                   <div style={{ fontSize:15, fontWeight:700, color:"#111827",
                     fontFamily:"'Outfit',sans-serif", lineHeight:1.3 }}>{name}</div>
-                  {sub && <div style={{ fontSize:12, color:"#9ca3af", marginTop:3,
-                    fontFamily:"'Outfit',sans-serif" }}>{sub}</div>}
+                  {sub && <div style={{ fontSize:12, color:"#9ca3af", marginTop:3 }}>{sub}</div>}
                 </div>
                 {prixMain && (
                   <div style={{ flexShrink:0, marginLeft:10, textAlign:"right" }}>
@@ -1092,9 +1091,7 @@ function TransportSection() {
                       {prixMain}
                     </span>
                     {prixSub && <span style={{ fontSize:11, color:"#9ca3af",
-                      fontFamily:"'Outfit',sans-serif", whiteSpace:"nowrap", display:"block", marginTop:2 }}>
-                      {prixSub}
-                    </span>}
+                      whiteSpace:"nowrap", display:"block", marginTop:2 }}>{prixSub}</span>}
                   </div>
                 )}
               </div>
@@ -1119,7 +1116,7 @@ function TransportSection() {
   );
 }
 
-// ─── FAQ + URGENCES ──────────────────────────────────────────────────────────
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
 function FAQSection() {
   const SELECTED_FAQ_IDS = [
     "faq_001","faq_003","faq_006","faq_009","faq_011",

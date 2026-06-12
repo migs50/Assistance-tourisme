@@ -27,6 +27,7 @@ import Evenements from "./Evenements";
 import Dashboard from "./Dashboard";
 import AssistantIA from "./AssistantIA";
 import Favoris from "./Favoris";
+import Assurance from "./Assurance";
 
 export default function HomeTanger({ onBack, onOpenChat }) {
   const [activeTab, setActiveTab] = useState("accueil");
@@ -52,6 +53,7 @@ export default function HomeTanger({ onBack, onOpenChat }) {
       {activeTab === "dashboard" && <Dashboard />}
       {activeTab === "assistant" && <AssistantIA onOpenChat={onOpenChat} />}
       {activeTab === "favoris" && <Favoris />}
+      {activeTab === "assurance" && <Assurance />}
 
       <Footer />
     </div>
