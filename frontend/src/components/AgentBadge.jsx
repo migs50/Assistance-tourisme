@@ -1,33 +1,31 @@
 /**
- * AgentBadge.jsx — Badge coloré indiquant quel agent a répondu
+ * AgentBadge.jsx
+ * Badge affiché sous l'avatar assistant quand msg.agent est défini
  */
-import { Trees, Bus, AlertTriangle, MessageCircle } from "lucide-react";
-
-const AGENTS = {
-  leisure:   { label: "Loisirs",    Icon: Trees, color: "#22c55e" },
-  logistics: { label: "Transport",  Icon: Bus, color: "#3b82f6" },
-  emergency: { label: "Urgences",   Icon: AlertTriangle, color: "#ef4444" },
-  general:   { label: "Général",    Icon: MessageCircle, color: "#a855f7" },
-};
+import AgentLogo from "../assets/logo ai.jpeg";   // ✅ AJOUT
 
 export default function AgentBadge({ agent }) {
-  const cfg = AGENTS[agent] ?? AGENTS.general;
-  const Icon = cfg.Icon;
+  if (!agent) return null;
   return (
-    <span style={{
-      display:      "inline-flex",
-      alignItems:   "center",
-      gap:          "4px",
-      padding:      "2px 10px",
-      borderRadius: "999px",
-      fontSize:     "11px",
-      fontWeight:   600,
-      color:        cfg.color,
-      border:       `1px solid ${cfg.color}40`,
-      background:   `${cfg.color}15`,
-      marginBottom: "6px",
+    <div style={{
+      display:     "flex",
+      alignItems:  "center",
+      gap:         "6px",
+      marginBottom: "5px",
     }}>
-      <Icon size={12} strokeWidth={2} /> {cfg.label}
-    </span>
+      <img
+        src={AgentLogo}
+        alt={agent?.name}
+        style={{
+          width:        "14px",
+          height:       "14px",
+          borderRadius: "4px",
+          objectFit:    "cover",
+        }}
+      />
+      <span style={{ fontSize: "11px", color: "#64748b", fontWeight: 600 }}>
+        {agent?.name}
+      </span>
+    </div>
   );
 }

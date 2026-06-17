@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useChat }   from "../hooks/useChat";
 import ChatMessage   from "../components/ChatMessage";
 import ChatInput     from "../components/ChatInput";
+import AgentLogo     from "../assets/logo ai.jpeg";   // ✅ AJOUT
 
 const SUGGESTIONS = {
   fr: [
@@ -108,14 +109,24 @@ export default function ChatPage({ onBack }) {
       }}>
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: "4px" }}>
-          <div style={{
-            width: "68px", height: "68px", borderRadius: "16px",
-            background: "#00bcae", border: "1px solid rgba(255,255,255,0.4)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            margin: "0 auto 13px", fontSize: "22px", fontWeight: 800,
-            color: WHITE, letterSpacing: "-1px",
-          }}>MG</div>
-          <div style={{ fontWeight: 700, fontSize: "16px", color: WHITE }}>MoroccoGuide</div>
+
+          {/* ✅ MODIFICATION : logo image remplace le div "212" */}
+          <img
+            src={AgentLogo}
+            alt="Logo Agent"
+            style={{
+              width:        "68px",
+              height:       "68px",
+              borderRadius: "16px",
+              objectFit:    "cover",
+              margin:       "0 auto 13px",
+              display:      "block",
+              border:       "1px solid rgba(255,255,255,0.4)",
+              boxShadow:    "0 4px 16px rgba(0,0,0,0.15)",
+            }}
+          />
+
+          <div style={{ fontWeight: 700, fontSize: "16px", color: WHITE }}>EXPLORE212</div>
           <div style={{ fontSize: "12px", color: "#e0f2fe", fontStyle: "italic", margin: "3px 0 11px", opacity: 0.8 }}>
             Assistant IA
           </div>
@@ -226,10 +237,12 @@ export default function ChatPage({ onBack }) {
               marginBottom: "20px", flexDirection: isRtl ? "row-reverse" : "row",
             }}>
               <div style={{
-                width: "34px", height: "34px", borderRadius: "10px", background: TEAL,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: WHITE, fontWeight: 700, fontSize: "12px", flexShrink: 0,
-              }}>MG</div>
+                width: "34px", height: "34px", borderRadius: "10px", overflow: "hidden",
+                flexShrink: 0,
+              }}>
+                {/* ✅ MODIFICATION : logo dans le loading avatar aussi */}
+                <img src={AgentLogo} alt="Agent" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
               <div style={{
                 background: GRAY_50,
                 borderRadius: isRtl ? "14px 4px 14px 14px" : "4px 14px 14px 14px",

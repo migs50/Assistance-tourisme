@@ -63,3 +63,4 @@ desktop.ini
 gen_*.py
 update_*.py
 validate_*.py
+node_modules/

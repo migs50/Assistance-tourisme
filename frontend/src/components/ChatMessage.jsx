@@ -2,8 +2,8 @@
  * ChatMessage.jsx — REDESIGN PREMIUM TEAL
  * Bulles user/assistant avec style cohérent MoroccoGuide AI
  */
-import AgentBadge   from "./AgentBadge";
-import SourcesPanel from "./SourcesPanel";
+import AgentBadge from "./AgentBadge";
+import AgentLogo  from "../assets/logo ai.jpeg";   // ✅ AJOUT
 
 const T = {
   primary:   "#0f766e",
@@ -18,7 +18,6 @@ const T = {
 
 export default function ChatMessage({ msg }) {
   const isUser = msg.role === "user";
-
   return (
     <div style={{
       display:        "flex",
@@ -30,30 +29,25 @@ export default function ChatMessage({ msg }) {
     }}>
 
       {/* ── Avatar assistant ── */}
+      {/* ✅ MODIFICATION : logo image remplace le div avec SVG chat */}
       {!isUser && (
-        <div style={{
-          width:          "38px",
-          height:         "38px",
-          borderRadius:   "12px",
-          background:     `linear-gradient(135deg, ${T.primary}, ${T.tealDark})`,
-          display:        "flex",
-          alignItems:     "center",
-          justifyContent: "center",
-          flexShrink:     0,
-          boxShadow:      "0 4px 12px rgba(15,118,110,0.25)",
-        }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="#fff" strokeWidth="2" strokeLinecap="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-        </div>
+        <img
+          src={AgentLogo}
+          alt="Agent"
+          style={{
+            width:        "38px",
+            height:       "38px",
+            borderRadius: "12px",
+            objectFit:    "cover",
+            flexShrink:   0,
+            boxShadow:    "0 4px 12px rgba(15,118,110,0.25)",
+          }}
+        />
       )}
 
       <div style={{ maxWidth: "72%", minWidth: "60px" }}>
-
         {/* Badge agent */}
         {!isUser && msg.agent && <AgentBadge agent={msg.agent} />}
-
         {/* ── Bulle ── */}
         <div style={{
           background:   isUser
@@ -75,9 +69,6 @@ export default function ChatMessage({ msg }) {
         }}>
           {msg.content}
         </div>
-
-        {/* Sources RAG */}
-        {!isUser && <SourcesPanel sources={msg.sources} />}
       </div>
 
       {/* ── Avatar user ── */}

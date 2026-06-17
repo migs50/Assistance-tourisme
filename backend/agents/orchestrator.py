@@ -24,7 +24,9 @@ LOGISTICS_KEYWORDS = [
     "voiture", "location", "déplacement", "partir", "arriver",
     "assurance", "couverture", "sinistre", "remboursement",
     "how to get", "directions", "schedule",
-    "سيارة", "حافلة", "قطار", "مواصلات",
+    "سيارة", "حافلة", "قطار", "مواصلات","insurance",
+    "rapatriement", "garantie", "indemnisation", "déclaration", "assistance",
+    "تأمين",
 ]
 
 LEISURE_KEYWORDS = [
